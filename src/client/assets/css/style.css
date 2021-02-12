@@ -1,0 +1,18 @@
+.tvastra{
+    margin-left:20px;
+    min-width: 100px;
+    max-width: 200px;
+}  
+
+
+nav{
+    display:inline;
+    width: 100px;
+  }
+
+  .bar-color{
+    color:#525659;
+    float:right;
+    margin-right: 10px;
+    margin-top:10px;
+  }
