@@ -6,15 +6,19 @@
   font-family: nexa-bold;
   src: url(../fonts/Nexa-Bold.otf);
 }
+
 h1{
   font-weight: bold;
   font-size:32px;
+  font-family: nexa-bold;
 }
 h3{
   font-weight: bold;
   font-size:18px; 
+  font-family: nexa-bold;
 }
 p{
+  font-family: nexa-light;
   font-size: 18px;
   line-height: 1.2; 
 }
@@ -48,7 +52,6 @@ p{
   margin-bottom: 5px;
   border: 1px solid white;
   width: 280px;
-  min-width: 140px;
   padding: 10px 30px;
 }
 
@@ -65,7 +68,7 @@ position: relative;
 .search-location{
   position: absolute;
   top: 10px;
-  margin-left: 320px;
+  margin-left: 310px;
 }
 
 .search-button{
@@ -213,19 +216,19 @@ opacity: 0.7;
 
 .services-grid {
   display: grid;
-  width:65vh;
-  grid-template: 27vh 27vh 27vh / 30vh 30vh ;
+  width:340px;
+  grid-template:  1fr 1fr 1fr / 160px 160px ;
   grid-gap: 2vh 2vh;
+  margin: auto;
 }
 
 .box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: white;
   color: black;
+  width: 150px;
   border-radius: 20px;
   border: 2px white solid;
+  padding-bottom: 20px;
 }
 .services{
   background-color: beige;
@@ -260,9 +263,9 @@ opacity: 0.7;
 .enquiry-btn{
   margin-top: 10px;
   margin-bottom: 30px;
-  background-color: #276bdf;
+  background-color: #0099ff;
   color: white;
-  border: 1px solid #276bdf;
+  border: 1px solid #0099ff;
   border-radius: 10px;
   font-size: 15px;
   padding: 10px 20px;
