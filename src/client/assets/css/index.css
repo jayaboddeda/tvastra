@@ -12,9 +12,19 @@
 
 .navbar{
     padding-top: 0.625rem;
-    margin-bottom: 0.625rem;
+    margin-bottom: 10px;
+    
+}
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+    justify-content: space-around;
 }
 
+.txt-center{
+    text-align: center;
+}
 .find{
     background-color: var(--lightblue);
     padding-top: 1rem;
@@ -28,37 +38,28 @@
     padding-bottom: 1.25rem;
 }
 
-.find-form{
-    width: 280px;
+.inp{
+    width: 80%;
+    padding-left: 10%;
 }
 
-.city{
-    padding-top: 0.625rem;
-    padding-bottom: 0.625rem;
-    padding-left: 8%;
-}
-
-.search{
-    padding: 0.625rem 1.25rem;
-    padding-left: 2%;
-    margin-bottom: 0.625rem;
-}
-
-.map-img{
+.inp-img{
     position: relative;
 }
-    
-.map-marker{
-      position: absolute;
-      top: 0.625rem;
-      padding-left: 2%;
+.city{
+    padding-left: 20px;
+    box-sizing: border-box;
 }
-    
+.map-marker{
+    position: absolute;
+    top: 10px;
+    padding-left: 5px;
+}
+
 .search-location{
-      position: absolute;
-      top: 0.625rem;
-      right: 0;
-      padding-right: 0.625rem;
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
 .search-button{
@@ -81,19 +82,23 @@
     color: var(--darkblue);
     border: 1px solid var(--darkblue);
 }
-    
+
+.works-btn-container{
+    width: 90%;
+    padding: 2%;
+}
 .works-btn{
-      text-align: start;
-      color: var(--lightgrey);
-      background-color: var(--white);
-      border: 1px solid var(--darkgrey);
-      border-radius: 0.625rem;
-      font-size: 1.25rem;
-      font-family: nexa-bold;
-      padding: 1rem 5px;
-      width: 18.75rem;
-      font-weight: bold;
-      margin:0.625rem;
+    text-align: start;
+    color: var(--lightgrey);
+    background-color: var(--white);
+    border: 1px solid var(--darkgrey);
+    border-radius: 0.625rem;
+    font-size: 1.25rem;
+    font-family: nexa-bold;
+    width: 100%;
+    padding: 1rem 5px;
+    font-weight: bold;
+    margin:0.625rem;
 }
 
 #accordian{
@@ -102,6 +107,8 @@
 
 .doctors{
     background-color: var(--darkblue);
+    padding-bottom: 30px;
+
 }
 
 .doctors h2{
@@ -114,76 +121,265 @@
 }
 
 .doc-img img{
-    width: 18.75rem;
-    height: 25rem;
-    margin-bottom: 130px;
+  margin-bottom: 80px;
+  margin-top: 20px;
   }
   .img1{
   position: relative;
+  width: 90%;
   }
-
+ul{
+    padding-top: 0;
+}
   .info1{
-    position: absolute;
     background-color:white;
     text-align: start;
     position: absolute;
     font-size: 18px;
-    top: 370px;
-    width: 280px;
-    padding: 0.625rem;
-    padding-left: 0.625rem;
+    bottom: 0;
+    width: 100%;
     border-bottom: 5px solid var(--lightblue);
 }
 
 .info1 h6{
-    color: var(--blue);
+    color: var(--blue); 
+    padding-left: 0;
+}
+
+.fancy {
+    line-height: 0.5;
+    text-align: start;
+    margin-left: 35px;
+  }
+  .fancy span {
+    display: inline-block;
+    position: relative;  
+  }
+  .fancy span:before{
+    content: "";
+    position: absolute;
+    height:1px;
+    border-bottom: 3px solid var(--blue);
+    top: 0;
+    width: 30px;
+  }
+  .fancy span:before {
+    right: 100%;
+    margin-right: 5px;
+  }
+.info1 ul{
+    font-size: 14px;
+    padding-left: 34px;
 }
 
 .treatment h2{
     padding-top: 30px;
     padding-bottom: 0.625rem;
 }
-
+.treatment h6,.treatment ul{
+    color: var(--white);
+    margin: 5px;
+    margin-left: 10px;
+    padding:0;
+    font-size: 15px;
+}
+.treat-img{
+    width: 90%;
+    padding-left: 5%;
+    margin-bottom: 20px;
+}
 .treat-img img{
-    width:18.75rem;
-    margin-bottom: 0.625rem;
+    margin-top: 20px;
   }
 
 .info2{
-    background-color: black;
-    opacity: 0.7;
+    background-image: linear-gradient(to bottom, rgba(19, 18, 18, 0.9), rgba(19, 18, 18, 0.9));
     color: white;
     text-align: start;
     position: absolute;
     font-size: 18px;
-    top: 8.85rem;
-    width: 280px;
-    padding:0.625rem;
+    bottom: 3px;
+    width: 100%;
     }
+.info2 ul{
+    font-size: 13px;
+}
+.info2 h6{
+    padding: 0;
+}
 
 .services-grid {
         display: grid;
-        width:18.75rem;
-        grid-template:  1fr 1fr 1fr / 1fr 1fr ;
-        grid-gap: 0.625rem 0.625rem;
+        width:90%;
+        grid-template:  1fr 1fr 1fr / 45% 45% ;
+        grid-gap: 3% 4%;
+        padding: 5%;
+        padding-left: 5%;
+        padding-right: 0;
 }
 
 .box h6{
-    font-size: 1rem;
+    font-size: 90%;
+    color: var(--darkgrey);
+    padding: 0;
 }
+.box img{
+    width: 60%;
+}
+
 .services h2{
     color: var(--darkblue);
 }
 .box {
     background-color: white;
     color: var(--darkgrey);
-    width: 8.75rem;
+    width: 100%;
     border-radius: 1.25rem;
     border: 2px white solid;
     padding-bottom: 1.25rem;
 }
 .services{
-    background-color: beige;
-    padding-bottom: 1.25rem;
+    background-color: var(--lightgrey);
+    padding-bottom: 50px;
     padding-top: 1.25rem;
+}
+
+.enquiry{
+    background-color: var(--lightblue);
+  }
+  
+  .enquiry h2{
+    color: var(--white);
+    padding: 1rem;
+    padding-bottom: 0;
+  }
+  
+  .enquiry p{
+    padding-bottom: 1rem;
+  }
+  
+  .enquiry-btn{
+    margin-bottom: 2rem;
+    background-color:var(--blue);
+    color: var(--white);
+    border: 1px solid var(--blue);
+    border-radius:0.625rem;
+    font-size: 1rem;
+    padding:0.625rem 1.25rem;
+    width: 12.5rem;
+}
+
+.footer{
+    padding: 1.25rem;
+    background-color:var(--darkblue) ;
+}
+.footer img{
+  padding:0.625rem;
+}
+.footer li,.footer i{
+    padding:0.625rem;
+    color: var(--lightgrey);
+}
+.footer p{
+    color: var(--darkgrey);
+}
+
+
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+
+
+.inp {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    padding-left: 5%;
+}
+.inp2{
+    width: 50%;   
+    margin-left: 1px; 
+}
+.inp-img{
+    width: 30%;
+}
+.search,.city{
+    padding: 12px 0;
+}
+
+.city{
+    padding-left: 20px;
+}
+
+
+.works-btn-container{
+    width: 40%;
+}
+
+.doc-img{
+    display: grid;
+    width: 90%;
+    grid-template:  1fr 1fr / 48% 48% ;
+    padding-left:5%;
+}
+.img1{
+    width: 100%;
+    height: auto;
+}
+
+.treat-img{
+    display: grid;
+    grid-template:  1fr 1fr 1fr / 48% 48% ;
+}
+
+.services-grid{
+    grid-template:  1fr 1fr/ 32% 32% 32%;
+    padding: 0; 
+    grid-gap: 3% 3%;
+    margin-right: 20px;
+}
+
+.box img{
+    width: 40%;
+}
+
+.footer{
+    position: relative;
+    background-color: var(--white);
+}
+
+.footer img{
+    padding: 0;
+    display: inline;
+    position: absolute;
+    right: 0;
+    padding-right: 20px;
+}
+.footer-list{
+position: absolute;
+left: 0;
+padding: 10px;
+padding-left: 30px;
+
+}
+.footer li{
+    display: inline;
+    color: black;
+}
+
+.footer i{
+    color: black;
+}
+.footer-i{
+    position: absolute;
+    right: 0;
+    top: 100px;
+    padding-right:20px ;
+}
+.footer p{
+    position: absolute;
+    top: 100px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    color: black;
+}
 }
