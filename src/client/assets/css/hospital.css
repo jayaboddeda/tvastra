@@ -1,0 +1,59 @@
+.hospital-li{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hospital-li p{
+    padding: 0;
+    color: black;
+}
+.hospital-li i{
+    padding-left: 20px;
+}
+.call-btn button{
+width: 200px;
+margin-left: 10px;
+}
+.call-btn{
+    margin-bottom: 20px;
+   
+}
+
+.famous-btn button{
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.famous-btn{
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+.main{
+    width: 100%;
+}
+.info-ul{
+    grid-template: 1fr 0.5fr/1fr 1fr;
+}
+.famous-btn{
+    margin-bottom: 40px;
+}
+.h-img{
+    width: 30%;
+}
+.h-img1 img{
+    object-position: 30% 50%;
+}
+.h-img3 img{
+    object-position: 80% 50%;
+}
+.doctor-boundary{
+    margin: 20px 3%;
+}
+.doctor-info{
+    width: 70%;
+}
+}

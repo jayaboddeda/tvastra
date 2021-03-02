@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\doctor.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="navbar">
+            <nav>
+              <img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo">
+              <i class="fas fa-bars fa-2x bar"></i>
+            </nav>
+        </div>
+              <nav class="desktop-nav">
+              <div class="desk-img">
+                  <img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo">
+              </div> 
+                  <div class="desk-i">
+                      <a >Doctors</a>
+                      <a >Hospitals</a>
+                      <a >Treatment</a>
+                      <a >Other Services</a>
+                      <a >About</a>
+                    </div>
+                         
+                  <div class="desktop-btn">
+                  <button class="login-btn">Login / signup</button>
+                    <button class="quote-btn">Get a Quote</button>
+                  </div>
+               </nav>
+               <div class="banner">
+                   <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Doctors.png" alt="doctors">
+                   <p>Cardiac Surgeon in <span class="banner-p">Delhi</span></p>
+               </div>
+               <div class="sort">
+                   <p>Home / Doctor List</p>
+                   <select name="SortBy" id="sort-by">
+                       <option value="SortBy">Sort By</option>
+                   </select>
+               </div>
+               <div class="main-container">
+                <div class="sidebar">
+                    <div class="filter">
+                        <p>Filter By</p>
+                    </div>
+                    <div class="location search-flex">
+                        <p>Location</p>
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="checkboxes">
+                        <div> 
+                        <input type="checkbox" id="city1" name="city1" value="DLF Cyber city">
+                        <label for="city1">DLF Cyber city</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="city2" name="city2" value="Dwaraka">
+                        <label for="city2">Dwaraka</label>
+                        </div>
+                       <div> 
+                        <input type="checkbox" id="city3" name="city3" value="Lajpat Nagar">
+                        <label for="city3">Lajpat Nagar</label>
+                       </div>
+                        <div> 
+                        <input type="checkbox" id="city4" name="city4" value="Palam Vihar">
+                        <label for="city4">Palam Vihar</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="city5" name="city5" value="Punjabi Baag">
+                        <label for="city5">Punjabi Baag</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="city6" name="city6" value="Pusa Road">
+                        <label for="city6">Pusa Road</label>
+                        </div>
+                        <p>+ Show More</p>
+                    </div>
+                    <div class="doc-treatment search-flex location">
+                        <p>Treatment </p> 
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="checkboxes">
+                    <div> 
+                        <input type="checkbox" id="treatment1" name="treatment1" value="Multi organ Transplant">
+                        <label for="treatment1">Multi organ Transplant</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="treatment2" name="treatment2" value="Orthopedic surgery">
+                        <label for="treatment2">Orthopedic surgery</label>
+                        </div>
+                       <div> 
+                        <input type="checkbox" id="treatment3" name="treatment3" value="Infertility treatment">
+                        <label for="treatment3">Infertility Treatment</label>
+                       </div>
+                        <div> 
+                        <input type="checkbox" id="treatment4" name="treatment4" value="Dentistry">
+                        <label for="treatment4">Dentistry</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="treatment5" name="treatment5" value="Cardiology">
+                        <label for="treatment5">Cardiology</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="treatment6" name="treatment6" value="cancer">
+                        <label for="treatment6">Cancer</label>
+                        </div>
+                        <p>+ Show More</p>
+                    </div>
+                    <div class="doc-hospitals search-flex location">
+                        <p>Hospitals </p>
+                        <i class="fas fa-search"></i>
+                        
+                    </div>
+                    <div class="checkboxes">
+                        <div> 
+                        <input type="checkbox" id="city1" name="city1" value="Apollo Hospital">
+                        <label for="city1">Apollo Hospital</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="city2" name="city2" value="Manipal North Side Hospital">
+                        <label for="city2">Manipal North Side Hospital</label>
+                        </div>
+                       <div> 
+                        <input type="checkbox" id="city3" name="city3" value="NorthStar">
+                        <label for="city3">NorthStar</label>
+                       </div>
+                        <div> 
+                        <input type="checkbox" id="city4" name="city4" value="AIIMS">
+                        <label for="city4">AIIMS</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="city5" name="city5" value="Fortis Hospital">
+                        <label for="city5">Fortis Hospital</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="city6" name="city6" value="Elbit Diagnostic">
+                        <label for="city6">Elbit Diagnostic</label>
+                        </div>
+                        <p>+ Show More</p>
+                    </div>
+                    <div class="years-of-exp search-flex location">
+                        <p>Years of experience </p>
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="checkboxes">
+                        <div> 
+                        <input type="checkbox" id="exp1" name="exp1" value="DLF Cyber city">
+                        <label for="exp1">30+</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="exp2" name="exp2" value="Dwaraka">
+                        <label for="exp2">25+</label>
+                        </div>
+                       <div> 
+                        <input type="checkbox" id="exp3" name="exp3" value="Lajpat Nagar">
+                        <label for="exp3">20+</label>
+                       </div>
+                        <div> 
+                        <input type="checkbox" id="exp4" name="exp4" value="Palam Vihar">
+                        <label for="exp4">15+</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="exp5" name="exp5" value="Punjabi Baag">
+                        <label for="exp5">10+</label>
+                        </div>
+                        <div> 
+                        <input type="checkbox" id="exp6" name="exp6" value="Pusa Road">
+                        <label for="exp6">5+</label>
+                        </div>
+                        <p>+ Show More</p>
+                    </div>
+                </div>
+            <div class="main">
+               <div class="alldoctors">
+                   <div class="doctor-boundary">
+                       <div class="doctor-info">
+                        <h6 class="fancy"><span>Duke Sanson</span></h6>
+                           <ul class="info-ul">
+                               <li>
+                                <i class="fas fa-certificate"></i>Neuro Surgeon
+                               </li>
+                               <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
+                               <li><i class="far fa-clock"></i>8 years of experience</li>
+                               <li><i class="far fa-building"></i>AIMS</li>
+                               <li><i class="fas fa-map-marker-alt"></i>Australia</li>
+                           </ul>
+                           <div class="center">
+                            <button class="appointment-btn">Book an appointment</button>
+                           </div>
+                        
+                       </div>
+                       <div class="doctor1-img">
+                           <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="Deep chandra verma image">
+                       </div>
+                   </div>
+                   <div class="doctor-boundary">
+                    <div class="doctor-info">
+                        <h6 class="fancy"><span>Duke Sanson</span></h6>
+                        <ul class="info-ul">
+                            
+                            <li>
+                             <i class="fas fa-certificate"></i>Neuro Surgeon
+                            </li>
+                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
+                            <li><i class="far fa-clock"></i>8 years of experience</li>
+                            <li><i class="far fa-building"></i>AIMS</li>
+                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
+                        </ul>
+                        <div class="center">
+                         <button class="appointment-btn">Book an appointment</button>
+                        </div>
+                     
+                    </div>
+                    <div class="doctor1-img">
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--005.jpg" alt="Deep chandra verma image">
+                    </div>
+                </div>
+                <div class="doctor-boundary">
+                    <div class="doctor-info">
+                        <h6 class="fancy"><span>Duke Sanson</span></h6>
+                        <ul class="info-ul">
+                            <li>
+                             <i class="fas fa-certificate"></i>Neuro Surgeon
+                            </li>
+                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
+                            <li><i class="far fa-clock"></i>8 years of experience</li>
+                            <li><i class="far fa-building"></i>AIMS</li>
+                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
+                        </ul>
+                        <div class="center">
+                         <button class="appointment-btn">Book an appointment</button>
+                        </div>
+                     
+                    </div>
+                    <div class="doctor1-img">
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--005.jpg" alt="Deep chandra verma image">
+                    </div>
+                </div>
+                <div class="doctor-boundary">
+                    <div class="doctor-info">
+                        <h6 class="fancy"><span>Duke Sanson</span></h6>
+                        <ul class="info-ul">
+                            
+                            <li>
+                             <i class="fas fa-certificate"></i>Neuro Surgeon
+                            </li>
+                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
+                            <li><i class="far fa-clock"></i>8 years of experience</li>
+                            <li><i class="far fa-building"></i>AIMS</li>
+                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
+                        </ul>
+                        <div class="center">
+                         <button class="appointment-btn">Book an appointment</button>
+                        </div>
+                     
+                    </div>
+                    <div class="doctor1-img">
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="Deep chandra verma image">
+                    </div>
+                </div>
+                <div class="doctor-boundary">
+                    
+                    <div class="doctor-info">
+                        <h6 class="fancy"><span>Duke Sanson</span></h6>
+                        <ul class="info-ul">
+                            <li>
+                             <i class="fas fa-certificate"></i>Neuro Surgeon
+                            </li>
+                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
+                            <li><i class="far fa-clock"></i>8 years of experience</li>
+                            <li><i class="far fa-building"></i>AIMS</li>
+                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
+                        </ul>
+                        <div class="center">
+                         <button class="appointment-btn">Book an appointment</button>
+                        </div>
+                     
+                    </div>
+                    <div class="doctor1-img">
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--006.jpg" alt="Deep chandra verma image">
+                    </div>
+                </div>
+                <div class="doctor-boundary">
+                    
+                    <div class="doctor-info">
+                        <h6 class="fancy"><span>Duke Sanson</span></h6>
+                        <ul class="info-ul">
+                            <li>
+                             <i class="fas fa-certificate"></i>Neuro Surgeon
+                            </li>
+                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
+                            <li><i class="far fa-clock"></i>8 years of experience</li>
+                            <li><i class="far fa-building"></i>AIMS</li>
+                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
+                        </ul>
+                        <div class="center">
+                         <button class="appointment-btn">Book an appointment</button>
+                        </div>
+                     
+                    </div>
+                    <div class="doctor1-img">
+                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="Deep chandra verma image">
+                    </div>
+                </div>
+               </div>
+            </div>
+            
+               </div>
+               <div class="enquiry txt-center">
+                <div class="help">
+                    <h2>Need Help?</h2>
+                    <p>Just let us know, we will happy to assist you</p>
+                </div>
+                <div class="enq-btn">
+                    <button class="enquiry-btn">Submit Your Enquiry</button>
+                </div>
+            </div>
+
+            <div class="footer txt-center">
+                    <div class="footer-line1">
+                        <div class="footer-img">
+                            <img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png" alt="tvastra logo">
+                        </div>
+                         <div class="footer-list">
+                            <ul > 
+                                <li>Doctor</li>
+                                <li>Hospital</li>
+                                <li>Treatment</li>
+                                <li>Other Services</li>
+                                <li>FAQs</li>
+                            </ul>
+                        </div>
+                    </div>
+                <div class="footer-line2">
+                    <div class="footer-i">
+                        <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-instagram"></i>
+                    </div>
+                    <div class="copyright">
+                        <p>All Rights Reserved. tvastra 2018</p>
+                    </div>
+                </div>
+            </div>
+    </body>
+</html>
