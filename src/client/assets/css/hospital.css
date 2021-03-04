@@ -32,6 +32,12 @@ margin-left: 10px;
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px){
+    .sidebar{
+        display: none;
+    }
+    .banner{
+        display: none;
+    }
 .main{
     width: 100%;
 }
@@ -56,4 +62,16 @@ margin-left: 10px;
 .doctor-info{
     width: 70%;
 }
+}
+
+@media only screen and (min-width:1025px){
+    .h-img{
+        width: 40%;
+    }
+    .info-ul{
+        grid-template: 1fr 0.5fr/1fr 1fr;
+    }
+    .doctor-info{
+        width: 70%;
+    }
 }

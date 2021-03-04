@@ -3,9 +3,11 @@
     max-width: 9.375rem;
     padding-left: 0.625rem;
 }
-.desktop-nav{
+.desktop-nav,.treat_carousel__navigation
+,.carousel__navigation{
     display: none;
 }
+
 .bar{
     float:right;
     padding-right: 0.625rem;
@@ -283,7 +285,9 @@ padding:0.5rem;
     color: var(--lightgrey);
 }
 
-
+.copyright p{
+    color:var(--darkgrey)
+}
 
 
 @media only screen and (min-width:768px) and (max-width:1024px){

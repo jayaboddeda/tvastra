@@ -1,0 +1,32 @@
+#gender,#country{
+    border: 1px solid var(--lightgrey);
+    padding: 12px;
+    width: 100%;
+    background-color: white;
+    color: var(--darkgrey);
+    margin-bottom: 10px;
+    font-size: 13px;
+}
+.loginform input {
+    padding: 12px;
+}
+.signup-location{
+    display: flex;
+}
+.signup-city{
+    margin-right: 10px;
+}
+.loginform-container{
+
+    min-height: 110vh;
+}
+.loginform button{
+    padding: 0;
+}
+
+
+@media only screen and (min-width:1025px){
+    .loginform{
+        width: 40%;
+    }   
+}

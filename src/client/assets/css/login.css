@@ -1,0 +1,105 @@
+body{
+    background-color: var(--lightblue);
+}
+.navbar{
+    background-color: var(--white);
+    padding-bottom: 20px;
+}
+
+.loginform-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+.loginform{
+    background-color: var(--white);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.login-header{
+    border-bottom: 1px solid var(--lightgrey);
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+}
+.login-header h4{
+    color: var(--blue);
+}
+.loginfrm-inp{
+    padding-top: 20px;
+    text-align: center;
+    width: 90%;
+}
+.loginform input{
+    border:1px solid var(--lightgrey);
+    padding: 20px;
+}
+.login-qstn{
+    position: relative;
+}
+.qstn{
+    position: absolute;
+    right: 15px;
+    top: 30%;
+    font-size: 1.25rem;
+    color: var(--lightgrey);
+}
+.loginform button{
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.arrow{
+    width: 90%;
+    position: relative;
+}
+.rarrow{
+    position: absolute;
+    color: var(--white);
+    right: 15px;
+    top: 30%;
+}
+.loginform-btn h6{
+    color: var(--white);
+    letter-spacing: 4px;
+}
+.loginform span{
+    color: var(--blue);
+    font-family: nexa-bold;
+}
+
+.loginform p{
+    font-family: nexa-bold;
+    color: var(--darkgrey);
+    padding: 20px;
+    font-size: 14px;
+}
+
+.login-copyright{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-copyright p{
+    color: var(--black);
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+.loginform{
+    width: 60%;
+}
+}
+
+@media only screen and (min-width:1025px){
+    .desktop-nav{
+        background-color: var(--white);
+    }
+    .loginform{
+        width: 30%;
+    }
+}
