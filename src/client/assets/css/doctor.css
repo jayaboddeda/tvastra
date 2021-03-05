@@ -136,12 +136,37 @@ margin-left: 25px;
 }
 .location p{
     padding-left: 15%;
+    padding-right: 0;
+    width: 150px;
 }
 
 .location i{
     color: var(--blue);
     float: right;
 }
+
+.doc-fancy {
+    line-height: 0.5;
+    text-align: center;
+    margin-left: 0;
+  }
+  .doc-fancy span {
+    display: inline-block;
+    position: relative;  
+    margin-right: 25px;
+  }
+  .doc-fancy span:after{
+    content: "";
+    position: absolute;
+    height:1px;
+    border-bottom: 4px solid var(--lightgrey);
+    bottom: 5px;
+    width: 15px;
+  }
+  .doc-fancy span:after {
+    left: 100%;
+    margin-left: 5px;
+  }
 .search-flex{
     display: flex;
     flex-direction: row;
@@ -149,7 +174,10 @@ margin-left: 25px;
     justify-content: space-between;
 }
 .checkboxes div{
-    display: block;
+    display: flex;
+}
+.checkboxes label{
+    padding-bottom: 10px;
 }
 
 .checkboxes{
@@ -253,17 +281,43 @@ margin-left: 25px;
     color: var(--blue);
 }
 .location{
-    padding-top:20px;
+    padding-top:10px;
     padding-bottom: 5px;
 }
 .location p{
     padding-left: 15%;
+    font-size: 1.25rem;
 }
 
 .location i{
     color: var(--blue);
     float: right;
 }
+.location span{
+    padding-left: 20px;
+    margin-right: 30px;
+}
+.doc-fancy {
+    line-height: 0.5;
+    text-align: center;
+    margin-left: 35px;
+  }
+  .doc-fancy span {
+    display: inline-block;
+    position: relative;  
+  }
+  .doc-fancy span:after{
+    content: "";
+    position: absolute;
+    height:1px;
+    border-bottom: 3px solid var(--lightgrey);
+    bottom: 5px;
+    width: 15px;
+  }
+  .doc-fancy span:after {
+    left: 100%;
+    margin-left: 5px;
+  }
 .search-flex{
     display: flex;
     flex-direction: row;
