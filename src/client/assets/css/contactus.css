@@ -1,0 +1,56 @@
+.contactus-img{
+    height: 300px;
+    position: relative;
+}
+.contactus-img-info{
+position:absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.contactus-img-info h2,.contactus-img-info p{
+    padding: 0;
+    padding-bottom:20px;
+    color: var(--white);
+}
+.contact-info h6,.contact-info p{
+    padding: 0;
+}
+.contact-info{
+    padding: 10% 5%;
+}
+.contact-info i{
+    color: var(--blue);
+    font-size: 1.4rem;
+}
+.contact-info h6,.contact-info p{
+line-height: 1.4;
+color: black;
+}
+.contact-icon-container{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 15px;
+}
+.contact-icon-container i{  
+    padding:10px 20px 10px 10px;
+}
+.query-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--lightblue);
+    padding-bottom: 20px;
+}
+.query-details{
+    width: 90%;
+    padding-top: 20px;
+}
+.msg-btn button{
+padding: 10px 20px;
+
+}
+.msg-btn{
+    width: 90%;
+    text-align: end;
+}
