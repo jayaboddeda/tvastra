@@ -114,7 +114,7 @@ section{
 
 select{
     padding: 8px 0.625rem;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     font-family: nexa-light;
     background-color: var(--lightgrey);
     color: var(--darkblue);
@@ -216,11 +216,11 @@ a{
     }
     
     h1{
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
     
     h2{
-        font-size: 2rem;  
+        font-size: 2.3rem;  
     }
     
     h3{
@@ -239,7 +239,7 @@ a{
     }
     
     p{
-        font-size: 1rem; 
+        font-size: 1.2rem; 
         line-height: 1.4;
     }
     
@@ -273,7 +273,7 @@ a{
     }
     a{
         padding: 1rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
         
     }
     label{

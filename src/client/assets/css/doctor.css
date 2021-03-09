@@ -9,13 +9,17 @@
     display: none;
 }
 .sort{
-    padding: 30px 5% 10px 5%;
+    padding: 30px 5% 20px 5%;
 }
 
 .sort p{
     display: inline-block;
     font-size: 1.1rem;
     padding-left: 0;
+    margin-bottom: 0;
+    position: relative;
+    top: 10px;
+    font-weight: bold;
 }
 
 #sort-by{
@@ -50,7 +54,7 @@ border: 1px solid var(--lightgrey);
 }
 
 .appointment-btn{
-    padding:6px 15px;
+    padding:10px 20px;
     margin-bottom:10px
 }
 
@@ -69,8 +73,8 @@ border: 1px solid var(--lightgrey);
     } 
     .banner p{
         position: absolute;
-        top: 40%;
-        left: 1%;
+        top: 45%;
+        left: 5%;
         font-size: 1.3rem;
     }
     .banner span{
@@ -96,7 +100,12 @@ font-size: 1.2rem;
     margin-top:20px;
     margin-bottom: 10px;
     font-weight: bold;
+    padding:10px 10px;
 }
+.filter p{
+    margin-bottom: 0;
+}
+
 .alldoctors{
     padding-left: 0;
 }
@@ -129,6 +138,7 @@ margin-left: 25px;
 .checkboxes p{
     font-size: 14px;
     color: var(--blue);
+    padding-left: 15px;
 }
 .location{
     padding-top:20px;
@@ -221,7 +231,7 @@ margin-left: 25px;
     } 
     .banner p{
         position: absolute;
-        top: 40%;
+        top: 45%;
         left: 5%;
         font-size: 1.7rem;
     }
@@ -248,6 +258,10 @@ padding-left: 0;
     margin-top:20px;
     margin-bottom: 10px;
     font-weight: bold;
+    padding: 10px 10px;
+}
+.filter p{
+    margin-bottom: 0;
 }
 .alldoctors{
     padding-left: 0;
@@ -279,13 +293,14 @@ margin-left: 25px;
 .checkboxes p{
     font-size: 14px;
     color: var(--blue);
+    padding-left: 15px;
 }
 .location{
     padding-top:10px;
     padding-bottom: 5px;
 }
 .location p{
-    padding-left: 15%;
+    padding-left: 12%;
     font-size: 1.25rem;
 }
 
@@ -343,6 +358,9 @@ margin-left: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.appointment-btn{
+    padding:10px 40px;
 }
 
 .doctor1-img{

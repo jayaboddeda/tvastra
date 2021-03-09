@@ -11,7 +11,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 76vh;
+    min-height: 80vh;
 }
 .loginform{
     background-color: var(--white);
@@ -26,9 +26,12 @@ body{
     width: 100%;
     padding: 15px;
     text-align: center;
+    
 }
 .login-header h4{
     color: var(--blue);
+    margin-bottom: 0;
+    padding: 10px;
 }
 .loginfrm-inp{
     padding-top: 20px;
@@ -50,7 +53,7 @@ body{
     color: var(--lightgrey);
 }
 .loginform button{
-    padding: 10px;
+    padding: 20px;
     margin-bottom: 10px;
     width: 100%;
 }
@@ -67,6 +70,7 @@ body{
 .loginform-btn h6{
     color: var(--white);
     letter-spacing: 4px;
+    margin-bottom: 0;
 }
 .loginform span{
     color: var(--blue);
