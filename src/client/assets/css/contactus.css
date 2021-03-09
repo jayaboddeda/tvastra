@@ -10,14 +10,27 @@ transform: translate(-50%, -50%);
 }
 .contactus-img-info h2,.contactus-img-info p{
     padding: 0;
-    padding-bottom:20px;
     color: var(--white);
+}
+.contactus-img-info h2{
+    font-size: 1.8rem;
+}
+.contactus-img-info p{
+    font-size: 1rem;
+}
+.map iframe{
+    width:95%;
+    height:300px;
+    padding-left: 5%;
+    padding-top: 20px;
 }
 .contact-info h6,.contact-info p{
     padding: 0;
+    margin-bottom: 0;
 }
 .contact-info{
-    padding: 10% 5%;
+    padding: 30px 5%;
+    padding-bottom: 20px;
 }
 .contact-info i{
     color: var(--blue);
@@ -26,6 +39,9 @@ transform: translate(-50%, -50%);
 .contact-info h6,.contact-info p{
 line-height: 1.4;
 color: black;
+}
+.contact-info h6{
+    font-size: 1.2rem;
 }
 .contact-icon-container{
     display: flex;
@@ -53,4 +69,67 @@ padding: 10px 20px;
 .msg-btn{
     width: 90%;
     text-align: end;
+}
+@media only screen and (min-width:768px) and (max-width:1024px){
+    .contact-info{
+        display: flex;
+        justify-content: space-between;
+    }
+    .query-details{
+        display: flex;
+        justify-content: space-between;
+    }
+    .query-left{
+        width: 49%;
+    }
+    .query-right{
+        width: 49%;
+    }
+    .query-right input{
+        height: 92%;
+    }
+}
+
+@media only screen and (min-width:1025px) {
+    .contactus-img-info{
+        text-align: left;
+        width: 100%;
+        padding-left: 5%;
+    }
+    .contactus-img-info p{
+        font-size: 1.3rem;
+    }
+    .query-details{
+        display: flex;
+        justify-content: space-between;
+    }
+    .query-details input{
+        padding: 10px;
+    }
+    .query-left{
+        width: 49%;
+    }
+    .query-right{
+        width: 49%;
+    }
+    .query-right input{
+        height: 92%;
+    }
+    .contact-query{
+        display: flex;
+        justify-content: space-between;
+        padding: 30px 0;
+        border-bottom: 2px solid var(--lightgrey);
+    }
+    .query-info{
+        width: 60%;
+        padding-bottom: 0;
+        margin-right: 5%;
+    }
+    .contact-info{
+        padding-right: 0;
+    }
+    .contact-info h6{
+        font-size: 1.5rem;
+    }
 }
