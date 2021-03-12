@@ -7,7 +7,9 @@
 ,.carousel__navigation{
     display: none;
 }
-
+.works-img{
+    display: none;
+}
 .bar{
     float:right;
     padding-right: 0.625rem;
@@ -337,6 +339,7 @@ padding:0.5rem;
 .desktop-nav{
     display: none;
 }
+
 .inputs {
     display: flex;
     flex-direction: row;
@@ -609,6 +612,26 @@ input.search-button{
 }
 .works-btn{
     font-size: 1.5rem;
+}
+.works-img{
+    display: inline-block;
+    width: 55%;
+    height: 600px;
+    padding-top: 40px;
+}
+.works-img img{
+    object-fit: contain;
+    padding-bottom: 30px;
+}
+
+.works-img-txt{
+    text-align: center;
+    padding: 0 150px;
+}
+.works-img-flex{
+    display: flex;
+    justify-content: space-between;
+    
 }
 .doctors{
 text-align: left;

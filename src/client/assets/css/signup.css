@@ -3,9 +3,10 @@
     padding: 12px;
     width: 100%;
     background-color: white;
-    color: var(--darkgrey);
+    color: #c0bdbd;
     margin-bottom: 10px;
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: bold;
 }
 .loginform input {
     padding: 12px;

@@ -1,0 +1,283 @@
+.treatment-banner{
+    padding: 0;
+}
+.banner-img{
+    background-image: linear-gradient(to right,var(--blue), rgba(0, 0, 0, 0)), url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/dentist_hero_image.jpg");
+    height: 250px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+
+.banner-info{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.banner-info h2,
+.banner-info p{
+    color: var(--white);
+}
+.banner-info h2{
+    font-size: 2rem;
+}
+
+.treatment-container{
+    padding: 5%;
+}
+
+.vaccination{
+    text-align: center;
+    padding: 10px 0;
+}
+.vaccination-h2 h2{
+    margin-bottom: 0;
+    padding: 5% 0 0 5%;
+}
+.about-dept h5{
+    padding: 10px 0;
+}
+.about-dept p{
+    padding-bottom: 10px;
+}
+
+.about-dept li{
+    padding: 6px;
+    
+}
+.about-dept li::before{
+  content: "\2022";
+  color: var(--blue);
+  font-weight: bold;
+  display: inline-block; 
+  font-size: 1.2rem;
+  width: 1rem;
+    
+}
+.treatments-info h5,
+.treatments-info p
+{
+    text-align: center;
+}
+.treatments-info p
+{
+    padding-bottom: 20px;
+}
+.info-i{
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+.info-i i{
+    background-color: rgb(165, 207, 231);
+    color: var(--darkblue);
+    border: 1px solid rgb(165, 207, 231);
+    border-radius: 50%;
+    padding: 16px;
+}
+
+.service-details{
+    border: 2px solid var(--lightgrey);
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.service-details-info{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--lightgrey);
+    padding: 20px 0 5px 0;
+}
+.service-details .treatment-container{
+    padding: 25px;
+}
+.service-details-info li:nth-child(1){
+    font-weight: bold;
+}
+
+.service-details-info li:nth-child(2){
+    color: var(--darkgrey);
+    font-weight: bold;
+}
+.fancy{
+    margin-left: 25px;
+}
+.fancy span:before{
+    top: 0;
+    width: 20px;
+  }
+  .service-details h5{
+      padding-top:30px ;
+      margin-bottom: 0;
+  }
+  .more-services{
+      background-color: var(--lightblue);
+  }
+  .more-services h2{
+    text-align: center;
+    color: var(--white);
+    padding: 20px;
+}
+  .white-bg{
+      background-color: var(--white);
+      border-radius: 10px;
+  }
+.white-bg img{
+    border-radius: 10px 10px 0 0;
+    height: 180px;
+}
+.white-bg h5{
+    padding: 30px;
+    padding-left: 0;
+}
+.fancy span{
+    padding-left: 5px;
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+    .banner-img{
+        background-position: 50% 5%;
+    }
+
+   .vaccination-flex{
+       display: flex;
+   }
+   .treatment-container{
+    padding: 16px 5%;
+}
+.vaccination{
+    padding-right: 24px;
+}
+.treatments-info{
+    display: flex;
+}
+.treatments-info div{
+    padding-right: 32px;
+}
+.treatments-info div:nth-child(3){
+    padding-right: 0;
+}
+div.info-i{
+    padding-right: 0;
+}
+.service-details-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.service-details{
+    width: 48%;
+}
+.schedule{
+    height: 180px;
+}
+.more-services-flex{
+    display: flex;
+}
+.more-services-flex div{
+    margin-right: 16px;
+}
+.more-services-flex div:nth-child(3){
+    margin-right: 0;
+}
+.ortho-h5{
+    line-height: 1;
+}
+h5.fancy{
+    margin-bottom: 0;
+}
+.ortho-h5 span:before{
+    top:5px
+}
+}
+
+@media only screen and (min-width:1025px){
+    .banner-img{
+        background-position: 50% 5%;
+    }
+    .banner-info{
+        left: 10%;
+    }
+    .vaccination-flex{
+        display: flex;
+    }
+    .vaccination-h2 h2{
+        padding: 32px 5% 0 5%;
+    }
+    .treatment-container{
+        padding: 24px 5%;
+    }
+    .big-flex{
+        display: flex;
+        padding-left: 1.5%;
+    }
+    .treatments-info{
+        display: flex;
+
+    }
+    .treatments-info div{
+        padding-right: 32px;
+    }
+    .treatments-info div:nth-child(3){
+        padding-right: 0;
+    }
+    .vac-container{
+        width: 65%;
+        height: 90%;
+    }
+    .service-details-container{
+        width: 30%;
+    }
+    .vaccination-h2{
+        display: block;
+    }
+    .vaccination-flex{
+        padding-bottom: 0;
+    }
+    .vaccination{
+        width: 49%;
+    }
+    .vaccination img{
+        height: 92%;
+    }
+    .about-dept{
+        width: 50%;
+        padding-left: 2%;
+    }
+    .treatments-info p{
+        font-size:1rem ;
+    }
+    div.info-i{
+        padding-right: 0;
+    }
+    .vac-container .treatment-container{
+        padding-right: 0;
+    }
+    .service-details .treatment-container{
+        padding-top: 0;
+    }
+    .more-services-flex{
+        display: flex;
+    }
+    .more-services-flex div{
+        margin-right: 16px;
+    }
+    .more-services-flex div:nth-child(3){
+        margin-right: 0;
+    }
+    h5.fancy{
+        margin-bottom: 0;
+    }
+    .more-services h2{
+        text-align: left;
+        padding-left: 0;
+    }
+    .service-details-flex {
+        padding: 0;
+        padding-top: 30px;
+        padding-left: 30px;
+        padding-right: 20px;
+    }
+}

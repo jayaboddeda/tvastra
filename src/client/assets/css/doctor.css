@@ -249,9 +249,7 @@ margin-left: 25px;
 .sort h6{
 padding-left: 0;
 }
-.sort{
-    padding-left: 3%;
-}
+
 .filter{
     background-color: var(--lightgrey);
     margin-left:10%;
@@ -285,6 +283,7 @@ margin-left: 25px;
 .main-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 }
 .checkboxes input{
     width: 30px;
@@ -348,11 +347,12 @@ margin-left: 25px;
     margin-left: 8%;
 }
 .main{
-    width: 75%;
-    float: end;
+    width: 70%;
+    
 }
 .sidebar{
     width: 25%;
+    padding-left:1.5% ;
 }
 .doctor-boundary{
     display: flex;
