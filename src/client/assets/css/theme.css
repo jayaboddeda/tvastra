@@ -24,7 +24,7 @@
 h1,h2,h3,h4,h5,h6{
     font-family: nexa-bold;
     line-height: 1;
-    margin-bottom: 0.625rem;
+    margin-bottom: 1.25rem;
     color: var(--darkblue);
 }
 
@@ -33,7 +33,7 @@ h1{
 }
 
 h2{
-    font-size: 1.65rem;  
+    font-size: 1.8rem;  
 }
 
 h3{
@@ -57,7 +57,7 @@ p{
     font-size: 1rem; 
     line-height: 1.4rem;
     color: var(--darkblue);
-    margin-bottom: 0.625rem;
+    margin-bottom: 1.25rem;
 }
 
 li{
@@ -169,12 +169,12 @@ a{
     
     p{
         font-size: 1.05rem; 
-        line-height: 1.3;
+        line-height: 1.5;
     }
     
     li{
         font-size: 0.925rem; 
-        line-height: 1.2; 
+        line-height: 1.4; 
     }
       
     input{
@@ -210,7 +210,7 @@ a{
     }
 }
 
-@media only screen and (min-width:1025px) {
+@media only screen and (min-width:1024px) {
     h1,h2,h3,h4,h5,h6{
         margin-bottom: 1rem;
     }
