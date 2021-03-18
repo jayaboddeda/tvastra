@@ -40,10 +40,29 @@ border: 1px solid var(--lightgrey);
 .doctor-info h6{
     color: var(--blue);
 }
-.doctor-info .fancy{
-    padding: 20px 0;
-}
 
+.info-fancy {
+    line-height: 0.5;
+    text-align: start;
+    margin-left: 35px;
+    padding: 20px 0;
+  }
+  .info-fancy span {
+    display: inline-block;
+    position: relative;  
+  }
+  .info-fancy span:before{
+    content: "";
+    position: absolute;
+    height:6px;
+    border-bottom: 3px solid var(--blue);
+    top: 0;
+    width: 30px;
+  }
+  .info-fancy span:before {
+    right: 100%;
+    margin-right: 5px;
+  }
 .info-ul i {
     padding-right: 20px;
     padding-left: 10px;
@@ -51,6 +70,17 @@ border: 1px solid var(--lightgrey);
 }
 .info-ul li{
     padding-bottom: 10px;
+    font-size: 1rem;
+}
+.info-ul li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.doctor-info h6{
+    margin-bottom: 0;
+    font-size: 1.25rem;
+    line-height: 1;
 }
 
 .appointment-btn{
@@ -75,7 +105,7 @@ border: 1px solid var(--lightgrey);
         position: absolute;
         top: 45%;
         left: 5%;
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
     .banner span{
         font-weight: bold;
@@ -134,20 +164,23 @@ margin-left: 25px;
 .checkboxes input{
     width: 30px;
     margin-bottom:10px;
+    padding-right: 40px;
 }
 .checkboxes p{
     font-size: 14px;
     color: var(--blue);
-    padding-left: 15px;
+    margin-bottom: 0;
+    padding:8px 0 16px 15px
 }
 .location{
     padding-top:20px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
 .location p{
     padding-left: 15%;
     padding-right: 0;
     width: 150px;
+    margin-bottom: 0;
 }
 
 .location i{
@@ -185,13 +218,14 @@ margin-left: 25px;
 }
 .checkboxes div{
     display: flex;
+    align-items: center;
 }
 .checkboxes label{
-    padding-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .checkboxes{
-    border-bottom: 1px solid var(--lightgrey);
+    border-bottom: 2px solid var(--lightgrey);
     margin-left: 8%;
 }
 .main{
@@ -218,10 +252,12 @@ margin-left: 25px;
 .info-ul li{
     display:flex;
     flex-direction: row;
-}
+    align-items: center;
 }
 
-@media only screen and (min-width:1025px){
+}
+
+@media only screen and (min-width:1024px){
   
     .banner{
         display: block;
@@ -233,7 +269,10 @@ margin-left: 25px;
         position: absolute;
         top: 45%;
         left: 5%;
-        font-size: 1.7rem;
+        font-size: 2.2rem;
+    }
+    .sort p{
+        font-size: 1.5rem;
     }
     .banner span{
         font-weight: bold;
@@ -252,7 +291,7 @@ padding-left: 0;
 
 .filter{
     background-color: var(--lightgrey);
-    margin-left:10%;
+    margin-left:6%;
     margin-top:20px;
     margin-bottom: 10px;
     font-weight: bold;
@@ -260,6 +299,7 @@ padding-left: 0;
 }
 .filter p{
     margin-bottom: 0;
+    padding-left: 10px;
 }
 .alldoctors{
     padding-left: 0;
@@ -272,8 +312,8 @@ padding-left: 0;
     padding-left: 20px;
     margin-bottom: 10px;
     display: grid;
-    grid-template: 1fr 1fr 1fr /1fr 1fr;
-    width: 90%;
+    grid-template: 1.5fr 1.5fr 1fr /0.8fr 1.2fr;
+    width: 100%;
 
 }
 .doctor-info .center{
@@ -290,17 +330,18 @@ margin-left: 25px;
     margin-bottom:10px;
 }
 .checkboxes p{
-    font-size: 14px;
+    font-size: 1rem;
     color: var(--blue);
-    padding-left: 15px;
+    padding:16px 0 0 15px;
 }
 .location{
-    padding-top:10px;
-    padding-bottom: 5px;
+    padding-top:15px;
+    padding-bottom: 15px;
 }
 .location p{
     padding-left: 12%;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
+    margin-bottom: 0;
 }
 
 .location i{
@@ -362,12 +403,21 @@ margin-left: 25px;
 .appointment-btn{
     padding:10px 40px;
 }
+.info-fancy span:before{
 
+    height:8px;
+
+  }
 .doctor1-img{
     width: 20%;
     height: 280px;
 }
-
+.doctor-info h6{
+    font-size: 1.5rem;
+}
+.doctor-info .fancy{
+    padding:32px 0
+}
 .doctor1-img img{
     object-fit: cover;
     object-position:50% 15%
@@ -375,5 +425,10 @@ margin-left: 25px;
 .info-ul li{
     display:flex;
     flex-direction: row;
+    align-items: center;
+    font-size: 1.15rem;
+}
+.checkboxes label{
+    font-size: 1.1rem;
 }
 }

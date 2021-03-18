@@ -249,13 +249,13 @@ a{
     }
       
     input{
-        padding: 1rem;
+        padding: 0.725rem;
         margin-bottom: 1rem;
         font-size: 1rem;
     }
     
     ::placeholder{
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
 
     button{

@@ -6,6 +6,7 @@
 .hospital-li p{
     padding: 0;
     color: black;
+    margin-bottom: 0;
 }
 .hospital-li i{
     padding-left: 20px;
