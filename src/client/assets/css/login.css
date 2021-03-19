@@ -25,8 +25,7 @@ body{
     border-bottom: 1px solid var(--lightgrey);
     width: 100%;
     padding: 15px;
-    text-align: center;
-    
+    text-align: center;  
 }
 .login-header h4{
     color: var(--blue);
@@ -76,12 +75,14 @@ body{
     color: var(--blue);
     font-family: nexa-bold;
 }
-
+.loginfrm-inp input::placeholder{
+    font-size: 1rem;
+}
 .loginform p{
     font-family: nexa-bold;
     color: var(--darkgrey);
     padding: 20px;
-    font-size: 14px;
+    font-size: 1rem;
 }
 
 .login-copyright{
@@ -97,6 +98,18 @@ body{
 .loginform{
     width: 60%;
 }
+.login-header h4{
+    font-size: 1.8rem;
+}
+.loginfrm-inp input::placeholder{
+    font-size: 1.1rem;
+}
+.loginform-btn h6{
+    font-size: 1.25rem;
+}
+.loginform p{
+    font-size: 1.1rem;
+}
 }
 
 @media only screen and (min-width:1025px){
@@ -105,5 +118,17 @@ body{
     }
     .loginform{
         width: 30%;
+    }
+    .login-header h4{
+        font-size: 2rem;
+    }
+    .loginfrm-inp input::placeholder{
+        font-size: 1.1rem;
+    }
+    .loginform-btn h6{
+        font-size: 1.5rem;
+    }
+    .loginform p{
+        font-size: 1.2rem;
     }
 }

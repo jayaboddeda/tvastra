@@ -5,8 +5,11 @@
     background-color: white;
     color: #c0bdbd;
     margin-bottom: 10px;
-    font-size: 15px;
-    font-weight: bold;
+    font-size: 1rem;
+    font-family: nexa-bold;
+}
+option{
+    font-size: 1rem;
 }
 .loginform input {
     padding: 12px;
@@ -19,15 +22,38 @@
 }
 .loginform-container{
 
-    min-height: 110vh;
+    min-height: 125vh;
 }
 .loginform select{
     color: var(--lightgrey);
 }
 
+@media only screen and (min-width:768px) and (max-width:1024px){
+    .loginform-container{
+
+        min-height: 135vh;
+    }
+    #gender,#country{
+        font-size: 1.1rem;
+    }
+    option{
+        font-size: 1.1rem;
+    }
+}
 
 @media only screen and (min-width:1025px){
     .loginform{
         width: 40%;
-    }   
+    }  
+    .loginform-container{
+
+        min-height: 135vh;
+    }
+    #gender,#country{
+        font-size: 1.2rem;
+    }
+    option{
+        font-size: 1.2rem;
+    }
+
 }

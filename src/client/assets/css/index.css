@@ -612,6 +612,7 @@ display: inline-block;
 }
 .tvastralogo{
     padding-left: 0;
+    max-width: 180px;
 }
 .desk-i{
     justify-self: center;
@@ -883,7 +884,7 @@ padding-top: 10px;
     margin-bottom: 0;
 }
 .treatment h6{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-left: 0;
 }
 .treatment h2,.treatment p
@@ -1028,6 +1029,9 @@ padding-left: 5%;
     padding-top: 20px;
     padding-bottom:40px;
 }
+.box h6{
+    font-size: 1rem;
+}
 .georgiaimg{
     background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg");
     background-size: cover;
@@ -1074,6 +1078,9 @@ padding-left: 5%;
 }
 .footer{
     background-color: white;
+}
+.footer-logo{
+    max-width: 180px;
 }
 .footer-list li{
     color: var(--darkblue);

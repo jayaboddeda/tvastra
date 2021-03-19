@@ -21,7 +21,10 @@
     color: var(--white);
 }
 .banner-info h2{
-    font-size: 2rem;
+    font-size: 2.1rem;
+}
+.banner-info p{
+    font-size: 1.1rem;
 }
 
 .treatment-container{
@@ -32,15 +35,19 @@
     text-align: center;
     padding: 10px 0;
 }
+
 .vaccination-h2 h2{
+    text-align: center;
     margin-bottom: 0;
-    padding: 5% 0 0 5%;
+    padding-left:5%;
+    padding-top: 26px;
 }
 .about-dept h5{
     padding: 10px 0;
 }
 .about-dept p{
     padding-bottom: 10px;
+    margin-bottom: 0;
 }
 
 .about-dept li{
@@ -61,10 +68,7 @@
 {
     text-align: center;
 }
-.treatments-info p
-{
-    padding-bottom: 20px;
-}
+
 .info-i{
     width: 100%;
     text-align: center;
@@ -141,7 +145,12 @@
     .banner-img{
         background-position: 50% 5%;
     }
-
+    .banner-info h2{
+        font-size: 2.3rem;
+    }
+    .banner-info p{
+        font-size: 1.2rem;
+    }
    .vaccination-flex{
        display: flex;
    }
@@ -150,6 +159,9 @@
 }
 .vaccination{
     padding-right: 24px;
+}
+.vaccination-h2 h2{
+text-align: start;
 }
 .treatments-info{
     display: flex;
@@ -197,6 +209,12 @@ h5.fancy{
     .banner-img{
         background-position: 50% 5%;
     }
+    .banner-info h2{
+        font-size: 2.5rem;
+    }
+    .banner-info p{
+        font-size: 1.3rem;
+    }
     .banner-info{
         left: 10%;
     }
@@ -217,6 +235,9 @@ h5.fancy{
         display: flex;
 
     }
+    .vaccination-h2 h2{
+        text-align: start;
+        }
     .treatments-info div{
         padding-right: 32px;
     }
@@ -273,6 +294,8 @@ h5.fancy{
     .more-services h2{
         text-align: left;
         padding-left: 0;
+        margin-bottom: 0;
+        padding-top: 0;
     }
     .service-details-flex {
         padding: 0;
