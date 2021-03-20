@@ -76,7 +76,7 @@ body{
     font-family: nexa-bold;
 }
 .loginfrm-inp input::placeholder{
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 .loginform p{
     font-family: nexa-bold;
@@ -102,7 +102,7 @@ body{
     font-size: 1.8rem;
 }
 .loginfrm-inp input::placeholder{
-    font-size: 1.1rem;
+    font-size: 0.9rem;
 }
 .loginform-btn h6{
     font-size: 1.25rem;
@@ -123,7 +123,7 @@ body{
         font-size: 2rem;
     }
     .loginfrm-inp input::placeholder{
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     .loginform-btn h6{
         font-size: 1.5rem;

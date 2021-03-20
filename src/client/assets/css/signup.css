@@ -5,11 +5,11 @@
     background-color: white;
     color: #c0bdbd;
     margin-bottom: 10px;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-family: nexa-bold;
 }
 option{
-    font-size: 1rem;
+    font-size: 0.8rem;
 }
 .loginform input {
     padding: 12px;
@@ -34,10 +34,10 @@ option{
         min-height: 135vh;
     }
     #gender,#country{
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
     option{
-        font-size: 1.1rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -50,10 +50,10 @@ option{
         min-height: 135vh;
     }
     #gender,#country{
-        font-size: 1.2rem;
+        font-size: 0.9rem;
     }
     option{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
 }

@@ -9,7 +9,9 @@
 .works-img{
 display: none;
 }
-
+.inputs input::placeholder{
+    font-size: 0.8rem;
+}
 .mobile-works-img img{
     padding-top:10px;
     padding-left:5px;
@@ -396,6 +398,9 @@ padding:0.5rem;
 .navbar i{
     font-size: 24px;
 }
+.inputs input::placeholder{
+    font-size: 0.9rem;
+}
 .inputs {
     display: flex;
     flex-direction: row;
@@ -602,7 +607,9 @@ display: inline-block;
         display: none;
     }
 
-
+.inputs input::placeholder{
+    font-size: 1rem;
+}
 .desktop-nav {
     display: grid;
     width: 100%;
