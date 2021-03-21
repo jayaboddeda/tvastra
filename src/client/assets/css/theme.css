@@ -60,10 +60,10 @@ p{
     margin-bottom: 1.25rem;
 }
 
-li{
+ul li,ol li{
     font-family: nexa-light;
     font-size: 0.9rem; 
-    line-height: 1.3;
+    line-height: 1.2;
     color: var(--darkblue);
 }
   
@@ -94,7 +94,7 @@ img{
 button{
     font-family: nexa-light;
     font-size: 1rem;
-    padding:1.25rem;
+    padding:0.625rem 1rem;
     border: 1px solid var(--darkblue);
 }
 
@@ -122,12 +122,13 @@ select{
 option{
     font-size: 0.8rem;
     font-family: nexa-light;
-    color: var(--darkblue);
+    color: var(--darkgrey);
 }
 label{
     font-family: nexa-light;
     font-size: 0.8rem;
     color: var(--darkblue);
+
 }
 
 a{
@@ -172,7 +173,7 @@ a{
         line-height: 1.5;
     }
     
-    li{
+    ul li,ol li{
         font-size: 0.925rem; 
         line-height: 1.4; 
     }
@@ -239,11 +240,11 @@ a{
     }
     
     p{
-        font-size: 1.2rem; 
+        font-size: 1.3rem; 
         line-height: 1.4;
     }
     
-    li{
+    ul li,ol li{
         font-size: 1rem; 
         line-height: 1.2; 
     }
