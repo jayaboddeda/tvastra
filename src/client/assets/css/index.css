@@ -615,14 +615,14 @@ display: inline-block;
     width: 100%;
     grid-template: 1fr / 0.7fr 2.1fr 1.2fr;
     align-items:center;
-    padding:30px 8% 30px 8%;
+    padding:30px 6% 30px 6%;
 }
 .tvastralogo{
     padding-left: 0;
     max-width: 180px;
 }
 .desk-i{
-    justify-self: center;
+    justify-self: end;
 }
 
 .desk-i a{
@@ -661,13 +661,13 @@ font-size: 1.2rem;
 }
 
 .find-flex{
-    width:80%;
+    width:75%;
     height: 100%;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;  
-    padding-left: 8%;
+    padding-left: 6%;
 }
 .find-h1,.find-p p{
     width:70%;
@@ -761,10 +761,10 @@ input.search-button{
     padding-right:20px;
 }
 .works-btn-container{
-    width: 36%;
+    width: 40%;
     padding:0 0 40px 0;
     margin-bottom: 0;
-    margin-left: 8%;
+    margin-left: 6%;
 }
 .mobile-works-img{
     display: none;
@@ -778,7 +778,7 @@ input.search-button{
 .works-img{
     display: inline-block;
     width: 60%;
-    height: 700px;
+    height: 750px;
     padding-top: 20px;
 
 }
@@ -821,10 +821,10 @@ padding-bottom: 40px;
 
 .doc-img{
     display: grid;
-    width: 92%;
+    width: 93%;
     grid-template:100% / 1fr 1fr 1fr 1fr;
     position: relative;
-    padding-left: 8%;
+    padding-left: 6%;
     grid-gap: 10px;
 }
 
@@ -836,7 +836,7 @@ padding-bottom: 40px;
     display: block;
     position: relative;
     top: 15px;
-    padding-left:10%
+    padding-left:8%
   }
 
 .carousel__navigation-item a{
@@ -911,7 +911,7 @@ padding-top: 10px;
     display: grid;
     grid-template: repeat(28,2rem)  / 1fr 1fr 1fr;
     grid-gap: 1px 10px;
-    padding:0 8%
+    padding:0 6%
 }
 .treat-img img{
     margin-top: 0;
@@ -977,7 +977,7 @@ padding-top: 10px;
     display: block;
     position: relative;
     text-align: start;
-    padding-left: 10%;
+    padding-left: 8%;
     bottom: 10px;
   }
 
@@ -1012,7 +1012,7 @@ padding-top: 10px;
     padding: 20px 0;
 }
 .pad{
-    padding-left:8%;
+    padding-left:6%;
 }
 .services{
     padding-top: 40px;
@@ -1037,12 +1037,12 @@ padding-top: 10px;
     align-items: flex-start;
 }
 .how-it-works,.services-flex,.treatment-flex{
-    padding-left: 8%;
+    padding-left: 6%;
 }
 
 .doctors h2,.doctors p{
 margin: 0;
-padding-left: 8%;
+padding-left: 6%;
 }
 
 .box{
@@ -1068,7 +1068,7 @@ padding-left: 8%;
 .enquiry {
     display: grid;
     grid-template: 1fr / 1fr 1fr;
-    padding:40px 3%;
+    padding:40px 1%;
 }
 .help{
     text-align: left;
@@ -1131,7 +1131,7 @@ display: inline-block;
 }
 .footer{
     height: 165px;
-    padding: 30px 6%;
+    padding: 30px 4%;
     border-bottom: 5px solid var(--blue);
 }
 .footer-line1{
