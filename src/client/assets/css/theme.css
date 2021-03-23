@@ -80,7 +80,7 @@ input{
 ::placeholder{
     font-family: nexa-bold;
     color: var(--lightgrey);
-    font-size: 1rem;
+    font-size: 0.9rem;
     
 }
 
@@ -113,7 +113,7 @@ section{
 }
 
 select{
-    padding: 8px 0.625rem;
+    padding: 0.425rem 0.625rem;
     font-size: 0.95rem;
     font-family: nexa-light;
     background-color: var(--lightgrey);
@@ -184,12 +184,12 @@ a{
     }
     
     ::placeholder{
-        font-size: 1.1rem;
+        font-size: 0.8rem;
         
     }    
     button{
         font-size: 1rem;
-        padding: 1.25rem;
+        padding: 0.625rem 1rem;
     }
 
     section{
@@ -256,12 +256,12 @@ a{
     }
     
     ::placeholder{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     button{
         font-size: 1rem;
-        padding: 1.5rem;
+        padding: 0.8rem 1.5rem;
     }
 
     section{

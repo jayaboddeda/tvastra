@@ -50,7 +50,7 @@ option{
         min-height: 135vh;
     }
     #gender,#country{
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     option{
         font-size: 1rem;
