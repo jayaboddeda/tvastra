@@ -74,6 +74,27 @@ flex-direction: column;
 margin-bottom: 30px;
 padding-left: 5%;
 }
+.inp-img{
+    position: relative;
+}
+.inp-img input{
+    padding-left: 30px;
+}
+.city{
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+.map-marker{
+    position: absolute;
+    top: 10px;
+    padding-left: 10px;
+}
+
+.search-location{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
 
 .inp{
     display: flex;
@@ -164,18 +185,7 @@ padding:0.5rem;
     color: var(--white);
     padding: 0 5%;
 }
-.georgiaimg{
-    background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 20%;
-}
-.roseimg{
-    background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--003.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 10%;
-}
+
 .doc-img .img1{
   margin-bottom: 20px;
   }
@@ -184,7 +194,8 @@ padding:0.5rem;
   background-color: white;
   }
   .george{
-      height: 300px;
+      max-height: 400px;
+      overflow: hidden;
   }
   .img1{
       position: relative;
@@ -294,11 +305,11 @@ padding:0.5rem;
 
 .services-grid {
         display: grid;
-        width:90%;
+        width:95%;
         grid-template:  1fr 1fr 1fr / 1fr 1fr ;
         grid-gap: 2%;
         align-items: center;
-        padding-left:10%;
+        padding-left:5%;
 }
 
 .box h6{
@@ -407,17 +418,20 @@ padding:0.5rem;
     width: 95%;
     padding-left: 5%;
 }
-.inp{
-    width: 40%;
+.inp-img{
+    width: 35%;
 }
 .inp2{
-    width: 60%;   
+    width: 65%;   
     margin-left: 1px;
     height: 60px; 
 }
 .inp-img1,.inp-img2{
     height: 43px;
     padding-top: 13px;
+}
+.map-marker,.search-location{
+    top: 12px;
 }
 .mobile-works-img{
     display: none;
@@ -691,7 +705,21 @@ font-size: 1.2rem;
     margin-bottom: 0;
 }
 input{
-    padding: 0;
+    padding: 5px 0;
+}
+.map-marker,.search-location{
+    font-size: 1.2rem;
+    top: 18px;
+}
+.map-marker{
+    padding-left: 16px;
+}
+.search-location{
+    padding-right: 10px;
+}
+.inp-img input{
+    padding-left: 40px;
+    padding-right: 50px;
 }
 .inp{
     height: 100%;
