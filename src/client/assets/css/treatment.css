@@ -32,21 +32,20 @@
 }
 
 .vaccination{
-    text-align: center;
-    padding: 10px 0;
+    padding-top:2px
 }
 
 .vaccination-h2 h2{
     text-align: center;
     margin-bottom: 0;
-    padding-left:5%;
-    padding-top: 26px;
+    padding-top: 30px;
 }
 .about-dept h5{
-    padding: 10px 0;
+    padding: 20px 0;
+    padding-bottom: 0;
 }
 .about-dept p{
-    padding-bottom: 10px;
+    padding-bottom: 14px;
     margin-bottom: 0;
 }
 
@@ -54,6 +53,7 @@
     padding: 6px;
     
 }
+
 .about-dept li::before{
   content: "\2022";
   color: var(--blue);
@@ -68,7 +68,10 @@
 {
     text-align: center;
 }
-
+.treatments-info{
+    padding-top: 0;
+    padding-bottom: 0;
+}
 .info-i{
     width: 100%;
     text-align: center;
@@ -88,7 +91,10 @@
     border-radius: 10px;
     margin-bottom: 20px;
 }
-
+.service-details-flex{
+    padding-top: 0;
+    padding-bottom: 10px;
+}
 .service-details-info{
     display: flex;
     justify-content: space-between;
@@ -113,17 +119,25 @@
     top: 0;
     width: 20px;
   }
+  .ortho-h5{
+      margin-bottom: 20px;
+  }
   .service-details h5{
       padding-top:30px ;
       margin-bottom: 0;
   }
   .more-services{
       background-color: var(--lightblue);
+      padding-top: 30px;
+      padding-bottom: 30px;
   }
   .more-services h2{
     text-align: center;
     color: var(--white);
-    padding: 20px;
+    margin-bottom: 20px;
+}
+.last{
+    margin-bottom: 0;
 }
   .white-bg{
       background-color: var(--white);
@@ -155,16 +169,27 @@
        display: flex;
    }
    .treatment-container{
-    padding: 16px 5%;
+    padding: 20px 5%;
 }
 .vaccination{
     padding-right: 24px;
 }
 .vaccination-h2 h2{
 text-align: start;
+padding-left: 5%;
+}
+.about-dept h5{
+    padding-top: 0;
+    margin-bottom: 20px;
 }
 .treatments-info{
     display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+
+}
+.treatments-info  p{
+    margin-bottom: 0;
 }
 .treatments-info div{
     padding-right: 32px;
@@ -178,12 +203,22 @@ div.info-i{
 .service-details-flex{
     display: flex;
     justify-content: space-between;
+    padding-bottom: 30px;
 }
 .service-details{
     width: 48%;
+    margin-bottom: 0;
 }
+
 .schedule{
     height: 180px;
+}
+.more-services{
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+.more-services h2{
+    text-align: start;
 }
 .more-services-flex{
     display: flex;
@@ -222,7 +257,7 @@ h5.fancy{
         display: flex;
     }
     .vaccination-h2 h2{
-        padding: 32px 5% 0 5%;
+        padding: 60px 5% 0 5%;
     }
     .treatment-container{
         padding: 24px 5%;
@@ -233,7 +268,7 @@ h5.fancy{
     }
     .treatments-info{
         display: flex;
-
+        padding-bottom: 40px;
     }
     .vaccination-h2 h2{
         text-align: start;
@@ -267,6 +302,9 @@ h5.fancy{
         width: 50%;
         padding-left: 2%;
     }
+    .about-dept h5{
+        padding-top: 0;
+    }
     .treatments-info p{
         font-size:1rem ;
     }
@@ -282,6 +320,11 @@ h5.fancy{
     .more-services-flex{
         display: flex;
     }
+    .more-services{
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
     .more-services-flex div{
         margin-right: 16px;
     }
@@ -294,13 +337,11 @@ h5.fancy{
     .more-services h2{
         text-align: left;
         padding-left: 0;
-        margin-bottom: 0;
         padding-top: 0;
     }
     .service-details-flex {
         padding: 0;
-        padding-top: 30px;
+        padding-top: 60px;
         padding-left: 30px;
-        padding-right: 20px;
     }
 }

@@ -1,7 +1,4 @@
-.navbar{
-    padding-left: 1%;
-    padding-right: 1%;
-}
+
 .sidebar{
     display: none;
 }
@@ -186,6 +183,7 @@ margin-left: 25px;
 .location i{
     color: var(--blue);
     float: right;
+   
 }
 
 .doc-fancy {
@@ -291,7 +289,7 @@ padding-left: 0;
 
 .filter{
     background-color: var(--lightgrey);
-    margin-left:6%;
+    margin-left:9%;
     margin-top:20px;
     margin-bottom: 10px;
     font-weight: bold;
@@ -325,8 +323,9 @@ margin-left: 25px;
     flex-direction: row;
     justify-content: space-around;
 }
+
 .checkboxes input{
-    width: 30px;
+    width: 40px;
     margin-bottom:10px;
 }
 .checkboxes p{
@@ -339,7 +338,7 @@ margin-left: 25px;
     padding-bottom: 15px;
 }
 .location p{
-    padding-left: 12%;
+    padding-left: 50px;
     font-size: 1.4rem;
     margin-bottom: 0;
 }
@@ -347,6 +346,7 @@ margin-left: 25px;
 .location i{
     color: var(--blue);
     float: right;
+    margin-left: 0;
 }
 .location span{
     padding-left: 20px;
@@ -385,14 +385,14 @@ margin-left: 25px;
 
 .checkboxes{
     border-bottom: 1px solid var(--lightgrey);
-    margin-left: 8%;
+    margin-left: 38px;
 }
 .main{
     width: 70%;
     
 }
 .sidebar{
-    width: 25%;
+    width: 27%;
     padding-left:1.5% ;
 }
 .doctor-boundary{

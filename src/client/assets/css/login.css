@@ -10,8 +10,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 78vh;
     justify-content: center;
-    min-height: 78vh;
 }
 .loginform{
     background-color: var(--white);
@@ -38,7 +38,7 @@ body{
     width: 90%;
 }
 .loginform input{
-    border:1px solid var(--lightgrey);
+    border:2px solid var(--lightgrey);
     padding: 20px;
 }
 .login-qstn{
