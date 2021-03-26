@@ -22,11 +22,13 @@
                 <img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo">
             </div> 
                 <div class="desk-i">
-                    <a >Doctors</a>
-                    <a >Hospitals</a>
-                    <a >Treatment</a>
-                    <a >Other Services</a>
-                    <a >About</a>
+                    <ul class="desk-ul">
+                        <li><a href="..\views\doctor.html">Doctors</a></li>
+                        <li><a href="..\views\hospital.html">Hospitals</a></li>
+                        <li><a href="..\views\treatment.html">Treatment</a></li>
+                        <li><a href="..\views\doctor.html">Other Services</a></li>
+                        <li><a href="..\views\doctor.html">About</a></li>
+                    </ul>
                   </div>
                        
                 <div class="desktop-btn">
@@ -43,7 +45,11 @@
                      <div class="login-qstn">
                         <input type="text" placeholder="Enter Name">
                         <input type="text" placeholder="Enter Email">
-                        <input type="text" placeholder="Enter Password">
+                        <div class="login-qstn">
+                            <input type="text" placeholder="Enter Password">
+                            <i class="fas fa-eye qstn"></i>
+                        </div>
+                        
                         <select name="gender" id="gender"> 
                             <option value="select">Select Your gender</option>
                             <option value="Male">Male</option> 

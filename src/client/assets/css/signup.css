@@ -14,6 +14,9 @@ option{
 .loginform input {
     padding: 12px;
 }
+.qstn{
+    top:24%;
+}
 .signup-location{
     display: flex;
 }
