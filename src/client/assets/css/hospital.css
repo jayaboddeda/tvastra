@@ -75,4 +75,7 @@ margin-left: 10px;
     .doctor-info{
         width: 70%;
     }
+    .call-btn{
+        margin-bottom: 10px;
+    }
 }

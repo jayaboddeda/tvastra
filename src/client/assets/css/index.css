@@ -9,6 +9,9 @@
 .works-img{
 display: none;
 }
+.index-desktop-nav{
+    display: none;
+}
 .inputs input::placeholder{
     font-size: 0.8rem;
 }
