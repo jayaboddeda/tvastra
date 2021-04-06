@@ -1,0 +1,298 @@
+:root {
+  --darkblue: #021433;
+  --lightblue:#8fcaf1;
+  --blue:#0099ff;
+  --lightgrey:#cccccc;
+  --darkgrey:#636668;
+  --white: #fff;
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: nexa-light;
+  src: url(../fonts/Nexa-Light.otf);
+}
+
+@font-face {
+  font-family: nexa-bold;
+  src: url(../fonts/Nexa-Bold.otf);
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: nexa-bold;
+  line-height: 1;
+  margin-bottom: 1.25rem;
+  color: var(--darkblue);
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.62rem;
+}
+
+h4 {
+  font-size: 1.40rem;
+}
+
+h5 {
+  font-size: 1.21rem;
+}
+
+h6 {
+  font-size: 1.05rem;
+}
+
+p {
+  font-family: nexa-light;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--darkblue);
+  margin-bottom: 1.25rem;
+}
+
+ul li, ol li {
+  font-family: nexa-light;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  color: var(--darkblue);
+}
+
+input {
+  padding: 0.625rem;
+  margin-bottom: 0.625rem;
+  border: 1px solid var(--white);
+  width: 100%;
+  font-size: 0.9rem;
+  font-family: nexa-light;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  font-family: nexa-bold;
+  color: var(--lightgrey);
+  font-size: 0.9rem;
+}
+
+:-ms-input-placeholder {
+  font-family: nexa-bold;
+  color: var(--lightgrey);
+  font-size: 0.9rem;
+}
+
+::-ms-input-placeholder {
+  font-family: nexa-bold;
+  color: var(--lightgrey);
+  font-size: 0.9rem;
+}
+
+::placeholder {
+  font-family: nexa-bold;
+  color: var(--lightgrey);
+  font-size: 0.9rem;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+button {
+  font-family: nexa-light;
+  font-size: 1rem;
+  padding: 0.625rem 1rem;
+  border: 1px solid var(--darkblue);
+}
+
+.dark-button {
+  color: var(--white);
+  background-color: var(--darkblue);
+}
+
+.light-button {
+  color: var(--darkblue);
+  background-color: var(--white);
+}
+
+section {
+  padding: 0.625rem;
+}
+
+select {
+  padding: 0.425rem 0.625rem;
+  font-size: 0.95rem;
+  font-family: nexa-light;
+  background-color: var(--lightgrey);
+  color: var(--darkblue);
+}
+
+option {
+  font-size: 0.8rem;
+  font-family: nexa-light;
+  color: var(--darkgrey);
+}
+
+label {
+  font-family: nexa-light;
+  font-size: 0.8rem;
+  color: var(--darkblue);
+}
+
+a {
+  padding: 0.625rem;
+  font-family: nexa-light;
+  font-size: 0.8rem;
+  cursor: default;
+  text-decoration: none;
+  color: var(--darkblue);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.725rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.97rem;
+  }
+  h3 {
+    font-size: 1.72rem;
+  }
+  h4 {
+    font-size: 1.50rem;
+  }
+  h5 {
+    font-size: 1.31rem;
+  }
+  h6 {
+    font-size: 1.15rem;
+  }
+  p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  ul li, ol li {
+    font-size: 0.925rem;
+    line-height: 1.4;
+  }
+  input {
+    padding: 0.725rem;
+    margin-bottom: 0.725rem;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 0.8rem;
+  }
+  :-ms-input-placeholder {
+    font-size: 0.8rem;
+  }
+  ::-ms-input-placeholder {
+    font-size: 0.8rem;
+  }
+  ::placeholder {
+    font-size: 0.8rem;
+  }
+  button {
+    font-size: 1rem;
+    padding: 0.625rem 1rem;
+  }
+  section {
+    padding: 0.725rem;
+  }
+  select {
+    padding: 0.725rem;
+    font-size: 1rem;
+  }
+  a {
+    padding: 0.625rem;
+    font-size: 1rem;
+  }
+  label {
+    font-family: nexa-light;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2.3rem;
+  }
+  h3 {
+    font-size: 1.8rem;
+  }
+  h4 {
+    font-size: 1.6rem;
+  }
+  h5 {
+    font-size: 1.4rem;
+  }
+  h6 {
+    font-size: 1.08rem;
+  }
+  p {
+    font-size: 1.3rem;
+    line-height: 1.4;
+  }
+  ul li, ol li {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+  input {
+    padding: 0.725rem;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 1rem;
+  }
+  :-ms-input-placeholder {
+    font-size: 1rem;
+  }
+  ::-ms-input-placeholder {
+    font-size: 1rem;
+  }
+  ::placeholder {
+    font-size: 1rem;
+  }
+  button {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+  }
+  section {
+    padding: 1rem;
+  }
+  select {
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+  a {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  label {
+    font-family: nexa-light;
+    font-size: 1rem;
+  }
+}
+/*# sourceMappingURL=theme.css.map */
