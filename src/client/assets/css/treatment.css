@@ -317,8 +317,34 @@ h5.fancy{
     .service-details .treatment-container{
         padding-top: 0;
     }
+    .arrows{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    .white-bg img{
+        height: 250px;
+    }
+    .white-bg h5{
+        padding: 40px 0;
+    }
+    .prev,.next{
+        background-color: var(--white);
+        border-radius: 50%;
+        margin-right: 10px;
+        padding: 10px 16px;
+        
+    }
+    .prevnext{
+        margin-right: 10px;
+    }
+    .more-services h2{
+        margin-bottom: 0;
+    }
     .more-services-flex{
         display: flex;
+        position: relative;
     }
     .more-services{
         padding-top: 60px;
