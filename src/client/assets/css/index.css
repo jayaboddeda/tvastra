@@ -845,7 +845,7 @@ input.search-button{
 .doctors{
 text-align: left;
 padding-top: 6%;
-padding-bottom: 5%;
+padding-bottom: 6%;
 }
 
 .doctors p,.doctors h2{
@@ -893,7 +893,13 @@ img {vertical-align: middle;}
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: var(--white);
+  border: 2px solid var(--blue);
+}
+.treat-dots{
+      position: absolute;
+      left: 7%;
+      top:102%;
 }
 
 /* Fading animation */
@@ -913,39 +919,35 @@ img {vertical-align: middle;}
   from {opacity: .4} 
   to {opacity: 1}
 }
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-.carousel__navigation {
-    display: block;
+.mySlides {display: none}
+.docslide {display: none}
+.doc-slide_container {
     position: relative;
-    top: 35px;
-    padding-left: 8%
+    margin: auto;
+  }
+  .doc-dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .doc-active, .doc-dot:hover {
+    background-color:var(--darkblue);
+    border: 2px solid var(--blue);
+  }
+  .dots{
+      position: absolute;
+      left:8%;
+      top:108%;
   }
 
-.carousel__navigation-item a{
-    padding: 0;
-}
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  background-color: var(--darkgrey);
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 1.5s;
-}
+ 
 
-.carousel__navigation-button:hover{
-    width: 0.85rem;
-    height: 0.85rem;
-    background-color: var(--darkblue);
-    border: 0.1rem solid var(--blue);
-    background-clip: content-box;
-}
 .doc-img .img1{
     width: 100%;
     margin-bottom: 0;
@@ -972,7 +974,7 @@ padding-top: 10px;
 }
 .treatment{
     padding-top: 6%;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
 }
 .treatment-flex{
     padding-bottom: 1rem;
@@ -1007,7 +1009,7 @@ padding-top: 10px;
     height: 18rem;
 }
 .treat-img1 .info2{
-    height: 200%;
+    height: 150%;
 }
 .treat-img2 .info2{
     height: 110%;
