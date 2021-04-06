@@ -1,0 +1,195 @@
+body {
+  background-color: var(--lightblue);
+}
+
+.navbar {
+  background-color: var(--white);
+  padding-bottom: 20px;
+}
+
+.loginform-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 78vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.loginform {
+  background-color: var(--white);
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-header {
+  border-bottom: 1px solid var(--lightgrey);
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+}
+
+.login-header h4 {
+  color: var(--blue);
+  margin-bottom: 0;
+  padding: 10px;
+}
+
+.loginfrm-inp {
+  padding-top: 20px;
+  text-align: center;
+  width: 90%;
+}
+
+.loginform input {
+  border: 1px solid var(--lightgrey);
+  padding: 20px;
+}
+
+.login-qstn {
+  position: relative;
+}
+
+.qstn {
+  position: absolute;
+  right: 15px;
+  top: 30%;
+  font-size: 1.25rem;
+  color: var(--lightgrey);
+}
+
+.loginform button {
+  padding: 1rem;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.arrow {
+  width: 90%;
+  position: relative;
+}
+
+.rarrow {
+  position: absolute;
+  color: var(--white);
+  right: 15px;
+  top: 30%;
+}
+
+.loginform-btn h6 {
+  color: var(--white);
+  letter-spacing: 4px;
+  margin-bottom: 0;
+}
+
+.loginform span {
+  color: var(--blue);
+  font-family: nexa-bold;
+}
+
+.loginfrm-inp input::-webkit-input-placeholder {
+  font-size: 0.8rem;
+}
+
+.loginfrm-inp input:-ms-input-placeholder {
+  font-size: 0.8rem;
+}
+
+.loginfrm-inp input::-ms-input-placeholder {
+  font-size: 0.8rem;
+}
+
+.loginfrm-inp input::placeholder {
+  font-size: 0.8rem;
+}
+
+.loginform p {
+  font-family: nexa-bold;
+  color: var(--darkgrey);
+  padding: 20px;
+  font-size: 1rem;
+}
+
+.login-copyright {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.login-copyright p {
+  color: var(--black);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .loginform {
+    width: 60%;
+  }
+  .login-header h4 {
+    font-size: 1.8rem;
+  }
+  .loginfrm-inp input::-webkit-input-placeholder {
+    font-size: 0.9rem;
+  }
+  .loginfrm-inp input:-ms-input-placeholder {
+    font-size: 0.9rem;
+  }
+  .loginfrm-inp input::-ms-input-placeholder {
+    font-size: 0.9rem;
+  }
+  .loginfrm-inp input::placeholder {
+    font-size: 0.9rem;
+  }
+  .loginform-btn h6 {
+    font-size: 1.25rem;
+  }
+  .loginform p {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .desktop-nav {
+    background-color: var(--white);
+  }
+  .loginform {
+    width: 30%;
+  }
+  .login-header h4 {
+    font-size: 2rem;
+  }
+  .loginfrm-inp input::-webkit-input-placeholder {
+    font-size: 1rem;
+  }
+  .loginfrm-inp input:-ms-input-placeholder {
+    font-size: 1rem;
+  }
+  .loginfrm-inp input::-ms-input-placeholder {
+    font-size: 1rem;
+  }
+  .loginfrm-inp input::placeholder {
+    font-size: 1rem;
+  }
+  .loginform-btn h6 {
+    font-size: 1.5rem;
+  }
+  .loginform p {
+    font-size: 1.2rem;
+  }
+}
+/*# sourceMappingURL=login.css.map */

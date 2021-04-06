@@ -1,0 +1,68 @@
+#gender, #country {
+  border: 1px solid var(--lightgrey);
+  padding: 12px;
+  width: 100%;
+  background-color: white;
+  color: #c0bdbd;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  font-family: nexa-bold;
+}
+
+option {
+  font-size: 0.8rem;
+}
+
+.loginform input {
+  padding: 12px;
+}
+
+.qstn {
+  top: 24%;
+}
+
+.signup-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.signup-city {
+  margin-right: 10px;
+}
+
+.loginform-container {
+  min-height: 125vh;
+}
+
+.loginform select {
+  color: var(--lightgrey);
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .loginform-container {
+    min-height: 135vh;
+  }
+  #gender, #country {
+    font-size: 0.9rem;
+  }
+  option {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .loginform {
+    width: 40%;
+  }
+  .loginform-container {
+    min-height: 135vh;
+  }
+  #gender, #country {
+    font-size: 1rem;
+  }
+  option {
+    font-size: 1rem;
+  }
+}
+/*# sourceMappingURL=signup.css.map */
