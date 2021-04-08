@@ -50,6 +50,7 @@
     border-bottom: 2px dashed var(--lightgrey);
     position: relative;
     padding-left:0;
+    font-size: 19px;
     i{
         padding-right: 10px;
     }
@@ -141,9 +142,11 @@
     .fancy{
         margin-left:-1px;
         margin-bottom: 30px;
+        font-size: 35px;
 
         & span:before{
             width: 25px;
+            border-bottom: 4px solid var(--blue);
         }
     }
 

@@ -46,6 +46,7 @@
   border-bottom: 2px dashed var(--lightgrey);
   position: relative;
   padding-left: 0;
+  font-size: 19px;
 }
 
 .accordion i {
@@ -157,9 +158,11 @@
   .fancy {
     margin-left: -1px;
     margin-bottom: 30px;
+    font-size: 35px;
   }
   .fancy span:before {
     width: 25px;
+    border-bottom: 4px solid var(--blue);
   }
   .accordion {
     font-size: 1.6rem;
