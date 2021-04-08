@@ -1,0 +1,172 @@
+.container {
+  border: 2px solid var(--lightgrey);
+  margin: 30px 5%;
+}
+
+.container .doctor-image {
+  padding-bottom: 10px;
+}
+
+.container .appointment_button {
+  margin-bottom: 20px;
+}
+
+.container .appointment_button button {
+  width: 100%;
+}
+
+.container .about-doctor p {
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+  border-bottom: 2px dashed var(--lightgrey);
+}
+
+.fancy {
+  color: var(--blue);
+  margin-left: 24px;
+}
+
+.fancy span:before {
+  height: 3px;
+}
+
+.accordion {
+  background-color: var(--white);
+  color: var(--blue);
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-bottom: 2px dashed var(--lightgrey);
+  position: relative;
+  padding-left: 0;
+}
+
+.accordion i {
+  padding-right: 10px;
+}
+
+.accordion:after {
+  content: '\f107';
+  font-family: fontawesome;
+  color: var(--blue);
+  border-radius: 50%;
+  background-color: var(--accordian_blue);
+  padding: 0 6px;
+  padding-top: 2px;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.active:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+.panel {
+  background-color: var(--accordian_blue);
+  max-height: 0;
+  padding: 0 18px;
+  overflow: hidden;
+  -webkit-transition: max-height 0.2s ease-out;
+  transition: max-height 0.2s ease-out;
+}
+
+.panel p {
+  padding-top: 20px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 20px 24px;
+    margin: 30px 5%;
+  }
+  .container .doctor-image-container {
+    width: 35%;
+  }
+  .container .about-doctor-container {
+    width: 60%;
+    padding-top: 10px;
+  }
+  .container .about-doctor-container .about-doctor p {
+    text-align: left;
+  }
+  .fancy {
+    margin-left: -1px;
+    margin-bottom: 20px;
+  }
+  .fancy span:before {
+    width: 20px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 30px 30px;
+    margin: 30px 5%;
+  }
+  .container .doctor-image-container {
+    width: 23%;
+    height: 350px;
+  }
+  .container .doctor-image-container .doctor-image {
+    height: 100%;
+  }
+  .container .about-doctor-container {
+    width: 75%;
+    padding-top: 10px;
+  }
+  .container .about-doctor-container .about-doctor p {
+    text-align: left;
+  }
+  .fancy {
+    margin-left: -1px;
+    margin-bottom: 30px;
+  }
+  .fancy span:before {
+    width: 25px;
+  }
+  .accordion {
+    font-size: 1.6rem;
+    padding: 20px 0;
+  }
+  .accordion i {
+    padding-right: 1rem;
+  }
+}
+/*# sourceMappingURL=doctor-profile.css.map */
