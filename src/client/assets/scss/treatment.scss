@@ -1,3 +1,10 @@
+
+.prevnext{
+    display: none;
+}
+.mySlides{
+    flex-direction: column;
+}
 .treatment-banner{
     padding: 0;
 }
@@ -119,9 +126,9 @@
     top: 0;
     width: 20px;
   }
-  .ortho-h5{
-      margin-bottom: 20px;
-  }
+.fancy{
+    margin-bottom: 0;
+}
   .service-details h5{
       padding-top:30px ;
       margin-bottom: 0;
@@ -129,7 +136,7 @@
   .more-services{
       background-color: var(--lightblue);
       padding-top: 30px;
-      padding-bottom: 30px;
+      padding-bottom: 20px;
   }
   .more-services h2{
     text-align: center;
@@ -142,6 +149,7 @@
   .white-bg{
       background-color: var(--white);
       border-radius: 10px;
+      margin-bottom: 20px;
   }
 .white-bg img{
     border-radius: 10px 10px 0 0;
@@ -222,6 +230,10 @@ div.info-i{
 }
 .more-services-flex{
     display: flex;
+}
+
+.mySlides{
+    flex-direction: row;
 }
 .more-services-flex div{
     margin-right: 16px;
@@ -337,6 +349,7 @@ h5.fancy{
         
     }
     .prevnext{
+        display: inline;
         margin-right: 10px;
     }
     .more-services h2{
@@ -345,6 +358,9 @@ h5.fancy{
     .more-services-flex{
         display: flex;
         position: relative;
+    }
+    .mySlides{
+        flex-direction: row;
     }
     .more-services{
         padding-top: 60px;

@@ -456,6 +456,10 @@
   padding-bottom: 0.625rem;
 }
 
+.footer-list a {
+  padding: 0;
+}
+
 .footer li {
   font-size: 1rem;
 }

@@ -1,3 +1,14 @@
+.prevnext {
+  display: none;
+}
+
+.mySlides {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .treatment-banner {
   padding: 0;
 }
@@ -138,8 +149,8 @@
   width: 20px;
 }
 
-.ortho-h5 {
-  margin-bottom: 20px;
+.fancy {
+  margin-bottom: 0;
 }
 
 .service-details h5 {
@@ -150,7 +161,7 @@
 .more-services {
   background-color: var(--lightblue);
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 .more-services h2 {
@@ -166,6 +177,7 @@
 .white-bg {
   background-color: var(--white);
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .white-bg img {
@@ -257,6 +269,12 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+  .mySlides {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .more-services-flex div {
     margin-right: 16px;
@@ -383,6 +401,7 @@
     padding: 10px 16px;
   }
   .prevnext {
+    display: inline;
     margin-right: 10px;
   }
   .more-services h2 {
@@ -393,6 +412,12 @@
     display: -ms-flexbox;
     display: flex;
     position: relative;
+  }
+  .mySlides {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   .more-services {
     padding-top: 60px;
