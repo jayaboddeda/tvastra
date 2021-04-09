@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/about-hospital.scss"
+    ],
+    "names": [],
+    "file": "about-hospital.css"
+}

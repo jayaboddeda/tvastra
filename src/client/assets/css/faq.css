@@ -1,0 +1,39 @@
+.faq-container {
+  padding: 20px 5%;
+}
+
+.faq-container ul li:nth-child(7) .accordion {
+  padding-bottom: 0;
+}
+
+.faq-container ul li:nth-child(7) .panel {
+  margin-top: 12px;
+}
+
+.accordion {
+  border-bottom: none;
+  padding: 12px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.accordion::after {
+  margin-left: 10px;
+}
+
+@media only screen and (min-width: 1025px) {
+  .faq-container {
+    padding: 3% 5%;
+  }
+  .accordion {
+    padding: 20px 0;
+  }
+}
+/*# sourceMappingURL=faq.css.map */

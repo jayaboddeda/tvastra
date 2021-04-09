@@ -138,6 +138,7 @@ select {
   font-family: nexa-light;
   background-color: var(--lightgrey);
   color: var(--darkblue);
+  outline: none;
 }
 
 option {
@@ -159,6 +160,14 @@ a {
   cursor: default;
   text-decoration: none;
   color: var(--darkblue);
+}
+
+textarea {
+  border: 1px solid var(--lightgrey);
+  margin-bottom: 20px;
+  outline: none;
+  font-family: nexa-light;
+  font-size: 0.8rem;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -220,6 +229,9 @@ a {
   }
   a {
     padding: 0.625rem;
+    font-size: 1rem;
+  }
+  textarea {
     font-size: 1rem;
   }
   label {
@@ -294,6 +306,9 @@ a {
   label {
     font-family: nexa-light;
     font-size: 1rem;
+  }
+  textarea {
+    font-size: 1.2rem;
   }
 }
 /*# sourceMappingURL=theme.css.map */

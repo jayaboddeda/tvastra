@@ -1,0 +1,28 @@
+#query::-webkit-input-placeholder {
+  padding: 10px;
+}
+
+#query:-ms-input-placeholder {
+  padding: 10px;
+}
+
+#query::-ms-input-placeholder {
+  padding: 10px;
+}
+
+#query::placeholder {
+  padding: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 200px;
+  border: 1px solid var(--lightgrey);
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.loginform-container {
+  height: 100vh;
+}
+/*# sourceMappingURL=submit-your-query.css.map */

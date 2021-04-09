@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,AAAA,aAAa,CAAA;EACf,OAAO,EAAE,IAAI;CAChB;;AACD,AAAA,QAAQ,CAAA;EACJ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,MAAM,EAAE,GAAG,CAAC,KAAK,CAAC,gBAAgB;EAClC,aAAa,EAAE,IAAI;EACnB,OAAO,EAAE,IAAI;CAChB;;AAED,AAAA,oBAAoB,CAAA;EAChB,MAAM,EAAE,KAAK;CAChB",
+    "sources": [
+        "../scss/submit-your-query.scss"
+    ],
+    "names": [],
+    "file": "submit-your-query.css"
+}
