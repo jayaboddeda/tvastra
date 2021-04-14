@@ -134,14 +134,16 @@
 
 .map-marker {
   position: absolute;
-  top: 10px;
+  top: 13px;
   padding-left: 10px;
+  color: var(--darkblue);
 }
 
 .search-location {
   position: absolute;
   right: 10px;
-  top: 10px;
+  top: 13px;
+  color: var(--darkblue);
 }
 
 .inp {
@@ -780,7 +782,7 @@
         justify-self: end;
   }
   .desk-i a {
-    padding: 0 20px;
+    padding: 0 16px;
     color: var(--darkblue);
     font-weight: bold;
   }
@@ -1333,7 +1335,7 @@
         align-self: center;
     -ms-grid-column-align: end;
         justify-self: end;
-    padding-right: 8%;
+    padding-right: 10%;
   }
   .enquiry button {
     margin: 0;
@@ -1341,8 +1343,7 @@
     border-radius: 3px;
     font-family: nexa-light;
     font-size: 1.2rem;
-    width: 250px;
-    margin-right: 30px;
+    width: 240px;
   }
   .footer {
     background-color: white;

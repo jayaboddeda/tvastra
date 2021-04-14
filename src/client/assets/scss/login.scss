@@ -53,7 +53,7 @@ body{
 }
 .loginform button{
     padding: 1rem;
-    margin-bottom: 10px;
+
     width: 100%;
 }
 .arrow{
@@ -75,6 +75,10 @@ body{
     color: var(--blue);
     font-family: nexa-bold;
 }
+.loginform a{
+    padding: 0;
+    font-size: 1rem;
+}
 .loginfrm-inp input::placeholder{
     font-size: 0.8rem;
 }
@@ -82,6 +86,7 @@ body{
     font-family: nexa-bold;
     color: var(--darkgrey);
     padding: 20px;
+    padding-bottom: 0;
     font-size: 1rem;
 }
 
@@ -107,7 +112,7 @@ body{
 .loginform-btn h6{
     font-size: 1.25rem;
 }
-.loginform p{
+.loginform p,.loginform a{
     font-size: 1.1rem;
 }
 }
@@ -128,7 +133,7 @@ body{
     .loginform-btn h6{
         font-size: 1.5rem;
     }
-    .loginform p{
+    .loginform p,.loginform a{
         font-size: 1.2rem;
     }
 }

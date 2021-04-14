@@ -25,4 +25,8 @@ textarea {
 .loginform-container {
   height: 100vh;
 }
+
+.loginform button {
+  margin-bottom: 20px;
+}
 /*# sourceMappingURL=submit-your-query.css.map */

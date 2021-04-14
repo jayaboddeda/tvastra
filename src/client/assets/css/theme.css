@@ -6,6 +6,8 @@
   --darkgrey:#636668;
   --white: #fff;
   --accordian_blue:#e5f1f7;
+  --button_blue:#0173b2;
+  --plan-user:#cce3f0;
   font-size: 16px;
 }
 
@@ -129,6 +131,11 @@ button {
   background-color: var(--white);
 }
 
+.light-blue_button {
+  color: var(--white);
+  background-color: var(--button_blue);
+}
+
 section {
   padding: 0.625rem;
 }
@@ -155,7 +162,6 @@ label {
 }
 
 a {
-  padding: 0.625rem;
   font-family: nexa-light;
   font-size: 0.8rem;
   cursor: default;
@@ -229,7 +235,6 @@ textarea {
     font-size: 1rem;
   }
   a {
-    padding: 0.625rem;
     font-size: 1rem;
   }
   textarea {
@@ -301,7 +306,6 @@ textarea {
     font-size: 1.1rem;
   }
   a {
-    padding: 1rem;
     font-size: 1.2rem;
   }
   label {
