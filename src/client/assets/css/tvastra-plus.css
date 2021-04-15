@@ -2,23 +2,20 @@
   background-image: -webkit-gradient(linear, left top, left bottom, from(#2d76be), color-stop(#95c2ee), color-stop(#e2eaf1), to(#f5f8fa));
   background-image: linear-gradient(#2d76be, #95c2ee, #e2eaf1, #f5f8fa);
   height: 85rem;
-  position: relative;
   padding: 0;
 }
 
-.hero-container .hero-img {
-  height: 400px;
-  background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/task30-tvastra-plus/tvastraPlus_heroSection.webp");
-  background-position: left;
-  background-size: cover;
+.hero-container section {
+  padding: 0;
 }
 
 .hero-container .hero-text {
-  position: absolute;
-  top: 0;
+  background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/task30-tvastra-plus/tvastraPlus_heroSection.webp");
+  background-position: left;
+  background-size: cover;
   text-align: center;
   padding: 30px 5%;
-  padding-bottom: 0;
+  padding-bottom: 200px;
 }
 
 .hero-container .hero-text button {
@@ -33,11 +30,13 @@
 .plans-container {
   padding: 0 5%;
   padding-bottom: 30px;
-  position: absolute;
-  top: 16%;
+  position: relative;
+  top: -190px;
 }
 
 .plans-container .plans-box {
+  margin: 0 5%;
+  margin-bottom: 30px;
   padding: 30px 20px;
   padding-bottom: 0;
   text-align: center;
@@ -156,9 +155,10 @@
 
 .ratings {
   text-align: center;
-  padding: 0 5%;
+  padding: 0;
   padding-bottom: 20px;
-  padding-top: 270px;
+  padding-top: 40px;
+  margin: 0 5%;
 }
 
 .ratings li {
@@ -237,6 +237,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 30px;
 }
 
 .ratings .user-numbers li:nth-child(1) i {
@@ -250,7 +251,8 @@
 
 .benefits {
   text-align: center;
-  padding: 0 5%;
+  padding: 0;
+  margin: 0 5%;
 }
 
 .benefits p {
@@ -332,7 +334,9 @@
 
 .tests {
   text-align: center;
-  padding: 0 5%;
+  padding: 0;
+  margin: 0 5%;
+  margin-bottom: 30px;
 }
 
 .tests_grid {
@@ -382,8 +386,9 @@
 
 .testimonials {
   text-align: center;
-  padding: 30px 5%;
+  padding: 30px 0;
   padding-bottom: 0;
+  margin: 0 5%;
 }
 
 .testimonials .plus {
@@ -437,6 +442,19 @@
 
 .testimonials_box .testimonials_flex .testimonials_img img {
   border-radius: 50%;
+}
+
+.faq-container {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 5%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -777,25 +795,25 @@
   .hero-container {
     height: 55rem;
   }
-  .hero-container .hero-img {
-    height: 500px;
-    background-position: top;
-  }
   .hero-container .hero-text {
+    background-position: top;
     text-align: left;
     top: 16%;
     padding-left: 6%;
+    padding-bottom: 150px;
+    padding-top: 150px;
   }
   .hero-container .hero-text button {
     font-size: 1.25rem;
     padding: 10px 15px;
   }
   .plans-container {
-    padding-bottom: 60px;
-    top: 40%;
+    padding-bottom: 0;
+    top: -140px;
   }
   .plans-container .plans-box {
     padding: 60px;
+    margin-bottom: 60px;
   }
   .plans-container .plans-box .plans-flex {
     display: -webkit-box;
@@ -861,14 +879,14 @@
   .ratings {
     padding: 0 6%;
     padding-bottom: 60px;
-    padding-top: 250px;
+    padding-top: 60px;
   }
   .ratings h2, .ratings p {
     margin-bottom: 40px;
   }
   .ratings p {
-    margin-left: 20%;
-    margin-right: 20%;
+    margin-left: 15%;
+    margin-right: 15%;
   }
   .ratings .stars {
     margin-right: 60px;
@@ -910,6 +928,7 @@
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template: 1fr/ 1fr 1fr 1fr 1fr;
     margin-top: 40px;
+    margin-bottom: 60px;
   }
   .ratings .user-numbers li:nth-child(1) i {
     font-size: 2.5rem;
@@ -921,7 +940,7 @@
     font-size: 1.25rem;
   }
   .benefits {
-    padding: 0 6%;
+    padding: 0;
   }
   .benefits p {
     margin: 0 38%;
@@ -1019,7 +1038,8 @@
   }
   .tests {
     text-align: left;
-    padding: 0 6%;
+    padding: 0;
+    margin-bottom: 60px;
   }
   .tests h5 {
     margin-bottom: 40px;
@@ -1042,8 +1062,9 @@
   }
   .testimonials {
     text-align: left;
-    padding: 0 6%;
+    padding: 0;
     padding-top: 60px;
+    margin-bottom: 60px;
   }
   .testimonials .plus {
     font-size: 1.25rem;
@@ -1108,7 +1129,10 @@
     border-radius: 50%;
   }
   .faq-container {
-    padding: 50px 6% 10px 6%;
+    padding: 50px 0 10px 0;
+  }
+  .footer {
+    margin: 0 3%;
   }
 }
 /*# sourceMappingURL=tvastra-plus.css.map */

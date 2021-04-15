@@ -1,20 +1,26 @@
 .hero-container{
     background-image: linear-gradient(rgb(45, 118, 190),rgb(149, 194, 238),rgb(226, 234, 241),rgb(245, 248, 250));
+
     height:85rem;
-    position: relative;
+
     padding: 0;
-    .hero-img{
-        height: 400px;
+    // .hero-img{
+    //     height: 400px;
+    //     background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/task30-tvastra-plus/tvastraPlus_heroSection.webp" );
+    //     background-position: left;
+    //     background-size: cover;
+    // }
+    section{
+        padding:0
+    }
+    .hero-text{
         background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/task30-tvastra-plus/tvastraPlus_heroSection.webp" );
         background-position: left;
         background-size: cover;
-    }
-    .hero-text{
-        position: absolute;
-        top: 0;
         text-align: center;
         padding:30px 5%;
-        padding-bottom: 0;
+        padding-bottom: 200px;
+
         button{
             border: none;
             border-radius: 5px;
@@ -28,13 +34,16 @@
 
 
 .plans-container{
+
     padding:0 5%;
     padding-bottom:30px;
-    position: absolute;
-    top: 16%;
+    position: relative;
+    top: -190px;
 
 
     .plans-box{
+        margin:0 5%;
+        margin-bottom: 30px;
         padding:30px 20px;
         padding-bottom: 0;
         text-align: center;
@@ -131,9 +140,10 @@
 
 .ratings{
     text-align: center;
-    padding:0 5%;
+    padding:0;
     padding-bottom: 20px;
-    padding-top: 270px;
+    padding-top: 40px;
+    margin:0 5%;
     
     li{
         color: var(--button_blue);
@@ -199,6 +209,7 @@
         grid-template: 1fr 1fr / 1fr 1fr;
         align-items: center;
         justify-content: center;
+        margin-bottom: 30px;
     }
     .user-numbers{
         li:nth-child(1){
@@ -219,7 +230,8 @@
 
 .benefits{
     text-align:center;
-    padding:0 5%;
+    padding:0;
+    margin:0 5%;
     p{
         border-bottom: 4px solid var(--accordian_blue);
         padding-bottom: 20px;
@@ -288,7 +300,9 @@
 
 .tests{
     text-align: center;
-    padding:0 5% 
+    padding:0;
+    margin:0 5%;
+    margin-bottom: 30px;
 }
 .tests_grid{
     display: grid;
@@ -318,8 +332,9 @@
 }
 .testimonials{
     text-align: center;
-    padding:30px 5%;
+    padding:30px 0;
     padding-bottom: 0;
+    margin:0 5%;
     .plus{
         border-radius: 5px;
         padding:5px 10px;
@@ -364,6 +379,19 @@
             }
         }
     }
+}
+
+.faq-container{
+    padding-left: 0;
+    padding-right: 0;
+    margin:0 5%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.footer{
+
+    padding-left: 0;
+    padding-right: 0;
 }
 
 
@@ -719,14 +747,17 @@ text-align: left;
 @media only screen and (min-width:1024px) {
     .hero-container{
         height: 55rem;
-        .hero-img{
-            height: 500px;
-            background-position: top;
-        }
+        // .hero-img{
+        //     height: 500px;
+        //     background-position: top;
+        // }
         .hero-text{
+            background-position: top;
             text-align: left;
             top:16%;
             padding-left:6%;
+            padding-bottom: 150px;
+            padding-top: 150px;
 
             button{
                 font-size: 1.25rem;
@@ -735,10 +766,11 @@ text-align: left;
         }
     }
 .plans-container{
-    padding-bottom:60px;
-    top:40%;
+    padding-bottom:0;
+    top:-140px;
     .plans-box{
         padding:60px;
+        margin-bottom: 60px;
     .plans-flex{
         display: flex;
         justify-content: center;
@@ -801,13 +833,13 @@ text-align: left;
 .ratings{
     padding:0 6%;
     padding-bottom: 60px;
-    padding-top: 250px;
+    padding-top: 60px;
     h2,p{
         margin-bottom:40px;
     }
     p{
-        margin-left:20%;
-        margin-right:20%;
+        margin-left:15%;
+        margin-right:15%;
     }
     .stars{
         margin-right: 60px;
@@ -858,6 +890,7 @@ text-align: left;
     .user-numbers-grid{
         grid-template: 1fr/ 1fr 1fr 1fr 1fr;
         margin-top: 40px;
+        margin-bottom: 60px;
 
     }
     .user-numbers{
@@ -880,7 +913,7 @@ text-align: left;
 
 .benefits{
 
-    padding:0 6%;
+    padding:0;
     
     p{
 
@@ -987,7 +1020,8 @@ text-align: left;
 
 .tests{
     text-align: left;
-    padding:0 6%;
+    padding:0;
+    margin-bottom:60px;
     h5{
         margin-bottom: 40px;
     }
@@ -1010,8 +1044,9 @@ text-align: left;
 }
 .testimonials{
     text-align: left;
-    padding:0 6%;
+    padding:0;
     padding-top: 60px;
+    margin-bottom: 60px;
     .plus{
         font-size: 1.25rem;
     }
@@ -1067,6 +1102,9 @@ text-align: left;
     }
 }
 .faq-container{
-    padding:50px 6% 10px 6%;
+    padding:50px 0 10px 0;
+}
+.footer{
+   margin:0 3%;
 }
 }
