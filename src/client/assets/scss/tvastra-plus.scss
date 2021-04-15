@@ -31,6 +31,8 @@
     padding:0 5%;
     padding-bottom:30px;
     background-image:linear-gradient(rgb(185,217,234),rgb(255, 255, 255));
+
+
     .plans-box{
         padding:30px 20px;
         padding-bottom: 0;
@@ -39,13 +41,14 @@
         border-radius: 5px;
         box-shadow: 0 0 20px #aaa;
         
-        
         p{
             padding-bottom:30px;
             margin-bottom: 0;
             border-bottom:1px solid var(--lightgrey);
         }
         .plans-flex{
+            display: grid;
+            grid-template: 1fr 1fr 1fr / 1fr;
             .advanced{
                 background-image:linear-gradient(rgb(185,217,234),rgb(255, 255, 255));
             }
@@ -53,11 +56,17 @@
             .basic,.advanced,.comprehensive{
                 padding-top:20px;
                 
+                .plan_text_container{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    height: 90%;
+                }
                 .plan-text{
                     border-top:1px solid var(--lightgrey);
                     padding-top: 20px;
-                    height:240px;
                     margin:0 15%;
+                    height: 100%;
                     li{
                         padding-bottom: 10px;
                     }
@@ -65,11 +74,12 @@
                 }
 
                 .rate{
+                    margin-bottom: 30px;
                     li{
                         padding-bottom: 10px;
                         
                     }
-                    padding-bottom: 30px;
+                   
 
                     li:nth-child(1){
                         font-size: 1.5rem;
@@ -262,8 +272,12 @@
     align-items: center;
     justify-content: center;
     grid-gap:10px;
-
+    
+    .tests_box_container{
+        height: 100%;
+    }
     .tests_box{
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -271,6 +285,7 @@
         text-align: center;
         box-shadow: 0 0 10px #aaa;
         padding:0 10px;
+        
     }
 }
 .tests_img{
@@ -359,6 +374,7 @@
         .basic,.advanced,.comprehensive{
             padding:20px 40px;
             padding-bottom: 0;
+
             h4{
                 font-size: 28px;
             }
@@ -369,12 +385,12 @@
 
             .plan-text{
                 margin:0 5%;
-                height: 280px;
                 li{
                     padding-bottom: 16px;
                 }
             }
             .rate{
+                margin-bottom: 0;
                 li{
                     padding-bottom:15px;
                 }
@@ -599,16 +615,15 @@
     }
 }
 .tests_grid{
-
+    // display: flex;
+    // justify-content: space-between;
+    display: grid;
     grid-template: 1fr / 1fr 1fr 1fr 1fr;
-    align-items: flex-start;
-
-
     .tests_box{
-
         align-items: flex-start;
+    //    padding-right:140px;
        padding-left: 20px;
-       margin-bottom: 60px;
+    //    margin-bottom: 60px;
 
     }
 }
@@ -618,6 +633,7 @@
 .testimonials{
     text-align: left;
     padding:0 6%;
+    padding-top: 60px;
     .plus{
         font-size: 1.25rem;
     }

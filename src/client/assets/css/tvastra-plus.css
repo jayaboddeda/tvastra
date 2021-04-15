@@ -54,6 +54,14 @@
   border-bottom: 1px solid var(--lightgrey);
 }
 
+.plans-container .plans-box .plans-flex {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr;
+      grid-template: 1fr 1fr 1fr / 1fr;
+}
+
 .plans-container .plans-box .plans-flex .advanced {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#b9d9ea), to(white));
   background-image: linear-gradient(#b9d9ea, white);
@@ -63,11 +71,25 @@
   padding-top: 20px;
 }
 
+.plans-container .plans-box .plans-flex .basic .plan_text_container, .plans-container .plans-box .plans-flex .advanced .plan_text_container, .plans-container .plans-box .plans-flex .comprehensive .plan_text_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 90%;
+}
+
 .plans-container .plans-box .plans-flex .basic .plan-text, .plans-container .plans-box .plans-flex .advanced .plan-text, .plans-container .plans-box .plans-flex .comprehensive .plan-text {
   border-top: 1px solid var(--lightgrey);
   padding-top: 20px;
-  height: 240px;
   margin: 0 15%;
+  height: 100%;
   padding-bottom: 10px;
 }
 
@@ -76,7 +98,7 @@
 }
 
 .plans-container .plans-box .plans-flex .basic .rate, .plans-container .plans-box .plans-flex .advanced .rate, .plans-container .plans-box .plans-flex .comprehensive .rate {
-  padding-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .plans-container .plans-box .plans-flex .basic .rate li, .plans-container .plans-box .plans-flex .advanced .rate li, .plans-container .plans-box .plans-flex .comprehensive .rate li {
@@ -296,7 +318,12 @@
   grid-gap: 10px;
 }
 
+.tests_grid .tests_box_container {
+  height: 100%;
+}
+
 .tests_grid .tests_box {
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -423,12 +450,12 @@
   }
   .plans-container .plans-box .plans-flex .basic .plan-text, .plans-container .plans-box .plans-flex .advanced .plan-text, .plans-container .plans-box .plans-flex .comprehensive .plan-text {
     margin: 0 5%;
-    height: 280px;
   }
   .plans-container .plans-box .plans-flex .basic .plan-text li, .plans-container .plans-box .plans-flex .advanced .plan-text li, .plans-container .plans-box .plans-flex .comprehensive .plan-text li {
     padding-bottom: 16px;
   }
   .plans-container .plans-box .plans-flex .basic .rate, .plans-container .plans-box .plans-flex .advanced .rate, .plans-container .plans-box .plans-flex .comprehensive .rate {
+    margin-bottom: 0;
     padding-bottom: 0;
   }
   .plans-container .plans-box .plans-flex .basic .rate li, .plans-container .plans-box .plans-flex .advanced .rate li, .plans-container .plans-box .plans-flex .comprehensive .rate li {
@@ -626,19 +653,17 @@
     margin-bottom: 40px;
   }
   .tests_grid {
+    display: -ms-grid;
+    display: grid;
     -ms-grid-rows: 1fr;
     -ms-grid-columns: 1fr 1fr 1fr 1fr;
         grid-template: 1fr / 1fr 1fr 1fr 1fr;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
   }
   .tests_grid .tests_box {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
     padding-left: 20px;
-    margin-bottom: 60px;
   }
   .tests_img {
     width: 20%;
@@ -646,6 +671,7 @@
   .testimonials {
     text-align: left;
     padding: 0 6%;
+    padding-top: 60px;
   }
   .testimonials .plus {
     font-size: 1.25rem;
