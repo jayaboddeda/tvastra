@@ -1,6 +1,6 @@
 .hero-container {
-  position: relative;
   padding: 0;
+  position: relative;
 }
 
 .hero-container .hero-img {
@@ -13,12 +13,10 @@
 }
 
 .hero-container .hero-text {
-  /* background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/task30-tvastra-plus/tvastraPlus_heroSection.webp" );*/
   top: 0;
   text-align: center;
   padding: 30px 5%;
   padding-bottom: 0;
-  height: 400px;
   position: absolute;
 }
 
