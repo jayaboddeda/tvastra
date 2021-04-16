@@ -117,7 +117,7 @@
 }
 
 .plans-container .plans-box .plans-flex .basic .plan-text li, .plans-container .plans-box .plans-flex .advanced .plan-text li, .plans-container .plans-box .plans-flex .comprehensive .plan-text li {
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
 }
 
 .plans-container .plans-box .plans-flex .basic .rate, .plans-container .plans-box .plans-flex .advanced .rate, .plans-container .plans-box .plans-flex .comprehensive .rate {
@@ -125,7 +125,7 @@
 }
 
 .plans-container .plans-box .plans-flex .basic .rate li, .plans-container .plans-box .plans-flex .advanced .rate li, .plans-container .plans-box .plans-flex .comprehensive .rate li {
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
 }
 
 .plans-container .plans-box .plans-flex .basic .rate li:nth-child(1), .plans-container .plans-box .plans-flex .advanced .rate li:nth-child(1), .plans-container .plans-box .plans-flex .comprehensive .rate li:nth-child(1) {
@@ -163,7 +163,7 @@
 
 .ratings li {
   color: var(--button_blue);
-  padding-bottom: 10px;
+  padding-bottom: 13px;
 }
 
 .ratings .stars li:nth-child(1) h6 {
@@ -269,7 +269,8 @@
 
 .benefits .benefits-info li {
   text-align: left;
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
+  line-height: 1.4;
   padding-left: 10px;
   font-size: 1rem;
 }

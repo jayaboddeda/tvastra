@@ -96,7 +96,7 @@
                     margin:0 15%;
                     height: 100%;
                     li{
-                        padding-bottom: 10px;
+                        padding-bottom: 1rem;
                     }
                     padding-bottom: 10px;
                 }
@@ -104,7 +104,7 @@
                 .rate{
                     margin-bottom: 30px;
                     li{
-                        padding-bottom: 10px;
+                        padding-bottom: 1rem;
                         
                     }
                    
@@ -147,7 +147,7 @@
     
     li{
         color: var(--button_blue);
-        padding-bottom: 10px;
+        padding-bottom: 13px;
 
     }
 
@@ -245,7 +245,8 @@
         li{
             
             text-align: left;
-            padding-bottom: 10px;
+            padding-bottom: 1rem;
+            line-height: 1.4;
             padding-left: 10px;
             font-size: 1rem;
         }

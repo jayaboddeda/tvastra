@@ -363,6 +363,20 @@ padding:0.5rem;
   .enquiry p{
     padding: 0 5%;
   }
+.enquiry-index{
+    background-color: var(--lightblue);
+    padding-top: 30px;
+  }
+  
+  .enquiry-index h2{
+    color: var(--white);
+    padding: 0 5%;
+    padding-bottom: 0;
+  }
+  
+  .enquiry-index p{
+    padding: 0 5%;
+  }
   
   .enquiry-btn{
     margin-bottom: 2rem;
@@ -378,10 +392,14 @@ padding:0.5rem;
     padding: 30px 5%;
     background-color:var(--darkblue) ;
 }
+
 .footer-logo{
     max-width: 150px;
 }
 .footer img{
+  padding-bottom:0.625rem;
+}
+.footer-index img{
   padding-bottom:0.625rem;
 }
 .footer-list{
@@ -397,6 +415,16 @@ padding:0.5rem;
     color: var(--lightgrey);
 }
 .footer i{
+    padding-top: 15px;
+}
+.footer-index li{
+    font-size: 1rem;
+}
+.footer-index li,.footer-index i{
+   padding: 0.325rem 0.625rem;
+    color: var(--lightgrey);
+}
+.footer-index i{
     padding-top: 15px;
 }
 .copyright p{
@@ -1160,10 +1188,16 @@ padding-left: 6%;
     background-repeat: no-repeat;
     background-position: 50% 10%;
 }
-.enquiry {
+.enquiry-index{
     display: grid;
     grid-template: 1fr / 1fr 1fr;
     padding:4% 1%;
+    
+}
+.enquiry {
+    display: grid;
+    grid-template: 1fr / 1fr 1fr;
+    padding:4% 0;
 }
 .help{
     text-align: left;
@@ -1180,6 +1214,15 @@ padding-left: 6%;
     align-self: center;
     justify-self: end;
     padding-right: 10%;
+}
+.enquiry-index button{
+
+    margin: 0;
+    padding:20px 20px;
+    border-radius: 3px;
+    font-family: nexa-light;
+    font-size: 1.2rem;
+    width: 240px;
 }
 .enquiry button{
 
@@ -1226,6 +1269,11 @@ display: inline-block;
 }
 .footer{
     height: 195px;
+    padding: 40px 3%;
+    border-bottom: 5px solid var(--blue);
+}
+.footer-index{
+    height: 195px;
     padding: 40px 4%;
     border-bottom: 5px solid var(--blue);
 }
@@ -1237,7 +1285,7 @@ display: inline-block;
     width: 225px;
     position: absolute;
     right: 0;
-    padding-right:2%;
+    padding-right:20px;
 }
 .footer-img img{
     width: 100%;
