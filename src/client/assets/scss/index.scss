@@ -6,6 +6,10 @@
 ,.carousel__navigation{
     display: none;
 }
+
+.item-img{
+    display: none;
+}
 .works-img{
 display: none;
 }
@@ -134,38 +138,54 @@ padding-left: 5%;
     padding-right: 5%;
     padding-left: 5%; 
 }
-.works-btn:hover{
-    color: var(--darkblue);
-    border: 2px solid var(--darkgrey);
-}
+
 
 .works-btn-container{
     width: 90%;
     margin-left:5%;
     margin-bottom: 30px;
+    .item-txt:hover{
+        .spanning{
+            color: var(--blue);
+        }
+        li{
+            color: var(--darkblue);
+            border: 1px solid var(--blue);
+        }
+    } 
+}
+.item-txt{
+    .item-active{
+        .spanning{
+            color: var(--blue);
+        }
+            color: var(--darkblue);
+            border: 1px solid var(--blue);
+        
+    }
 }
 
 .works-btn{
-    text-align: start;
-    color: var(--lightgrey);
+    
     background-color: var(--white);
-    border: 1px solid var(--darkgrey);
+    border: 1px solid var(--lightgrey);
     border-radius: 0.625rem;
-    font-size: 1.1rem;
-    font-family: nexa-bold;
     width: 100%;
     padding: 1rem 5px;
-    font-weight: bold;
     margin-bottom:0.625rem;
-}
-.works-btn-container li:nth-child(1) .spanning{
-    color:var(--blue)
+    font-size: 1.1rem;
+        font-family: nexa-bold;
+        text-align: start;
+        color: var(--lightgrey);
+   
+    }
 
-}
-.works-btn-container li:nth-child(1){
-    color:var(--darkblue);
-    border:1px solid var(--blue)
-}
+
+    
+    
+
+
+
 .spanning{
 padding:0.5rem;
 }
@@ -838,35 +858,25 @@ input.search-button{
     padding-right:20px;
 }
 .works-btn-container{
-    width: 40%;
+    width: 100%;
     padding:0 0 6% 0;
     margin-bottom: 0;
     margin-left: 6%;
 }
-.mobile-works-img{
-    display: none;
-}
-.works-btn-container a{
-    padding: 0;
-}
+
+
 .works-btn{
     font-size: 1.8rem;
 }
-.works-img{
-    display: inline-block;
-    width: 60%;
-    height: 750px;
-    padding-top: 20px;
 
-}
-.works-img img{
+.mobile-works-img img{
     object-fit: contain;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 .works-img-txt{
     text-align: center;
-    padding: 0 150px;
+    padding: 0;
 }
 .works-img-txt h4{
     font-size: 24px;
@@ -877,6 +887,26 @@ input.search-button{
 .works-img-flex{
     display: flex;
   
+}
+.works-btn-container{
+    ul{
+    display: grid; 
+    grid-template-columns:40% 55%;
+    align-items: center;
+
+    justify-content: space-between;
+    align-content: center;
+    }
+   .item-img{
+    grid-column: 2/3;
+    grid-row: 1/8;
+    max-width: 90%;
+    max-height: 100%;
+   }
+}
+
+.item-img{
+    display: none;
 }
 .doctors{
 text-align: left;
