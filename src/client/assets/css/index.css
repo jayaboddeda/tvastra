@@ -821,9 +821,35 @@
         justify-self: end;
   }
   .desk-i a {
-    padding: 0 16px;
     color: var(--darkblue);
     font-weight: bold;
+  }
+  .desk-i li {
+    padding: 0 13px;
+  }
+  .treatment_menu {
+    position: relative;
+  }
+  .treatment_menu .treatment_sub__menu {
+    position: absolute;
+    background-color: var(--white);
+    width: 15rem;
+  }
+  .treatment_menu .treatment_sub__menu li {
+    padding: 10px 10px;
+    text-align: center;
+    color: var(--darkblue);
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .treatment_menu .treatment_sub__menu li:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+  }
+  .treatment_sub__menu {
+    display: none;
+  }
+  .treatment_menu:hover .treatment_sub__menu {
+    display: block;
   }
   .desktop-btn {
     -ms-grid-column-align: end;
