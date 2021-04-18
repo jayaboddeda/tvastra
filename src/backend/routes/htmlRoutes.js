@@ -1,24 +1,34 @@
-// importing express module
 const express = require("express");
-
-// importing our controller file so as to map them to their routes
-const pages = require("../controller/htmlController");
-
-// express.Router is a middleware
-// declaring express router function inside router variable
+const htmlController = require("../controller/htmlController");
 const router = express.Router();
+const app = express();
 
-// mapping index.html as homepage to /
-router.route("/").get(pages.homePage);
+router.route("/").get(htmlController.homePage);
 
-// mapping aboutUs.html as response to /aboutus url
-router.route("/aboutus").get(pages.aboutus);
+router.route("/aboutus").get(htmlController.aboutus);
 
-// mapping login.html as response to /login url
-router.route("/login").get(pages.login);
+router.route("/login").get(htmlController.login);
 
-// mapping aboutUs.html as response to /signup url
-router.route("/signup").get(pages.signup);
+router.route("/signup").get(htmlController.signup);
 
-// exporting the router.
+router.route("/doctor").get(htmlController.doctor);
+
+router.route("/hospital").get(htmlController.hospital);
+
+router.route("/about-hospital").get(htmlController.about_hospital);
+
+router.route("/appointment").get(htmlController.appointment);
+
+router.route("/contactus").get(htmlController.contactus);
+
+router.route("/doctor-profile").get(htmlController.doctor_profile);
+
+router.route("/submit-your-query").get(htmlController.submit_your_query);
+
+router.route("/treatment").get(htmlController.treatment);
+
+router.route("/faq").get(htmlController.faq);
+
+router.route("/tvastra-plus").get(htmlController.tvastra_plus);
+
 module.exports = router;

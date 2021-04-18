@@ -1,106 +1,72 @@
-// htmlController.js
 
-// importing path module.
-const path = require("path");
+function homePage (req, res) {
+  res.render("index");
+}
 
-// serving home page for response
 
-let homePage = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/index.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function doctor (req, res){
+    res.render("doctor")
   };
 
-  let doctor = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/doctor.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function hospital (req, res) {
+
+    res.render("hospital");
+  };
+  function signup (req, res){
+
+    res.render("signup");
   };
 
-  let hospital = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/hospital.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function login (req, res) {
+
+    res.render("login");
   };
 
-  let signup = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/signup.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function aboutus (req, res)  {
+
+    res.render("aboutus");
   };
 
-  let login = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/login.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function about_hospital (req, res) {
+
+
+    res.render("about-hospital");
   };
 
-  let aboutus = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/aboutus.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function doctor_profile (req, res) {
+
+  
+    res.render("doctor-profile");
   };
 
-  let about_hospital = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/about-hospital.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function appointment  (req, res) {
+
+    res.render("appointment");
   };
 
-  let doctor_profile = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/doctor-profile.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function contactus (req, res)  {
+  
+    res.render("contactus");
   };
 
-  let appointment = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/appointment.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function faq  (req, res)  {
+ 
+    res.render("faq");
   };
 
-  let contactus = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/contactus.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function submit_your_query (req, res)  {
+
+    res.render("submit-your-query");
   };
 
-  let faq = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/faq.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+  function treatment  (req, res)  {
+
+    res.render("treatment");
   };
 
-  let submit_your_query = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/submit-your-query.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
-  };
+  function tvastra_plus  (req, res) {
 
-  let treatment = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/treatment.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
-  };
-
-  let tvastra_plus = (req, res) => {
-    // defining path to our index.html file as it is or homepage file.
-    let pathToHtml = path.join(__dirname, "../../client/views/tvastra-plus.html");
-    // sending index.html as a response
-    res.sendFile(pathToHtml);
+    res.render("tvastra-plus");
   };
 
 
@@ -118,6 +84,7 @@ let homePage = (req, res) => {
       doctor_profile:doctor_profile,
       submit_your_query:submit_your_query,
       treatment:treatment,
-      tvastra_plus:tvastra_plus
+      tvastra_plus:tvastra_plus,
+      faq:faq
 
   };

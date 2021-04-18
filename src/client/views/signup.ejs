@@ -46,35 +46,38 @@
                  </div>
                  <div class="loginfrm-inp">
                      <div class="login-qstn">
-                        <input type="text" placeholder="Enter Name">
-                        <input type="text" placeholder="Enter Email">
+                         <form action="/signup" method="post">
+                        <input type="text" placeholder="Enter Name" required>
+                        <input type="email" placeholder="Enter Email" required>
                         <div class="login-qstn">
-                            <input type="text" placeholder="Enter Password">
+                            <input type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            itle="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                             <i class="fas fa-eye qstn"></i>
                         </div>
                         
-                        <select name="gender" id="gender"> 
+                        <select name="gender" id="gender" required> 
                             <option value="select">Select Your gender</option>
                             <option value="Male">Male</option> 
                             <option value="Male">Female</option> 
                         </select>
-                        <input type="text" placeholder="dd/ mm/ yyyy">
-                        <input type="text" placeholder="Enter Phone Number">
+                        <input type="date" placeholder="dd/ mm/ yyyy" required>
+                        <input type="tel" placeholder="Enter Phone Number" required>
                      </div>
                      <div class="signup-location">
-                        <input type="text" class="signup-city" placeholder="Enter City">
-                        <input type="text" placeholder="Enter State">
+                        <input type="text" class="signup-city" placeholder="Enter City" required>
+                        <input type="text" placeholder="Enter State" required>
                      </div>
                     
-                     <select name="country" id="country"> 
+                     <select name="country" id="country" required> 
                         <option value="select">Select Your Country</option>
 
                     </select>
                  </div>
                  <div class="arrow">
-                    <button class = "loginform-btn dark-button"><h6>SIGN UP</h6></button>
+                    <button class = "loginform-btn dark-button" type="submit"><h6>SIGN UP</h6></button>
                     <i class="fas fa-arrow-right rarrow"></i>
                  </div>
+                </form>
                  <p>Already Registered? <a href="./login.html"><span>Login</span></a></p>
              </div>
             </div>
