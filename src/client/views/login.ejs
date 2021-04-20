@@ -42,17 +42,19 @@
                     <h4>Login</h4>
                  </div>
                  <div class="loginfrm-inp">
+                     <form action="/login" method="post">
                      <div class="login-qstn">
-                        <input type="text" placeholder="Enter Mobile Number">
+                        <input type="text" placeholder="Enter Mobile Number" name="email">
                         <i class="fas fa-question-circle qstn"></i>
                      </div>
                     
-                    <input type="text" placeholder="Enter OTP">
+                    <input type="password" placeholder="Enter OTP" name="password">
                  </div>
                  <div class="arrow">
-                    <button class = "loginform-btn dark-button"><h6>LOGIN</h6></button>
+                    <button type="submit" class="loginform-btn dark-button"><h6>LOGIN</h6></button>
                     <i class="fas fa-arrow-right rarrow"></i>
                  </div>
+                </form>
                  <p>Not Registered? <a href="./signup.html"><span>Sign Up</span></a></p>
              </div>
             </div>

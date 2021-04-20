@@ -47,10 +47,10 @@
                  <div class="loginfrm-inp">
                      <div class="login-qstn">
                          <form action="/signup" method="post">
-                        <input type="text" placeholder="Enter Name" required>
-                        <input type="email" placeholder="Enter Email" required>
+                        <input type="text" placeholder="Enter Name"name="name" required>
+                        <input type="email" placeholder="Enter Email" name="email" required>
                         <div class="login-qstn">
-                            <input type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            <input name="password" type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                             itle="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                             <i class="fas fa-eye qstn"></i>
                         </div>
@@ -60,12 +60,12 @@
                             <option value="Male">Male</option> 
                             <option value="Male">Female</option> 
                         </select>
-                        <input type="date" placeholder="dd/ mm/ yyyy" required>
-                        <input type="tel" placeholder="Enter Phone Number" required>
+                        <input name="dob" type="date" placeholder="dd/ mm/ yyyy" required>
+                        <input name="phone" type="tel" placeholder="Enter Phone Number" required>
                      </div>
                      <div class="signup-location">
-                        <input type="text" class="signup-city" placeholder="Enter City" required>
-                        <input type="text" placeholder="Enter State" required>
+                        <input name ="city" type="text" class="signup-city" placeholder="Enter City" required>
+                        <input  name="state" type="text" placeholder="Enter State" required>
                      </div>
                     
                      <select name="country" id="country" required> 

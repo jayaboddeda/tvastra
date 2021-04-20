@@ -18,8 +18,7 @@ function homePage (req, res) {
   };
 
   function login (req, res) {
-
-    res.render("login");
+  res.render("login")
   };
 
   function aboutus (req, res)  {
@@ -71,6 +70,8 @@ function homePage (req, res) {
 
 
 
+
+
   module.exports = {
       homePage:homePage,
       doctor:doctor,
@@ -85,6 +86,6 @@ function homePage (req, res) {
       submit_your_query:submit_your_query,
       treatment:treatment,
       tvastra_plus:tvastra_plus,
-      faq:faq
+      faq:faq,
 
   };
