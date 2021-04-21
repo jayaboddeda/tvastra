@@ -31,64 +31,23 @@ app.use(express.static('./client'));
 app.use('/css', express.static(__dirname+"client/assets/css/")); 
 app.use('/js', express.static(__dirname+"client/views/js/")); 
 
-app.use("/", htmlRoutes);
+
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+
 app.use(session({
-	secret: 'TvastraApp',
-	resave: false,
+	cookie: { path: "/", maxAge: 1000 * 60 * 60 * 24 },
+	secret: "KonfinitySecretKey",
 	saveUninitialized: false,
-	cookie: {
-		maxAge: 1000 * 60 * 60 * 24,
-		sameSite: true,
-		secure: false
-	}
-}));
-app.post("/signup",async  (req, res) =>{
-  try {
-    const registerUser = new Register({
-      name : req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      gender: req.body.gender,
-      dob: req.body.dob,
-      phone: req.body.phone,
-      city: req.body.city,
-      state: req.body.state,
-      country: req.body.country
-    })
-    
-    const registered = await registerUser.save();
+	resave: false
+  }));
 
-    res.status(201).redirect("/");
-      }catch(e){
-    res.status(400).send(e);
-  }
-})
-
-app.post("/login", async(req,res)=>{
-  try{
-    const email = req.body.email;
-    const password = req.body.password;
-
-    const useremail = await Register.findOne({email:email});
-    const isMatch = await bcrypt.compare(password,useremail.password)
-
-    if(isMatch){
-      res.status(201).redirect("/")
-    }else{
-
-				res.redirect('/login');;
-      }
-  }
-  catch(error){
-    res.status(400).res.redirect('/login');
-  }
-})
-
-
+  app.use("/", htmlRoutes);
   app.set("port", process.env.PORT || 3000);
 
   app.listen(app.get("port"), () => {
     console.log("Application running in port: " + app.get("port"));
   });
+
+  module.exports = app;
+	  

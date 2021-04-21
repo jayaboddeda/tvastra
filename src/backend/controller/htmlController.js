@@ -1,6 +1,6 @@
 
 function homePage (req, res) {
-  res.render("index");
+  res.render("index",{session: req.session.user});
 }
 
 
@@ -27,8 +27,6 @@ function homePage (req, res) {
   };
 
   function about_hospital (req, res) {
-
-
     res.render("about-hospital");
   };
 
