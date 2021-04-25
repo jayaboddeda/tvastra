@@ -1,6 +1,9 @@
 body{
     background-color: var(--lightblue);
 }
+
+
+
 .navbar{
     background-color: var(--white);
     padding-bottom: 20px;
@@ -10,7 +13,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 78vh;
+    height: 86vh;
     justify-content: center;
 }
 .loginform{
@@ -51,20 +54,29 @@ body{
     font-size: 1.25rem;
     color: var(--lightgrey);
 }
+.otp-forgot{
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    li{
+        padding-bottom:1rem;
+        color: var(--blue);
+    font-family: nexa-bold;
+    }
+}
 .loginform button{
     padding: 1rem;
-
     width: 100%;
 }
 .arrow{
-    width: 90%;
+    width: 100%;
     position: relative;
 }
 .rarrow{
     position: absolute;
     color: var(--white);
     right: 15px;
-    top: 30%;
+    top: 35%;
 }
 .loginform-btn h6{
     color: var(--white);
@@ -92,7 +104,8 @@ body{
 
 .login-copyright{
     text-align: center;
-    margin-bottom: 30px;
+    position: absolute;
+    bottom:0;
 }
 
 .login-copyright p{
@@ -118,9 +131,10 @@ body{
 }
 
 @media only screen and (min-width:1025px){
-    .desktop-nav{
-        background-color: var(--white);
+    .index-desktop-nav {
+        grid-template: 1fr / 0.3fr 1.65fr 1fr;
     }
+
     .loginform{
         width: 30%;
     }

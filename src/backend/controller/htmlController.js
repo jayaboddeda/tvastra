@@ -1,7 +1,7 @@
 
 function homePage (req, res) {
   var val = req.session.user;
-  res.render("index",{user: val});
+  res.render("index");
 }
 
 
@@ -20,6 +20,13 @@ function homePage (req, res) {
 
   function login (req, res) {
   res.render("login")
+  };
+
+  function phone_login (req, res) {
+  res.render("phone-login")
+  };
+  function otp_submit (req, res) {
+  res.render("otp-submit")
   };
 
   function aboutus (req, res)  {
@@ -76,6 +83,8 @@ function homePage (req, res) {
       doctor:doctor,
       hospital:hospital,
       login:login,
+      phone_login:phone_login,
+      otp_submit:otp_submit,
       signup:signup,
       about_hospital:about_hospital,
       aboutus:aboutus,

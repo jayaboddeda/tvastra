@@ -11,6 +11,10 @@ router.route("/aboutus").get(authenticationController.redirectlogin,htmlControll
 router.route("/login").get( authenticationController.redirecthome,htmlController.login );
 router.route("/login").post(  authenticationController.emailLogin);
 
+router.route("/phone-login").get(htmlController.phone_login)
+
+router.route("/otp-submit").get(htmlController.otp_submit)
+
 router.route("/signup").get(authenticationController.redirecthome, htmlController.signup);
 router.route("/signup").post( authenticationController.signUp);
 

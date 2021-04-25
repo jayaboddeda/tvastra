@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\phone-login.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\otp-submit.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+        <title>Login</title>
+    </head>
+    <body>
+      <%- include("partials/header.ejs") %>
+             <div class="loginform-container">
+             <div class="loginform">
+                 <div class="login-header">
+                    <h4>OTP</h4>
+                 </div>
+                 <div class="loginfrm-inp">
+                    <p>
+                        We have sent One Time Password (OTP) to your 
+                        registered Phone Number
+                    </p>
+                     <form action="/otp-submit" method="post">
+                        <div class="form-grp input-div-container">
+                            <div class="input-div">
+                            <input type="number" name="otp1" id="otp1" required minlength="1" maxlength="1" onkeyup="clickEvent(this,'otp2')">  
+                            <input type="number" name="otp2" id="otp2" required minlength="1" maxlength="1" onkeyup="clickEvent(this,'otp3')">  
+                            <input type="number" name="otp3" id="otp3" required minlength="1" maxlength="1" onkeyup="clickEvent(this,'otp4')">  
+                            <input type="number" name="otp4" id="otp4" required minlength="1" maxlength="1" >  
+                        </div>
+                        </div>
+                     <ul class="otp-forgot">
+                        <a href="/login"><li>Resend</li></a> 
+                     </ul>
+                 <div class="arrow">
+                    <button type="submit" class="loginform-btn dark-button"><h6>Submit</h6></button>
+                    <i class="fas fa-arrow-right rarrow"></i>
+                 </div>
+                </form>
+                
+             </div>
+            </div>
+            <div class="login-copyright">
+                <p>All Rights Reserved. tvastra 2018</p>
+            </div>
+
+            <script>
+                function clickEvent(first,next){
+                    if(first.value.length){
+                        document.getElementById(next).focus();
+                    }
+                    
+                }
+            </script>
+
+    </body>
+</html>

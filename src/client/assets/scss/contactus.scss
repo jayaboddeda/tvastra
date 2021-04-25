@@ -106,6 +106,9 @@ padding: 10px 20px;
 }
 
 @media only screen and (min-width:1025px) {
+    .index-desktop-nav {
+        padding:30px 5% 30px 5%;
+    }
     .map iframe{
         padding-top:60px ;
         padding-bottom: 30px;

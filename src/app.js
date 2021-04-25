@@ -5,6 +5,7 @@ const cors = require("cors");
 const compression = require("compression");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
+const flash         = require("connect-flash")
 const path = require("path");
 const bcrypt = require("bcryptjs")
 const htmlRoutes = require("./backend/routes/htmlRoutes");
@@ -42,6 +43,14 @@ app.use(session({
 	resave: false
   }));
 
+  app.use(flash());
+
+  app.use( (req, res, next) => {
+    res.locals.name = req.session.user;
+    res.locals.error = req.flash("error");
+  res.locals.success = req.flash("success");
+    next();
+  });
   app.use("/", htmlRoutes);
   app.set("port", process.env.PORT || 3000);
 

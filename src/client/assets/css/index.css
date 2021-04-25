@@ -793,20 +793,21 @@
     display: grid;
     width: 100%;
     -ms-grid-rows: 1fr;
-    -ms-grid-columns: 0.7fr 2.1fr 1.2fr;
-        grid-template: 1fr / 0.7fr 2.1fr 1.2fr;
+    -ms-grid-columns: 0.3fr 1.2fr 1fr;
+        grid-template: 1fr / 0.3fr 1.2fr 1fr;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     padding: 30px 6% 30px 6%;
+    background-color: var(--white);
   }
   .desktop-nav {
     display: -ms-grid;
     display: grid;
     width: 100%;
     -ms-grid-rows: 1fr;
-    -ms-grid-columns: 0.7fr 2.1fr 1.2fr;
-        grid-template: 1fr / 0.7fr 2.1fr 1.2fr;
+    -ms-grid-columns: 0.3fr 1.2fr 1fr;
+        grid-template: 1fr / 0.3fr 1.2fr 1fr;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -834,6 +835,11 @@
     position: absolute;
     background-color: var(--white);
     width: 15rem;
+    top: 1.5rem;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    z-index: 1;
   }
   .treatment_menu .treatment_sub__menu li {
     padding: 10px 10px;
@@ -844,6 +850,7 @@
   }
   .treatment_menu .treatment_sub__menu li:hover {
     background-color: rgba(128, 128, 128, 0.1);
+    border-left: 5px solid var(--blue);
   }
   .treatment_sub__menu {
     display: none;
@@ -852,14 +859,25 @@
     display: block;
   }
   .desktop-btn {
-    -ms-grid-column-align: end;
-        justify-self: end;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-self: end;
   }
   .desktop-btn button {
     padding: 0.625rem 1rem;
-    border-radius: 3px;
-    border: 1px solid var(--darkblue);
+    border-radius: 5px;
+    border: none;
     font-size: 1.2rem;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   .login-btn {
     color: var(--darkblue);
@@ -868,6 +886,62 @@
   .quote-btn {
     color: var(--white);
     background-color: var(--darkblue);
+  }
+  .flash-container {
+    position: absolute;
+    right: 0;
+    background-color: white;
+    margin-top: 0.7rem;
+    margin-right: 0.7rem;
+    z-index: 9999;
+  }
+  .flash-container .flash-msg {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto auto auto;
+        grid-template-columns: auto auto auto;
+    -webkit-column-gap: 12px;
+            column-gap: 12px;
+    padding: 10px 1rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
+    border-left: 5px solid var(--darkblue);
+    min-width: 250px;
+  }
+  .flash-container .msg-icon {
+    font-size: 1.8rem;
+  }
+  .flash-container .msg-content h6 {
+    margin-bottom: 0;
+  }
+  .flash-container .msg-content p {
+    font-size: 0.85rem;
+    padding-top: 2px;
+    font-weight: 600;
+    max-width: 250px;
+    margin-bottom: 0;
+  }
+  .flash-container .hide-msg-icon {
+    font-size: 1.3rem;
+    margin-left: 0.5rem;
+    color: var(--darkblue);
+    cursor: pointer;
+  }
+  .failure-msg {
+    color: var(--red);
+    border-color: var(--red) !important;
+  }
+  .failure-msg p {
+    color: var(--red);
+  }
+  .success-msg {
+    color: var(--popular_green);
+    border-color: var(--popular_green) !important;
+  }
+  .success-msg p {
+    color: var(--popular_green);
   }
   .find {
     background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.jpg");

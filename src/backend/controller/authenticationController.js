@@ -12,6 +12,7 @@ const redirecthome = (req, res, next) => {
 }
 const redirectlogin = (req, res, next) => {
 	if(!req.session.useremail){
+		req.flash("error", "Please Login First");
 		res.redirect('/login');
 	} 
 	else{
@@ -66,12 +67,17 @@ const emailLogin = async (req, res, next) => {
 				req.session.useremail= user.email;
 				console.log("2 : "+req.session.useremail)
 				req.session.user = user.name;
+			req.flash("success", "sucessfully logged in");
+
 				res.redirect('/');	
 			} else{
+				req.flash("error", "invalid login details");
 
 				res.redirect('/login');	
+				
 			}
 		} else {
+			req.flash("error", "invalid login details");
 
 			res.redirect('/login');
 		}

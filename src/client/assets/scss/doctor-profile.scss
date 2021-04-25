@@ -116,6 +116,9 @@
   }
 
   @media only screen and (min-width:1025px) {
+    .index-desktop-nav {
+        padding:30px 5% 30px 5%;
+    }
     .container{
         display: flex;
         flex-direction: row-reverse;

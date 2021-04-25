@@ -63,6 +63,9 @@ div.arrow{
 }
 
 @media only screen and (min-width:1025px){
+    .index-desktop-nav {
+        padding:30px 5% 30px 5%;
+    }
     button.file-btn{
         width: 20%;
         font-size: 1rem;

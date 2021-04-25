@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+        <link rel="stylesheet" href="..\assets\css\phone-login.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+        <title>Login</title>
+    </head>
+    <body>
+      <%- include("partials/header.ejs") %>
+             <div class="loginform-container">
+             <div class="loginform">
+                 <div class="login-header">
+                    <h4>Phone Login</h4>
+                 </div>
+                 <div class="loginfrm-inp">
+                     <form action="/phone-login" method="post">
+                     <div class="login-qstn">
+                        <input type="tel" placeholder="Enter Mobile Address" name="phone">
+                     </div>
+                 <ul class="otp-forgot">
+                    <a href="/login"><li>Login with Password</li></a> 
+                 </ul>
+                 <div class="arrow">
+                    <button type="submit" class="loginform-btn dark-button"><h6>LOGIN</h6></button>
+                    <i class="fas fa-arrow-right rarrow"></i>
+                 </div>
+                </form>
+                 <p>Not Registered? <a href="/signup"><span>Sign Up</span></a></p>
+             </div>
+            </div>
+            <div class="login-copyright">
+                <p>All Rights Reserved. tvastra 2018</p>
+            </div>
+
+            
+
+    </body>
+</html>

@@ -10,30 +10,7 @@
         <title>Treatment</title>
     </head>
     <body>
-        <nav class="navbar">
-            <a href="..\views\index.html"><img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo"></a>
-            <i class="fas fa-bars fa-2x bar"></i>
-          </nav>
-
-          <nav class="index-desktop-nav">
-            <div class="desk-img">
-                <a href="..\views\index.html"><img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo"></a>
-            </div> 
-                <div class="desk-i">
-                    <ul class="desk-ul">
-                        <li><a href="..\views\doctor.html">Doctors</a></li>
-                        <li><a href="..\views\hospital.html">Hospitals</a></li>
-                        <li><a href="..\views\treatment.html">Treatment</a></li>
-                        <li><a href="..\views\doctor.html">Other Services</a></li>
-                        <li><a href="..\views\aboutus.html">About</a></li>
-                    </ul>
-                  </div>
-                       
-                <div class="desktop-btn">
-                    <a href=".\login.html"> <button class="login-btn">Login / signup</button></a>
-                  <button class="quote-btn">Get a Quote</button>
-                </div>
-             </nav>
+        <%- include("partials/header.ejs")%>
 
              <section class="treatment-banner">
                  <div class="banner-img">
@@ -202,7 +179,7 @@
                    </div>
         </div>
              </section>
-             <script src="./carousel.js"></script>
+             <script src="../views/js/carousel.js"></script>
              <div class="footer-index txt-center">
                 <div class="footer-line1">
                     <div class="footer-img">

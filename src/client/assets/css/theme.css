@@ -9,6 +9,7 @@
   --button_blue:#0173b2;
   --plan-user:#cce3f0;
   --popular_green:#008000;
+  --red:#f80808;
   font-size: 16px;
 }
 
@@ -81,6 +82,19 @@ input {
   font-size: 0.9rem;
   font-family: nexa-light;
   outline: none;
+}
+
+input[type=date] {
+  font-family: nexa-bold;
+  color: var(--lightgrey);
+  font-size: 0.9rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button,
+input[type=number] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
 }
 
 ::-webkit-input-placeholder {
@@ -212,6 +226,9 @@ textarea {
     padding: 0.725rem;
     margin-bottom: 0.725rem;
   }
+  input[type=date] {
+    font-size: 1rem;
+  }
   ::-webkit-input-placeholder {
     font-size: 0.8rem;
   }
@@ -282,6 +299,9 @@ textarea {
     padding: 0.725rem;
     margin-bottom: 1rem;
     font-size: 1.2rem;
+  }
+  input[type=date] {
+    font-size: 1.1rem;
   }
   ::-webkit-input-placeholder {
     font-size: 1rem;

@@ -1,0 +1,33 @@
+.arrow{
+    margin-bottom: 30px;
+}
+
+.loginfrm-inp{
+    padding-top: 0;
+    p{
+        font-family: nexa-light;
+        
+    }
+}
+
+.input-div-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .input-div{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    input{
+        border: none;
+        border-bottom: 2px solid var(--blue);
+        margin-right: 10px;
+        font-family: nexa-bold;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+}

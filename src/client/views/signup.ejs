@@ -13,32 +13,7 @@
         </title>
     </head>
     <body>
-      <div class="navbar">
-          <nav>
-            <a href="..\views\index.html"><img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo"></a>
-            <i class="fas fa-bars fa-2x bar"></i>
-          </nav>
-      </div>
-          
-            <nav class="desktop-nav">
-            <div class="desk-img">
-                <a href="..\views\index.html"><img class="tvastralogo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg" alt="tvastra logo"></a>
-            </div> 
-                <div class="desk-i">
-                    <ul class="desk-ul">
-                        <li><a href="..\views\doctor.html">Doctors</a></li>
-                        <li><a href="..\views\hospital.html">Hospitals</a></li>
-                        <li><a href="..\views\treatment.html">Treatment</a></li>
-                        <li><a href="..\views\doctor.html">Other Services</a></li>
-                        <li><a href="..\views\aboutus.html">About</a></li>
-                    </ul>
-                  </div>
-                       
-                <div class="desktop-btn">
-                    <a href=".\login.html"> <button class="login-btn">Login / signup</button></a>
-                  <button class="quote-btn">Get a Quote</button>
-                </div>
-             </nav>
+      <%- include("partials/header.ejs") %>
              <div class="loginform-container">
              <div class="loginform">
                  <div class="login-header">
@@ -50,9 +25,9 @@
                         <input type="text" placeholder="Enter Name"name="name" required>
                         <input type="email" placeholder="Enter Email" name="email" required>
                         <div class="login-qstn">
-                            <input name="password" type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            <input id="passwordField" name="password" type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                             itle="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                            <i class="fas fa-eye qstn"></i>
+                            <i class="fas fa-eye fa-eye-slash qstn"  id="showPassword"></i>
                         </div>
                         
                         <select name="gender" id="gender" required> 
@@ -78,11 +53,23 @@
                     <i class="fas fa-arrow-right rarrow"></i>
                  </div>
                 </form>
-                 <p>Already Registered? <a href="./login.html"><span>Login</span></a></p>
+                 <p>Already Registered? <a href="/login"><span>Login</span></a></p>
              </div>
             </div>
-            <div class="login-copyright">
+            <div class="signup-copyright">
                 <p>All Rights Reserved. tvastra 2018</p>
             </div>
+            <script>
+                const showPasswordBtn = document.querySelector('#showPassword');
+                const passwordField = document.querySelector('#passwordField');
+                showPasswordBtn.addEventListener('click', (el) => {
+                    showPasswordBtn.classList.toggle("fa-eye-slash");
+                    if(passwordField.type == 'text') {
+                        passwordField.type = 'password';	
+                    } else {
+                        passwordField.type = 'text';
+                    }
+                })
+            </script>
     </body>
 </html>
