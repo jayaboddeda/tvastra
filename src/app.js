@@ -12,11 +12,8 @@ const htmlRoutes = require("./backend/routes/htmlRoutes");
 const session = require('express-session');
 require ("./backend/databases/sqlite")
 const Register = require("./backend/databases/userRegistration");
-const OtpManager = require("./backend/nexmo-otp/src/OtpManager");
-const otpRepository = require("./backend/nexmo-otp/src/otpRepository");
-const otpSender = require("./backend/nexmo-otp/src/otpSender")
 
-const otpManager = new OtpManager(otpRepository, {otpLength: 5, validityTime: 5});
+
 
 app.use(cors());  
 
