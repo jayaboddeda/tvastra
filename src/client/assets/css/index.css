@@ -26,6 +26,72 @@
   display: flex;
 }
 
+.flash-container {
+  position: absolute;
+  right: 0;
+  background-color: white;
+  margin-top: 0.7rem;
+  margin-right: 0.7rem;
+  z-index: 9999;
+}
+
+.flash-container .flash-msg {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -webkit-column-gap: 12px;
+          column-gap: 12px;
+  padding: 10px 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  border-left: 5px solid var(--darkblue);
+  min-width: 250px;
+}
+
+.flash-container .msg-icon {
+  font-size: 1.8rem;
+}
+
+.flash-container .msg-content h6 {
+  margin-bottom: 0;
+}
+
+.flash-container .msg-content p {
+  font-size: 0.85rem;
+  padding-top: 2px;
+  font-weight: 600;
+  max-width: 250px;
+  margin-bottom: 0;
+}
+
+.flash-container .hide-msg-icon {
+  font-size: 1.3rem;
+  margin-left: 0.5rem;
+  color: var(--darkblue);
+  cursor: pointer;
+}
+
+.failure-msg {
+  color: var(--red);
+  border-color: var(--red) !important;
+}
+
+.failure-msg p {
+  color: var(--red);
+}
+
+.success-msg {
+  color: var(--popular_green);
+  border-color: var(--popular_green) !important;
+}
+
+.success-msg p {
+  color: var(--popular_green);
+}
+
 .inputs input::-webkit-input-placeholder {
   font-size: 0.8rem;
 }
@@ -467,7 +533,7 @@
   width: 12.5rem;
 }
 
-.footer {
+.footer-index {
   padding: 30px 5%;
   background-color: var(--darkblue);
 }
@@ -886,62 +952,6 @@
   .quote-btn {
     color: var(--white);
     background-color: var(--darkblue);
-  }
-  .flash-container {
-    position: absolute;
-    right: 0;
-    background-color: white;
-    margin-top: 0.7rem;
-    margin-right: 0.7rem;
-    z-index: 9999;
-  }
-  .flash-container .flash-msg {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: auto auto auto;
-        grid-template-columns: auto auto auto;
-    -webkit-column-gap: 12px;
-            column-gap: 12px;
-    padding: 10px 1rem;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    justify-items: center;
-    border-left: 5px solid var(--darkblue);
-    min-width: 250px;
-  }
-  .flash-container .msg-icon {
-    font-size: 1.8rem;
-  }
-  .flash-container .msg-content h6 {
-    margin-bottom: 0;
-  }
-  .flash-container .msg-content p {
-    font-size: 0.85rem;
-    padding-top: 2px;
-    font-weight: 600;
-    max-width: 250px;
-    margin-bottom: 0;
-  }
-  .flash-container .hide-msg-icon {
-    font-size: 1.3rem;
-    margin-left: 0.5rem;
-    color: var(--darkblue);
-    cursor: pointer;
-  }
-  .failure-msg {
-    color: var(--red);
-    border-color: var(--red) !important;
-  }
-  .failure-msg p {
-    color: var(--red);
-  }
-  .success-msg {
-    color: var(--popular_green);
-    border-color: var(--popular_green) !important;
-  }
-  .success-msg p {
-    color: var(--popular_green);
   }
   .find {
     background-image: url("https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/img1.jpg");
@@ -1580,6 +1590,7 @@
     height: 195px;
     padding: 40px 4%;
     border-bottom: 5px solid var(--blue);
+    background-color: var(--white);
   }
   .footer-line1 {
     position: relative;

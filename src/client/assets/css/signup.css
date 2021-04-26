@@ -3,7 +3,6 @@
   padding: 12px;
   width: 100%;
   background-color: white;
-  color: #c0bdbd;
   margin-bottom: 10px;
   font-size: 0.8rem;
   font-family: nexa-bold;
@@ -35,8 +34,17 @@ option {
   min-height: 125vh;
 }
 
-.loginform select {
+select:invalid {
   color: var(--lightgrey);
+}
+
+input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: var(--lightgrey);
+  font-family: nexa-bold;
+}
+
+input[type=date]:focus::-webkit-datetime-edit {
+  color: var(--darkblue) !important;
 }
 
 .arrow {

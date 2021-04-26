@@ -23,7 +23,14 @@
 .accordion::after{
     margin-left:10px;
 }
-
+.footer{
+    background-color: var(--darkblue);
+}
+@media only screen and (min-width:768px) and (max-width:1024px){
+    .footer{
+        background-color: var(--white);
+    }
+}
 @media only screen and (min-width:1025px) {
     .index-desktop-nav {
         padding:30px 5% 30px 5%;
@@ -33,6 +40,9 @@
     }
     .accordion{
         padding: 20px 0;
+    }
+    .footer{
+        background-color: var(--white);
     }
 }
 

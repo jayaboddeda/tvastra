@@ -98,6 +98,10 @@
   line-height: 0.9;
 }
 
+.footer {
+  background-color: var(--darkblue);
+}
+
 .appointment-btn {
   padding: 10px 20px;
   margin-bottom: 10px;

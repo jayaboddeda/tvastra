@@ -263,13 +263,13 @@
 
     .logo-grid{
         display: grid;
-        grid-template: 1fr 1fr 1fr / 1fr 1fr;
+        grid-template: auto / 1fr 1fr;
         align-items: center;
         justify-content: center;
         margin-bottom: 20px;
         img{
             object-fit: contain;
-            padding:0 40px
+            padding:10px 40px
         }
 
         .birla,.artemis{

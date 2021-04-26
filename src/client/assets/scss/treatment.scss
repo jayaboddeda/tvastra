@@ -250,6 +250,9 @@ h5.fancy{
 .ortho-h5 span:before{
     top:5px
 }
+.footer-index{
+    background-color: var(--white);
+}
 }
 
 @media only screen and (min-width:1025px){
@@ -394,6 +397,8 @@ h5.fancy{
         padding-left: 5%;
     }
     .footer-index{
-        padding-left:3%
+        padding-left:3%;
+        background-color: var(--white);
     }
+
 }

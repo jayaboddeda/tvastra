@@ -84,10 +84,8 @@ input {
   outline: none;
 }
 
-input[type=date] {
-  font-family: nexa-bold;
+input[type="date"]::-webkit-calendar-picker-indicator {
   color: var(--lightgrey);
-  font-size: 0.9rem;
 }
 
 input::-webkit-outer-spin-button,
@@ -167,7 +165,8 @@ select {
 option {
   font-size: 0.8rem;
   font-family: nexa-light;
-  color: var(--darkgrey);
+  color: var(--darkblue);
+  padding: 10px;
 }
 
 label {

@@ -290,9 +290,9 @@
 .benefits .logo-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
   -ms-grid-columns: 1fr 1fr;
-      grid-template: 1fr 1fr 1fr / 1fr 1fr;
+      grid-template: auto / 1fr 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -305,7 +305,7 @@
 .benefits .logo-grid img {
   -o-object-fit: contain;
      object-fit: contain;
-  padding: 0 40px;
+  padding: 10px 40px;
 }
 
 .benefits .logo-grid .birla, .benefits .logo-grid .artemis {

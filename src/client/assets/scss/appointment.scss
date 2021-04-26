@@ -22,16 +22,18 @@ input[type=radio]{
 button.file-btn{
     padding: 2px;
     width: 40%;
-    margin-bottom: 0;
+    
     border-color:var(--darkgrey) ;
 
 }
 .upload{
-    text-align: left;
+    text-align: left; 
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    
 }
+
 .upload p{
     padding:0;
     color:var(--darkblue);
@@ -58,8 +60,12 @@ div.arrow{
 
     min-height: 130vh;
 }
-.loginform button{
+.arrow button{
     margin-bottom: 20px;
+}
+.login-copyright{
+position:relative;
+bottom: 0;
 }
 
 @media only screen and (min-width:1025px){

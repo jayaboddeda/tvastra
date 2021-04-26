@@ -1,6 +1,5 @@
 
 function homePage (req, res) {
-  var val = req.session.user;
   res.render("index");
 }
 

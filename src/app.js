@@ -12,8 +12,12 @@ const htmlRoutes = require("./backend/routes/htmlRoutes");
 const session = require('express-session');
 require ("./backend/databases/sqlite")
 const Register = require("./backend/databases/userRegistration");
-const { ppid } = require("process");
-const { STATES } = require("mongoose");
+const OtpManager = require("./backend/nexmo-otp/src/OtpManager");
+const otpRepository = require("./backend/nexmo-otp/src/otpRepository");
+const otpSender = require("./backend/nexmo-otp/src/otpSender")
+
+const otpManager = new OtpManager(otpRepository, {otpLength: 5, validityTime: 5});
+
 app.use(cors());  
 
 app.use(compression());
@@ -51,6 +55,8 @@ app.use(session({
   res.locals.success = req.flash("success");
     next();
   });
+
+
   app.use("/", htmlRoutes);
   app.set("port", process.env.PORT || 3000);
 

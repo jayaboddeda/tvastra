@@ -4,12 +4,12 @@ const authenticationController = require("../controller/authenticationController
 const router = express.Router();
 const app = express();
 
-router.route("/").get(authenticationController.redirectlogin,htmlController.homePage);
+router.route("/index").get(authenticationController.redirectlogin,htmlController.homePage);
 
 router.route("/aboutus").get(authenticationController.redirectlogin,htmlController.aboutus);
 
-router.route("/login").get( authenticationController.redirecthome,htmlController.login );
-router.route("/login").post(  authenticationController.emailLogin);
+router.route("/").get( authenticationController.redirecthome,htmlController.login );
+router.route("/").post(  authenticationController.emailLogin);
 
 router.route("/phone-login").get(htmlController.phone_login)
 

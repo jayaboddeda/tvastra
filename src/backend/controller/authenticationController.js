@@ -4,7 +4,7 @@ const User = require("../databases/userRegistration");
 
 const redirecthome = (req, res, next) => {
 	if(req.session.useremail){
-		res.redirect('/');
+		res.redirect('/index');
 	} 
 	else{
 		next();
@@ -13,7 +13,7 @@ const redirecthome = (req, res, next) => {
 const redirectlogin = (req, res, next) => {
 	if(!req.session.useremail){
 		req.flash("error", "Please Login First");
-		res.redirect('/login');
+		res.redirect('/');
 	} 
 	else{
 		next();
@@ -44,7 +44,7 @@ const signUp = async (req, res) => {
 		})	
 		console.log(req.body.email)
 		
-		return res.redirect("/")
+		return res.redirect("/index")
 	}
 	
 }
@@ -69,24 +69,24 @@ const emailLogin = async (req, res, next) => {
 				req.session.user = user.name;
 			req.flash("success", "sucessfully logged in");
 
-				res.redirect('/');	
+				res.redirect('/index');	
 			} else{
 				req.flash("error", "invalid login details");
 
-				res.redirect('/login');	
+				res.redirect('/');	
 				
 			}
 		} else {
 			req.flash("error", "invalid login details");
 
-			res.redirect('/login');
+			res.redirect('/');
 		}
 	}
 }
 
 const logout = (req, res, next) => {
 	req.session.destroy();
-  res.redirect("/login");
+  res.redirect("/");
 }
 
 module.exports = {
