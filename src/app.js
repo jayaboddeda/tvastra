@@ -13,8 +13,6 @@ const session = require('express-session');
 require ("./backend/databases/sqlite")
 const Register = require("./backend/databases/userRegistration");
 
-
-
 app.use(cors());  
 
 app.use(compression());
@@ -49,7 +47,7 @@ app.use(session({
   app.use( (req, res, next) => {
     res.locals.name = req.session.user;
     res.locals.error = req.flash("error");
-  res.locals.success = req.flash("success");
+    res.locals.success = req.flash("success");
     next();
   });
 

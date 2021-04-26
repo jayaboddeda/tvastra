@@ -3,7 +3,8 @@ const User = require("../databases/userRegistration");
 
 
 const redirecthome = (req, res, next) => {
-	if(req.session.useremail){
+	
+	if(req.session.useremail ){
 		res.redirect('/index');
 	} 
 	else{
@@ -60,12 +61,13 @@ const emailLogin = async (req, res, next) => {
 	if(req.body.email && req.body.password){
 		
 		const user = await User.findOne({ email: req.body.email });
+		
 		if(user){
             const isMatch = await bcrypt.compare(req.body.password,user.password)
 			
 			if(isMatch){
 				req.session.useremail= user.email;
-				console.log("2 : "+req.session.useremail)
+
 				req.session.user = user.name;
 			req.flash("success", "sucessfully logged in");
 

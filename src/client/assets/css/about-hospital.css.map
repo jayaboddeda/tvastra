@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,gBAAgB,EAAE,eAAe;EACjC,WAAW,EAAE,IAAI;EACjB,cAAc,EAAE,IAAI;CACvB;;AAED,MAAM,MAAM,MAAM,MAAM,SAAS,EAAE,MAAM;EACrC,AAAA,OAAO,CAAA;IACH,gBAAgB,EAAE,YAAY;GACjC",
     "sources": [
         "../scss/about-hospital.scss"
     ],

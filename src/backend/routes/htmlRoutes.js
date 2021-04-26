@@ -1,6 +1,7 @@
 const express = require("express");
 const htmlController = require("../controller/htmlController");
 const authenticationController = require("../controller/authenticationController");
+const otpController = require("../controller/otpController");
 const router = express.Router();
 const app = express();
 
@@ -17,6 +18,9 @@ router.route("/otp-submit").get(htmlController.otp_submit)
 
 router.route("/signup").get(authenticationController.redirecthome, htmlController.signup);
 router.route("/signup").post( authenticationController.signUp);
+
+router.route("/phone-login").post(htmlController.otprequest);
+router.route("/otp-submit").post(htmlController.verifyotp);
 
 router.route("/doctor").get(authenticationController.redirectlogin,htmlController.doctor);
 

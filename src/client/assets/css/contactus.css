@@ -104,6 +104,12 @@
   text-align: end;
 }
 
+.footer {
+  background-color: var(--darkblue);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .contact-info {
     display: -webkit-box;
@@ -213,6 +219,9 @@
   }
   .contact-info h6 {
     font-size: 1.5rem;
+  }
+  .footer {
+    background-color: var(--white);
   }
 }
 /*# sourceMappingURL=contactus.css.map */

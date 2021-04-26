@@ -26,10 +26,10 @@
                      <form action="/otp-submit" method="post">
                         <div class="form-grp input-div-container">
                             <div class="input-div">
-                            <input type="number" name="otp1" id="otp1" required minlength="1" maxlength="1" onkeyup="clickEvent(this,'otp2')">  
-                            <input type="number" name="otp2" id="otp2" required minlength="1" maxlength="1" onkeyup="clickEvent(this,'otp3')">  
-                            <input type="number" name="otp3" id="otp3" required minlength="1" maxlength="1" onkeyup="clickEvent(this,'otp4')">  
-                            <input type="number" name="otp4" id="otp4" required minlength="1" maxlength="1" >  
+                            <input type="text" name="otp1" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp1" required  maxlength="1" onkeyup="clickEvent(this,'otp2')">  
+                            <input type="text" name="otp2" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp2" required  maxlength="1" onkeyup="clickEvent(this,'otp3')">  
+                            <input type="text" name="otp3" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp3" required  maxlength="1" onkeyup="clickEvent(this,'otp4')">  
+                            <input type="text" name="otp4" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp4" required  maxlength="1" >  
                         </div>
                         </div>
                      <ul class="otp-forgot">

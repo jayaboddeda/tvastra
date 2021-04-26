@@ -1,1 +1,12 @@
-/* No CSS *//*# sourceMappingURL=about-hospital.css.map */
+.footer {
+  background-color: var(--darkblue);
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media only screen and (min-width: 1025px) {
+  .footer {
+    background-color: var(--white);
+  }
+}
+/*# sourceMappingURL=about-hospital.css.map */
