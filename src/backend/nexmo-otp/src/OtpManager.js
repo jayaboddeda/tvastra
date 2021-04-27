@@ -1,4 +1,4 @@
-const OtpItem = require("./otpItem");
+const OtpItem = require("./OtpItem");
 
 const VerificationResults = {
   valid: Symbol("valid"),
