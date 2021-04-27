@@ -19,8 +19,13 @@ router.route("/otp-submit").get(htmlController.otp_submit)
 router.route("/signup").get(authenticationController.redirecthome, htmlController.signup);
 router.route("/signup").post( authenticationController.signUp);
 
-router.route("/phone-login").post(htmlController.otprequest);
-router.route("/otp-submit").post(htmlController.verifyotp);
+router.route("/phone-login").post(otpController.otprequest);
+router.route("/otp-submit").post(otpController.verifyotp);
+router.route("/forgot-password").post(authenticationController.checkIfUserExists,otpController.otprequest);
+router.route("/resend").post(otpController.otprequest)
+router.route("/changepassword").get(htmlController.changepassword);
+router.route("/changepassword").post(authenticationController.changePassword);
+
 
 router.route("/doctor").get(authenticationController.redirectlogin,htmlController.doctor);
 

@@ -17,6 +17,7 @@
              <div class="loginform">
                  <div class="login-header">
                     <h4>OTP</h4>
+                    <p id="mobile-number" style="display: none;"><%=phone%></p>
                  </div>
                  <div class="loginfrm-inp">
                     <p>
@@ -32,8 +33,8 @@
                             <input type="text" name="otp4" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp4" required  maxlength="1" >  
                         </div>
                         </div>
-                     <ul class="otp-forgot">
-                        <a href="/login"><li>Resend</li></a> 
+                     <ul class="otp-forgot timer">
+                        <li id="resend">Resend in 10</li>
                      </ul>
                  <div class="arrow">
                     <button type="submit" class="loginform-btn dark-button"><h6>Submit</h6></button>
@@ -54,6 +55,36 @@
                     }
                     
                 }
+                
+                const resendBtn = document.querySelector('#resend');
+                
+                
+                const timer = document.querySelector('.timer').children[0];
+                
+                let timerCount = parseInt(timer.innerHTML.split(' ')[2]);
+                const countDown = setInterval(() => {
+                        if(timerCount === 0) {
+                            timer.innerHTML = 'Resend';
+                            clearInterval(countDown);
+                            const resendotp = async () => {
+                                const mobile = document.querySelector('p').textContent;
+                            const response = await fetch('/resend', {
+                                method: 'post',
+                                headers:{ 
+                                    "Content-Type": "application/json" 
+                                },
+                                body: JSON.stringify({ phone: mobile }),
+                            });
+                            window.location.replace(response.url);
+                        }
+
+                        resendBtn.addEventListener('click', resendotp);
+                        } else {
+                            timerCount--;
+                            timer.innerHTML = `Resend in ${timerCount}`;	
+                        }
+                        
+                    },1000);
             </script>
 
     </body>

@@ -45,6 +45,7 @@ app.use(session({
   app.use(flash());
 
   app.use( (req, res, next) => {
+    res.locals.phone = req.session.phone
     res.locals.name = req.session.user;
     res.locals.error = req.flash("error");
     res.locals.success = req.flash("success");

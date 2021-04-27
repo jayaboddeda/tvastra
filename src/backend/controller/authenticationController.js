@@ -4,7 +4,7 @@ const User = require("../databases/userRegistration");
 
 const redirecthome = (req, res, next) => {
 	
-	if(req.session.useremail ){
+	if(req.session.useremail && req.session.user ){
 		res.redirect('/index');
 	} 
 	else{
@@ -86,7 +86,41 @@ const emailLogin = async (req, res, next) => {
 	}
 }
 
-const logout = (req, res, next) => {
+const changePassword = async (req, res) => {
+	if(req.body.new_password === req.body.confirm_password){
+		const user = await User.findOne({phone:req.session.phone});
+		user.password = req.body.new_password;
+		await user.save();
+		req.session.forgetPassword = false;
+		req.flash("success" , 'Password Changed Successfully');
+		delete req.session.phone;
+		delete req.session.user;
+		res.redirect('/'); 
+	} else {
+		req.flash("error" , 'Passwords do not match');
+		res.redirect('/changepassword');
+	}
+}
+
+const checkIfUserExists = async (req, res, next) => {
+	if(req.body.email){
+		const user = await User.findOne({ email: req.body.email });
+		if(user){
+			req.body.phone = user.phone;
+			req.session.forgetPassword = true;
+      		req.session.phone = user.phone
+			next();
+		} else {
+			req.flash("error",'Email Not registered');
+			res.redirect('/');
+		}
+	} else {
+		req.flash("error",'Email Not registered');
+		res.redirect('/');
+	}
+}
+
+const logout = (req, res) => {
 	req.session.destroy();
   res.redirect("/");
 }
@@ -98,5 +132,7 @@ module.exports = {
 	signUp: signUp,
 	emailLogin: emailLogin,
 	logout: logout,
+	changePassword:changePassword,
+	checkIfUserExists:checkIfUserExists
 	
 }
