@@ -39,7 +39,12 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    role:{
+        type:String
+    }
 })
+
+
 
     userSchema.pre("save", async function(next){
         if(this.isModified("password")){
@@ -49,5 +54,4 @@ const userSchema = new mongoose.Schema({
         next();
     })
     const Register = new mongoose.model("Register",userSchema );
- 
     module.exports=Register;

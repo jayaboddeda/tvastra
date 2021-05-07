@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs")
 const User = require("../databases/userRegistration");
+const Doctor = require("../databases/doctor_info");
 
 
 const redirecthome = (req, res, next) => {
@@ -24,9 +25,8 @@ const redirectlogin = (req, res, next) => {
 
 const signUp = async (req, res) => {
 	
-	try{
-		req.session.email = req.body.email;
-	req.session.user = req.body.name;
+	try{ 
+		
 	const finduser = await User.findOne({ email: req.body.email });
 	if(finduser){
 		return res.redirect("/signup")
@@ -41,11 +41,17 @@ const signUp = async (req, res) => {
 		  phone: req.body.phone,
 		  city: req.body.city,
 		  state: req.body.state,
-		  country: req.body.country	
+		  country: req.body.country	,
+		  role:req.body.isDoctor ? "doctor" : "user"
 		})	
-		console.log(req.body.email)
 		
+		req.session.useremail= req.body.email;
+		req.session.user = req.body.name;
+		if(newUser.role == "doctor"){
+			return res.redirect("/doctor-info")
+		}
 		return res.redirect("/index")
+		
 	}
 	
 }
@@ -53,6 +59,31 @@ catch(err){
 console.log(err)
 res.redirect('/signup')
 }
+}
+
+const doctorInfo = async (req, res) => {
+	
+	try{
+		console.log('req1........')
+		const newDoctor = await Doctor.create({
+			describe : req.body.describe,
+			image : req.body.image,
+			hospital:req.body.hospital,
+			achievements: req.body.achievements,
+			experience: req.body.experience,
+			qualifications: req.body.qualifications,
+			awards: req.body.awards,
+			specialization: req.body.specialization,
+			fees : req.body.fees
+		})
+		res.redirect("/index")	
+	}
+	catch(err){
+		console.log(err);
+		res.redirect("/doctor-info")
+	}
+
+		
 }
 
 const emailLogin = async (req, res, next) => {
@@ -84,6 +115,11 @@ const emailLogin = async (req, res, next) => {
 			res.redirect('/');
 		}
 	}
+	else{
+		req.flash("error", "Please enter email and password");
+
+			res.redirect('/');
+	}
 }
 
 const changePassword = async (req, res) => {
@@ -103,22 +139,26 @@ const changePassword = async (req, res) => {
 }
 
 const checkIfUserExists = async (req, res, next) => {
+
 	if(req.body.email){
 		const user = await User.findOne({ email: req.body.email });
+		
 		if(user){
 			req.body.phone = user.phone;
 			req.session.forgetPassword = true;
-      		req.session.phone = user.phone
+      		req.session.phone = user.phone;
 			next();
 		} else {
-			req.flash("error",'Email Not registered');
+			req.flash("error" , "Email Not registered");
 			res.redirect('/');
 		}
 	} else {
-		req.flash("error",'Email Not registered');
+		req.flash("error", "Please enter email");
 		res.redirect('/');
 	}
 }
+
+
 
 const logout = (req, res) => {
 	req.session.destroy();
@@ -133,6 +173,6 @@ module.exports = {
 	emailLogin: emailLogin,
 	logout: logout,
 	changePassword:changePassword,
-	checkIfUserExists:checkIfUserExists
-	
+	checkIfUserExists:checkIfUserExists,
+	doctorInfo
 }

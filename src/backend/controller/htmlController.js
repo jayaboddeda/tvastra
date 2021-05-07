@@ -17,9 +17,12 @@ function homePage (req, res) {
 
     res.render("signup");
   };
-
+function doctor_info(req,res){
+  res.render("doctor-info")
+}
   function login (req, res) {
-  res.render("login")
+  res.render("login");
+  
   };
 
   function phone_login (req, res) {
@@ -99,5 +102,6 @@ function homePage (req, res) {
       treatment:treatment,
       tvastra_plus:tvastra_plus,
       faq:faq,
-      changepassword:changepassword
+      changepassword:changepassword,
+      doctor_info
   };

@@ -19,6 +19,10 @@ router.route("/otp-submit").get(htmlController.otp_submit)
 router.route("/signup").get(authenticationController.redirecthome, htmlController.signup);
 router.route("/signup").post( authenticationController.signUp);
 
+router.route("/doctor-info").get(htmlController.doctor_info);
+router.route("/doctor-info").post(authenticationController.doctorInfo);
+
+
 router.route("/phone-login").post(otpController.otprequest);
 router.route("/otp-submit").post(otpController.verifyotp);
 router.route("/forgot-password").post(authenticationController.checkIfUserExists,otpController.otprequest);

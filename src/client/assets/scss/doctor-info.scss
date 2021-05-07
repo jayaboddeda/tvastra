@@ -1,0 +1,43 @@
+
+.loginform-container{
+    height:200vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    overflow: hidden;
+}
+.loginfrm-inp{
+   
+    text-align: left;
+}
+textarea{
+    width: 100%;
+}
+.arrow{
+    width:100%;
+    margin-bottom:30px;
+}
+.doctor_info-copyright{
+
+    p{
+        margin-bottom: 0;
+    }
+}
+label{
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--blue);
+    line-height: 2;
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px){
+    label{
+        font-size: 1.1rem;
+    }
+}
+
+@media only screen and (min-width:1025px){
+    label{
+        font-size: 1.2rem;
+    }
+}

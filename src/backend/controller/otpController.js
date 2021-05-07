@@ -93,5 +93,4 @@ res.status(statusCode).redirect(bodyMessage);
 module.exports = {
   otprequest:otprequest,
       verifyotp:verifyotp,
-      
 }

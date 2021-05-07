@@ -46,6 +46,21 @@ input[type=date]:focus::-webkit-datetime-edit {
     bottom: 50px;
     text-align: center;
 }
+.doctor_check{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    input{
+        width:1.5rem;
+        height: 1rem;
+        margin: 0;
+        margin-right:0.5rem;
+    }
+    label{
+        font-weight: bold;
+    }
+}
 @media only screen and (min-width:768px) and (max-width:1024px){
     .loginform-container{
 

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\signup.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\doctor-info.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+    <title>
+        Sign Up
+    </title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <div class="loginform-container">
+            <div class="loginform">
+                <div class="login-header">
+                    <h4>Welcome</h4>
+                    <h6>Complete your profile to access the site</h6>
+                </div>
+                <div class="loginfrm-inp">
+                    <div class="login-qstn">
+                        <form action="/doctor-info" method="post">
+                            <label for="describe_doctor">Describe yourself</label>
+                            <textarea name="describe" id="describe_doctor" cols="55" rows="4" placeholder="How would you describe yourself"></textarea>
+                            <label for="doctor">Upload your profile picture</label>
+                            <input type="file" name="doctor_image" id="doctor_image">
+                            <label for="hospital">Your Hospital</label>
+                            <input type="text" name="hospital" id="hospital">
+                            <label for="acheivements">Acheivements</label>
+                            <input type="text" name="acheivements" id="acheivements">
+                            <label for="experience">Years of experience</label>
+                            <input type="number" name="experience" id="experience">
+                            <label for="qualifications">Qualifications</label>
+                            <input type="text" name="qualifications" id="qualifications">
+                            <label for="awards">Awards</label>
+                            <input type="text" name="awards" id="awards">
+                            <label for="specialization">Specialization</label>
+                            <input type="text" name="specialization" id="specialization">
+                            <label for="fees">Your average fees</label>
+                            <input type="number" name="fees" id="fees">
+                        
+                <div class="arrow">
+                    <button class="loginform-btn dark-button" type="submit">
+                        <h6>Submit</h6>
+                    </button>
+                    <i class="fas fa-arrow-right rarrow"></i>
+                </div>
+                </form>
+                
+            </div>
+        </div>
+        </div>
+        <div class="doctor_info-copyright">
+            <p>All Rights Reserved. tvastra 2018</p>
+        </div>
+       
+</body>
+
+</html>

@@ -1,77 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
-        <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
-        <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
-        <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
-        <link rel="stylesheet" href="..\assets\css\signup.css" type="text/css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
-        <title>
-            Sign Up
-        </title>
-    </head>
-    <body>
-      <%- include("partials/header.ejs") %>
-             <div class="loginform-container">
-             <div class="loginform">
-                 <div class="login-header">
+
+<head>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\signup.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+    <title>
+        Sign Up
+    </title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <div class="loginform-container">
+            <div class="loginform">
+                <div class="login-header">
                     <h4>Sign Up</h4>
-                 </div>
-                 <div class="loginfrm-inp">
-                     <div class="login-qstn">
-                         <form action="/signup" method="post">
-                        <input type="text" placeholder="Enter Name"name="name" required>
-                        <input type="email" placeholder="Enter Email" name="email" required>
-                        <div class="login-qstn">
-                            <input id="passwordField" name="password" type="password" placeholder="Enter Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-                            <i class="fas fa-eye fa-eye-slash qstn"  id="showPassword"></i>
-                        </div>
-                        
-                        <select name="gender" id="gender"  required> 
-                            <option value="" disabled selected hidden>Select your gender</option>
-                            <option value="Male">Male</option> 
-                            <option value="Female">Female</option> 
-                        </select>
-                        <input name="dob" type="date" placeholder="dd/ mm/ yyyy" required>
-                        <input name="phone" type="tel" placeholder="Enter Phone Number" required>
-                     </div>
-                     <div class="signup-location">
-                        <input name ="city" type="text" class="signup-city" placeholder="Enter City" required>
-                        <input  name="state" type="text" placeholder="Enter State" required>
-                     </div>
-                    
-                     <select name="country" id="country" required> 
+                </div>
+                <div class="loginfrm-inp">
+                    <div class="login-qstn">
+                        <form action="/signup" method="post">
+                            <input type="text" placeholder="Enter Name" name="name" required>
+                            <input type="email" placeholder="Enter Email" name="email" required>
+                            <div class="login-qstn">
+                                <input id="passwordField" name="password" type="password" placeholder="Enter Password"
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                    required>
+                                <i class="fas fa-eye fa-eye-slash qstn" id="showPassword"></i>
+                            </div>
+
+                            <select name="gender" id="gender" required>
+                                <option value="" disabled selected hidden>Select your gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                            <input name="dob" type="date" placeholder="dd/ mm/ yyyy" required>
+                            <input name="phone" type="tel" placeholder="Enter Phone Number" required>
+                    </div>
+                    <div class="signup-location">
+                        <input name="city" type="text" class="signup-city" placeholder="Enter City" required>
+                        <input name="state" type="text" placeholder="Enter State" required>
+                    </div>
+
+                    <select name="country" id="country" required>
                         <option value="" disabled selected hidden>Select your Country</option>
 
                         <option value="select">India</option>
 
                     </select>
-                 </div>
-                 <div class="arrow">
-                    <button class = "loginform-btn dark-button" type="submit"><h6>SIGN UP</h6></button>
+                    <div class="doctor_check">
+                    <input type="checkbox" name="isDoctor" id="isDoctor">
+                        <label for="isDoctor">is Doctor?</label>
+                    </div>
+                </div>
+                <div class="arrow">
+                    <button class="loginform-btn dark-button" type="submit">
+                        <h6>SIGN UP</h6>
+                    </button>
                     <i class="fas fa-arrow-right rarrow"></i>
-                 </div>
+                </div>
                 </form>
-                 <p>Already Registered? <a href="/login"><span>Login</span></a></p>
-             </div>
+                <p>Already Registered? <a href="/login"><span>Login</span></a></p>
             </div>
-            <div class="signup-copyright">
-                <p>All Rights Reserved. tvastra 2018</p>
-            </div>
-            <script>
-                const showPasswordBtn = document.querySelector('#showPassword');
-                const passwordField = document.querySelector('#passwordField');
-                showPasswordBtn.addEventListener('click', (el) => {
-                    showPasswordBtn.classList.toggle("fa-eye-slash");
-                    if(passwordField.type == 'text') {
-                        passwordField.type = 'password';	
-                    } else {
-                        passwordField.type = 'text';
-                    }
-                })
-            </script>
-    </body>
+        </div>
+        <div class="signup-copyright">
+            <p>All Rights Reserved. tvastra 2018</p>
+        </div>
+        <script>
+            const showPasswordBtn = document.querySelector('#showPassword');
+            const passwordField = document.querySelector('#passwordField');
+            showPasswordBtn.addEventListener('click', (el) => {
+                showPasswordBtn.classList.toggle("fa-eye-slash");
+                if (passwordField.type == 'text') {
+                    passwordField.type = 'password';
+                } else {
+                    passwordField.type = 'text';
+                }
+            })
+        </script>
+</body>
+
 </html>

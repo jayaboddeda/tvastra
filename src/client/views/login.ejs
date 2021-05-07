@@ -58,6 +58,7 @@
 
                 const forgotPassword = async () => {
 	const emailAddress = document.querySelector('input[name="email"]').value;
+  
 	const response = await fetch('/forgot-password', {
 		method: 'post',
 		headers:{ 
