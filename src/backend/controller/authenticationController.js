@@ -1,8 +1,7 @@
 const bcrypt = require("bcryptjs")
 const User = require("../databases/userRegistration");
 const Doctor = require("../databases/doctor_info");
-
-
+const filename= require("../controller/multer");
 const redirecthome = (req, res, next) => {
 	
 	if(req.session.useremail && req.session.user ){
@@ -61,13 +60,13 @@ res.redirect('/signup')
 }
 }
 
-const doctorInfo = async (req, res) => {
+const doctorInfo = async (req, res,filename) => {
 	
 	try{
-		console.log('req1........')
+		
 		const newDoctor = await Doctor.create({
 			describe : req.body.describe,
-			image : req.body.image,
+			image : req.file.filename,
 			hospital:req.body.hospital,
 			achievements: req.body.achievements,
 			experience: req.body.experience,
@@ -164,7 +163,7 @@ const logout = (req, res) => {
 	req.session.destroy();
   res.redirect("/");
 }
-
+ 
 module.exports = {
 
 	redirecthome: redirecthome,

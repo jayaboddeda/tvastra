@@ -25,11 +25,11 @@
                 </div>
                 <div class="loginfrm-inp">
                     <div class="login-qstn">
-                        <form action="/doctor-info" method="post">
+                        <form action="/doctor-info" method="post" enctype="multipart/form-data">
                             <label for="describe_doctor">Describe yourself</label>
                             <textarea name="describe" id="describe_doctor" cols="55" rows="4" placeholder="How would you describe yourself"></textarea>
                             <label for="doctor">Upload your profile picture</label>
-                            <input type="file" name="doctor_image" id="doctor_image">
+                            <input type="file" name="image" id="doctor_image">
                             <label for="hospital">Your Hospital</label>
                             <input type="text" name="hospital" id="hospital">
                             <label for="acheivements">Acheivements</label>

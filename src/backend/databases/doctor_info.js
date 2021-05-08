@@ -5,7 +5,9 @@ const doctorInfo = new mongoose.Schema({
     describe:{
         type:String
     },
-    
+    image:{
+        type:String
+    },
     hospital:{
         type:String
     },

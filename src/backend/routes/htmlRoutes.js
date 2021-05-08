@@ -2,6 +2,8 @@ const express = require("express");
 const htmlController = require("../controller/htmlController");
 const authenticationController = require("../controller/authenticationController");
 const otpController = require("../controller/otpController");
+const multer = require("../controller/multer");
+
 const router = express.Router();
 const app = express();
 
@@ -20,7 +22,7 @@ router.route("/signup").get(authenticationController.redirecthome, htmlControlle
 router.route("/signup").post( authenticationController.signUp);
 
 router.route("/doctor-info").get(htmlController.doctor_info);
-router.route("/doctor-info").post(authenticationController.doctorInfo);
+router.route("/doctor-info").post(multer.uploadDocImg,authenticationController.doctorInfo);
 
 
 router.route("/phone-login").post(otpController.otprequest);
