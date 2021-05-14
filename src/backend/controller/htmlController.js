@@ -81,7 +81,9 @@ function doctor_info(req,res){
     res.render("tvastra-plus");
   };
 
-
+function profile (req,res){
+  res.render("profile")
+}
 
 
 
@@ -103,5 +105,6 @@ function doctor_info(req,res){
       tvastra_plus:tvastra_plus,
       faq:faq,
       changepassword:changepassword,
-      doctor_info
+      doctor_info,
+      profile
   };

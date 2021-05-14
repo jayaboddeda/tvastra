@@ -1,7 +1,163 @@
 .tvastralogo{
     max-width: 120px;
-    padding-left: 5%;
+    padding-left: 15%;
 }
+nav{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-right: 4%;
+}
+.nav_right_content {
+    display: flex;
+    width: 7.5rem;
+    align-items: baseline;
+    justify-content: space-between;
+}
+.mobile-btn  {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 5.2rem;
+    position: relative;
+    top: 2px;
+    a{
+        font-size: 1rem;
+    }
+}
+i.fas.fa-angle-down {
+    font-size: 1rem;
+    position: relative;
+    top: 0;
+}
+.desktop-btn button {
+    padding: 0.625rem 1rem;
+    border-radius: 5px;
+    border: none;
+    
+}
+.quote-btn {
+    color: var(--white);
+    background-color: var(--darkblue);
+}
+.mobile_btns {
+    display: flex;
+    .plus_btn{
+        margin-left: 0;
+    }
+}
+.mobile-ul{
+    .treatment_menu{
+        position: relative;
+        display: flex;
+        align-items: center;
+        .treatment_sub__menu{
+    
+            position: absolute;
+            background-color: var(--white);
+            width:13.5rem;
+            top:2rem;
+            right: 90%;
+            transform: translateX(50%);
+            z-index: 1;
+          
+            li{
+                padding:10px 10px;
+                
+                color: var(--darkblue);
+                font-weight: bold;
+                font-size: 1rem;
+            }
+           
+            .treatment_sub__menu_options{
+            li:hover{
+                background-color: rgba(128, 128, 128, 0.1);
+                border-left:5px solid var(--blue)
+            }
+        }
+        .profile_image_container{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-bottom: 1px solid var(--darkgrey);
+        }
+        img.profile_img {
+            border-radius: 50%;
+            height: 60px;
+            width: 60px;
+            margin: 10px 0;
+            
+        }
+       
+        }
+    }
+}
+.treatment_sub__menu{
+    display: none;
+    .sidebar a{
+        padding: 0;
+    }
+}
+
+.treatment_sub__menu.left li {
+    text-align: left;
+}
+
+.treatment_menu:hover{
+    .treatment_sub__menu{
+        display: block;
+    }
+}
+.sidebar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0;
+    .tvastralogo{
+        padding-left: 0;
+    }
+    img{
+        object-fit: contain;
+        
+    }
+}
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--white);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .sidebar a {
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
+    text-decoration: none;
+    font-size: 25px;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: var(--blue);
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    right: 1rem;
+    font-size: 3rem;
+  }
+  
+
+.treatment_sub__menu{
+    a {
+        padding: 0 !important;
+    }
+}
+
 .desktop-nav,.treat_carousel__navigation
 ,.carousel__navigation{
     display: none;
@@ -681,6 +837,9 @@ margin-bottom:0 ;
     padding: 0;
     padding-left:10px;
 }
+.footer-index{
+    background-color: var(--white);
+}
 .footer-i{
     display: flex;
     flex-direction: row;
@@ -745,7 +904,7 @@ display: inline-block;
 .index-desktop-nav {
     display: grid;
     width: 100%;
-    grid-template: 1fr / 0.3fr 1.4fr 1fr;
+    grid-template: 1fr / 0.3fr 1.4fr 1.1fr;
     align-items:center;
     padding:30px 6% 30px 6%;
     background-color: var(--white);
@@ -772,11 +931,19 @@ display: inline-block;
     font-weight: bold;
 }
 
+.desk-i a:hover {
+    color: var(--blue);
+}
 .desk-i li{
     padding:0 13px;
 }
 
-
+.dentistry{
+    li:hover{
+        background-color: rgba(128, 128, 128, 0.1);
+        border-left:5px solid var(--blue)
+    }
+}
 
 .treatment_menu{
     position: relative;
@@ -798,14 +965,43 @@ display: inline-block;
             font-weight: bold;
             font-size: 1.2rem;
         }
+       
+        .treatment_sub__menu_options{
         li:hover{
             background-color: rgba(128, 128, 128, 0.1);
             border-left:5px solid var(--blue)
         }
     }
+    .profile_image_container{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        border-bottom: 1px solid var(--darkgrey);
+    }
+    img.profile_img {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        margin: 10px 0;
+        
+    }
+   
+    }
+}
+.user_details {
+    li:nth-child(1){
+        padding: 0 0 !important;
+        margin-bottom: 10px;
+    }
+    li:nth-child(2){
+        padding:0 !important;
+    }
 }
 .treatment_sub__menu{
     display: none;
+}
+.treatment_sub__menu.left li {
+    text-align: left;
 }
 .treatment_menu:hover{
     .treatment_sub__menu{

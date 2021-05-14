@@ -1,10 +1,11 @@
 const bcrypt = require("bcryptjs")
 const User = require("../databases/userRegistration");
 const Doctor = require("../databases/doctor_info");
+
 const filename= require("../controller/multer");
 const redirecthome = (req, res, next) => {
 	
-	if(req.session.useremail && req.session.user ){
+	if(req.session.useremail && req.session.user_data ){
 		res.redirect('/index');
 	} 
 	else{
@@ -46,6 +47,7 @@ const signUp = async (req, res) => {
 		
 		req.session.useremail= req.body.email;
 		req.session.user = req.body.name;
+		req.session.user_data = newUser;
 		if(newUser.role == "doctor"){
 			return res.redirect("/doctor-info")
 		}
@@ -62,19 +64,64 @@ res.redirect('/signup')
 
 const doctorInfo = async (req, res,filename) => {
 	
+
+	let hospitallist = req.body.hospital.slice(1,req.body.hospital.length-1).split(',');
+	let achievementlist = req.body.achievements.slice(1,req.body.achievements.length-1).split(',');
+	let qualificationlist = req.body.qualifications.slice(1,req.body.qualifications.length-1).split(',');
+	let awardslist = req.body.awards.slice(1,req.body.awards.length-1).split(',');
+	let specializationlist = req.body.specialization.slice(1,req.body.specialization.length-1).split(',');
+
+	let hospital_values = [];
+	let achievement_values = [];
+	let qualification_values = [];
+
+	let awards_values = [];
+	let specialization_values = [];
+
+	if(req.body.hospital){
+		for(let i = 0; i < hospitallist.length; i++){
+			hospital_values.push(JSON.parse(hospitallist[i]).value);
+		}    
+	}
+	if(req.body.achievements){
+		for(let i = 0; i < achievementlist.length; i++){
+
+			achievement_values.push(JSON.parse(achievementlist[i]).value);
+		}    
+	}
+	
+	if(req.body.qualifications){
+		for(let i = 0; i < qualificationlist.length; i++){
+			qualification_values.push(JSON.parse(qualificationlist[i]).value);
+		}    
+	}
+	if(req.body.awards){
+		for(let i = 0; i < awardslist.length; i++){
+			awards_values.push(JSON.parse(awardslist[i]).value);
+		}    
+	}
+	if(req.body.specialization){
+		for(let i = 0; i < specializationlist.length; i++){
+			specialization_values.push(JSON.parse(specializationlist[i]).value);
+		}    
+	}
+
+
 	try{
-		
 		const newDoctor = await Doctor.create({
 			describe : req.body.describe,
 			image : req.file.filename,
-			hospital:req.body.hospital,
-			achievements: req.body.achievements,
+			hospital:hospital_values,
+			Achievements: achievement_values,
 			experience: req.body.experience,
-			qualifications: req.body.qualifications,
-			awards: req.body.awards,
-			specialization: req.body.specialization,
-			fees : req.body.fees
+			qualification: qualification_values,
+			awards: awards_values,
+			specialization: specialization_values,
+			fees : req.body.fees,
+			email : req.session.useremail
 		})
+		req.session.doctor_info = newDoctor;
+		console.log(req.session.doctor_info);
 		res.redirect("/index")	
 	}
 	catch(err){
@@ -83,6 +130,51 @@ const doctorInfo = async (req, res,filename) => {
 	}
 
 		
+}
+
+const updateUserInfo = async(req,res) =>{
+	const finduser = await User.findOne({ email: req.session.useremail });
+	if(finduser){
+		 finduser.name = req.body.name,
+		  finduser.email= req.body.email,
+		  finduser.gender = req.body.gender,
+		  finduser.dob = req.body.dob,
+		  finduser.phone = req.body.phone,
+		  finduser.city = req.body.city,
+		  finduser.state = req.body.state,
+		  finduser.country = req.body.country
+		  await finduser.save();
+		  if(finduser.role=="doctor"){
+			  const finddoctor = await Doctor.findOne({ email: req.session.useremail });
+			  if(finddoctor){
+				  if(req.file){
+					finddoctor.image = req.file.filename
+				  }
+				  else{
+					finddoctor.image = finddoctor.image 
+				  }
+				finddoctor.describe = req.body.describe,
+				finddoctor.hospital=req.body.hospital,
+				finddoctor.Achievements= req.body.achievements,
+				finddoctor.experience= req.body.experience,
+				finddoctor.qualification= req.body.qualification,
+				finddoctor.awards= req.body.awards,
+				finddoctor.specialization= req.body.specialization,
+				finddoctor.fees = req.body.fees,
+				console.log(req.body.email)
+				finddoctor.email = req.body.email
+				await finddoctor.save();
+
+			  }
+
+				 req.session.doctor_info = finddoctor;
+
+		  }
+	}
+	
+	 req.session.user_data = finduser;
+
+	res.redirect("/index")
 }
 
 const emailLogin = async (req, res, next) => {
@@ -96,9 +188,10 @@ const emailLogin = async (req, res, next) => {
             const isMatch = await bcrypt.compare(req.body.password,user.password)
 			
 			if(isMatch){
+				const profile_details = await Doctor.findOne({email: user.email})
+				req.session.doctor_info = profile_details
 				req.session.useremail= user.email;
-
-				req.session.user = user.name;
+				req.session.user_data = user;
 			req.flash("success", "sucessfully logged in");
 
 				res.redirect('/index');	
@@ -137,6 +230,18 @@ const changePassword = async (req, res) => {
 	}
 }
 
+const change_mobile_number = async (req,res,next) => {
+	console.log("came : " + req.session.user_data.phone)
+	const user = await User.findOne({phone:req.session.user_data.phone});
+	if(user){
+		req.session.change_number = true
+ console.log("ccc : " + req.session.change_number);
+
+	}
+	next();
+}
+
+
 const checkIfUserExists = async (req, res, next) => {
 
 	if(req.body.email){
@@ -159,6 +264,7 @@ const checkIfUserExists = async (req, res, next) => {
 
 
 
+
 const logout = (req, res) => {
 	req.session.destroy();
   res.redirect("/");
@@ -173,5 +279,7 @@ module.exports = {
 	logout: logout,
 	changePassword:changePassword,
 	checkIfUserExists:checkIfUserExists,
-	doctorInfo
+	doctorInfo,
+	updateUserInfo,
+	change_mobile_number,
 }

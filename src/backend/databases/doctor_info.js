@@ -9,25 +9,28 @@ const doctorInfo = new mongoose.Schema({
         type:String
     },
     hospital:{
-        type:String
+        type:Array
     },
     Achievements:{
-        type:String
+        type:Array
     },
     experience:{
         type:Number
     },
     qualification:{
-        type:String
+        type:Array
     },
     awards:{
-        type:String
+        type:Array
     },
     specialization:{
-        type:String
+        type:Array
     },
     fees:{
         type:Number
+    },
+    email:{
+        type:String
     }
 })
 

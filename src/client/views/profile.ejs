@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\phone-login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\tagify.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\otp-submit.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+
+
+    <link rel="stylesheet" href="..\assets\css\profile.css" type="text/css">
+
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <%- include("partials/header.ejs")%>
+        <main>
+            <div class="container">
+                <aside>
+                    <h3>Dashboard</h3>
+                    <ul class="profile_menu">
+                        <li>
+                            <a href="/profile">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-th-list"></i>
+                            <span>Appointments</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Schedules</span>
+                        </li>
+                        <li>
+                            <i class="far fa-file-alt"></i>
+                            <span>Medical Reports</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                    </ul>
+                </aside>
+                <section class="form-container">
+                    <form action="/updateprofile" method="POST" enctype="multipart/form-data">
+                        
+                            <div class="form-header">
+                                <legend>
+                                    <h3>
+                                        Accounts
+                                    </h3>
+                                </legend>
+                                <button type="submit">Save changes</button>
+                            </div>
+                            <div class="form-box">
+                                <div class="profile_photo">
+                                    <h6 class="label_heading">Profile Photo</h6>
+                                    <div class="profile_flex">
+                                        <figure>
+                                            <% if(user_data.role==="doctor" && doctor_info) { %>
+                                                <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>">
+                                                <% } else {%>
+                                                    <img id="pic" src="../../assets/images/default-picture.png">
+                                                    <% } %>
+                                        </figure>
+                                        <div class="upload-photo">
+                                            <p>Pick a photo from your system</p>
+                                            <input type="file" name="image" id="profile_photo" accept=image/* onchange="loadFile(event)">
+                                            <label for="profile_photo">Select photo</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="user_name_input">
+                                    <label class="label_heading" for="user_name">Name </label>
+                                    <input type="text" name="name" id="user_name" value="<%=user_data.name%>">
+                                </div>
+
+                            </div>
+                            <div class="form-box">
+                                <div class="input-group ">
+                                    <label class="label_heading" for="phone_number">Phone Number</label>
+                                    <div class="edit_rel"> 
+                                    <input type="tel" name="phone" id="phone_number" value="<%=user_data.phone%>" readonly>
+                                    <i class="fas fa-edit edit" id="myBtn"></i>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label class="label_heading" for="email">Email</label>
+                                    <input type="email" name="email" id="email" value="<%=user_data.email%>">
+                                </div>
+                                <div class="input-group select_flex">
+                                    <label class="label_heading" for="gender">Gender</label>
+                                    <select name="gender" id="gender">
+                                        <option value="" disabled selected hidden>Select your Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="other">other</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <label class="label_heading" for="date_of_birth">Date of birth</label>
+                                    <input type="date" name="dob" id="date_of_birth" value="<%=user_data.dob%>">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label_heading" for="timezone">Timezone</label>
+                                    <input type="text" name="timezone" id="timezone">
+                                </div>
+                            </div>
+                            <div class="form-box">
+                                <div class="input-group">
+                                    <label class="label_heading" for="address_line1">House no./Street name</label>
+                                    <input type="text" name="address_line1" id="address_line1">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label_heading" for="address_line2">Colony/Street/Locality</label>
+                                    <input type="text" name="address_line2" id="address_line2">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label_heading" for="city">City</label>
+                                    <input type="text" name="city" id="city" value="<%=user_data.city%>">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label_heading" for="state">State</label>
+                                    <input type="text" name="state" id="state" value="<%=user_data.state%>">
+                                </div>
+                                <div class="input-group">
+                                    <label class="label_heading" id="country_label">Country</label>
+                                    <input name="country" list="country" id="country_label"
+                                        value="<%=user_data.country%>">
+                                    <datalist id="country">
+                                        <option value="India">India</option>
+                                        <option value="srilanka">srilanka</option>
+                                        <option value="pakistan">pakistan</option>
+                                        <option value="America">America</option>
+                                        <option value="China">China</option>
+                                        <option value="Nepal">Nepal</option>
+                                    </datalist>
+                                </div>
+                            </div>
+                            <% if(user_data.role==="doctor" && doctor_info) { %>
+                                <div class="form-box">
+                                    <div class="input-group">
+                                        <label class="label_heading" for="hospital">Hospital</label>
+                                        <input type="text" name="hospital" id="hospital" class="tags"
+                                            value="<%=doctor_info.hospital%>">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="label_heading" for="qualifications">Qualifications</label>
+                                        <input type="text" name="qualification" id="qualification" class="tags"
+                                            value="<%=doctor_info.qualification%>">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="label_heading" for="achievements">Acheivements</label>
+                                        <input type="text" name="achievements" id="achievements" class="tags"
+                                            value="<%=doctor_info.Achievements%>">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="label_heading" for="experience">Experience(in years)</label>
+                                        <input type="number" name="experience" id="experience"
+                                            value="<%=doctor_info.experience%>">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="label_heading" for="specialization">Specialization</label>
+                                        <input type="text" name="specialization" id="specialization" class="tags"
+                                            value="<%=doctor_info.specialization%>">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="label_heading" for="awards">Awards</label>
+                                        <input type="text" name="awards" id="awards" class="tags"
+                                            value="<%=doctor_info.awards%>">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="label_heading" for="average_fees">Average fees(in rupees)</label>
+                                        <input type="number" name="fees" id="average_fees"
+                                            value="<%=doctor_info.fees%>">
+                                    </div>
+                                    <div class="input-group form-last">
+                                        <label class="label_heading" for="description">Your description</label>
+                                        <textarea name="describe" id="description"
+                                            rows="5"><%=doctor_info.describe%></textarea>
+                                    </div>
+                                </div>
+                                <% } %>
+                        
+                    </form>
+                </section>
+
+            </div>
+            <div id="myModal" class="modal" >
+                <div class="modal-content">
+                  <div class="change_number_form">
+                  <div class="loginform-container">
+                    <div class="loginform">
+                        <div class="login-header">
+                        <span class="close">&times;</span>
+
+                           <h4>Change Mobile Number</h4>
+                        </div>
+                        <div class="loginfrm-inp">
+                            <form action="/change-phone-number" method="post">
+                            <div class="login-qstn">
+                               <input type="tel" placeholder="Enter Mobile Number" name="phone">
+                            </div>
+                        
+                        <div class="arrow">
+                           <button type="submit" id="submit_btn" class="loginform-btn dark-button"><h6>Send OTP</h6></button>
+                           <i class="fas fa-arrow-right rarrow"></i>
+                        </div>
+                       </form>
+                    </div>
+                   </div>
+                </div>
+            </div>
+              <div class="otp_submit">
+                <div class="loginform-container">
+                    <div class="loginform">
+                        <div class="login-header">
+                  <span class="close">&times;</span>
+
+                           <h4>OTP</h4>
+                           <p id="mobile-number" style="display: none;"><%=phone%></p>
+                        </div>
+                        <div class="loginfrm-inp">
+                           <p>
+                               We have sent One Time Password (OTP) to your 
+                               registered Phone Number
+                           </p>
+                            <form action="/verify-otp" method="post">
+                               <div class="form-grp input-div-container">
+                                   <div class="input-div">
+                                   <input type="text" name="otp1" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp1" required  maxlength="1" onkeyup="clickEvent(this,'otp2')">  
+                                   <input type="text" name="otp2" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp2" required  maxlength="1" onkeyup="clickEvent(this,'otp3')">  
+                                   <input type="text" name="otp3" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp3" required  maxlength="1" onkeyup="clickEvent(this,'otp4')">  
+                                   <input type="text" name="otp4" inputmode="numeric" pattern="[0-9]*" title="Must be a number" id="otp4" required  maxlength="1" >  
+                               </div>
+                               </div>
+                        <div class="arrow">
+                           <button type="submit" class="loginform-btn dark-button verify_otp"><h6>Submit</h6></button>
+                           <i class="fas fa-arrow-right rarrow"></i>
+                        </div>
+                       </form>
+                       
+                    </div>
+                   </div>
+              </div>
+              </div>
+        </main>
+        <div class="footer-index txt-center">
+            <div class="footer-line1">
+                <div class="footer-img">
+                    <a href="/index"><img class="footer-logo"
+                            src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                            alt="tvastra logo"></a>
+                </div>
+                <div class="footer-list">
+                    <ul>
+                        <a href="/doctor">
+                            <li>Doctor</li>
+                        </a>
+                        <a href="/hospital">
+                            <li>Hospital</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Treatment</li>
+                        </a>
+                        <a href="#">
+                            <li>Other Services</li>
+                        </a>
+                        <a href="/faq">
+                            <li>FAQs</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-line2">
+                <div class="footer-i">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="copyright">
+                    <p>All Rights Reserved. tvastra 2018</p>
+                </div>
+            </div>
+        </div>
+        <script src="../views/js/tagify.min.js"></script>
+        <script src="../views/js/profile.js"></script>
+        <script>
+const gender = document.querySelector('#gender');
+function selectOptionFromBackend(optionsList, value) {
+    for (var i = 0; i < optionsList.options.length; i++) {
+        option = optionsList.options[i];
+        if (option.value == value) {
+            console.log(value);
+            option.selected = 'selected';
+        }
+    }
+}
+
+selectOptionFromBackend(gender, '<%= user_data.gender %>');
+
+var loadFile = function(event) {
+    var image = document.getElementById('pic');
+
+    image.src = URL.createObjectURL(event.target.files[0]);
+
+};
+        </script>
+</body>
+
+</html>

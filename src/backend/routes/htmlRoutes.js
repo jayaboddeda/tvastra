@@ -43,6 +43,14 @@ router.route("/appointment").get(authenticationController.redirectlogin,htmlCont
 
 router.route("/contactus").get(authenticationController.redirectlogin,htmlController.contactus);
 
+router.route("/profile").get(authenticationController.redirectlogin,htmlController.profile);
+router.route("/updateprofile").post(multer.uploadDocImg,authenticationController.updateUserInfo);
+
+router.route("/change-phone-number").post(authenticationController.change_mobile_number,otpController.otprequest);
+router.route("/verify-otp").post(authenticationController.change_mobile_number,otpController.verifyotp);
+router.route("/change_number_resend").post(authenticationController.change_mobile_number,otpController.otprequest);
+
+
 router.route("/doctor-profile").get(authenticationController.redirectlogin,htmlController.doctor_profile);
 
 router.route("/submit-your-query").get(authenticationController.redirectlogin,htmlController.submit_your_query);

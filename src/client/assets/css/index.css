@@ -1,6 +1,204 @@
 .tvastralogo {
   max-width: 120px;
-  padding-left: 5%;
+  padding-left: 15%;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-right: 4%;
+}
+
+.nav_right_content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 7.5rem;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mobile-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 5.2rem;
+  position: relative;
+  top: 2px;
+}
+
+.mobile-btn a {
+  font-size: 1rem;
+}
+
+i.fas.fa-angle-down {
+  font-size: 1rem;
+  position: relative;
+  top: 0;
+}
+
+.desktop-btn button {
+  padding: 0.625rem 1rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.quote-btn {
+  color: var(--white);
+  background-color: var(--darkblue);
+}
+
+.mobile_btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mobile_btns .plus_btn {
+  margin-left: 0;
+}
+
+.mobile-ul .treatment_menu {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mobile-ul .treatment_menu .treatment_sub__menu {
+  position: absolute;
+  background-color: var(--white);
+  width: 13.5rem;
+  top: 2rem;
+  right: 90%;
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
+  z-index: 1;
+}
+
+.mobile-ul .treatment_menu .treatment_sub__menu li {
+  padding: 10px 10px;
+  color: var(--darkblue);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.mobile-ul .treatment_menu .treatment_sub__menu .treatment_sub__menu_options li:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+  border-left: 5px solid var(--blue);
+}
+
+.mobile-ul .treatment_menu .treatment_sub__menu .profile_image_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-bottom: 1px solid var(--darkgrey);
+}
+
+.mobile-ul .treatment_menu .treatment_sub__menu img.profile_img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  margin: 10px 0;
+}
+
+.treatment_sub__menu {
+  display: none;
+}
+
+.treatment_sub__menu .sidebar a {
+  padding: 0;
+}
+
+.treatment_sub__menu.left li {
+  text-align: left;
+}
+
+.treatment_menu:hover .treatment_sub__menu {
+  display: block;
+}
+
+.sidebar-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.7rem 0;
+}
+
+.sidebar-header .tvastralogo {
+  padding-left: 0;
+}
+
+.sidebar-header img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  overflow-x: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.sidebar a {
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 25px;
+  display: block;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: var(--blue);
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  right: 1rem;
+  font-size: 3rem;
+}
+
+.treatment_sub__menu a {
+  padding: 0 !important;
 }
 
 .desktop-nav, .treat_carousel__navigation
@@ -776,6 +974,9 @@
     padding: 0;
     padding-left: 10px;
   }
+  .footer-index {
+    background-color: var(--white);
+  }
   .footer-i {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -859,8 +1060,8 @@
     display: grid;
     width: 100%;
     -ms-grid-rows: 1fr;
-    -ms-grid-columns: 0.3fr 1.4fr 1fr;
-        grid-template: 1fr / 0.3fr 1.4fr 1fr;
+    -ms-grid-columns: 0.3fr 1.4fr 1.1fr;
+        grid-template: 1fr / 0.3fr 1.4fr 1.1fr;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -891,8 +1092,15 @@
     color: var(--darkblue);
     font-weight: bold;
   }
+  .desk-i a:hover {
+    color: var(--blue);
+  }
   .desk-i li {
     padding: 0 13px;
+  }
+  .dentistry li:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+    border-left: 5px solid var(--blue);
   }
   .treatment_menu {
     position: relative;
@@ -914,12 +1122,39 @@
     font-weight: bold;
     font-size: 1.2rem;
   }
-  .treatment_menu .treatment_sub__menu li:hover {
+  .treatment_menu .treatment_sub__menu .treatment_sub__menu_options li:hover {
     background-color: rgba(128, 128, 128, 0.1);
     border-left: 5px solid var(--blue);
   }
+  .treatment_menu .treatment_sub__menu .profile_image_container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    border-bottom: 1px solid var(--darkgrey);
+  }
+  .treatment_menu .treatment_sub__menu img.profile_img {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    margin: 10px 0;
+  }
+  .user_details li:nth-child(1) {
+    padding: 0 0 !important;
+    margin-bottom: 10px;
+  }
+  .user_details li:nth-child(2) {
+    padding: 0 !important;
+  }
   .treatment_sub__menu {
     display: none;
+  }
+  .treatment_sub__menu.left li {
+    text-align: left;
   }
   .treatment_menu:hover .treatment_sub__menu {
     display: block;

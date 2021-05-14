@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
     <link rel="stylesheet" href="..\assets\css\signup.css" type="text/css">
     <link rel="stylesheet" href="..\assets\css\doctor-info.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\tagify.css" type="text/css">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
     <title>
@@ -27,13 +30,14 @@
                     <div class="login-qstn">
                         <form action="/doctor-info" method="post" enctype="multipart/form-data">
                             <label for="describe_doctor">Describe yourself</label>
-                            <textarea name="describe" id="describe_doctor" cols="55" rows="4" placeholder="How would you describe yourself"></textarea>
+                            <textarea name="describe" id="describe_doctor" cols="55" rows="4"
+                                placeholder="How would you describe yourself"></textarea>
                             <label for="doctor">Upload your profile picture</label>
                             <input type="file" name="image" id="doctor_image">
                             <label for="hospital">Your Hospital</label>
                             <input type="text" name="hospital" id="hospital">
-                            <label for="acheivements">Acheivements</label>
-                            <input type="text" name="acheivements" id="acheivements">
+                            <label for="achievements">Achievements</label>
+                            <input type="text" name="achievements" id="achievements">
                             <label for="experience">Years of experience</label>
                             <input type="number" name="experience" id="experience">
                             <label for="qualifications">Qualifications</label>
@@ -44,22 +48,34 @@
                             <input type="text" name="specialization" id="specialization">
                             <label for="fees">Your average fees</label>
                             <input type="number" name="fees" id="fees">
-                        
-                <div class="arrow">
-                    <button class="loginform-btn dark-button" type="submit">
-                        <h6>Submit</h6>
-                    </button>
-                    <i class="fas fa-arrow-right rarrow"></i>
+
+                            <div class="arrow">
+                                <button class="loginform-btn dark-button" type="submit">
+                                    <h6>Submit</h6>
+                                </button>
+                                <i class="fas fa-arrow-right rarrow"></i>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                </form>
-                
             </div>
-        </div>
-        </div>
-        <div class="doctor_info-copyright">
-            <p>All Rights Reserved. tvastra 2018</p>
-        </div>
-       
+            <div class="doctor_info-copyright">
+                <p>All Rights Reserved. tvastra 2018</p>
+            </div>
+
+            <script src="../views/js/tagify.min.js"></script>
+            <script>
+                let hospital = document.querySelector("input[name='hospital']");
+                new Tagify(hospital)
+                let achievements = document.querySelector("input[name='achievements']");
+                new Tagify(achievements)
+                let qualifications = document.querySelector("input[name='qualifications']");
+                new Tagify(qualifications)
+                let awards = document.querySelector("input[name='awards']");
+                new Tagify(awards)
+                let specialization = document.querySelector("input[name='specialization']");
+                new Tagify(specialization)
+            </script>
 </body>
 
 </html>

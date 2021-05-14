@@ -3,8 +3,20 @@ const otpRepository = require("../nexmo-otp/src/otpRepository");
 const otpSender = require("../nexmo-otp/src/otpSender")
 const otpManager = new OtpManager(otpRepository, {otpLength: 4, validityTime: 5});
 const User = require("../databases/userRegistration");
+const Doctor = require("../databases/doctor_info");
+
 var token
 const otprequest= async (req, res) => {
+ console.log("ooo : " + req.session.change_number);
+
+  if(req.session.change_number){
+ console.log("rrr : " + req.session.change_number);
+    
+    token = req.body.phone;
+    const otp = otpManager.create(token);
+    otpSender.send(otp, req.body);
+  }
+  else{
   const user = await User.findOne({ phone: req.body.phone });
   if(user){
     token = req.body.phone;
@@ -14,10 +26,11 @@ const otprequest= async (req, res) => {
     req.flash("error", "Mobile Number not exist");
     res.redirect("/phone-login");
   }
-  
   const otp = otpManager.create(token);
   otpSender.send(otp, req.body);
   res.redirect("/otp-submit");
+}
+  
  }; 
 
  const verifyotp = async (req, res) =>{
@@ -35,18 +48,32 @@ const otprequest= async (req, res) => {
   let bodyMessage;
   let msg;
   let type;
- 
+ console.log("ver : " + req.session.change_number);
   switch (verificationResult) {
     case verificationResults.valid:
       if(req.session.forgetPassword){
         req.session.forgetPassword=false
           res.redirect("/changepassword")
       }
+      else if(req.session.change_number){
+        const change_num = await User.findOne({phone: req.session.user_data.phone});
+        change_num.phone = token
+        change_num.save();
+        req.session.user_data.phone = change_num.phone;
+        msg = "Mobile Number changed Successfully";
+        type = "success"
+        bodyMessage = "/profile";
+      }
       else{
         statusCode = 200;
+        const profile_details = await Doctor.findOne({email: user.email});
         req.session.dbuser = user;
         req.session.useremail = user.email;
-        req.session.user = user.name;
+        req.session.user_data = user;
+				req.session.doctor_info = profile_details;
+
+
+
         msg = "sucessfully logged in";
         type = "success"
         bodyMessage = "/index";
