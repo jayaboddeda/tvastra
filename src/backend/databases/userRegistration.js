@@ -41,6 +41,18 @@ const userSchema = new mongoose.Schema({
     },
     role:{
         type:String
+    },
+    image:{
+        type:String
+    },
+    timezone:{
+        type:String
+    },
+    line1:{
+        type:String
+    },
+    line2:{
+        type:String
     }
 })
 

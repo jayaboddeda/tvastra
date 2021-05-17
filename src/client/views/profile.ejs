@@ -25,7 +25,34 @@
         <main>
             <div class="container">
                 <aside>
-                    <h3>Dashboard</h3>
+                    <div class="header_arrow"> 
+                    <h3 class="profile_menu_header">Dashboard</h3>
+                    <i class="fas fa-angle-down dashboard_down"></i>
+                </div>
+                    <ul class="mobile_profile_menu hide">
+                        <li>
+                            <a href="/profile">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Profile</span>
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-th-list"></i>
+                            <span>Appointments</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar-check"></i>
+                            <span>Schedules</span>
+                        </li>
+                        <li>
+                            <i class="far fa-file-alt"></i>
+                            <span>Medical Reports</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-cog"></i>
+                            <span>Settings</span>
+                        </li>
+                    </ul>
                     <ul class="profile_menu">
                         <li>
                             <a href="/profile">
@@ -69,9 +96,13 @@
                                         <figure>
                                             <% if(user_data.role==="doctor" && doctor_info) { %>
                                                 <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>">
-                                                <% } else {%>
-                                                    <img id="pic" src="../../assets/images/default-picture.png">
-                                                    <% } %>
+                                                <% } else if(user_data.role==="user" && user_data.image){%>
+                                                     <img class="profile_img"
+                                                            src="<%='../../assets/images/'+ user_data.image %>">
+                                                    <% } else {%>
+                                                         <img class="profile_img"
+                                                                src="../../assets/images/default-picture.png"> 
+                                                        <% } %>
                                         </figure>
                                         <div class="upload-photo">
                                             <p>Pick a photo from your system</p>
@@ -114,17 +145,17 @@
                                 </div>
                                 <div class="input-group">
                                     <label class="label_heading" for="timezone">Timezone</label>
-                                    <input type="text" name="timezone" id="timezone">
+                                    <input type="text" name="timezone" id="timezone" value="<%=user_data.timezone%>">
                                 </div>
                             </div>
                             <div class="form-box">
                                 <div class="input-group">
                                     <label class="label_heading" for="address_line1">House no./Street name</label>
-                                    <input type="text" name="address_line1" id="address_line1">
+                                    <input type="text" name="address_line1" id="address_line1" value="<%=user_data.line1%>">
                                 </div>
                                 <div class="input-group">
                                     <label class="label_heading" for="address_line2">Colony/Street/Locality</label>
-                                    <input type="text" name="address_line2" id="address_line2">
+                                    <input type="text" name="address_line2" id="address_line2" value="<%=user_data.line2%>">
                                 </div>
                                 <div class="input-group">
                                     <label class="label_heading" for="city">City</label>
@@ -299,6 +330,9 @@
         <script src="../views/js/tagify.min.js"></script>
         <script src="../views/js/profile.js"></script>
         <script>
+            const mobile_aside_header = document.querySelector('.profile_menu_header')
+            const mobile_aside = document.querySelector('.mobile_profile_menu')
+
 const gender = document.querySelector('#gender');
 function selectOptionFromBackend(optionsList, value) {
     for (var i = 0; i < optionsList.options.length; i++) {
@@ -318,6 +352,18 @@ var loadFile = function(event) {
     image.src = URL.createObjectURL(event.target.files[0]);
 
 };
+
+mobile_aside_header.onclick = function(){
+    if(mobile_aside.classList[1] == "hide"){
+    console.log("nnnn")
+    mobile_aside.classList.remove("hide")
+    }
+    else {
+    mobile_aside.classList.add("hide")
+
+    }
+   
+}
         </script>
 </body>
 

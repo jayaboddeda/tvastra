@@ -142,7 +142,15 @@ const updateUserInfo = async(req,res) =>{
 		  finduser.phone = req.body.phone,
 		  finduser.city = req.body.city,
 		  finduser.state = req.body.state,
-		  finduser.country = req.body.country
+		  finduser.country = req.body.country,
+		  finduser.timezone = req.body.timezone,
+		  finduser.line1 = req.body.address_line1,
+		  finduser.line2 = req.body.address_line2
+
+
+		  if(req.file){
+			  finduser.image = req.file.filename
+		  }
 		  await finduser.save();
 		  if(finduser.role=="doctor"){
 			  const finddoctor = await Doctor.findOne({ email: req.session.useremail });
@@ -271,7 +279,6 @@ const logout = (req, res) => {
 }
  
 module.exports = {
-
 	redirecthome: redirecthome,
 	redirectlogin:redirectlogin,
 	signUp: signUp,
