@@ -1,77 +1,88 @@
 <div class="navbar">
     <nav>
-          
-        <a href="/index"><img class="tvastralogo"
-                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
-                alt="tvastra logo"></a>
-              
-        <div class="nav_right_content">
-            <div class="desktop-btn ">
-                <% if(user_data){ %>
-                    <ul class="desktop-btn mobile-ul">
+        <% if(user_data) {%>
+            <a href="/index"><img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo"></a>
+            <% } else { %>
+                <img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo">
+                <% } %>
+                    <div class="nav_right_content">
+                        <div class="desktop-btn ">
+                            <% if(user_data){ %>
+                                <ul class="desktop-btn mobile-ul">
 
-                        <li class="treatment_menu username">
-                            <div class="mobile-btn"><a>
-                                    <%=user_data.name.slice(0,8)%>
-                                </a>
-                                <i class="fas fa-angle-down"></i>
-                            </div>
-                            <div class="treatment_sub__menu left hide">
-                                <div class="profile_image_container">
+                                    <li class="treatment_menu username">
+                                        <div class="mobile-btn"><a>
+                                                <%=user_data.name.slice(0,8)%>
+                                            </a>
+                                            <i class="fas fa-angle-down"></i>
+                                        </div>
+                                        <div class="treatment_sub__menu left hide">
+                                            <div class="profile_image_container">
 
-                                    <% if(user_data.role=="doctor" && doctor_info) { %>
-                                        <a href="/profile">  <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>"></a>
-                                        <% } else if(user_data.role=="user" && user_data.image){%>
-                                            <a href="/profile">  <img class="profile_img"
-                                                    src="<%='../../assets/images/'+ user_data.image %>"></a>
-                                                <% } else {%>
-                                                    <a href="/profile">   <img id="pic_img" class="profile_img"
-                                                        src="../../assets/images/default-picture.png"></a>
-                                                    <% } %>
-                                                    <ul class="user_details">
-                                                        <li>
-                                                            <%=user_data.name.slice(0,8)%>
-                                                        </li>
-                                                        <li>
-                                                            <%= user_data.phone %>
-                                                        </li>
-                                                    </ul>
+                                                <% if(user_data.role=="doctor" && doctor_info) { %>
+                                                    <a href="/profile"> <img id="pic"
+                                                            src="<%='../../assets/images/'+ doctor_info.image %>"></a>
+                                                    <% } else if(user_data.role=="user" && user_data.image){%>
+                                                        <a href="/profile"> <img class="profile_img"
+                                                                src="<%='../../assets/images/'+ user_data.image %>"></a>
+                                                        <% } else {%>
+                                                            <a href="/profile"> <img id="pic_img" class="profile_img"
+                                                                    src="../../assets/images/default-picture.png"></a>
+                                                            <% } %>
+                                                                <ul class="user_details">
+                                                                    <li>
+                                                                        <%=user_data.name.slice(0,8)%>
+                                                                    </li>
+                                                                    <li>
+                                                                        <%= user_data.phone %>
+                                                                    </li>
+                                                                </ul>
 
-                                </div>
-                                <ul class="treatment_sub__menu_options">
+                                            </div>
+                                            <ul class="treatment_sub__menu_options">
 
-                                    <a href="#">
-                                        <li>My appointments</li>
-                                    </a>
-                                    <a href="#"></a>
-                                    <li>My Lab Test</li></a>
-                                    <a href="#">
-                                        <li>My Medicine Orders</li>
-                                    </a>
-                                    <a href="#">
-                                        <li>My Payments</li>
-                                    </a>
-                                    <a href="/logout">
-                                        <li>logout</li>
-                                    </a>
+                                                <a href="#">
+                                                    <li>My appointments</li>
+                                                </a>
+                                                <a href="#"></a>
+                                                <li>My Lab Test</li></a>
+                                                <a href="#">
+                                                    <li>My Medicine Orders</li>
+                                                </a>
+                                                <a href="#">
+                                                    <li>My Payments</li>
+                                                </a>
+                                                <a href="/logout">
+                                                    <li>logout</li>
+                                                </a>
+                                            </ul>
+                                        </div>
+                                    </li>
                                 </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    <% } %>
+                                <% } %>
 
-            </div>
-            <i class="fas fa-bars fa-2x bar openbtn" onclick="openNav()"></i>
-        </div>
+                        </div>
+                        <i class="fas fa-bars fa-2x bar openbtn" onclick="openNav()"></i>
+                    </div>
     </nav>
 
 </div>
 <div id="mySidebar" class="sidebar">
     <div class="sidebar-header">
-                
-            <a href="/index"><img class="tvastralogo"
-                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
-                    alt="tvastra logo"></a>
+
+        <% if(user_data) {%>
+        <a href="/index"><img class="tvastralogo"
+                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                alt="tvastra logo"></a>
+        <% } else { %>
+            <img class="tvastralogo"
+                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                alt="tvastra logo">
+            <% } %>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
     <ul class="mobile-ul">
@@ -107,21 +118,33 @@
         <li><a href="/aboutus">About</a></li>
     </ul>
     <div class="desktop-btn">
-            
+
+        <% if(user_data) {%>
             <a href="/index"><img class="tvastralogo"
                     src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
                     alt="tvastra logo"></a>
-                    
+            <% } else { %>
+                <img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo">
+                <% } %>
+
     </div>
 </div>
 
 <nav class="index-desktop-nav">
     <div class="desk-img">
-            
-            <a href="/index"><img class="tvastralogo"
-                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
-                    alt="tvastra logo"></a>
-                   
+
+        <% if(user_data) {%>
+        <a href="/index"><img class="tvastralogo"
+                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                alt="tvastra logo"></a>
+        <% } else { %>
+            <img class="tvastralogo"
+                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                alt="tvastra logo">
+            <% } %>
+
     </div>
     <div class="desk-i">
         <ul class="desk-ul">
@@ -160,10 +183,10 @@
 
     <div class="desktop-btn">
         <% if(user_data){ %>
-       
+
             <a href="/tvastra-plus"> <button class="light-blue_button">Tvastra Plus</button></a>
             <button class="quote-btn">Get a Quote</button>
-            
+
             <ul>
                 <li class="treatment_menu username"><a>
                         <%=user_data.name.slice(0,8)%>
@@ -173,22 +196,23 @@
                         <div class="profile_image_container">
 
                             <% if(user_data.role==="doctor" && doctor_info) { %>
-                               <a href="/profile"> <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>"></a>
+                                <a href="/profile"> <img id="pic"
+                                        src="<%='../../assets/images/'+ doctor_info.image %>"></a>
                                 <% } else if(user_data.role==="user" || user_data.role==="admin" && user_data.image){%>
                                     <a href="/profile"> <img class="profile_img"
                                             src="<%='../../assets/images/'+ user_data.image %>"></a>
                                     <% } else {%>
-                                        <a href="/profile">   <img class="profile_img"
+                                        <a href="/profile"> <img class="profile_img"
                                                 src="../../assets/images/default-picture.png"> </a>
                                         <% } %>
-                                        <ul class="user_details">
-                                            <li>
-                                                <%=user_data.name.slice(0,8)%>
-                                            </li>
-                                            <li>
-                                                <%= user_data.phone %>
-                                            </li>
-                                        </ul>
+                                            <ul class="user_details">
+                                                <li>
+                                                    <%=user_data.name.slice(0,8)%>
+                                                </li>
+                                                <li>
+                                                    <%= user_data.phone %>
+                                                </li>
+                                            </ul>
 
                         </div>
                         <ul class="treatment_sub__menu_options">
