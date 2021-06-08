@@ -134,11 +134,7 @@ const doctorInfo = async (req, res,filename) => {
 			console.log(elem)
 
 			const hospitalexists = await Hospital.find({name:elem})
-			console.log("eee"+hospitalexists)
-			console.log("eee"+hospitalexists[0])
-			console.log("eee"+hospitalexists.length)
-			console.log("eee"+typeof(hospitalexists))
-			console.log("eee"+Array.isArray(hospitalexists))
+		
 
 
 			if(hospitalexists.length <= 0){
@@ -518,22 +514,22 @@ const change_mobile_number = async (req,res,next) => {
 
 
 const checkIfUserExists = async (req, res, next) => {
-
 	if(req.body.email){
 		const user = await User.findOne({ email: req.body.email });
-		
+
 		if(user){
 			req.body.phone = user.phone;
 			req.session.forgetPassword = true;
       		req.session.phone = user.phone;
-			next();
+			next()
+
 		} else {
 			req.flash("error" , "Email Not registered");
-			res.redirect('/');
+			res.redirect('/forgotpassword');
 		}
 	} else {
 		req.flash("error", "Please enter email");
-		res.redirect('/');
+		res.redirect('/forgotpassword');
 	}
 }
 

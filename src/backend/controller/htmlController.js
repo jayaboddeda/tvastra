@@ -26,7 +26,9 @@ function doctor_info(req,res){
 }
   function login (req, res) {
   res.render("login");
-  
+  };
+  function forgotpassword (req, res) {
+  res.render("forgotpassword");
   };
 
   function phone_login (req, res) {
@@ -185,5 +187,6 @@ function adminVerifyHospital (req,res){
       adminmedicalreports,
       adminallappointments,
       allhospitals,
-      adminVerifyHospital
+      adminVerifyHospital,
+      forgotpassword
   };

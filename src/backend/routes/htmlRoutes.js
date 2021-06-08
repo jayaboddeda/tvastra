@@ -19,6 +19,8 @@ router.route("/index").get(authenticationController.redirectlogin,htmlController
 router.route("/aboutus").get(authenticationController.redirectlogin,htmlController.aboutus);
 
 router.route("/").get( authenticationController.redirecthome,htmlController.login );
+router.route("/forgotpassword").get(htmlController.forgotpassword);
+
 router.route("/").post(  authenticationController.emailLogin);
 
 router.route("/phone-login").get(htmlController.phone_login)
@@ -34,7 +36,7 @@ router.route("/doctor-info").post(multer.uploadDocImg,authenticationController.d
 
 router.route("/phone-login").post(otpController.otprequest);
 router.route("/otp-submit").post(otpController.verifyotp);
-router.route("/forgot-password").post(authenticationController.checkIfUserExists,otpController.otprequest);
+router.route("/forgotpassword").post(authenticationController.checkIfUserExists,otpController.otprequest);
 router.route("/resend").post(otpController.otprequest)
 router.route("/changepassword").get(htmlController.changepassword);
 router.route("/changepassword").post(authenticationController.changePassword);
