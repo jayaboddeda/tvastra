@@ -31,7 +31,20 @@ const doctorInfo = new mongoose.Schema({
     },
     email:{
         type:String
+    },
+    name:{
+        type:String
+    },
+    state:{
+        type:String
+    },
+    country:{
+        type:String
+    },
+    city:{
+        type:String
     }
+
 })
 
 const Doctor = new mongoose.model("Doctor",doctorInfo);

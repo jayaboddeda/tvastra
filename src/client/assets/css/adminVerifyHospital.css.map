@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,EAAC,MAAM,CAAA;EAChB,KAAK,EAAE,GAAG;CACb;;AACD,AACI,MADE,CACF,MAAM,CAAA;EACF,KAAK,EAAE,IAAI;CACd;;AAEL,AACI,eADW,CACX,EAAE,CAAA;EACE,UAAU,EAAE,MAAM;EAClB,KAAK,EAAE,WAAW;CACrB",
+    "sources": [
+        "../scss/adminVerifyHospital.scss"
+    ],
+    "names": [],
+    "file": "adminVerifyHospital.css"
+}

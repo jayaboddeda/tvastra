@@ -1,0 +1,247 @@
+.profile_menu li:nth-child(2) {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(2) span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(1):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(1):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(3):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(3):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(4):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(4):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(1) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(1) span {
+  color: var(--darkblue);
+}
+
+.profile_menu li:nth-child(4) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(4) span {
+  color: var(--darkblue);
+}
+
+.profile_menu li:nth-child(3) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(3) span {
+  color: var(--darkblue);
+}
+
+.mobile_profile_menu li:nth-child(2) {
+  background-color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(2) i, .mobile_profile_menu li:nth-child(2) span {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.mobile_profile_menu li:first-child {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:first-child i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:first-child span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+
+.mobile_profile_menu li:nth-child(3) {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:nth-child(3) i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(3) span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+
+.form-container {
+  padding: 30px 3% 30px 3%;
+}
+
+.card {
+  position: relative;
+  border: 1px solid var(--lightgrey);
+  margin-bottom: 1rem;
+  overflow: hidden;
+  height: 100%;
+}
+
+.card .card_img {
+  height: 20rem;
+  width: 100%;
+}
+
+.card h5 {
+  margin: 0;
+  padding: 1.25rem 0 0.2rem;
+}
+
+.card .info-fancy {
+  margin-left: 1.3rem;
+}
+
+.card .info-fancy span:before {
+  width: 30px;
+  height: 5px;
+}
+
+.card .user_name {
+  color: var(--blue);
+}
+
+.card .user_name {
+  font-size: 1.7rem;
+}
+
+.card .user_info {
+  padding: 1rem 1rem 0.4rem;
+}
+
+.card .user_info i {
+  color: var(--blue);
+  font-size: 1.2rem;
+  padding-right: 0.625rem;
+}
+
+.card .user_info li {
+  font-size: 1.2rem;
+  padding-bottom: 0.625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.hamburger {
+  position: absolute;
+  top: 0;
+}
+
+.hamburger-icon {
+  background-color: var(--darkblue);
+  color: var(--white);
+  border-radius: 50%;
+  padding: 0.625rem;
+  margin: 0.625rem;
+  width: 35px;
+  height: 35px;
+}
+
+.hamburger-icon i {
+  color: var(--white);
+}
+
+.id-card {
+  background-color: var(--darkblue);
+  color: var(--white);
+  border-radius: 50%;
+  padding: 0.625rem;
+  margin: 0.625rem;
+  width: 55px;
+  height: 55px;
+}
+
+.id-card i {
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.menuItems {
+  background-color: var(--white);
+  margin-left: 0.625rem;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.menuItems li {
+  padding: 5px;
+}
+
+.menuItems li:hover, .menuItems li:active {
+  background-color: rgba(128, 128, 128, 0.1);
+  border-left: 5px solid var(--blue);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .allcards {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (49%)[2];
+        grid-template-columns: repeat(2, 49%);
+    grid-gap: 1rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .card {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .allcards {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 1rem;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-grid-columns: (31%)[3];
+        grid-template-columns: repeat(3, 31%);
+  }
+  .card {
+    margin-bottom: 0;
+  }
+}
+/*# sourceMappingURL=allusers.css.map */

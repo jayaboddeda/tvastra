@@ -1,0 +1,24 @@
+.container{
+    display: block;
+    h1{
+        border: none;
+    }
+}
+
+.info-ul{
+grid-gap: 1rem 10rem;
+grid-template: 1fr 1fr/1fr 1fr;
+}
+
+.center{
+button{
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+}
+.appointment-btn{
+    padding: 0.8rem 1.5rem;
+}
+.doctor-boundary1{
+    background-color: var(--white);
+}

@@ -124,6 +124,13 @@ i.fas.fa-angle-down {
   border-bottom: 1px solid var(--darkgrey);
 }
 
+.mobile-ul .treatment_menu .treatment_sub__menu .profile_image_container img {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  margin: 10px 0;
+}
+
 .mobile-ul .treatment_menu .treatment_sub__menu img.profile_img {
   border-radius: 50%;
   height: 60px;
@@ -1141,7 +1148,7 @@ i.fas.fa-angle-down {
         justify-content: space-around;
     border-bottom: 1px solid var(--darkgrey);
   }
-  .treatment_menu .treatment_sub__menu img.profile_img {
+  .treatment_menu .treatment_sub__menu .profile_image_container img {
     border-radius: 50%;
     height: 80px;
     width: 80px;

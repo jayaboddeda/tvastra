@@ -1,0 +1,52 @@
+.profile_menu li:nth-child(4) {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(4) span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(2):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(2):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(2) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(2) span {
+  color: var(--darkblue);
+}
+
+.mobile_profile_menu li:nth-child(4) {
+  background-color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(4) i, .mobile_profile_menu li:nth-child(4) span {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.mobile_profile_menu li:nth-child(2) {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:nth-child(2) i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(2) span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+/*# sourceMappingURL=allhospitals.css.map */

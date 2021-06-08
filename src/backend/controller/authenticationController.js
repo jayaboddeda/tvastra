@@ -1,6 +1,11 @@
 const bcrypt = require("bcryptjs")
 const User = require("../databases/userRegistration");
 const Doctor = require("../databases/doctor_info");
+const Hospital = require("../databases/hospitals");
+const Slot = require("../databases/slots");
+const moment = require("moment");
+
+
 
 const filename= require("../controller/multer");
 const redirecthome = (req, res, next) => {
@@ -80,19 +85,19 @@ const doctorInfo = async (req, res,filename) => {
 
 	if(req.body.hospital){
 		for(let i = 0; i < hospitallist.length; i++){
-			hospital_values.push(JSON.parse(hospitallist[i]).value);
+			hospital_values.push(JSON.parse(hospitallist[i]).value+ " ");
 		}    
 	}
 	if(req.body.achievements){
 		for(let i = 0; i < achievementlist.length; i++){
 
-			achievement_values.push(JSON.parse(achievementlist[i]).value);
+			achievement_values.push(JSON.parse(achievementlist[i]).value+ " ");
 		}    
 	}
 	
 	if(req.body.qualifications){
 		for(let i = 0; i < qualificationlist.length; i++){
-			qualification_values.push(JSON.parse(qualificationlist[i]).value);
+			qualification_values.push(JSON.parse(qualificationlist[i]).value+ " ");
 		}    
 	}
 	if(req.body.awards){
@@ -102,7 +107,7 @@ const doctorInfo = async (req, res,filename) => {
 	}
 	if(req.body.specialization){
 		for(let i = 0; i < specializationlist.length; i++){
-			specialization_values.push(JSON.parse(specializationlist[i]).value);
+			specialization_values.push(JSON.parse(specializationlist[i]).value+ " ");
 		}    
 	}
 
@@ -118,8 +123,36 @@ const doctorInfo = async (req, res,filename) => {
 			awards: awards_values,
 			specialization: specialization_values,
 			fees : req.body.fees,
-			email : req.session.useremail
+			email : req.session.useremail,
+			name : req.session.user_data.name,
+			state : req.session.user_data.state,
+			country:req.session.user_data.country,
+			city : req.session.user_data.city
+
 		})
+		hospital_values.forEach(async(elem,index)=>{
+			console.log(elem)
+
+			const hospitalexists = await Hospital.find({name:elem})
+			console.log("eee"+hospitalexists)
+			console.log("eee"+hospitalexists[0])
+			console.log("eee"+hospitalexists.length)
+			console.log("eee"+typeof(hospitalexists))
+			console.log("eee"+Array.isArray(hospitalexists))
+
+
+			if(hospitalexists.length <= 0){
+				console.log("came came")
+				const newHospital = await Hospital.create({
+					name:elem
+				})
+			console.log("created   "+newHospital)
+
+			}
+			
+			
+		})
+		
 		req.session.doctor_info = newDoctor;
 		console.log(req.session.doctor_info);
 		res.redirect("/index")	
@@ -133,7 +166,9 @@ const doctorInfo = async (req, res,filename) => {
 }
 
 const updateUserInfo = async(req,res) =>{
-	const finduser = await User.findOne({ email: req.session.useremail });
+
+	var finduser = await User.findOne({ email: req.session.useremail });
+	
 	if(finduser){
 		 finduser.name = req.body.name,
 		  finduser.email= req.body.email,
@@ -153,6 +188,46 @@ const updateUserInfo = async(req,res) =>{
 		  }
 		  await finduser.save();
 		  if(finduser.role=="doctor"){
+			let hospitallist = req.body.hospital.slice(1,req.body.hospital.length-1).split(',');
+			let achievementlist = req.body.achievements.slice(1,req.body.achievements.length-1).split(',');
+			let qualificationlist = req.body.qualification.slice(1,req.body.qualification.length-1).split(',');
+			let awardslist = req.body.awards.slice(1,req.body.awards.length-1).split(',');
+			let specializationlist = req.body.specialization.slice(1,req.body.specialization.length-1).split(',');
+		
+			let hospital_values = [];
+			let achievement_values = [];
+			let qualification_values = [];
+		
+			let awards_values = [];
+			let specialization_values = [];
+		
+			if(req.body.hospital){
+				for(let i = 0; i < hospitallist.length; i++){
+					hospital_values.push(JSON.parse(hospitallist[i]).value+ " ");
+				}    
+			}
+			if(req.body.achievements){
+				for(let i = 0; i < achievementlist.length; i++){
+		
+					achievement_values.push(JSON.parse(achievementlist[i]).value+ " ");
+				}    
+			}
+			
+			if(req.body.qualification){
+				for(let i = 0; i < qualificationlist.length; i++){
+					qualification_values.push(JSON.parse(qualificationlist[i]).value + " ");
+				}    
+			}
+			if(req.body.awards){
+				for(let i = 0; i < awardslist.length; i++){
+					awards_values.push(JSON.parse(awardslist[i]).value+ " ");
+				}    
+			}
+			if(req.body.specialization){
+				for(let i = 0; i < specializationlist.length; i++){
+					specialization_values.push(JSON.parse(specializationlist[i]).value+ " ");
+				}    
+			}
 			  const finddoctor = await Doctor.findOne({ email: req.session.useremail });
 			  if(finddoctor){
 				  if(req.file){
@@ -162,12 +237,12 @@ const updateUserInfo = async(req,res) =>{
 					finddoctor.image = finddoctor.image 
 				  }
 				finddoctor.describe = req.body.describe,
-				finddoctor.hospital=req.body.hospital,
-				finddoctor.Achievements= req.body.achievements,
+				finddoctor.hospital=hospital_values,
+				finddoctor.Achievements= achievement_values,
 				finddoctor.experience= req.body.experience,
-				finddoctor.qualification= req.body.qualification,
-				finddoctor.awards= req.body.awards,
-				finddoctor.specialization= req.body.specialization,
+				finddoctor.qualification= qualification_values,
+				finddoctor.awards= awards_values,
+				finddoctor.specialization= specialization_values,
 				finddoctor.fees = req.body.fees,
 				console.log(req.body.email)
 				finddoctor.email = req.body.email
@@ -177,13 +252,198 @@ const updateUserInfo = async(req,res) =>{
 
 				 req.session.doctor_info = finddoctor;
 
+
 		  }
 	}
+
 	
 	 req.session.user_data = finduser;
+	res.redirect("/profile")
 
-	res.redirect("/index")
 }
+
+const create_timeslots = async(req,res,next) => {
+	const startTime = moment(req.body.startTime, "HH:mm A");
+	const endTime = moment(req.body.endTime, "HH:mm A");
+	console.log(startTime + " | " + endTime);
+	console.log(req.body.startTime + " | " + req.body.endTime);
+
+	let arr = [];
+	while(startTime <= endTime){
+		let str = {
+			timing: "",
+			timeOn: "off",
+		  };
+		 str.timing = moment(startTime).format("hh:mm A");
+		arr.push(str);
+		startTime.add(req.body.interval, "minutes");
+
+	}
+	console.log(typeof(req.body.days))
+	if(typeof(req.body.days) == "string"){
+		const newSlot = await Slot.create({
+			days : req.body.days,
+			slot_hospital : req.body.hospital,
+			from_time : req.body.startTime,
+			to_time : req.body.endTime,
+			interval : req.body.interval,
+			time_slots: arr,
+			switch: "off",
+			email:req.session.useremail
+		})
+
+	}
+	else{
+	while(req.body.days.length >=1){
+		let i = req.body.days.length-1
+		
+	console.log(i)
+
+	console.log(req.body.days[i])
+
+	const newSlot = await Slot.create({
+		days : req.body.days[i],
+		slot_hospital : req.body.hospital,
+		from_time : req.body.startTime,
+		to_time : req.body.endTime,
+		interval : req.body.interval,
+		time_slots: arr,
+		switch: "off",
+		email:req.session.useremail
+	})
+	req.body.days.length--
+	}
+}
+	req.flash("success", "schedule created");
+	
+	res.redirect("/schedules")	
+
+	
+
+
+}
+
+const getSlotsBasedOnDoctor = async (req, res, next) => {
+	// let dbslot = await Slot.find({ 
+	// 	$and: [ 
+	// 		{
+	// 			email: req.session.useremail
+	// 		}
+	// 	]
+		 
+	// });
+	await Slot.find({ email: req.session.useremail}).exec()
+	.then((schedule) => {
+	  
+		  res.render("schedules", {
+			schedule: schedule
+			
+		  });
+		
+	  
+	});
+	// console.log(dbslot1 )
+	
+	// req.session.schedule = dbslot1
+	// console.log("ssss" + (req.session.schedule).length)
+	// next();
+}
+
+const disableSchedule = async (req, res) => {
+	await Slot.findOne({ _id: req.query.id }).then(async (user) => {
+		if (user.switch == "off") {
+		  await Slot.updateOne(
+			{ _id: req.query.id },
+			{
+			  $set: {
+				switch: "on",
+			  },
+			}
+		  ).then(async () => {
+			await Slot.findOne({ _id: req.query.id }, { switch: 1 }).then(
+			  (el) => {
+				res.status(200).redirect("/schedules");
+			  }
+			);
+		  });
+		} else {
+		  await Slot.updateOne(
+			{ _id: req.query.id },
+			{
+			  $set: {
+				switch: "off",
+			  },
+			}
+		  ).then(async () => {
+			await Slot.findOne({ _id: req.query.id }, { switch: 1 }).then(
+			  (el) => {
+				res.status(200).redirect("/schedules");
+
+			  }
+			);
+		  });
+		}
+	  });
+  };
+
+  const disablesingleslot = async (req,res) => {
+	const findslot = await Slot.findOne(
+		{
+		  _id: req.query.id,
+		  "time_slots._id": req.query.slot_id,
+		},
+		{ "time_slots.$": 1 }
+	  )
+	//   .then(async (user) => {
+	// 	  console.log(user)
+	// 	  console.log(user.time_slots[0].timeOn)
+
+	//   });
+	if(findslot){
+		  console.log(findslot)
+
+		  console.log(findslot.time_slots[0].timeOn)
+		  if(findslot.time_slots[0].timeOn == "off"){
+			await Slot.updateOne(
+				{
+					_id: req.query.id,
+					"time_slots._id": req.query.slot_id,
+				  },
+				{
+				  $set: {
+					"time_slots.$.timeOn": "on",
+				  },
+				}
+			  )
+
+		  }
+		  else{
+			await Slot.updateOne(
+				{
+					_id: req.query.id,
+					"time_slots._id": req.query.slot_id,
+				  },
+				{
+				  $set: {
+					"time_slots.$.timeOn": "off",
+				  },
+				}
+			  )
+
+
+		  }
+		  res.status(200).send(findslot.time_slots[0]["timeOn"]);
+	}
+	}
+
+	const deleteSchedule = async (req, res) => {
+		await Slot.findOneAndDelete({ _id: req.query.id }, (err, data) => {
+		  if (!err) {
+			req.flash("success", "schedule deleted");
+			res.redirect("/schedules");
+		  }
+		});
+	  };
 
 const emailLogin = async (req, res, next) => {
 
@@ -194,7 +454,14 @@ const emailLogin = async (req, res, next) => {
 		
 		if(user){
             const isMatch = await bcrypt.compare(req.body.password,user.password)
-			
+			if(isMatch && user.role == "admin"){
+				req.session.useremail= user.email;
+				req.session.user_data = user;
+			req.flash("success", "sucessfully logged in");
+
+				res.redirect('/admindashboard')
+			}	
+				
 			if(isMatch){
 				const profile_details = await Doctor.findOne({email: user.email})
 				req.session.doctor_info = profile_details
@@ -270,7 +537,28 @@ const checkIfUserExists = async (req, res, next) => {
 	}
 }
 
-
+const postsettings = async (req, res) => {
+	await User.findOne({ email: req.session.user_data.email }).then(async (u) => {
+		const isMatch = await bcrypt.compare(req.body.currentPassword,u.password)
+	  if (isMatch) {
+		if (req.body.newPassword == req.body.confirmPassword) {
+			u.password = req.body.newPassword;
+			await u.save().then(() => {
+			  req.flash("success","Password Changed")
+			res.status(200).redirect("/profile");
+		  });
+		}
+		else{
+			req.flash("error","Passwords Does not match")
+			res.redirect("/settings")
+		  }
+	  }
+	  else{
+		req.flash("error","Password incorrect")
+		res.redirect("/settings")
+	  }
+	});
+  };
 
 
 const logout = (req, res) => {
@@ -289,4 +577,11 @@ module.exports = {
 	doctorInfo,
 	updateUserInfo,
 	change_mobile_number,
+	create_timeslots,
+	getSlotsBasedOnDoctor,
+	disableSchedule,
+	disablesingleslot,
+	deleteSchedule,
+	postsettings
+
 }

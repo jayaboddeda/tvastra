@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\booking.css" type="text/css">
+
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+</head>
+<%- include("partials/header.ejs")%>
+<main>
+    <div class="container">
+        <section>
+            <div id="doctor-box">
+                <h1>In Clinic Appointment</h1>
+                <ul class="timings">
+                    <li><i class="far fa-calendar-plus"></i><%= booking_info.date %></li>
+                    <li><i class="far fa-clock"></i>From <%= booking_info.time %></li>
+                    <li><i class="far fa-clock"></i>To <%= to_time %></li>
+                    <li><a href="/doctors">Change date & time</a></li>
+                </ul>
+                <div id="doctor-info">
+                    <figure>
+                        <div>
+                            <img src="<%='../../assets/images/'+ doctor.image %>" alt="doctor">
+                        </div>
+                        <figcaption>
+                            <ul>
+                                <li><%= user.name %></li>
+                                <li><%= doctor.hospital %></li>
+                                <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div id="hospital-info">
+                    <figure>
+                        <div>
+                            <img src="https://content3.jdmagicbox.com/comp/delhi/h8/011pxx11.xx11.110808094820.e1h8/catalogue/indraprastha-apollo-hospitals-sarita-vihar-delhi-hospitals-0jmez6p3in.jpg?clr=522014" alt="hospital">
+                        </div>
+                        <figcaption>
+                            <ul>
+                                <li><%= doctor.hospital %></li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="form">
+            <h2 class="form-title">Patient Details</h2>
+            <form action="/bookAppointment" method="POST">
+    
+                <input type="hidden" name="doctorId" value="<%=doctor._id%>" />
+                <input type="hidden" name="doctorEmail" value="<%=doctor.email%>" />
+                <input type="hidden" name="doctorName" value="<%=user.name%>" />
+                <input type="hidden" name="doctorAvtar" value="<%=doctor.image%>" />
+                <input type="hidden" name="doctorHospitals" value="<%=doctor.hospital%>" />
+                <input type="hidden" name="doctorQualifications" value="<%=doctor.qualification%>" />
+                <input type="hidden" name="slotId" value="<%=booking_info.timeslot%>" />
+                <input type="hidden" name="scheduleId" value="<%=booking_info.dayslot%>" />
+                <input type="hidden" name="hospital" value="<%=doctor.hospital%>" />
+                <input type="hidden" name="date" value="<%=booking_info.date%>" />
+                <input type="hidden" name="startTime" value="<%=booking_info.time%>" />
+                <input type="hidden" name="endTime" value="<%=to_time%>" />
+    
+                <h5>This appointment is for:</h5>
+                <div>
+                    <input type="radio" name="isFor" id="self" value="self" onchange="other(this)" checked />
+                    <label for="self">Self</label>
+                </div>
+                <div>
+                    <input type="radio" name="isFor" id="someoneElse" value="someoneElse" onchange="other(this)" onblur="other(this)" />
+                    <label for="someoneElse">Someone else</label>
+                </div>
+                <h5>Please provide the following informations:</h5>
+                <label>Patient's full name:</label>
+                <input type="text" name="name" value="<%=user_data.name%>" readonly>
+                <label>Mobile number:</label>
+                <input type="text" name="mobile" value="<%=user_data.phone%>" readonly>
+                <label>Patient's mobile number:</label>
+                <input type="text" name="patientMobile" value="<%=user_data.phone%>" readonly>
+                <label>Patient's Email:</label>
+                <input type="email" name="email" value="<%=user_data.email%>" readonly>
+                <button class="dark-button" type="submit">Book Appointment</button>
+            </form>
+            </div>
+        </section>
+    </div>
+    </main>
+        <div class="footer-index txt-center">
+            <div class="footer-line1">
+                <div class="footer-img">
+                    <a href="/index"><img class="footer-logo"
+                            src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                            alt="tvastra logo"></a>
+                </div>
+                <div class="footer-list">
+                    <ul>
+                        <a href="/doctor">
+                            <li>Doctor</li>
+                        </a>
+                        <a href="/hospital">
+                            <li>Hospital</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Treatment</li>
+                        </a>
+                        <a href="#">
+                            <li>Other Services</li>
+                        </a>
+                        <a href="/faq">
+                            <li>FAQs</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-line2">
+                <div class="footer-i">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="copyright">
+                    <p>All Rights Reserved. tvastra 2018</p>
+                </div>
+            </div>
+        </div>
+        <script>
+
+            var nameInput = document.querySelector("[name='name']");
+            var patientMobileInput = document.querySelector("[name='patientMobile']");
+            var emailInput = document.querySelector("[name='email']");
+        
+            var nameValue = nameInput.value;
+            var patientMobileValue = patientMobileInput.value;
+            var emailValue = emailInput.value;
+        
+            var someoneElseInput = document.getElementById("someoneElse");
+        
+            function other(e)
+            {
+                if (someoneElseInput.checked){
+                    nameInput.value = "";
+                    patientMobileInput.value = "";
+                    emailInput.value = "";
+                    nameInput.readOnly = false;
+                    patientMobileInput.readOnly = false;
+                    emailInput.readOnly = false;
+                } else {
+                    nameInput.value = nameValue;
+                    patientMobileInput.value = patientMobileValue;
+                    emailInput.value = emailValue;
+                    nameInput.readOnly = true;
+                    patientMobileInput.readOnly = true;
+                    emailInput.readOnly = true;
+                }
+            }
+        </script>
+</body>
+
+</html>

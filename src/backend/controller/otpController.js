@@ -7,10 +7,8 @@ const Doctor = require("../databases/doctor_info");
 
 var token
 const otprequest= async (req, res) => {
- console.log("ooo : " + req.session.change_number);
 
   if(req.session.change_number){
- console.log("rrr : " + req.session.change_number);
     
     token = req.body.phone;
     const otp = otpManager.create(token);

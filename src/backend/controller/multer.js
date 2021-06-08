@@ -25,7 +25,15 @@ function uploadDocImg (req, res, next) {
     upload( req, res, next);
 }
 
+function uploadmultipleImg (req, res, next) {
+    console.log("cccc.........")
+    let upload = uploadProfilePhoto.array("reportPic",3);
+
+    upload( req, res, next);
+}
+
 module.exports = {
     uploadDocImg : uploadDocImg ,
-    storage:storage 
+    storage:storage ,
+    uploadmultipleImg
 }

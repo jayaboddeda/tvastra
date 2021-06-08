@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\booking.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\bookappointment.css" type="text/css">
+
+
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+</head>
+<%- include("partials/header.ejs")%>
+<main>
+    <div class="container">
+        <section>
+            <div id="doctor-box">
+                <h1>In Clinic Appointment</h1>
+                <ul class="timings">
+                    <li><i class="far fa-calendar-plus"></i><%= appointmentinfo.date %></li>
+                    <li><i class="far fa-clock"></i>From <%= appointmentinfo.startTime %></li>
+                    <li><i class="far fa-clock"></i>To <%= appointmentinfo.endTime %></li>
+                </ul>
+                <div id="doctor-info">
+                    <figure>
+                        <div>
+                            <img src="<%='../../assets/images/'+ appointmentinfo.doctorAvtar %>" alt="doctor">
+                        </div>
+                        <figcaption>
+                            <ul>
+                                <li><%= appointmentinfo.doctorName %></li>
+                                <li><%= appointmentinfo.hospital %></li>
+                                <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div id="hospital-info">
+                    <figure>
+                        <div>
+                            <img src="https://content3.jdmagicbox.com/comp/delhi/h8/011pxx11.xx11.110808094820.e1h8/catalogue/indraprastha-apollo-hospitals-sarita-vihar-delhi-hospitals-0jmez6p3in.jpg?clr=522014" alt="hospital">
+                        </div>
+                        <figcaption>
+                            <ul>
+                                <li><%= appointmentinfo.hospital %></li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2><i class="fa fa-check-circle"></i> Appointment Confirmed!</h2>
+            <h4>We have sent you an SMS with the details</h4>
+            <h5>Patient's name:</h5>
+            <span><%= appointmentinfo.patientName %></span>
+            <h5>Mobile number</h5>
+            <span><%= appointmentinfo.patientMobile %></span>
+            <div class="btnGroup">
+                <button class="light-blue_button" onclick="window.location.href='/cancelappointment?appointmentId=<%= appointmentinfo._id %>&slotId=<%= appointmentinfo.slotId %>&scheduleId=<%=appointmentinfo.scheduleId%>'">Cancel Appointment</button>
+                <button class="light-blue_button" onclick="window.location.href='/rescheduleappointment?appointmentId=<%= appointmentinfo._id %>'">Reschedule Appointment</button>
+            </div>
+        </section>
+    </div>
+    </main>
+        <div class="footer-index txt-center">
+            <div class="footer-line1">
+                <div class="footer-img">
+                    <a href="/index"><img class="footer-logo"
+                            src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                            alt="tvastra logo"></a>
+                </div>
+                <div class="footer-list">
+                    <ul>
+                        <a href="/doctor">
+                            <li>Doctor</li>
+                        </a>
+                        <a href="/hospital">
+                            <li>Hospital</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Treatment</li>
+                        </a>
+                        <a href="#">
+                            <li>Other Services</li>
+                        </a>
+                        <a href="/faq">
+                            <li>FAQs</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-line2">
+                <div class="footer-i">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="copyright">
+                    <p>All Rights Reserved. tvastra 2018</p>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

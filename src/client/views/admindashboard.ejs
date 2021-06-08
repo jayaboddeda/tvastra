@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+
+
+    <link rel="stylesheet" href="..\assets\css\profile.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\admindashboard.css" type="text/css">
+
+
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <%- include("partials/header.ejs")%>
+        <main>
+            <div class="container">
+                <aside>
+                    <div class="header_arrow">
+                        <h3 class="profile_menu_header">Dashboard</h3>
+                        <i class="fas fa-angle-down dashboard_down"></i>
+                    </div>
+                    <ul class="mobile_profile_menu hide">
+                        <li>
+                            <a href="/admindashboard">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/allusers">
+                                <i class="fas fa-th-list"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/alldoctors">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Doctors</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/allhospitals">
+                                <i class="far fa-file-alt"></i>
+                                <span>Hospitals</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/settings">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="profile_menu">
+                        <li>
+                            <a href="/admindashboard">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/allusers">
+                                <i class="fas fa-th-list"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/alldoctors">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Doctors</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/allhospitals">
+                                <i class="far fa-file-alt"></i>
+                                <span>Hospitals</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/settings">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <section class="form-container">
+                    <div class="adminDashboard">
+                        <div class="col col1">
+                            <i class="fas fa-briefcase-medical"></i>
+                            <div class="subcol">
+                                <h5>User</h5>
+                                <h5><%= users.length %></h5>
+                            </div>
+                        </div>
+                        <div class="col col2">
+                            <i class="fas fa-syringe"></i>
+                            <div class="subcol">
+
+                                <h5>Doctors</h5>
+                                <h5><%= doctors.length %></h5>
+                            </div>
+                        </div>
+                        <div class="col col3">
+                            <i class="fas fa-user-md"></i>
+                            <div class="subcol">
+                                <h5>Hospitals</h5>
+                                <h5><%= hospitals.length %></h5>
+                            </div>
+                        </div>
+                        <div class="col col4">
+                            <i class="fas fa-briefcase-medical"></i>
+                            <div class="subcol">
+                                <h5>Appointments</h5>
+                                <h5><%= totalappointments.length %></h5>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="canvasContainer">
+                            <h3>Hospital Survey</h3>
+                            <div class="picContainer">
+                                <img src="../assets/images/admin/canvas.png" alt="Graph">
+                            </div>
+                        </div>
+                        <div class="canvasContainer">
+                            <h3>Patient Age</h3>
+                            <div class="picContainer">
+                                <img src="../assets/images/admin/canvasPieChart.png" alt="Graph">
+                            </div>
+                        </div>
+                        <div class="recentAppointments" data-page="<%= page %>">
+                            <h3>Patients Enrolled</h3>
+                            <table class="recentAppointmentsTable">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <h5>Name</h5>
+                                        </td>
+                                        <td>
+                                            <h5>Phone Number</h5>
+                                        </td>
+                                        <td>
+                                            <h5>Email</h5>
+                                        </td>
+                                        <td>
+                                            <h5>Actions</h5>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for(let i =0; i < appointments.length; i++){%>
+                                    <tr>
+                                        <td>
+                                            <h6> <%=appointments[i].name%></h6>
+                                        </td>
+                                        <td>
+                                            <h6> <%=appointments[i].phone%></h6>
+                                        </td>
+                                        <td>
+                                            <h6> <%=appointments[i].email%></h6>
+                                        </td>
+                                        <td>
+                                            <h6> <a href="/myappointments/?mobile=<%= appointments[i].phone%>">Appointment
+                                                    Details</a></h6>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                    
+                    </tbody> 
+                    </table>
+                    </div>     
+                    <div class="pagenationContainer">
+                        <ul>
+        
+                            <% if(users.length > 3){ %>
+                             <% for(let i =1; i<= Math.ceil(users.length/3); i++){ %> 
+                            <li>
+                                <a class="pageIndexLink" href="/admindashboard?page=<%=i%>&size=3"><%= i %></a> 
+                            </li>
+        <% } %>
+        <% } %>
+        
+                        </ul>
+                    </div>          
+                </section>
+
+            </div>
+        </main>
+        <div class="footer-index txt-center">
+            <div class="footer-line1">
+                <div class="footer-img">
+                    <a href="/index"><img class="footer-logo"
+                            src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                            alt="tvastra logo"></a>
+                </div>
+                <div class="footer-list">
+                    <ul>
+                        <a href="/doctor">
+                            <li>Doctor</li>
+                        </a>
+                        <a href="/hospital">
+                            <li>Hospital</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Treatment</li>
+                        </a>
+                        <a href="#">
+                            <li>Other Services</li>
+                        </a>
+                        <a href="/faq">
+                            <li>FAQs</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-line2">
+                <div class="footer-i">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="copyright">
+                    <p>All Rights Reserved. tvastra 2018</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            const mobile_aside_header = document.querySelector('.profile_menu_header')
+            const mobile_aside = document.querySelector('.mobile_profile_menu')
+            mobile_aside_header.onclick = function () {
+                if (mobile_aside.classList[1] == "hide") {
+                    mobile_aside.classList.remove("hide")
+                }
+                else {
+                    mobile_aside.classList.add("hide")
+
+                }
+
+            }
+
+            let pages = document.querySelector(".recentAppointments").getAttribute("data-page");
+      let index= document.querySelectorAll(".pageIndexLink");
+
+            index.forEach((e)=>{
+                 if(e.innerText == pages)
+                 {
+                    e.classList.add("page-active");
+                 }
+            })
+
+        </script>
+</body>
+
+</html>

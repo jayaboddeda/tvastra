@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\booking.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\doctor.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\rescheduleappointment.css" type="text/css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+</head>
+<%if(user_data.role == "admin") {%>
+    <div class="navbar">
+        <nav>
+              
+            <a href="/index"><img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo"></a>
+                  
+            <div class="nav_right_content">
+                <div class="desktop-btn ">
+                    <% if(user_data){ %>
+                        <ul class="desktop-btn mobile-ul">
+    
+                            <li class="treatment_menu username">
+                                <div class="mobile-btn"><a>
+                                        <%=user_data.name.slice(0,8)%>
+                                    </a>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                                <div class="treatment_sub__menu left hide">
+                                    <div class="profile_image_container">
+    
+                                        <% if(user_data.role==="doctor" && doctor_info) { %>
+                                            <a href="/profile">  <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>"></a>
+                                            <% } else if(user_data.role==="user" && user_data.image){%>
+                                                <a href="/profile">  <img class="profile_img"
+                                                        src="<%='../../assets/images/'+ user_data.image %>"></a>
+                                                <% } else {%>
+                                                    <a href="/profile">     <img class="profile_img"
+                                                            src="../../assets/images/default-picture.png"> </a>
+                                                    <% } %>
+                                                        <ul class="user_details">
+                                                            <li>
+                                                                <%=user_data.name.slice(0,8)%>
+                                                            </li>
+                                                            <li>
+                                                                <%= user_data.phone %>
+                                                            </li>
+                                                        </ul>
+    
+                                    </div>
+                                    <ul class="treatment_sub__menu_options">
+    
+                                        <a href="#">
+                                            <li>My appointments</li>
+                                        </a>
+                                        <a href="#"></a>
+                                        <li>My Lab Test</li></a>
+                                        <a href="#">
+                                            <li>My Medicine Orders</li>
+                                        </a>
+                                        <a href="#">
+                                            <li>My Payments</li>
+                                        </a>
+                                        <a href="/logout">
+                                            <li>logout</li>
+                                        </a>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <% } %>
+    
+                </div>
+                <i class="fas fa-bars fa-2x bar openbtn" onclick="openNav()"></i>
+            </div>
+        </nav>
+    
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <div class="sidebar-header">
+                    
+                <a href="/index"><img class="tvastralogo"
+                        src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                        alt="tvastra logo"></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        </div>
+        <ul class="mobile-ul">
+            <li><a href="/doctor">Doctors</a></li>
+            <li><a href="/hospital">Hospitals</a></li>
+            <li class="treatment_menu">
+                <a href="#">Treatment</a>
+                <i class="fas fa-angle-down "></i>
+                <div class="treatment_sub__menu dentistry">
+                    <ul>
+                        <a href="/treatment">
+                            <li>Dentistry</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Cancer</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Cardiology</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Multi Organ Transplant</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Orthopedic Surgery</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Infertility Treatment</li>
+                        </a>
+                    </ul>
+                </div>
+            </li>
+            <!-- <li><a href="/aboutus">Other Services</a></li> -->
+            <li><a href="/aboutus">About</a></li>
+        </ul>
+        <div class="desktop-btn">
+                
+                <a href="/index"><img class="tvastralogo"
+                        src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                        alt="tvastra logo"></a>
+                        
+        </div>
+    </div>
+    
+    <nav class="index-desktop-nav" style="grid-template:1fr / 1fr 1fr">
+        <div class="desk-img">
+                
+                <a href="/index"><img class="tvastralogo"
+                        src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                        alt="tvastra logo"></a>
+                       
+        </div>
+
+    
+        <div class="desktop-btn">
+            <% if(user_data){ %>
+                
+                <ul>
+                    <li class="treatment_menu username"><a>
+                            <%=user_data.name.slice(0,8)%>
+                        </a>
+                        <i class="fas fa-angle-down"></i>
+                        <div class="treatment_sub__menu left">
+                            <div class="profile_image_container">
+    
+                                <% if(user_data.role==="doctor" && doctor_info) { %>
+                                   <a href="/profile"> <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>"></a>
+                                    <% } else if(user_data.role==="user" || user_data.role==="admin" && user_data.image){%>
+                                        <a href="/profile"> <img class="profile_img"
+                                                src="<%='../../assets/images/'+ user_data.image %>"></a>
+                                        <% } else {%>
+                                            <a href="/profile">   <img class="profile_img"
+                                                    src="../../assets/images/default-picture.png"> </a>
+                                            <% } %>
+                                            <ul class="user_details">
+                                                <li>
+                                                    <%=user_data.name.slice(0,8)%>
+                                                </li>
+                                                <li>
+                                                    <%= user_data.phone %>
+                                                </li>
+                                            </ul>
+    
+                            </div>
+                            <ul class="treatment_sub__menu_options">
+    
+                                <a href="#">
+                                    <li>My appointments</li>
+                                </a>
+                                <a href="#"></a>
+                                <li>My Lab Test</li></a>
+                                <a href="#">
+                                    <li>My Medicine Orders</li>
+                                </a>
+                                <a href="#">
+                                    <li>My Payments</li>
+                                </a>
+                                <a href="/logout">
+                                    <li>logout</li>
+                                </a>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <% } else { %>
+                    <button class="quote-btn">Get a Quote</button>
+                    <% } %>
+        </div>
+    </nav>
+    
+    
+    <div class="flash-container">
+        <% if(success && success.length>0) { %>
+            <div id="flash-msg" class="flash-msg success-msg">
+                <i class="fas fa-check-circle msg-icon"></i>
+                <div class="msg-content success-content">
+                    <h6>Success</h6>
+                    <p>
+                        <%= success %>
+                    </p>
+                </div>
+                <i id="hide-flash" class="fa fa-times hide-msg-icon"></i>
+            </div>
+            <% } %>
+                <% if(error && error.length>0) { %>
+                    <div id="flash-msg" class="flash-msg failure-msg">
+                        <i class="fa fa-times-circle msg-icon" aria-hidden="true"></i>
+                        <div class="msg-content failure-content">
+                            <h6>Failure</h6>
+                            <p>
+                                <%= error %>
+                            </p>
+                        </div>
+                        <i id="hide-flash" class="fa fa-times hide-msg-icon"></i>
+                    </div>
+                    <% } %>
+    </div>
+    
+    
+    <script>
+        const error = document.querySelector('.flash-container');
+        const cross = document.querySelector('.hide-msg-icon');
+        const hideError = () => {
+            error.style.display = 'none';
+    
+        }
+    
+        if (error) {
+            setTimeout(() => {
+                error.style.display = 'none';
+            }, 5000);
+        }
+    
+        cross.addEventListener('click', hideError);
+    
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "300px";
+        }
+    
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+        const name = document.querySelector(".mobile-btn");
+        const profile = document.querySelector(".treatment_sub__menu")
+        name.onclick = function () {
+            if (profile.classList[2] == "hide") {
+                profile.classList.remove("hide")
+            }
+            else {
+                profile.classList.add("hide")
+    
+            }
+    
+        }
+    </script>
+<%} else {%>
+    <%- include("partials/header.ejs")%>
+<%}%>
+
+<main>
+    <div class="container">
+        <h1>Reschedule Appointment</h1>
+        <div class="doctor-boundary1">
+            <div class="doctor-img-flex">
+            <div class="doctor-info">
+             <h6 class=" info-fancy"><span><%= appointmentinfo.doctorName %></span></h6>
+                <ul class="info-ul">
+                    <li>
+                     <i class="fas fa-certificate"></i><%= appointmentinfo.date %>
+                    </li>
+                    <li><i class="fas fa-award"></i><%= appointmentinfo.doctorHospitals %> Hospital</li>
+                    <li><i class="far fa-clock"></i><%= appointmentinfo.startTime %></li>
+                    <li><i class="far fa-building"></i> <%= appointmentinfo.endTime %> </li>
+                </ul>
+                <div class="center ">
+                 <button class="appointment-btn dark-button" onclick="selectslots('<%= appointmentinfo.doctorEmail %>','<%= appointmentinfo.doctorId %>','<%= appointmentinfo._id %>')">Reschedule appointment</button>
+                </div>
+             
+            </div>
+            <div class="doctor1-img duke-img">
+             <img src="<%='../../assets/images/'+ appointmentinfo.doctorAvtar %>" alt="<%= appointmentinfo.doctorName %>"> 
+            </div>
+         </div>
+            <div class="main-carousel<%= appointmentinfo.doctorId %>" id="main-carousel" style="display: none;">
+
+
+         </div>
+         <div class="time_show<%= appointmentinfo.doctorId %>" id="time_show" style="display: none;">
+
+         </div>
+        </div>
+    </div>
+</main>
+<div class="footer-index txt-center">
+    <div class="footer-line1">
+        <div class="footer-img">
+            <a href="/index"><img class="footer-logo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                    alt="tvastra logo"></a>
+        </div>
+        <div class="footer-list">
+            <ul>
+                <a href="/doctor">
+                    <li>Doctor</li>
+                </a>
+                <a href="/hospital">
+                    <li>Hospital</li>
+                </a>
+                <a href="/treatment">
+                    <li>Treatment</li>
+                </a>
+                <a href="#">
+                    <li>Other Services</li>
+                </a>
+                <a href="/faq">
+                    <li>FAQs</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-line2">
+        <div class="footer-i">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-google-plus-g"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+        <div class="copyright">
+            <p>All Rights Reserved. tvastra 2018</p>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+<script>
+
+
+    let aryDates = [];
+
+
+    function GetDates(startDate, daysToAdd) {
+
+        for (var i = 0; i <= daysToAdd; i++) {
+            let str1 = {
+                _id: '',
+                date: '',
+                time: ''
+            }
+            var currentDate = new Date();
+            currentDate.setDate(startDate.getDate() + i);
+            str1.date = DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear();
+            aryDates.push(str1);
+        }
+
+        return aryDates;
+    }
+
+    function MonthAsString(monthIndex) {
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+
+        return month[monthIndex];
+    }
+
+    function DayAsString(dayIndex) {
+        var weekdays = new Array(7);
+        weekdays[0] = "Sunday";
+        weekdays[1] = "Monday";
+        weekdays[2] = "Tuesday";
+        weekdays[3] = "Wednesday";
+        weekdays[4] = "Thursday";
+        weekdays[5] = "Friday";
+        weekdays[6] = "Saturday";
+
+        return weekdays[dayIndex];
+    }
+
+    var startDate = new Date();
+    var ary = GetDates(startDate, 6);
+
+
+
+
+   
+
+
+    
+
+
+    async function selectslots(doctorname,key,appointmentid) {
+        console.log(doctorname)
+        console.log(key)
+
+       var elem = document.querySelector(`.main-carousel${key}`);
+        elem.style.display == 'none' ? elem.style.display = 'flex' : elem.style.display = 'none';
+
+
+        elem.innerHTML = "";
+
+
+
+        if (elem.style.display == 'flex') {
+            let result = await fetch(`/fetchtimeslots?doctorname=${doctorname}`);
+            result.text().then((user) => {
+
+                let user1 = JSON.parse(user);
+
+                if (user1.length == 0) {
+                    let day_time = document.createElement('div');
+
+
+                    day_time.classList.add('no-slot-available');
+
+                    let struct = `
+                          <div class="no_slot" >
+                        
+                         <small>No slots available</small>
+                         </div>
+                   `
+                    day_time.innerHTML = struct;
+                    elem.append(day_time);
+                }
+                else {
+
+
+                    user1.forEach((u) => {
+                        aryDates.forEach((e) => {
+                            if (e.date.includes(u.days)) {
+                                e._id = u._id;
+                                e.time = u.time_slots.filter((e) => { return e.timeOn == "off" });
+                            }
+                        })
+
+                    })
+                    aryDates.forEach((val) => {
+                        if (val.date.includes('Sunday')) {
+                            var index = aryDates.indexOf(val);
+                            aryDates.splice(index, 1);
+                        }
+                    })
+                    var flkty = new Flickity(elem, {
+                        // options
+                        cellAlign: 'left',
+                        contain: true,
+                        pageDots:false
+                    });
+
+                    aryDates.forEach((e) => {
+                        let day_time = document.createElement('div');
+
+
+                        day_time.classList.add('carousel-cell');
+
+                        let struct = `
+                          <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}','${appointmentid}')">
+                         <big>${e.date}</big>
+                         <small>${e.time.length} slots available</small>
+                         </div>
+                   `
+                        day_time.innerHTML = struct;
+                        flkty.append(day_time);
+                    })
+
+                }
+
+            })
+        }
+
+
+    }
+    let i = 0;
+        
+    function gettingTime(date, doctorname,element,key,appointmentid) {
+        console.log(date)
+        console.log(doctorname)
+        console.log(element)
+        console.log(key)
+
+
+
+ let time_show = document.querySelector(`.time_show${key}`);
+     time_show.style.display == 'none' ? time_show.style.display = 'flex' : "";
+       
+
+        time_show.innerHTML = "";
+
+         let time_slot_day = document.querySelectorAll(".time_slot_day");
+
+         time_slot_day.forEach((e)=>{
+             e.classList.remove('timeslot_active_hai');
+         })
+
+    
+
+        aryDates.forEach((e) => {
+
+            if (e.date == date) {
+                element.classList.add('timeslot_active_hai');
+                if (e.time) {
+                    let morning = document.createElement('div');
+                    morning.classList.add("morning")
+                    let evening = document.createElement('div');
+                    evening.classList.add("evening")
+                    let afternoon = document.createElement('div');
+                    afternoon.classList.add("afternoon");
+                    let tim_mor = document.createElement('div');
+                    tim_mor.classList.add("tim");
+                    morning.appendChild(tim_mor);
+                    let tim_eve = document.createElement('div');
+                    tim_eve.classList.add("tim");
+                    evening.appendChild(tim_eve);
+                    let tim_aft = document.createElement('div');
+                    tim_aft.classList.add("tim");
+                    afternoon.appendChild(tim_aft);
+                    const mor = `<p>Morining</p>`;
+                    const mor1 = document.createElement('div');
+                    mor1.classList.add("mor");
+                    mor1.innerHTML = mor;
+                    morning.prepend(mor1);
+                    const mor2 = `<p>Evening</p>`;
+                    const mor3 = document.createElement('div');
+                    mor3.classList.add("mor");
+                    mor3.innerHTML = mor2;
+                    evening.prepend(mor3);
+                    const mor4 = `<p>Afternoon</p>`;
+                    const mor5 = document.createElement('div');
+                    mor5.classList.add("mor");
+                    mor5.innerHTML = mor4;
+                    afternoon.prepend(mor5);
+
+                    e.time.forEach((u,i) => {
+
+                        if (moment(u.timing, "hh:mm A").isBefore(moment("12:00 PM", "hh:mm A"))) {
+                            let timings = document.createElement('p');
+                            timings.classList.add('timinig');
+
+
+                                
+
+                            let str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p>${u.timing}</p>
+                                       </div> `
+
+                            timings.innerHTML = str;
+                            tim_mor.appendChild(timings);
+
+                        }
+                        if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("12:00 PM", "hh:mm A")) && moment(u.timing, "hh:mm A").isBefore(moment("4:00 PM", "hh:mm A"))) {
+                            let timings = document.createElement('p');
+                            timings.classList.add('timinig');
+                            
+                            let str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p>${u.timing}</p>
+                                       </div> `
+
+                            timings.innerHTML = str;
+
+
+                            tim_eve.appendChild(timings);
+
+                        }
+                        if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("4:00 PM", "hh:mm A"))) {
+                            let timings = document.createElement('p');
+                            timings.classList.add('timinig');
+                            
+                            let str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p>${u.timing}</p>
+                                       </div> `
+
+                            timings.innerHTML = str;
+
+                            tim_aft.appendChild(timings);
+                        }
+
+                        time_show.appendChild(morning);
+                        time_show.appendChild(evening);
+                        time_show.appendChild(afternoon);
+
+
+
+                    })
+
+
+                }
+                else {
+
+                    let timings = document.createElement('div');
+                    timings.classList.add('timinig-not-avaliable');
+
+                    let str = `<div>
+                                    <p>No Slots Available</p>
+                                  
+                                    <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
+                                       </div> `
+
+                    timings.innerHTML = str;
+
+                    time_show.appendChild(timings);
+                }
+            }
+
+        })
+    }
+
+
+
+</script>
+</body>
+
+</html>

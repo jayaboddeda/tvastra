@@ -115,22 +115,23 @@ input{
     }
 }
 .profile_menu{
-    li{
-        padding:10px 0;
-        i{
-            color:var(--button_blue);
-            font-size: 1.2rem;
-            padding: 0 10px;
-        }
-        span{
-            font-size: 1rem;
-        }
-    }
-
-    li:first-child {
-        span{
+li{
+    padding:10px 0;
+    i{
         color:var(--button_blue);
-
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+    span{
+        color:var(--darkblue);
+        font-size: 1rem;
+        }
+}
+    li:nth-child(1)
+   {
+        
+        span{
+            color: var(--button_blue);
         }
         background-color: var(--lightgrey);
         font-weight: bold;
@@ -146,6 +147,9 @@ input{
             border-left: 5px solid var(--button_blue)
     }
 }
+
+
+
 .user_name_input {
     align-self: flex-start;
 }
@@ -274,9 +278,7 @@ input{
     cursor: pointer;
   }
 @media only screen and (min-width:768px) and (max-width:1024px){
-     .profile_menu{
-        display: none;
-    }
+
 
 .profile_menu{
     display: flex;
@@ -285,6 +287,9 @@ input{
     li{
         padding-right: 1rem;;
     }
+}
+.profile_menu{
+    display: none;
 }
 
 .form-box{
@@ -312,7 +317,7 @@ input{
     display: grid;
     width: 100%;
     grid-template-columns: 20% 80%;
-    padding: 3rem 6%;
+    padding: 3rem 5%;
     aside,.form-container{
         padding-top: 4rem;
         padding-bottom: 1.5rem; 

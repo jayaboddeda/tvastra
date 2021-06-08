@@ -83,6 +83,12 @@ i.fas.fa-angle-down {
             align-items: center;
             justify-content: space-around;
             border-bottom: 1px solid var(--darkgrey);
+            img{
+                border-radius: 50%;
+            height: 60px;
+            width: 60px;
+            margin: 10px 0;
+            }
         }
         img.profile_img {
             border-radius: 50%;
@@ -980,14 +986,14 @@ display: inline-block;
         align-items: center;
         justify-content: space-around;
         border-bottom: 1px solid var(--darkgrey);
-    }
-    img.profile_img {
-        border-radius: 50%;
+        img{
+            border-radius: 50%;
         height: 80px;
         width: 80px;
         margin: 10px 0;
-        
+        }
     }
+  
    
     }
 }

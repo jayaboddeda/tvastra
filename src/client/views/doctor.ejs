@@ -1,294 +1,256 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
-        <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
-        <link rel="stylesheet" href="..\assets\css\doctor.css" type="text/css">
-        <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
-        <title>Doctor</title>
-    </head>
-    <body>
-        <%- include("partials/header.ejs")%>
-               <div class="banner">
-                   <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Doctors.png" alt="doctors">
-                   <p>Cardiac Surgeon in <span class="banner-p">Delhi</span></p>
-               </div>
-               <div class="sort">
-                   <p>Home / Doctor List</p>
-                   <select name="SortBy" id="sort-by">
-                       <option value="SortBy">Sort By</option>
-                   </select>
-               </div>
-               <div class="main-container">
-                <div class="sidebar-aside">
-                    <div class="filter">
-                        <p>Filter By</p>
-                    </div>
-                    <div class="location search-flex">
-                        <p>Location</p>
-                        <i class="fas fa-search doc-fancy"><span></span></i>
-                    </div>
-                    <div class="checkboxes">
-                        <div> 
-                        <input type="checkbox" id="city1" name="city1" value="DLF Cyber city">
-                        <label for="city1">DLF Cyber city</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="city2" name="city2" value="Dwaraka">
-                        <label for="city2">Dwaraka</label>
-                        </div>
-                       <div> 
-                        <input type="checkbox" id="city3" name="city3" value="Lajpat Nagar">
-                        <label for="city3">Lajpat Nagar</label>
-                       </div>
-                        <div> 
-                        <input type="checkbox" id="city4" name="city4" value="Palam Vihar">
-                        <label for="city4">Palam Vihar</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="city5" name="city5" value="Punjabi Baag">
-                        <label for="city5">Punjabi Baag</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="city6" name="city6" value="Pusa Road">
-                        <label for="city6">Pusa Road</label>
-                        </div>
-                        <p class="showmore">+ Show More</p>
-                    </div>
-                    <div class="doc-treatment search-flex location">
-                        <p>Treatment </p> 
-                        <i class="fas fa-search doc-fancy"><span></span></i>
-                    </div>
-                    <div class="checkboxes">
-                    <div> 
-                        <input type="checkbox" id="treatment1" name="treatment1" value="Multi organ Transplant">
-                        <label for="treatment1">Multi organ Transplant</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="treatment2" name="treatment2" value="Orthopedic surgery">
-                        <label for="treatment2">Orthopedic surgery</label>
-                        </div>
-                       <div> 
-                        <input type="checkbox" id="treatment3" name="treatment3" value="Infertility treatment">
-                        <label for="treatment3">Infertility Treatment</label>
-                       </div>
-                        <div> 
-                        <input type="checkbox" id="treatment4" name="treatment4" value="Dentistry">
-                        <label for="treatment4">Dentistry</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="treatment5" name="treatment5" value="Cardiology">
-                        <label for="treatment5">Cardiology</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="treatment6" name="treatment6" value="cancer">
-                        <label for="treatment6">Cancer</label>
-                        </div>
-                        <p>+ Show More</p>
-                    </div>
-                    <div class="doc-hospitals search-flex location">
-                        <p>Hospitals </p>
-                        <i class="fas fa-search doc-fancy"><span></span></i>
-                        
-                    </div>
-                    <div class="checkboxes">
-                        <div> 
-                        <input type="checkbox" id="city1" name="city1" value="Apollo Hospital">
-                        <label for="city1">Apollo Hospital</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="city2" name="city2" value="Manipal North Side Hospital">
-                        <label for="city2">Manipal North Hospital</label>
-                        </div>
-                       <div> 
-                        <input type="checkbox" id="city3" name="city3" value="NorthStar">
-                        <label for="city3">NorthStar</label>
-                       </div>
-                        <div> 
-                        <input type="checkbox" id="city4" name="city4" value="AIIMS">
-                        <label for="city4">AIIMS</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="city5" name="city5" value="Fortis Hospital">
-                        <label for="city5">Fortis Hospital</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="city6" name="city6" value="Elbit Diagnostic">
-                        <label for="city6">Elbit Diagnostic</label>
-                        </div>
-                        <p>+ Show More</p>
-                    </div>
-                    <div class="years-of-exp search-flex location">
-                        <p>Years of experience </p>
-                        <i class="fas fa-search doc-fancy"><span></span></i>
-                    </div>
-                    <div class="checkboxes">
-                        <div> 
-                        <input type="checkbox" id="exp1" name="exp1" value="DLF Cyber city">
-                        <label for="exp1">30+</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="exp2" name="exp2" value="Dwaraka">
-                        <label for="exp2">25+</label>
-                        </div>
-                       <div> 
-                        <input type="checkbox" id="exp3" name="exp3" value="Lajpat Nagar">
-                        <label for="exp3">20+</label>
-                       </div>
-                        <div> 
-                        <input type="checkbox" id="exp4" name="exp4" value="Palam Vihar">
-                        <label for="exp4">15+</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="exp5" name="exp5" value="Punjabi Baag">
-                        <label for="exp5">10+</label>
-                        </div>
-                        <div> 
-                        <input type="checkbox" id="exp6" name="exp6" value="Pusa Road">
-                        <label for="exp6">5+</label>
-                        </div>
-                        <p>+ Show More</p>
+
+<head>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\doctor.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <title>Doctor</title>
+</head>
+
+<body>
+    <%- include("partials/header.ejs")%>
+        <div class="banner">
+            <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Doctors.png" alt="doctors">
+            <p>Cardiac Surgeon in <span class="banner-p">Delhi</span></p>
+        </div>
+        <div class="sort">
+            <p>Home / Doctor List</p>
+            <form method="POST" action="/sort-by">
+                <select class="breadcrumb__sort" name="sort" onchange="this.form.submit()">
+                    <option value="not-specified" selected disabled>Sort By</option>
+                    <option value="name-asc">Name (A-Z)</option>
+                    <option value="name-desc">Name (Z-A)</option>
+                    <option value="fees-asc">Fees (low-high)</option>
+                    <option value="fees-desc">Fees (high-low)</option>
+                    <option value="experience">Experience (high-low)</option>
+                    <option value="experience-asc">Experience (low-high}</option>
+                </select>
+            </form>
+
+        </div>
+        <div class="main-container">
+            <div class="sidebar-aside">
+                <div class="filter">
+                    <p>Filter By</p>
+                </div>
+                <div class="location search-flex">
+                    <p>Location</p>
+                    <i class="fas fa-search doc-fancy"><span></span></i>
+                </div>
+                <form action="/filters" method="POST">
+                    <% if(filter){%>
+                        <div class="checkboxes" id="cities" filter-object="<%=filter.city%>">
+
+                            <%} else{%>
+                                <div class="checkboxes" id="cities">
+                                    <%}%>
+                                        <%for(let i=0; i < cities.length; i++){%>
+                                            <div>
+                                                <input type="checkbox" id="city<%=i%>" name="city"
+                                                    onchange="this.form.submit()" value="<%=cities[i]%>">
+                                                <label for="city<%=i%>">
+                                                    <%=cities[i]%>
+                                                </label>
+                                            </div>
+                                            <%}%>
+
+                                </div>
+                                <p class="showmore"   onclick="hamburger('cities')">+ Show More</p>
+
+                                <div class="doc-treatment search-flex location">
+                                    <p>Treatment </p>
+                                    <i class="fas fa-search doc-fancy"><span></span></i>
+                                </div>
+                                <% if(filter){%>
+                                    <div class="checkboxes" id="treatments" filter-object="<%=filter.treatment%>">
+                                        <%} else{%>
+                                            <div class="checkboxes" id="treatments">
+                                                <%}%>
+                                                    <%for(let i=0; i < treatments.length; i++){%>
+                                                        <div>
+                                                            <input type="checkbox" id="treatment<%=i%>" name="treatment"
+                                                                onchange="this.form.submit()"
+                                                                value="<%=treatments[i]%>">
+                                                            <label for="treatment<%=i%>">
+                                                                <%=treatments[i]%>
+                                                            </label>
+                                                        </div>
+                                                        <%}%>
+
+                                                         
+                                            </div>
+                                            <p class="showmore"  onclick="hamburger('treatments')">+ Show More</p>
+
+                                            <div class="doc-hospitals search-flex location">
+                                                <p>Hospitals </p>
+                                                <i class="fas fa-search doc-fancy"><span></span></i>
+
+                                            </div>
+                                            <% if(filter){%>
+                                                <div class="checkboxes" id="hospitals"
+                                                    filter-object="<%=filter.hospital%>">
+
+                                                    <p>
+                                                        <%=filter.city%>
+                                                    </p>
+
+                                                    <%} else{%>
+
+                                                        <div class="checkboxes" id="hospitals">
+
+                                                            <%}%>
+                                                                <%for(let i=0; i < hospitals.length; i++){%>
+                                                                    <div>
+                                                                        <input type="checkbox" id="city<%=i%>"
+                                                                            name="hospital"
+                                                                            onchange="this.form.submit()"
+                                                                            value="<%=hospitals[i]%>">
+                                                                        <label for="city<%=i%>">
+                                                                            <%=hospitals[i]%>
+                                                                        </label>
+                                                                    </div>
+                                                                    <%}%>
+
+                                                                       
+                                                        </div>
+                                                <p class="showmore"  onclick="hamburger('hospitals')">+ Show More</p>
+
+                                                        <div class="years-of-exp search-flex location">
+                                                            <p>Years of experience </p>
+                                                            <i class="fas fa-search doc-fancy"><span></span></i>
+                                                        </div>
+                                                        <% if(filter){%>
+                                                            <div class="checkboxes" id="experience"
+                                                                filter-object="<%=filter.exp%>">
+
+                                                                <%} else{%>
+
+                                                                    <div class="checkboxes"  id="experience">
+
+                                                                        <%}%>
+                                                                            <div>
+
+                                                                                <input type="checkbox" id="exp1"
+                                                                                    name="exp" value="30"
+                                                                                    onchange="this.form.submit()">
+                                                                                <label for="exp1">30+</label>
+                                                                            </div>
+                                                                            <div>
+                                                                                <input type="checkbox" id="exp2"
+                                                                                    name="exp" value="25"
+                                                                                    onchange="this.form.submit()">
+                                                                                <label for="exp2">25+</label>
+                                                                            </div>
+                                                                            <div>
+                                                                                <input type="checkbox" id="exp3"
+                                                                                    name="exp" value="20"
+                                                                                    onchange="this.form.submit()">
+                                                                                <label for="exp3">20+</label>
+                                                                            </div>
+                                                                            <div>
+                                                                                <input type="checkbox" id="exp4"
+                                                                                    name="exp" value="15"
+                                                                                    onchange="this.form.submit()">
+                                                                                <label for="exp4">15+</label>
+                                                                            </div>
+                                                                            <div>
+                                                                                <input type="checkbox" id="exp5"
+                                                                                    name="exp" value="10"
+                                                                                    onchange="this.form.submit()">
+                                                                                <label for="exp5">10+</label>
+                                                                            </div>
+                                                                            <div>
+                                                                                <input type="checkbox" id="exp6"
+                                                                                    name="exp" value="5"
+                                                                                    onchange="this.form.submit()">
+                                                                                <label for="exp6">5+</label>
+                                                                            </div>
+                                                                            
+                                                                    </div>
+                                                <p class="showmore"  onclick="hamburger('experience')">+ Show More</p>
+
+                                                            </div>
+                </form>
+                <div class="main">
+                    <div class="alldoctors" data-page="<%= page %>">
+                        <% for(let i=0; i < doctors.length; i++){ %>
+                            <div class="doctor-boundary1 ">
+                                <div class="doctor-img-flex">
+                                    <div class="doctor-info">
+                                        <h6 class=" info-fancy"><span>
+                                                <%=user_info_arr[i][0].name%>
+                                            </span></h6>
+                                        <ul class="info-ul">
+                                            <li>
+                                                <i class="fas fa-certificate"></i>
+                                                <%= doctors[i].qualification %>
+                                            </li>
+                                            <li><i class="fas fa-award"></i>
+                                                <%= doctors[i].specialization %>
+                                            </li>
+                                            <li><i class="far fa-clock"></i>
+                                                <%= doctors[i].experience %> years of experience
+                                            </li>
+                                            <li><i class="far fa-building"></i>
+                                                <%= doctors[i].hospital %>
+                                            </li>
+                                            <li><i class="fas fa-map-marker-alt"></i>
+                                                <%= user_info_arr[i][0].country %>
+                                            </li>
+                                            <li><i class="fas fa-map-marker-alt"></i>
+                                                <%= doctors[i].fees %>
+                                            </li>
+
+                                        </ul>
+                                        <div class="center ">
+                                            <button class="appointment-btn dark-button"
+                                                onclick="selectslots('<%=doctors[i].email%>','<%= doctors[i]._id %>')">Book
+                                                an appointment</button>
+                                        </div>
+
+                                    </div>
+                                    <div class="doctor1-img duke-img">
+                                        <img src="<%='../../assets/images/'+ doctors[i].image %>"
+                                            alt="Deep chandra verma image">
+                                    </div>
+                                </div>
+                                <div class="main-carousel<%= doctors[i]._id %>" id="main-carousel"
+                                    style="display: none;">
+
+
+                                </div>
+                                <div class="time_show<%= doctors[i]._id %>" id="time_show" style="display: none;">
+
+                                </div>
+                            </div>
+                            <% } %>
+
                     </div>
                 </div>
-            <div class="main">
-               <div class="alldoctors">
-                   <div class="doctor-boundary">
-                       <div class="doctor-info">
-                        <h6 class=" info-fancy"><span>Duke Sanson</span></h6>
-                           <ul class="info-ul">
-                               <li>
-                                <i class="fas fa-certificate"></i>Neuro Surgeon
-                               </li>
-                               <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
-                               <li><i class="far fa-clock"></i>8 years of experience</li>
-                               <li><i class="far fa-building"></i>AIMS</li>
-                               <li><i class="fas fa-map-marker-alt"></i>Australia</li>
-                           </ul>
-                           <div class="center ">
-                            <button class="appointment-btn dark-button">Book an appointment</button>
-                           </div>
-                        
-                       </div>
-                       <div class="doctor1-img duke-img">
-                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="Deep chandra verma image"> 
-                       </div>
-                   </div>
-                   <div class="doctor-boundary">
-                    <div class="doctor-info">
-                        <h6 class=" info-fancy"><span>Duke Sanson</span></h6>
-                        <ul class="info-ul">
-                            
-                            <li>
-                             <i class="fas fa-certificate"></i>Neuro Surgeon
-                            </li>
-                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
-                            <li><i class="far fa-clock"></i>8 years of experience</li>
-                            <li><i class="far fa-building"></i>AIMS</li>
-                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
-                        </ul>
-                        <div class="center">
-                         <button class="appointment-btn dark-button">Book an appointment</button>
-                        </div>
-                     
-                    </div>
-                    <div class="doctor1-img">
-                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--005.jpg" alt="Deep chandra verma image">
-                    </div>
-                </div>
-                <div class="doctor-boundary">
-                    <div class="doctor-info">
-                        <h6 class=" info-fancy"><span>Duke Sanson</span></h6>
-                        <ul class="info-ul">
-                            <li>
-                             <i class="fas fa-certificate"></i>Neuro Surgeon
-                            </li>
-                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
-                            <li><i class="far fa-clock"></i>8 years of experience</li>
-                            <li><i class="far fa-building"></i>AIMS</li>
-                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
-                        </ul>
-                        <div class="center">
-                         <button class="appointment-btn dark-button">Book an appointment</button>
-                        </div>
-                     
-                    </div>
-                    <div class="doctor1-img">
-                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--005.jpg" alt="Deep chandra verma image">
-                    </div>
-                </div>
-                <div class="doctor-boundary">
-                    <div class="doctor-info">
-                        <h6 class=" info-fancy"><span>Duke Sanson</span></h6>
-                        <ul class="info-ul">
-                            
-                            <li>
-                             <i class="fas fa-certificate"></i>Neuro Surgeon
-                            </li>
-                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
-                            <li><i class="far fa-clock"></i>8 years of experience</li>
-                            <li><i class="far fa-building"></i>AIMS</li>
-                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
-                        </ul>
-                        <div class="center">
-                         <button class="appointment-btn dark-button">Book an appointment</button>
-                        </div>
-                     
-                    </div>
-                    <div class="doctor1-img">
-                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--002.jpg" alt="Deep chandra verma image">
-                    </div>
-                </div>
-                <div class="doctor-boundary">
-                    
-                    <div class="doctor-info">
-                        <h6 class=" info-fancy"><span>Duke Sanson</span></h6>
-                        <ul class="info-ul">
-                            <li>
-                             <i class="fas fa-certificate"></i>Neuro Surgeon
-                            </li>
-                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
-                            <li><i class="far fa-clock"></i>8 years of experience</li>
-                            <li><i class="far fa-building"></i>AIMS</li>
-                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
-                        </ul>
-                        <div class="center">
-                         <button class="appointment-btn dark-button">Book an appointment</button>
-                        </div>
-                     
-                    </div>
-                    <div class="doctor1-img">
-                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--006.jpg" alt="Deep chandra verma image">
-                    </div>
-                </div>
-                <div class="doctor-boundary">
-                    
-                    <div class="doctor-info">
-                        <h6 class=" info-fancy"><span>Duke Sanson</span></h6>
-                        <ul class="info-ul">
-                            <li>
-                             <i class="fas fa-certificate"></i>Neuro Surgeon
-                            </li>
-                            <li><i class="fas fa-award"></i>Chain Department of Neurological surgery</li>
-                            <li><i class="far fa-clock"></i>8 years of experience</li>
-                            <li><i class="far fa-building"></i>AIMS</li>
-                            <li><i class="fas fa-map-marker-alt"></i>Australia</li>
-                        </ul>
-                        <div class="center">
-                         <button class="appointment-btn dark-button">Book an appointment</button>
-                        </div>
-                     
-                    </div>
-                    <div class="doctor1-img">
-                        <img src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/image--004.jpg" alt="Deep chandra verma image">
-                    </div>
-                </div>
-               </div>
+
             </div>
-            
-               </div>
-               <div class="enquiry txt-center">
+            <div class="pagenationContainer">
+                <ul>
+
+                    <% if(count>= 3){ %>
+                        <% for(let i=1; i<=Math.ceil(count/3); i++){ %>
+                            <li>
+                                <a class="pageIndexLink" href="/doctor?page=<%=i%>&size=3">
+                                    <%= i %>
+                                </a>
+                            </li>
+                            <% } %>
+                                <% } %>
+
+                </ul>
+            </div>
+            <div class="enquiry txt-center">
                 <div class="help">
                     <h2>Need Help?</h2>
                     <p>Just let us know, we will happy to assist you</p>
@@ -299,32 +261,505 @@
             </div>
 
             <div class="footer txt-center">
-                    <div class="footer-line1">
-                        <div class="footer-img">
-                            <a href="./index"><img class="footer-logo" src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png" alt="tvastra logo"></a>
-                        </div>
-                         <div class="footer-list">
-                            <ul > 
-                                <a href="/doctor"><li>Doctor</li></a> 
-                            <a href="hospital"><li>Hospital</li></a>
-                           <a href="/treatment"> <li>Treatment</li></a>
-                            <a href="#"><li>Other Services</li></a>
-                            <a href="/faq"><li>FAQs</li></a>
-                            </ul>
-                        </div>
+                <div class="footer-line1">
+                    <div class="footer-img">
+                        <a href="./index"><img class="footer-logo"
+                                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                                alt="tvastra logo"></a>
                     </div>
+                    <div class="footer-list">
+                        <ul>
+                            <a href="/doctor">
+                                <li>Doctor</li>
+                            </a>
+                            <a href="hospital">
+                                <li>Hospital</li>
+                            </a>
+                            <a href="/treatment">
+                                <li>Treatment</li>
+                            </a>
+                            <a href="#">
+                                <li>Other Services</li>
+                            </a>
+                            <a href="/faq">
+                                <li>FAQs</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
                 <div class="footer-line2">
                     <div class="footer-i">
                         <i class="fab fa-facebook-f"></i>
-                    <i class="fab fa-pinterest-p"></i>
-                    <i class="fab fa-twitter"></i>
-                    <i class="fab fa-google-plus-g"></i>
-                    <i class="fab fa-instagram"></i>
+                        <i class="fab fa-pinterest-p"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-google-plus-g"></i>
+                        <i class="fab fa-instagram"></i>
                     </div>
                     <div class="copyright">
                         <p>All Rights Reserved. tvastra 2018</p>
                     </div>
                 </div>
             </div>
-    </body>
+         
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+<script>
+    function hamburger(id){
+                   
+                   var hamburger_menu = document.getElementById(id)
+       
+       console.log(hamburger_menu)
+       
+       var menu_height = hamburger_menu.style.height
+                if(menu_height == "118px"){
+                    hamburger_menu.style.height = "100%"
+                }
+                else{
+                    hamburger_menu.style.height = "118px"
+                }
+                   }
+    let pages = document.querySelector(".alldoctors").getAttribute("data-page");
+    let index = document.querySelectorAll(".pageIndexLink");
+
+    index.forEach((e) => {
+        if (e.innerText == pages) {
+            e.classList.add("page-active");
+        }
+    })
+
+
+
+
+
+
+
+
+    var aryDates = [];
+   
+
+
+
+    function GetDates(startDate, daysToAdd) {
+
+        for (var i = 0; i <= daysToAdd; i++) {
+            let str1 = {
+                _id: '',
+                date: '',
+                time: ''
+            }
+            var currentDate = new Date();
+            currentDate.setDate(startDate.getDate() + i);
+            str1.date = DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear();
+            aryDates.push(str1);
+        }
+
+        return aryDates;
+    }
+
+    function MonthAsString(monthIndex) {
+        var d = new Date();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+
+        return month[monthIndex];
+    }
+
+    function DayAsString(dayIndex) {
+        var weekdays = new Array(7);
+        weekdays[0] = "Sunday";
+        weekdays[1] = "Monday";
+        weekdays[2] = "Tuesday";
+        weekdays[3] = "Wednesday";
+        weekdays[4] = "Thursday";
+        weekdays[5] = "Friday";
+        weekdays[6] = "Saturday";
+
+        return weekdays[dayIndex];
+    }
+
+    var startDate = new Date();
+    var ary = GetDates(startDate, 6);
+
+
+
+    async function selectslots(doctorname, key) {
+        var elem = document.querySelector(`.main-carousel${key}`);
+        var time = document.querySelector(`.time_show${key}`);
+
+        if (elem.style.display == 'none') {
+            elem.style.display = 'flex'
+            let result = await fetch(`/fetchtimeslots?doctorname=${doctorname}`);
+            result.text().then((user) => {
+
+                let user1 = JSON.parse(user);
+                const no_slot = document.querySelector(`.no-slot${key}`)
+
+                if (user1.length == 0 && no_slot == null) {
+                  
+                    
+                    let day_time = document.createElement('div');
+
+
+                    day_time.classList.add('no-slot-available');
+                    day_time.classList.add(`no-slot${key}`);
+
+                    let struct = `
+                          <div class="no_slot" >
+                        
+                         <small>No slots available</small>
+                         </div>
+                   `
+                    day_time.innerHTML = struct;
+                    elem.append(day_time);
+                    
+                }
+                else if(user1.length > 0) {
+
+
+                    user1.forEach((u) => {
+                        aryDates.forEach((e) => {
+                            if (e.date.includes(u.days)) {
+                                e._id = u._id;
+                                e.time = u.time_slots.filter((e) => {
+
+
+                                    return e.timeOn == "off"
+                                });
+                            }
+                        })
+
+                    })
+                    aryDates.forEach((val) => {
+                        if (val.date.includes('Sunday')) {
+                            var index = aryDates.indexOf(val);
+                            aryDates.splice(index, 1);
+                        }
+                    })
+                    var flkty = new Flickity(elem, {
+                        // options
+                        cellAlign: 'left',
+                        contain: true,
+                        pageDots: false
+                    });
+
+                    aryDates.forEach((e,i) => {
+                        let day_time = document.createElement('div');
+
+
+                        day_time.classList.add('carousel-cell');
+                        const currentday = moment().format('dddd')
+                        const currentdate = moment().format('DD MMMM YYYY')
+                        if (currentdate[0] == 0) {
+                            var s = currentdate.split("")
+                            s.splice(0, 1)
+                            s = s.join("")
+                        }
+                           var now = `${currentday}, ${s}` 
+                        // var now = "Monday, 7 June 2021"
+                        
+                        if (e.date == now) {
+                            var d = moment().format('hh:mm A')
+                            var count=0
+                            for(let i=0;i<e.time.length;i++){
+                                if (moment(e.time[i].timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                    count++
+                                    var struct = `
+                          <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}')">
+                         <big>${e.date}</big>
+                         <small>${e.time.length - count} slots available</small>
+                         </div>
+                   `
+                            } 
+                        }
+                            
+                        }
+                        else{
+                        var struct = `
+                          <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}')">
+                         <big>${e.date}</big>
+                         <small>${e.time.length} slots available</small>
+                         </div>
+                   `
+                        }
+                        day_time.innerHTML = struct;
+                        flkty.append(day_time);
+                    })
+
+                }
+
+            })
+        } else if (elem.style.display == 'flex' && time.style.display == 'flex') {
+            elem.style.display = 'none';
+            time.style.display = 'none'
+        }
+        else {
+            elem.style.display = 'none';
+        }
+
+    }
+    let i = 0;
+let time_box = document.querySelectorAll(".timebox")
+console.log(time_box)
+                console.log(time_box.length)
+    function gettingTime(date, doctorname, element, key) {
+
+        let time_show = document.querySelector(`.time_show${key}`);
+        time_show.style.display == 'none' ? time_show.style.display = 'flex' : "";
+
+
+        time_show.innerHTML = "";
+
+        let time_slot_day = document.querySelectorAll(".time_slot_day");
+
+
+        time_slot_day.forEach((e) => {
+            e.classList.remove('timeslot_active_hai');
+        })
+
+
+
+        aryDates.forEach((e) => {
+
+            if (e.date == date) {
+                element.classList.add('timeslot_active_hai');
+                if (e.time) {
+                    let morning = document.createElement('div');
+                    morning.classList.add("morning")
+                    let evening = document.createElement('div');
+                    evening.classList.add("evening")
+                    let afternoon = document.createElement('div');
+                    afternoon.classList.add("afternoon");
+                    let tim_mor = document.createElement('div');
+                    tim_mor.classList.add("tim");
+                    morning.appendChild(tim_mor);
+                    let tim_eve = document.createElement('div');
+                    tim_eve.classList.add("tim");
+                    evening.appendChild(tim_eve);
+                    let tim_aft = document.createElement('div');
+                    tim_aft.classList.add("tim");
+                    afternoon.appendChild(tim_aft);
+                    const mor = `<p>Morining</p>`;
+                    const mor1 = document.createElement('div');
+                    mor1.classList.add("mor");
+                    mor1.innerHTML = mor;
+                    morning.prepend(mor1);
+                    const mor2 = `<p>Afternoon</p>`;
+                    const mor3 = document.createElement('div');
+                    mor3.classList.add("mor");
+                    mor3.innerHTML = mor2;
+                    evening.prepend(mor3);
+                    const mor4 = `<p>Evening</p>`;
+                    const mor5 = document.createElement('div');
+                    mor5.classList.add("mor");
+                    mor5.innerHTML = mor4;
+                    afternoon.prepend(mor5);
+
+                    e.time.forEach((u, i) => {
+                        const currentday = moment().format('dddd')
+                        const currentdate = moment().format('DD MMMM YYYY')
+                        if (currentdate[0] == 0) {
+                            var s = currentdate.split("")
+                            s.splice(0, 1)
+                            s = s.join("")
+                        }
+                           var now = `${currentday}, ${s}` 
+
+                        if (moment(u.timing, "hh:mm A").isBefore(moment("12:00 PM", "hh:mm A"))) {
+                            let timings = document.createElement('p');
+                            timings.classList.add('timinig');
+                            if (e.date == now) {
+
+                                var d = moment().format('hh:mm A')
+                                if (moment(u.timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                    var str = " "
+
+
+                                }
+                                else {
+                                var str = `<div onclick="window.location.href='/booking?dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                            }
+                            }
+
+                            else {
+                                var str = `<div onclick="window.location.href='/booking?dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                            }
+
+
+
+                            timings.innerHTML = str;
+                            tim_mor.appendChild(timings);
+
+                        }
+                        if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("12:00 PM", "hh:mm A")) && moment(u.timing, "hh:mm A").isBefore(moment("4:00 PM", "hh:mm A"))) {
+                            let timings = document.createElement('p');
+                            timings.classList.add('timinig');
+                            if (e.date == now) {
+
+                                var d = moment().format('hh:mm A')
+                                if (moment(u.timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                    var str = " "
+
+
+
+                                }
+                                else {
+                                 
+                                var str = `<div onclick="window.location.href='/booking?dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                            }
+                            }
+
+                            else {
+                              
+                                var str = `<div onclick="window.location.href='/booking?dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                            }
+                            timings.innerHTML = str;
+
+
+                            tim_eve.appendChild(timings);
+
+                        }
+                        if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("4:00 PM", "hh:mm A"))) {
+                            let timings = document.createElement('p');
+                            const t = u.timing.slice(0, 5)
+                            timings.classList.add("timinig");
+                            if (e.date == now) {
+
+                                var d = moment().format('hh:mm A')
+                                if (moment(u.timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                    var str = " "
+
+                                }
+                                else {
+                                var str = `<div onclick="window.location.href='/booking?dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                            }
+                            }
+
+                            else {
+                                var str = `<div onclick="window.location.href='/booking?dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                                     
+                            }
+                            timings.innerHTML = str;
+
+                            tim_aft.appendChild(timings);
+                        }
+
+                        time_show.appendChild(morning);
+                        time_show.appendChild(evening);
+                        time_show.appendChild(afternoon);
+                    })
+
+
+
+                }
+                
+
+ else if(time_box.length == 9){
+    let timings = document.createElement('div');
+                    timings.classList.add('timinig-not-avaliable');
+
+                    let str = `<div>
+                                    <p>No Slots Available</p>
+                                  
+                                    <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
+                                       </div> `
+
+                    timings.innerHTML = str;
+
+                    time_show.appendChild(timings);
+ }
+                else {
+
+                    let timings = document.createElement('div');
+                    timings.classList.add('timinig-not-avaliable');
+
+                    let str = `<div>
+                                    <p>No Slots Available</p>
+                                  
+                                    <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
+                                       </div> `
+
+                    timings.innerHTML = str;
+
+                    time_show.appendChild(timings);
+                }
+            }
+
+        })
+    }
+    
+    let cityfilters = document.getElementsByName("city")
+    let filter = document.querySelector("#cities").getAttribute("filter-object");
+    let filterarr = filter.split(",")
+    cityfilters.forEach((e) => {
+        filterarr.forEach((h) => {
+            if (e.value == h) {
+                e.checked = true
+            }
+        })
+
+    })
+
+    let hospitalfilters = document.getElementsByName("hospital")
+    let filterh = document.querySelector("#hospitals").getAttribute("filter-object");
+    let filterharr = filterh.split(",")
+    hospitalfilters.forEach((e) => {
+
+        filterharr.forEach((h) => {
+            if (e.value == h) {
+                e.checked = true
+            }
+        })
+    })
+    let treatmentfilters = document.getElementsByName("treatment")
+    let filtertreatmentsdb = document.querySelector("#treatments").getAttribute("filter-object");
+    let treatmentarr = filtertreatmentsdb.split(",")
+    treatmentfilters.forEach((e) => {
+
+        treatmentarr.forEach((h) => {
+            if (e.value == h) {
+                e.checked = true
+            }
+        })
+    })
+    let experincefilters = document.getElementsByName("exp")
+    let filterexperiencedb = document.querySelector("#experience").getAttribute("filter-object");
+    let experiencearr = filterexperiencedb.split(",")
+    experincefilters.forEach((e) => {
+
+        experiencearr.forEach((h) => {
+
+            if (e.value == h) {
+                e.checked = true
+            }
+        })
+    })
+
+
+
+</script>
+
 </html>

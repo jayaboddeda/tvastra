@@ -1,0 +1,13 @@
+.loginfrm-inp, .arrow {
+  width: 98%;
+}
+
+.arrow button {
+  width: 100%;
+}
+
+.form-container h3 {
+  text-align: center;
+  color: var(--blue);
+}
+/*# sourceMappingURL=adminVerifyHospital.css.map */

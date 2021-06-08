@@ -1,3 +1,175 @@
+.pagenationContainer ul {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 0 auto 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.breadcrumb__sort {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-size: 1.2rem;
+  padding: 1.5rem;
+  padding-right: 3rem;
+  border: none;
+  background: url(http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png) no-repeat, #ddd;
+  background-size: 1rem;
+  background-position-x: 83%;
+  background-position-y: 50%;
+  font-family: "nexa-bold";
+}
+
+.pageIndexLink {
+  margin-right: 0.625rem;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
+}
+
+.pageIndexLink:hover,
+.page-active {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+#main-carousel {
+  width: 100%;
+  margin-top: 1.25rem;
+}
+
+#time_show {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 1.25rem;
+}
+
+.morning,
+.evening,
+.afternoon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--lightgrey);
+  padding-bottom: 1rem;
+}
+
+.morning p,
+.evening p,
+.afternoon p {
+  margin-bottom: 0;
+}
+
+.afternoon {
+  border: none;
+}
+
+.tim {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[5];
+      grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+
+.tim p {
+  margin-bottom: 0;
+}
+
+.timebox {
+  padding: 0.625rem 1.3rem;
+  border: 1px solid green;
+  cursor: pointer;
+  color: green;
+}
+
+.mor {
+  width: 150px;
+  padding-left: 30px;
+}
+
+.timinig-not-avaliable {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.timinig-not-avaliable p {
+  font-family: nexa-bold;
+  color: var(--lightgrey);
+}
+
+.flickity-viewport {
+  height: 65px !important;
+  width: 86%;
+  left: 7%;
+}
+
+.flickity-prev-next-button.previous, .flickity-prev-next-button.next {
+  top: 25px;
+}
+
+.carousel-cell {
+  width: 37%;
+  left: 7%;
+}
+
+.time_slot_day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.time_slot_day big {
+  font-size: 1.2rem;
+  font-family: nexa-bold;
+  color: var(--darkblue);
+  padding-bottom: 1rem;
+}
+
+.time_slot_day small {
+  color: var(--blue);
+  font-family: nexa-bold;
+  font-size: 1.1rem;
+  padding-bottom: 0.5rem;
+}
+
+.no-slot-available {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--lightgrey);
+  text-align: center;
+}
+
+.no-slot-available small {
+  color: var(--blue);
+  font-family: nexa-bold;
+}
+
+.timeslot_active_hai, .time_slot_day:hover {
+  border-bottom: 3px solid var(--blue) !important;
+}
+
 .sidebar-aside {
   display: none;
 }
@@ -8,15 +180,21 @@
 
 .sort {
   padding: 30px 5% 20px 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .sort p {
-  display: inline-block;
   font-size: 1.1rem;
   padding-left: 0;
   margin-bottom: 0;
-  position: relative;
-  top: 10px;
   font-weight: bold;
 }
 
@@ -29,7 +207,7 @@
   padding: 8px 13px;
 }
 
-.doctor-boundary {
+.doctor-boundary, .doctor-boundary1 {
   border: 2px solid var(--lightgrey);
   margin: 20px 5%;
 }
@@ -159,6 +337,15 @@
   }
   .doctor-boundary {
     margin-left: 3%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .doctor-boundary, .doctor-boundary1 {
+    margin-left: 3%;
   }
   .doctor-info {
     width: 65%;
@@ -193,11 +380,12 @@
     margin-bottom: 10px;
     padding-right: 40px;
   }
-  .checkboxes p {
+  .showmore {
     font-size: 14px;
     color: var(--blue);
     margin-bottom: 0;
-    padding: 8px 0 16px 15px;
+    padding: 8px 0 16px 50px;
+    cursor: pointer;
   }
   .location {
     padding-top: 20px;
@@ -261,10 +449,6 @@
   .checkboxes label {
     margin-bottom: 6px;
   }
-  .checkboxes {
-    border-bottom: 2px solid var(--lightgrey);
-    margin-left: 8%;
-  }
   .main {
     width: 75%;
     float: end;
@@ -272,7 +456,7 @@
   .sidebar-aside {
     width: 25%;
   }
-  .doctor-boundary {
+  .doctor-img-flex {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -357,6 +541,15 @@
   }
   .doctor-boundary {
     margin-left: 3%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .doctor-boundary1 {
+    margin-left: 3%;
   }
   .info-ul {
     padding-left: 20px;
@@ -364,9 +557,9 @@
     display: -ms-grid;
     display: grid;
     -ms-grid-rows: 1.5fr 1.5fr 1fr;
-    -ms-grid-columns: 0.8fr 1.2fr;
-        grid-template: 1.5fr 1.5fr 1fr /0.8fr 1.2fr;
-    width: 100%;
+    -ms-grid-columns: 1fr 1.2fr;
+        grid-template: 1.5fr 1.5fr 1fr /1fr 1.2fr;
+    width: 700px;
   }
   .doctor-info .center {
     -webkit-box-orient: horizontal;
@@ -390,10 +583,13 @@
     width: 40px;
     margin-bottom: 10px;
   }
-  .checkboxes p {
+  .showmore {
     font-size: 1rem;
     color: var(--blue);
-    padding: 16px 0 0 15px;
+    padding: 16px 0 1rem 15px;
+    border-bottom: 1px solid var(--lightgrey);
+    margin-left: 8%;
+    cursor: pointer;
   }
   .location {
     padding-top: 15px;
@@ -453,7 +649,8 @@
     display: block;
   }
   .checkboxes {
-    border-bottom: 1px solid var(--lightgrey);
+    height: 118px;
+    overflow: hidden;
     margin-left: 38px;
   }
   .main {
@@ -463,7 +660,7 @@
     width: 27%;
     padding-left: 1.5%;
   }
-  .doctor-boundary {
+  .doctor-img-flex {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

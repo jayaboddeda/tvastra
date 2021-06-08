@@ -1,0 +1,70 @@
+body{
+    background-color: var(--grey-100);
+}
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5rem;
+    align-items: center;
+    padding: 2rem 5%;
+}
+#doctor-box,.form{
+    background-color: var(--white);
+    padding: 2rem;
+}
+
+h1,h2{
+    color:var(--blue);
+    text-align: center;
+    border-bottom: 1px solid var(--lightgrey);
+    padding-bottom: 1rem;
+}
+
+#doctor-box{
+    .timings{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 1rem;
+        margin-bottom:1rem;
+        i{
+            color: var(--blue);
+            margin-right: 1rem;
+        }
+        a{
+            font-family: nexa-bold;
+            color: var(--blue);
+        }
+    }
+}
+
+#doctor-info,#hospital-info{
+    margin-bottom: 1rem;
+    figure{
+    display: flex;
+    align-items: center;
+    div{
+        width: 7rem;
+        height: 7rem;
+        margin-right: 1rem;
+    }
+    }
+}
+
+input[type=radio]{
+    width: 1rem;
+    margin-left: 0;
+}
+.form{
+    label{
+        color: var(--blue);
+        font-family: nexa-bold;
+    }
+    input[type=text],input[type=email]{
+        border:1px solid var(--lightgrey);
+        margin-top:1rem;
+        padding:0.725rem
+    }
+    button{
+        width: 100%;
+    }
+}

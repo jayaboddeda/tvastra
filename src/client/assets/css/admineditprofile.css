@@ -1,0 +1,66 @@
+.profile_menu li:nth-child(2):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(2):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(2) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(2) span {
+  color: var(--darkblue);
+}
+
+.profile_menu li:nth-child(1):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(1):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(1) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(1) span {
+  color: var(--darkblue);
+}
+
+.mobile_profile_menu li:nth-child(2) {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:nth-child(2) i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(2) span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+
+.mobile_profile_menu li:nth-child(1) {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:nth-child(1) i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(1) span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+/*# sourceMappingURL=admineditprofile.css.map */

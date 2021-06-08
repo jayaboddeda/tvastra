@@ -1,0 +1,157 @@
+.profile_menu li:nth-child(2) {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(2) span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(1):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(1):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(3):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(3):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(1) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(1) span {
+  color: var(--darkblue);
+}
+
+.profile_menu li:nth-child(3) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(3) span {
+  color: var(--darkblue);
+}
+
+.mobile_profile_menu li:nth-child(2) {
+  background-color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(2) i, .mobile_profile_menu li:nth-child(2) span {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.mobile_profile_menu li:first-child {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:first-child i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:first-child span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+
+.mobile_profile_menu li:nth-child(3) {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:nth-child(3) i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(3) span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+
+.schedule-head .buttons button {
+  padding: 0.625rem 1rem;
+}
+
+.schedule-container {
+  margin-bottom: 2.5rem;
+}
+
+.form-container .form-header {
+  padding-bottom: 0;
+  border: none;
+}
+
+.hospital-name h5 {
+  color: var(--blue);
+}
+
+.schedule-head h6, .schedule-head-completed h6 {
+  margin-bottom: 0;
+}
+
+.schedule-head h5, .schedule-head-completed h5 {
+  margin-bottom: 5px;
+}
+
+time h6 {
+  color: var(--darkgrey);
+}
+
+.venue span {
+  color: var(--white);
+  background: var(--lightblue);
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 0.3rem 0.6rem;
+  margin: 0.4rem auto 0;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  font-family: nexa-bold;
+}
+
+.form-header h6 {
+  text-align: center;
+  color: var(--lightgrey);
+  margin-top: 1.25rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .schedule-head-completed {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 1rem;
+  }
+  .schedule-head-completed .day {
+    margin-right: 100px;
+  }
+}
+/*# sourceMappingURL=myappointments.css.map */

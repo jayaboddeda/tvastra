@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\doctor.css" type="text/css">
+
+    <link rel="stylesheet" href="..\assets\css\profile.css" type="text/css">
+
+    <link rel="stylesheet" href="..\assets\css\admindashboard.css" type="text/css">
+
+    <link rel="stylesheet" href="..\assets\css\allusers.css" type="text/css">
+
+
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+
+    <%- include("partials/header.ejs")%>
+        <main>
+            <div class="container">
+                <aside>
+                    <div class="header_arrow">
+                        <h3 class="profile_menu_header">Dashboard</h3>
+                        <i class="fas fa-angle-down dashboard_down"></i>
+                    </div>
+                    <ul class="mobile_profile_menu hide">
+                        <li>
+                            <a href="/admindashboard">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/allusers">
+                                <i class="fas fa-th-list"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/alldoctors">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Doctors</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/allhospitals">
+                                <i class="far fa-file-alt"></i>
+                                <span>Hospitals</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/settings">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="profile_menu">
+                        <li>
+                            <a href="/admindashboard">
+                                <i class="fas fa-user-edit"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/allusers">
+                                <i class="fas fa-th-list"></i>
+                                <span>Users</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/alldoctors">
+                                <i class="fas fa-calendar-check"></i>
+                                <span>Doctors</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="/allhospitals">
+                                <i class="far fa-file-alt"></i>
+                                <span>Hospitals</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a href="/settings">
+                                <i class="fas fa-user-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+
+                <section class="form-container">
+                    <h3>All Users</h3>
+                    <div class="allcards">
+                        <% for(let i=0; i < users.length; i++){ %>
+                    <article class="card">
+                        <figure class="card_img">
+                          <%  if(users[i].image){ %>
+                            <img src="../assets/images/<%= users[i].image %>" alt="user image">
+                            <% } else{ %>
+                            <img src="../assets/images/default-picture.png" alt="user image">
+                            <% } %>
+                        </figure>
+                        <figcaption>
+                            <h5 class="info-fancy"><span class="user_name"><%= users[i].name %></span></h5>
+
+                            <ul class="user_info">
+                                
+                                <li>
+                                    <i class="fas fa-phone-alt"></i>
+                                    <span><%= users[i].phone %></span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-envelope"></i>
+                                    <span> <%= users[i].email %></span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-venus-mars"></i> <span>
+                                        <%= users[i].gender %></span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-calendar-week"></i>
+                                    <span><%= users[i].dob %>
+                                    </span>
+                                </li>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>
+                                        
+                                        <%= `${users[i].city}, ${users[i].state}` %>
+                                    </span>
+                                </li>
+                            </ul>
+                        </figcaption>
+                        <div class="hamburger">
+                        <div class="hamburger-icon hamburger_icon<%= i %>" onclick="hamburger('<%= `menuItem${i}`%>')">
+                        <i class="fas fa-bars"></i>
+                        </div>
+                        <ul class="menuItems" id="menuItem<%= i %>">
+                            <li><a href="/adminEditProfile?email=<%= users[i].email %>">Edit Profile</a>
+                            </li>
+                            <li><a href="/myappointments/?mobile=<%= users[i].phone%> ">
+                                    Appointments</a></li>
+                            <li><a href="/medicalreports/?useremail=<%= users[i].email %> ">Medical
+                                    Reports</a>
+                            </li>
+                        </ul>
+                    </div>
+                    </article>
+                    <% } %>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+        <div class="footer-index txt-center">
+            <div class="footer-line1">
+                <div class="footer-img">
+                    <a href="/index"><img class="footer-logo"
+                            src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                            alt="tvastra logo"></a>
+                </div>
+                <div class="footer-list">
+                    <ul>
+                        <a href="/doctor">
+                            <li>Doctor</li>
+                        </a>
+                        <a href="/hospital">
+                            <li>Hospital</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Treatment</li>
+                        </a>
+                        <a href="#">
+                            <li>Other Services</li>
+                        </a>
+                        <a href="/faq">
+                            <li>FAQs</li>
+                        </a>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-line2">
+                <div class="footer-i">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google-plus-g"></i>
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="copyright">
+                    <p>All Rights Reserved. tvastra 2018</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            const mobile_aside_header = document.querySelector('.profile_menu_header')
+            const mobile_aside = document.querySelector('.mobile_profile_menu')
+            
+
+
+            mobile_aside_header.onclick = function () {
+                if (mobile_aside.classList[1] == "hide") {
+                    mobile_aside.classList.remove("hide")
+                }
+                else {
+                    mobile_aside.classList.add("hide")
+
+                }
+
+            }
+
+           function hamburger(id){
+            const hamburger_icon = document.querySelector('.hamburger-icon')
+            var hamburger_menu = document.getElementById(id)
+console.log(id)
+console.log(hamburger_menu)
+
+
+                var menu_height = hamburger_menu.style.height
+                if(menu_height){
+                    hamburger_menu.style.height = null
+                }
+                else{
+                    hamburger_menu.style.height = "100%"
+                }
+            }
+                
+            
+        </script>
+</body>
+
+</html>

@@ -2,7 +2,14 @@ const express = require("express");
 const htmlController = require("../controller/htmlController");
 const authenticationController = require("../controller/authenticationController");
 const otpController = require("../controller/otpController");
+const recordsController = require("../controller/recordsController");
+const doctorController = require("../controller/doctorController");
+const adminController = require("../controller/adminController");
+
+
+
 const multer = require("../controller/multer");
+const { adminallappointments } = require("../controller/htmlController");
 
 const router = express.Router();
 const app = express();
@@ -32,8 +39,26 @@ router.route("/resend").post(otpController.otprequest)
 router.route("/changepassword").get(htmlController.changepassword);
 router.route("/changepassword").post(authenticationController.changePassword);
 
+router.get("/fetchtimeslots", doctorController.fetchtimeslots);
 
-router.route("/doctor").get(authenticationController.redirectlogin,htmlController.doctor);
+router.route("/doctor").get(authenticationController.redirectlogin,doctorController.getAllDoctors);
+router.get("/booking", doctorController.booking);
+router.post("/bookappointment", doctorController.bookappointment);
+router.get("/booking", doctorController.booking);
+router.get("/bookappointment", htmlController.bookappointment);
+router.get("/cancelappointment", doctorController.cancelappointment);
+router.get("/rescheduleappointment", doctorController.rescheduleappointment);
+router.get("/updateappointment", doctorController.updateappointment);
+router.get("/myappointments", doctorController.getappointments);
+router.post('/sort-by', doctorController.doctorSort);
+
+
+
+
+
+
+
+
 
 router.route("/hospital").get(authenticationController.redirectlogin,htmlController.hospital);
 
@@ -45,6 +70,21 @@ router.route("/contactus").get(authenticationController.redirectlogin,htmlContro
 
 router.route("/profile").get(authenticationController.redirectlogin,htmlController.profile);
 router.route("/updateprofile").post(multer.uploadDocImg,authenticationController.updateUserInfo);
+
+router.route("/schedules").get(authenticationController.getSlotsBasedOnDoctor);
+router.route("/create_timeslots").post(authenticationController.create_timeslots);
+router.route("/disableSchedule").get(authenticationController.disableSchedule);
+router.route("/disablesingleslot").get(authenticationController.disablesingleslot);
+router.route("/deleteSchedule").get(authenticationController.deleteSchedule);
+
+router.route("/medicalreports").get(recordsController.getRecordsBasedOnDoctor);
+router.route("/showReport").get(recordsController.showReport);
+router.route("/deletesinglerecord").get(recordsController.deletesinglerecord,recordsController.showReport);
+router.route("/deleterecord").get(recordsController.deleterecord);
+
+router.route("/createrecord").post(multer.uploadmultipleImg,recordsController.createrecord);
+router.route("/addonlyrecordimg").post(multer.uploadmultipleImg,recordsController.addonlyrecordimg,recordsController.showReport);
+
 
 router.route("/change-phone-number").post(authenticationController.change_mobile_number,otpController.otprequest);
 router.route("/verify-otp").post(authenticationController.change_mobile_number,otpController.verifyotp);
@@ -62,5 +102,25 @@ router.route("/faq").get(authenticationController.redirectlogin,htmlController.f
 router.route("/tvastra-plus").get(authenticationController.redirectlogin,htmlController.tvastra_plus);
 
 router.route("/logout").get(authenticationController.logout);
+router.route("/settings").get(htmlController.settings);
+router.route("/postsettings").post(authenticationController.postsettings);
+
+router.route("/admindashboard").get(adminController.admindashboard);
+router.route("/adminVerifyHospital").get(adminController.adminverifyhospital);
+router.route("/hospitalupdate").post(multer.uploadDocImg,adminController.hospitalupdate);
+router.route("/alldoctors").get(adminController.admindoctors);
+router.route("/allusers").get(adminController.adminusers);
+router.route("/allhospitals").get(adminController.adminhospitals);
+router.route("/adminEditProfile").get(adminController.adminEditProfile);
+router.route("/adminupdateprofile").post(multer.uploadDocImg,adminController.adminupdateUserInfo);
+router.get("/adminmyappointments", doctorController.getappointments);
+router.get("/adminmedicalreports", recordsController.getRecordsBasedOnDoctor);
+router.get("/adminallappointments", adminController.adminallappointments);
+router.post("/filters", doctorController.filters);
+
+
+
+
+
 
 module.exports = router;

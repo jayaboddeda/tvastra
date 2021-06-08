@@ -2,6 +2,10 @@
 
 
 function homePage (req, res) {
+  if(req.session.user_data.role == "admin"){
+  res.redirect("/admindashboard");
+
+  }
   res.render("index");
 }
 
@@ -81,11 +85,69 @@ function doctor_info(req,res){
     res.render("tvastra-plus");
   };
 
+  function booking  (req, res) {
+
+    res.render("booking");
+  };
+
+  function bookappointment  (req, res) {
+
+    res.render("bookappointment");
+  };
+
 function profile (req,res){
   res.render("profile")
 }
 
+function schedules (req,res){
+  res.render("schedules")
+}
 
+function medicalreports (req,res){
+  res.render("medicalreports")
+}
+function rescheduleappointment (req,res){
+  res.render("rescheduleappointment")
+}
+
+function myappointments (req,res){
+  res.render("myappointments")
+}
+function settings (req,res){
+  res.render("settings")
+}
+
+function admindashboard (req,res){
+  res.render("admindashboard")
+}
+
+function alldoctors (req,res){
+  res.render("alldoctors")
+}
+function allhospitals (req,res){
+  res.render("allhospitals")
+}
+function allusers (req,res){
+  res.render("allusers")
+}
+function allhospitals (req,res){
+  res.render("allhospitals")
+}
+function admineditprofile (req,res){
+  res.render("admineditprofile")
+}
+function adminmyappointments (req,res){
+  res.render("adminmyappointments")
+}
+function adminmedicalreports (req,res){
+  res.render("adminmedicalreports")
+}
+function adminallappointments (req,res){
+  res.render("adminallappointments")
+}
+function adminVerifyHospital (req,res){
+  res.render("adminVerifyHospital")
+}
 
   module.exports = {
       homePage:homePage,
@@ -106,5 +168,22 @@ function profile (req,res){
       faq:faq,
       changepassword:changepassword,
       doctor_info,
-      profile
+      profile,
+      schedules,
+      medicalreports,
+      booking,
+      bookappointment,
+      rescheduleappointment,
+      myappointments,
+      settings,
+      admindashboard,
+      allhospitals,
+      alldoctors,
+      allusers,
+      admineditprofile,
+      adminmyappointments,
+      adminmedicalreports,
+      adminallappointments,
+      allhospitals,
+      adminVerifyHospital
   };

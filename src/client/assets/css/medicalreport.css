@@ -1,0 +1,299 @@
+#reportPic {
+  height: 0;
+  width: 0;
+  margin: 0;
+  padding: 0 !important;
+}
+
+.add-photo i {
+  color: var(--blue);
+}
+
+.reportType input {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.reportType > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.reportType label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 4rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.reportType label i {
+  width: 2rem;
+}
+
+.reportType label span {
+  color: var(--darkblue);
+}
+
+.reportType h6 {
+  margin: 0.625rem 0;
+}
+
+.reportType input:checked + label {
+  background: var(--lightgrey);
+}
+
+input {
+  margin-bottom: 0;
+}
+
+.hospital-name {
+  text-align: center;
+}
+
+.hospital-name h5 {
+  margin-bottom: 0;
+}
+
+.hospital-name h6 {
+  color: var(--darkgrey);
+  margin-top: 5px;
+}
+
+.photos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 6rem;
+  padding: 1rem 0 !important;
+}
+
+.selected-photos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.add-photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.add-photo label {
+  color: var(--white);
+  background: var(--grey-100);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 7rem;
+  height: 4rem;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.selected-photos img {
+  width: 3rem;
+  height: 3rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.mobile_profile_menu li:first-child {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:first-child i, .mobile_profile_menu li:first-child span {
+  font-weight: normal;
+}
+
+.mobile_profile_menu li:first-child i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:first-child span {
+  color: var(--darkblue);
+}
+
+.mobile_profile_menu li:nth-child(3) {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:nth-child(3) i, .mobile_profile_menu li:nth-child(3) span {
+  font-weight: normal;
+}
+
+.mobile_profile_menu li:nth-child(3) i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(3) span {
+  color: var(--darkblue);
+}
+
+.mobile_profile_menu li:nth-child(4) {
+  background-color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(4) i, .mobile_profile_menu li:nth-child(4) span {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.form-container .form-header {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.form-container .form-header h3 {
+  margin-bottom: 0.625rem;
+}
+
+.form-container .form-header button {
+  width: 100%;
+}
+
+.day {
+  width: 5rem;
+}
+
+.day h5 {
+  padding: 0.625rem 0.5rem;
+}
+
+.schedule-mob-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.schedule-head h5, .schedule-head h6 {
+  margin-bottom: 0;
+}
+
+.buttons {
+  width: 100%;
+}
+
+.buttons button {
+  width: 100%;
+}
+
+.remove-btn {
+  margin-right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .form-container .form-header {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .day {
+    width: 10rem;
+  }
+  .buttons button {
+    width: 25%;
+  }
+  .schedule-head .buttons {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .form-container .form-header button {
+    width: 25%;
+  }
+  .schedule-mob-head {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .reportType > div {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-bottom: 0.625rem;
+  }
+  input {
+    margin-bottom: 0.625rem;
+  }
+  .reportType h6 {
+    margin-bottom: 1.25rem;
+  }
+  .selected-photos img {
+    width: 6rem;
+    height: 6rem;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+  .loginform {
+    width: 33%;
+  }
+  .profile_menu li:nth-child(4) {
+    background-color: var(--lightgrey);
+    font-weight: bold;
+    border-left: 5px solid var(--button_blue);
+  }
+  .profile_menu li:nth-child(4) span {
+    color: var(--button_blue);
+  }
+  .profile_menu li:nth-child(3):hover {
+    background-color: var(--lightgrey);
+    font-weight: bold;
+    border-left: 5px solid var(--button_blue);
+  }
+  .profile_menu li:nth-child(3):hover span {
+    color: var(--button_blue);
+  }
+  .profile_menu li:nth-child(3) {
+    background-color: var(--grey-100);
+    font-weight: normal;
+    border-left: none;
+  }
+  .profile_menu li:nth-child(3) span {
+    color: var(--darkblue);
+  }
+  .profile_menu li:nth-child(1) {
+    background-color: var(--grey-100);
+    font-weight: normal;
+    border-left: none;
+  }
+  .profile_menu li:nth-child(1) span {
+    color: var(--darkblue);
+  }
+}
+/*# sourceMappingURL=medicalreport.css.map */

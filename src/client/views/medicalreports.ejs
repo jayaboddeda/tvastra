@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Reports</title>
+    <link rel="stylesheet" href="..\assets\css\reset.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\theme.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\phone-login.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\tagify.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\otp-submit.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\index.css" type="text/css">
+
+
+    <link rel="stylesheet" href="..\assets\css\profile.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\schedules.css" type="text/css">
+    <link rel="stylesheet" href="..\assets\css\medicalreport.css" type="text/css">
+
+
+
+    <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
+</head>
+
+<%- include("partials/user_profile.ejs") %>
+    <section class="form-container">
+        <form>
+
+            <div class="form-header">
+                <legend>
+                    <h3>
+                        Medical Records
+                    </h3>
+                </legend>
+                <button id="myBtn" type="button" onclick="">Add Record</button>
+            </div>
+
+        </form>
+
+        <div id="schedule-container">
+            <% for(let i=0; i < record.length; i++) { %>
+
+                                <div class="schedule ">
+                                        <div class="schedule-head">
+                                            <div class="schedule-mob-head">
+                                            <div class="day" onclick="window.location.href='/showReport?id=<%= record[i]._id  %>'">
+                                                <h5>
+                                                    <%= record[i].date  %>
+
+                                                </h5>
+                                            </div>
+                                            <div class="venue">
+                                                <div class="hospital-name">
+                                                    <h5>
+                                                       <%= record[i].title %>
+                                                    </h5>
+
+                                                    <h6>
+                                                       <%= record[i].name %>
+                                                    </h6>
+                                                    <h6>
+                                                       <%= record[i].reportType %>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="buttons">
+                                                <button class="light-blue_button remove-btn"
+                                                    onclick="return (confirm('Do you want to delete record?')? window.location.href='/deleterecord?id=<%= record[i]._id%>' : '')">Delete
+                                                    </button>
+                                            </div>
+                                        </div>
+
+                                        
+
+                                        </div>
+                                        <% } %>
+
+                                </div>
+                                    
+
+
+       
+    </section>
+
+    </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="change_number_form">
+                <div class="loginform-container">
+                    <div class="loginform">
+                        <div class="login-header">
+                            <span class="close">&times;</span>
+
+                            <h4>Create Record</h4>
+                        </div>
+                        <div class="loginfrm-inp">
+                            <form action="/createrecord" method="post" enctype="multipart/form-data">
+
+                                <div class="photos">
+                                    <div class="selected-photos">
+                                    </div>
+                                    <div class="add-photo">
+                                        <input type="file" name="reportPic" id="reportPic" accept="image/*" multiple required />
+                                        <label for="reportPic"><i class="fa fa-plus"></i><span>Add Photo</span></label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="text" name="title" placeholder="Title" required />
+                                    <input type="text" name="name" value="<%=user_data.name%>" required />
+                                    <input type="date" name="date" max="2021-05-21" required />
+                                </div>
+                                <div class="reportType">
+                                    <h6>Type of Report</h6>
+                                    <div>
+                                        <input type="radio" name="reportType" id="report" value="Report" checked />
+                                        <label for="report"><i class="far fa-file-alt"></i><span>Report</span></label>
+                                        <input type="radio" name="reportType" id="prescription" value="Prescription" />
+                                        <label for="prescription"><i class="far fa-file-alt"></i><span>Prescription</span></label>
+                                        <input type="radio" name="reportType" id="invoice" value="Invoice" />
+                                        <label for="invoice"><i class="far fa-file-alt"></i><span>Invoice</span></label>
+                                    </div>
+                                </div>
+                                
+                                <div class="button_flex">
+                                    <button class="light-blue_button">Cancel</button>
+                                    <button type="submit" id="createScheduleSubmitBtn"
+                                        class="loginform-btn dark-button">
+                                        Done
+                                    </button>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </main>
+    <div class="footer-index txt-center">
+        <div class="footer-line1">
+            <div class="footer-img">
+                <a href="/index"><img class="footer-logo"
+                        src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/footer.png"
+                        alt="tvastra logo"></a>
+            </div>
+            <div class="footer-list">
+                <ul>
+                    <a href="/doctor">
+                        <li>Doctor</li>
+                    </a>
+                    <a href="/hospital">
+                        <li>Hospital</li>
+                    </a>
+                    <a href="/treatment">
+                        <li>Treatment</li>
+                    </a>
+                    <a href="#">
+                        <li>Other Services</li>
+                    </a>
+                    <a href="/faq">
+                        <li>FAQs</li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-line2">
+            <div class="footer-i">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-google-plus-g"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
+            <div class="copyright">
+                <p>All Rights Reserved. tvastra 2018</p>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
+
+
+        btn.onclick = function () {
+            modal.style.display = "flex";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+            modal.style.transform = "scale(1)";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+
+        function showslots(id) {
+            const slot = document.getElementById(id);
+            if (slot.style.display == "grid") {
+                slot.style.display = "none";
+            }
+            else {
+                slot.style.display = "grid";
+
+
+            };
+        }
+
+    (function(){
+        const reportPicInput = document.getElementById("reportPic");
+        var selectedPhotoContainer = document.querySelector(".selected-photos");
+
+        reportPicInput.addEventListener("change", e=>{
+            if(reportPicInput.files.length>3){
+                alert("Maximum 3 files are allowed");
+                reportPicInput.value=null;
+                selectedPhotoContainer.innerHTML='';
+            }else
+            if(reportPicInput.files.length){
+                selectedPhotoContainer.innerHTML='';
+                for(i=0;i<reportPicInput.files.length;i++){
+                    var imgElem = document.createElement("img");
+                    imgElem.src = URL.createObjectURL(reportPicInput.files[i]);
+                    selectedPhotoContainer.appendChild(imgElem);
+                    imgElem.onload = function(){
+                        URL.revokeObjectURL(this.src);
+                    }
+                }
+            }
+        })
+    })();
+
+    </script>
+    </body>
+
+</html>

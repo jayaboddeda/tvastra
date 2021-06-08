@@ -1,0 +1,72 @@
+label {
+  font-family: nexa-bold;
+  font-size: 1.2rem;
+}
+
+.input-group {
+  width: 15.625rem;
+  margin-right: 1.875rem;
+}
+
+.form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.first-form-group {
+  margin-bottom: 2rem;
+}
+
+.profile_menu li:nth-child(5) {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(5) span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(1):hover {
+  background-color: var(--lightgrey);
+  font-weight: bold;
+  border-left: 5px solid var(--button_blue);
+}
+
+.profile_menu li:nth-child(1):hover span {
+  color: var(--button_blue);
+}
+
+.profile_menu li:nth-child(1) {
+  background-color: var(--grey-100);
+  font-weight: normal;
+  border-left: none;
+}
+
+.profile_menu li:nth-child(1) span {
+  color: var(--darkblue);
+}
+
+.mobile_profile_menu li:nth-child(5) {
+  background-color: var(--blue);
+}
+
+.mobile_profile_menu li:nth-child(5) i, .mobile_profile_menu li:nth-child(5) span {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.mobile_profile_menu li:first-child {
+  background-color: var(--white);
+}
+
+.mobile_profile_menu li:first-child i {
+  color: var(--blue);
+}
+
+.mobile_profile_menu li:first-child span {
+  color: var(--darkblue);
+  font-weight: normal;
+}
+/*# sourceMappingURL=settings.css.map */
