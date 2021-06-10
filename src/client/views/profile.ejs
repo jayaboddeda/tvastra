@@ -19,87 +19,334 @@
 
     <script src="https://kit.fontawesome.com/b5fc96aecf.js" crossorigin="anonymous"></script>
 </head>
-<% if(user_data.role =="admin"){ %>
-    <%- include("partials/header.ejs")%>
-        <main>
-            <div class="container">
-                <aside>
-                    <div class="header_arrow">
-                        <h3 class="profile_menu_header">Dashboard</h3>
-                        <i class="fas fa-angle-down dashboard_down"></i>
+<%if(user_data.role == "admin") {%>
+    <div class="navbar">
+        <nav>
+              
+            <a href="/index"><img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo"></a>
+                  
+            <div class="nav_right_content">
+                <div class="desktop-btn ">
+                    <% if(user_data){ %>
+                        <ul class="desktop-btn mobile-ul">
+    
+                            <li class="treatment_menu username">
+                                <div class="mobile-btn"><a>
+                                        <%=user_data.name.slice(0,8)%>
+                                    </a>
+                                    <i class="fas fa-angle-down"></i>
+                                </div>
+                                <div class="treatment_sub__menu left hide">
+                                    <div class="profile_image_container">
+    
+                                        <% if(user_data.role==="doctor" && doctor_info) { %>
+                                            <a href="/profile">  <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>"></a>
+                                            <% } else if(user_data.role==="user" && user_data.image){%>
+                                                <a href="/profile">  <img class="profile_img"
+                                                        src="<%='../../assets/images/'+ user_data.image %>"></a>
+                                                <% } else {%>
+                                                    <a href="/profile">     <img class="profile_img"
+                                                            src="../../assets/images/default-picture.png"> </a>
+                                                    <% } %>
+                                                        <ul class="user_details">
+                                                            <li>
+                                                                <%=user_data.name.slice(0,8)%>
+                                                            </li>
+                                                            <li>
+                                                                <%= user_data.phone %>
+                                                            </li>
+                                                        </ul>
+    
+                                    </div>
+                                    <ul class="treatment_sub__menu_options">
+    
+                                        <a href="#">
+                                            <li>My appointments</li>
+                                        </a>
+                                        <a href="#"></a>
+                                        <li>My Lab Test</li></a>
+                                        <a href="#">
+                                            <li>My Medicine Orders</li>
+                                        </a>
+                                        <a href="#">
+                                            <li>My Payments</li>
+                                        </a>
+                                        <a href="/logout">
+                                            <li>logout</li>
+                                        </a>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                        <% } %>
+    
+                </div>
+                <i class="fas fa-bars fa-2x bar openbtn" onclick="openNav()"></i>
+            </div>
+        </nav>
+    
+    </div>
+    <div id="mySidebar" class="sidebar">
+        <div class="sidebar-header">
+                    
+                <a href="/index"><img class="tvastralogo"
+                        src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                        alt="tvastra logo"></a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        </div>
+        <ul class="mobile-ul">
+            <li><a href="/doctor">Doctors</a></li>
+            <li><a href="/hospital">Hospitals</a></li>
+            <li class="treatment_menu">
+                <a href="#">Treatment</a>
+                <i class="fas fa-angle-down "></i>
+                <div class="treatment_sub__menu dentistry">
+                    <ul>
+                        <a href="/treatment">
+                            <li>Dentistry</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Cancer</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Cardiology</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Multi Organ Transplant</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Orthopedic Surgery</li>
+                        </a>
+                        <a href="/treatment">
+                            <li>Infertility Treatment</li>
+                        </a>
+                    </ul>
+                </div>
+            </li>
+            <!-- <li><a href="/aboutus">Other Services</a></li> -->
+            <li><a href="/aboutus">About</a></li>
+        </ul>
+        <div class="desktop-btn">
+                
+                <a href="/index"><img class="tvastralogo"
+                        src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                        alt="tvastra logo"></a>
+                        
+        </div>
+    </div>
+    
+    <nav class="index-desktop-nav" style="grid-template:1fr / 1fr 1fr">
+        <div class="desk-img">
+                
+                <a href="/index"><img class="tvastralogo"
+                        src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                        alt="tvastra logo"></a>
+                       
+        </div>
+
+    
+        <div class="desktop-btn">
+            <% if(user_data){ %>
+                
+                <ul>
+                    <li class="treatment_menu username"><a>
+                            <%=user_data.name.slice(0,8)%>
+                        </a>
+                        <i class="fas fa-angle-down"></i>
+                        <div class="treatment_sub__menu left">
+                            <div class="profile_image_container">
+    
+                                <% if(user_data.role==="doctor" && doctor_info) { %>
+                                   <a href="/profile"> <img id="pic" src="<%='../../assets/images/'+ doctor_info.image %>"></a>
+                                    <% } else if(user_data.role==="user" || user_data.role==="admin" && user_data.image){%>
+                                        <a href="/profile"> <img class="profile_img"
+                                                src="<%='../../assets/images/'+ user_data.image %>"></a>
+                                        <% } else {%>
+                                            <a href="/profile">   <img class="profile_img"
+                                                    src="../../assets/images/default-picture.png"> </a>
+                                            <% } %>
+                                            <ul class="user_details">
+                                                <li>
+                                                    <%=user_data.name.slice(0,8)%>
+                                                </li>
+                                                <li>
+                                                    <%= user_data.phone %>
+                                                </li>
+                                            </ul>
+    
+                            </div>
+                            <ul class="treatment_sub__menu_options">
+    
+                                <a href="#">
+                                    <li>My appointments</li>
+                                </a>
+                                <a href="#"></a>
+                                <li>My Lab Test</li></a>
+                                <a href="#">
+                                    <li>My Medicine Orders</li>
+                                </a>
+                                <a href="#">
+                                    <li>My Payments</li>
+                                </a>
+                                <a href="/logout">
+                                    <li>logout</li>
+                                </a>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <% } else { %>
+                    <button class="quote-btn">Get a Quote</button>
+                    <% } %>
+        </div>
+    </nav>
+    
+    
+    <div class="flash-container">
+        <% if(success && success.length>0) { %>
+            <div id="flash-msg" class="flash-msg success-msg">
+                <i class="fas fa-check-circle msg-icon"></i>
+                <div class="msg-content success-content">
+                    <h6>Success</h6>
+                    <p>
+                        <%= success %>
+                    </p>
+                </div>
+                <i id="hide-flash" class="fa fa-times hide-msg-icon"></i>
+            </div>
+            <% } %>
+                <% if(error && error.length>0) { %>
+                    <div id="flash-msg" class="flash-msg failure-msg">
+                        <i class="fa fa-times-circle msg-icon" aria-hidden="true"></i>
+                        <div class="msg-content failure-content">
+                            <h6>Failure</h6>
+                            <p>
+                                <%= error %>
+                            </p>
+                        </div>
+                        <i id="hide-flash" class="fa fa-times hide-msg-icon"></i>
                     </div>
-                    <ul class="mobile_profile_menu hide">
-                        <li>
-                            <a href="/admindashboard">
-                                <i class="fas fa-user-edit"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/allusers">
-                                <i class="fas fa-th-list"></i>
-                                <span>Users</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/alldoctors">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Doctors</span>
-                            </a>
-                        </li>
+                    <% } %>
+    </div>
+    
+    
+    <script>
+        const error = document.querySelector('.flash-container');
+        const cross = document.querySelector('.hide-msg-icon');
+        const hideError = () => {
+            error.style.display = 'none';
+    
+        }
+    
+        if (error) {
+            setTimeout(() => {
+                error.style.display = 'none';
+            }, 5000);
+        }
+    
+        cross.addEventListener('click', hideError);
+    
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "300px";
+        }
+    
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+        }
+        const name = document.querySelector(".mobile-btn");
+        const profile = document.querySelector(".treatment_sub__menu")
+        name.onclick = function () {
+            if (profile.classList[2] == "hide") {
+                profile.classList.remove("hide")
+            }
+            else {
+                profile.classList.add("hide")
+    
+            }
+    
+        }
+    </script>
 
-                        <li>
-                            <a href="/allhospitals">
-                                <i class="far fa-file-alt"></i>
-                                <span>Hospitals</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/settings">
-                                <i class="fas fa-user-cog"></i>
-                                <span>Settings</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="profile_menu">
-                        <li>
-                            <a href="/admindashboard">
-                                <i class="fas fa-user-edit"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/allusers">
-                                <i class="fas fa-th-list"></i>
-                                <span>Users</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/alldoctors">
-                                <i class="fas fa-calendar-check"></i>
-                                <span>Doctors</span>
-                            </a>
-                        </li>
+<main>
+    <div class="container">
+        <aside>
+            <div class="header_arrow">
+                <h3 class="profile_menu_header">Dashboard</h3>
+                <i class="fas fa-angle-down dashboard_down"></i>
+            </div>
+            <ul class="mobile_profile_menu hide">
+                <li>
+                    <a href="/admindashboard">
+                        <i class="fas fa-user-edit"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/allusers">
+                        <i class="fas fa-th-list"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/alldoctors">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Doctors</span>
+                    </a>
+                </li>
 
-                        <li>
-                            <a href="/allhospitals">
-                                <i class="far fa-file-alt"></i>
-                                <span>Hospitals</span>
-                            </a>
+                <li>
+                    <a href="/allhospitals">
+                        <i class="far fa-file-alt"></i>
+                        <span>Hospitals</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/settings">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="profile_menu">
+                <li>
+                    <a href="/admindashboard">
+                        <i class="fas fa-user-edit"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/allusers">
+                        <i class="fas fa-th-list"></i>
+                        <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/alldoctors">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Doctors</span>
+                    </a>
+                </li>
 
-                        </li>
-                        <li>
-                            <a href="/settings">
-                                <i class="fas fa-user-cog"></i>
-                                <span>Settings</span>
-                            </a>
-                        </li>
-                    </ul>
-                </aside>
+                <li>
+                    <a href="/allhospitals">
+                        <i class="far fa-file-alt"></i>
+                        <span>Hospitals</span>
+                    </a>
 
-<% } else { %>
+                </li>
+                <li>
+                    <a href="/settings">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+<%} else {%>
 <%- include("partials/user_profile.ejs") %>
-<% } %>
+<%}%>
                 <section class="form-container">
                     <form action="/updateprofile" method="POST" enctype="multipart/form-data">
 
