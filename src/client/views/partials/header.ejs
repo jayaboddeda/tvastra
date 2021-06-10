@@ -29,18 +29,24 @@
                                                     <% } else if(user_data.role=="user" && user_data.image){%>
                                                         <a href="/profile"> <img class="profile_img"
                                                                 src="<%='../../assets/images/'+ user_data.image %>"></a>
-                                                        <% } else {%>
-                                                            <a href="/profile"> <img id="pic_img" class="profile_img"
-                                                                    src="../../assets/images/default-picture.png"></a>
-                                                            <% } %>
-                                                                <ul class="user_details">
-                                                                    <li>
-                                                                        <%=user_data.name.slice(0,8)%>
-                                                                    </li>
-                                                                    <li>
-                                                                        <%= user_data.phone %>
-                                                                    </li>
-                                                                </ul>
+                                                        <% } else if(user_data.role==="admin" && user_data.image){%>
+                                                            <a href="/profile">  <img id="pic_img" class="profile_img"
+                                                                src="<%='../../assets/images/'+ user_data.image %>"></a>
+                                                            <% } else {%>
+                                                                
+                                                                <a href="/profile"> <img id="pic_img"
+                                                                        class="profile_img"
+                                                                        src="../../assets/images/default-picture.png"></a>
+
+                                                                <% } %>
+                                                                    <ul class="user_details">
+                                                                        <li>
+                                                                            <%=user_data.name.slice(0,8)%>
+                                                                        </li>
+                                                                        <li>
+                                                                            <%= user_data.phone %>
+                                                                        </li>
+                                                                    </ul>
 
                                             </div>
                                             <ul class="treatment_sub__menu_options">
@@ -75,15 +81,15 @@
     <div class="sidebar-header">
 
         <% if(user_data) {%>
-        <a href="/index"><img class="tvastralogo"
-                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
-                alt="tvastra logo"></a>
-        <% } else { %>
-            <img class="tvastralogo"
-                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
-                alt="tvastra logo">
-            <% } %>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="/index"><img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo"></a>
+            <% } else { %>
+                <img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo">
+                <% } %>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
     </div>
     <ul class="mobile-ul">
         <li><a href="/doctor">Doctors</a></li>
@@ -136,14 +142,14 @@
     <div class="desk-img">
 
         <% if(user_data) {%>
-        <a href="/index"><img class="tvastralogo"
-                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
-                alt="tvastra logo"></a>
-        <% } else { %>
-            <img class="tvastralogo"
-                src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
-                alt="tvastra logo">
-            <% } %>
+            <a href="/index"><img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo"></a>
+            <% } else { %>
+                <img class="tvastralogo"
+                    src="https://s3.ap-south-1.amazonaws.com/appdev.konfinity.com/css/tasks/Logo.jpg"
+                    alt="tvastra logo">
+                <% } %>
 
     </div>
     <div class="desk-i">
@@ -195,16 +201,22 @@
                     <div class="treatment_sub__menu left">
                         <div class="profile_image_container">
 
-                            <% if(user_data.role==="doctor" && doctor_info) { %>
+                            <% if(user_data.role=="doctor" && doctor_info) { %>
                                 <a href="/profile"> <img id="pic"
                                         src="<%='../../assets/images/'+ doctor_info.image %>"></a>
-                                <% } else if(user_data.role==="user" || user_data.role==="admin" && user_data.image){%>
+                                <% } else if(user_data.role=="user" && user_data.image){%>
                                     <a href="/profile"> <img class="profile_img"
                                             src="<%='../../assets/images/'+ user_data.image %>"></a>
-                                    <% } else {%>
-                                        <a href="/profile"> <img class="profile_img"
-                                                src="../../assets/images/default-picture.png"> </a>
-                                        <% } %>
+                                    <% } else if(user_data.role==="admin" && user_data.image){%>
+                                        <a href="/profile">  <img id="pic_img" class="profile_img"
+                                            src="<%='../../assets/images/'+ user_data.image %>"></a>
+                                        <% } else {%>
+                                            
+                                            <a href="/profile"> <img id="pic_img"
+                                                    class="profile_img"
+                                                    src="../../assets/images/default-picture.png"></a>
+
+                                            <% } %>
                                             <ul class="user_details">
                                                 <li>
                                                     <%=user_data.name.slice(0,8)%>

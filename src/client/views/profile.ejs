@@ -117,13 +117,18 @@
                                 <div class="profile_flex">
                                     <figure>
                                         <% if(user_data.role==="doctor" && doctor_info) { %>
-                                            <img id="pic_img" class="profile_img"
+                                            <img id="pic_img1" class="profile_img"
                                                     src="<%='../../assets/images/'+ doctor_info.image %>">
-                                            <% } else if(user_data.role==="user"||user_data.role==="admin" && user_data.image){%>
-                                                <img id="pic_img" class="profile_img"
+                                            <% } else if(user_data.role==="user" && user_data.image){%>
+                                                <img id="pic_img1" class="profile_img"
+                                                    src="<%='../../assets/images/'+ user_data.image %>">
+                                            <% } else if(user_data.role==="admin" && user_data.image){%>
+                                                <img id="pic_img1" class="profile_img"
                                                     src="<%='../../assets/images/'+ user_data.image %>">
                                                 <% } else {%>
-                                                    <img id="pic_img" class="profile_img"
+                                    
+
+                                                    <img id="pic_img1" class="profile_img"
                                                         src="../../assets/images/default-picture.png">
                                                     <% } %>
                                     </figure>
@@ -383,7 +388,7 @@
 selectOptionFromBackend(gender, '<%= user_data.gender %>');
 
 var loadFile = function (event) {
-    var image = document.getElementById('pic_img');
+    var image = document.getElementById('pic_img1');
 console.log(image)
 
 console.log(event)
