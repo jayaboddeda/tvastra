@@ -121,12 +121,12 @@
                                 <div class="profile_flex">
                                     <figure>
                                         <% if(user_info[0].role==="doctor" && doctor_info[0]) { %>
-                                            <img id="pic_img" src="<%='../../assets/images/'+ doctor_info[0].image %>">
+                                            <img id="pic_img1" src="<%='../../assets/images/'+ doctor_info[0].image %>">
                                             <% } else if(user_info[0].role==="user" && user_info[0].image){%>
-                                                <img  id="pic_img" class="profile_img"
+                                                <img  id="pic_img1" class="profile_img"
                                                     src="<%='../../assets/images/'+ user_info[0].image %>">
                                                 <% } else {%>
-                                                    <img id="pic_img" class="profile_img"
+                                                    <img id="pic_img1" class="profile_img"
                                                         src="../../assets/images/default-picture.png">
                                                     <% } %>
                                     </figure>
@@ -389,7 +389,7 @@
             selectOptionFromBackend(gender, '<%= user_info[0].gender %>');
 
 var loadFile = function (event) {
-    var image = document.getElementById('pic_img');
+    var image = document.getElementById('pic_img1');
    
     image.src = URL.createObjectURL(event.target.files[0]);
 
