@@ -9,6 +9,65 @@ var moment = require("moment");
 const { default: App } = require("nexmo/lib/App");
 const { hospital } = require("./htmlController");
 
+const indexSearch = async (req,res,next)=>{
+
+   const hospitals = await Doctor.distinct("hospital");
+   const cities = await Doctor.distinct("country");
+   const treatments = await Doctor.distinct("qualification");
+   const names = await Doctor.distinct("name");
+   const namesl = names.map(v => v.toLowerCase())
+
+   if(hospitals.includes(req.body.hospital)){
+     if(req.body.city){
+      req.session.filter = {
+        city:[req.body.city],
+        hospital:[req.body.hospital]
+      }
+     }
+     else{
+      req.session.filter = {
+        hospital:[req.body.hospital]
+      }
+    }
+   
+   }else if(treatments.includes(req.body.hospital)){
+    if(req.body.city){
+      req.session.filter = {
+        city:[req.body.city],
+        treatment:[req.body.hospital]
+      }
+      
+     }
+     else{
+    req.session.filter = {
+      treatment:[req.body.hospital]
+    }
+  }
+   }
+   else if(namesl.indexOf(req.body.hospital.toLowerCase())>-1){
+    if(req.body.city){
+      req.session.filter = {
+        city:[req.body.city],
+        names:[req.body.hospital]
+      }
+      
+     }
+     else{
+    req.session.filter = {
+      names:[req.body.hospital]
+    }
+  }
+   }
+   else{
+    req.session.filter = {
+      city:[req.body.city]
+    }
+   }
+
+res.redirect('/doctor')
+
+}
+
 const getAllDoctors = async (req, res, next) => {
   let { page, size } = req.query;
 
@@ -21,8 +80,12 @@ const getAllDoctors = async (req, res, next) => {
 
   const limit = parseInt(size);
   const skip = (page - 1) * size;
-
-   if(req.session.sortBy){
+if(req.session.filter){
+ if(Array.isArray(req.session.filter.exp)){
+  req.session.filter.exp = 0
+  }
+}
+  if(req.session.sortBy){
     if(req.session.sortBy == "experience"){
     var mysort = { experience: -1 };
     }
@@ -41,9 +104,9 @@ const getAllDoctors = async (req, res, next) => {
     if(req.session.sortBy == "name-desc"){
     var mysort = { name: -1 };
     }
-	var doctors = await Doctor.find({ }).sort(mysort).limit(limit).skip(skip)
+	// var doctors = await Doctor.find({ }).sort(mysort).limit(limit).skip(skip)
    }
-   else if(req.session.filter){
+if(req.session.filter){
  if(req.session.filter.city && req.session.filter.hospital && req.session.filter.treatment &&  req.session.filter.exp){
     var doctors = await Doctor.find({
       $and:[
@@ -52,7 +115,16 @@ const getAllDoctors = async (req, res, next) => {
         {qualification:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+
+    var count = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {hospital:{$in : req.session.filter.hospital}},
+        {qualification:{$in : req.session.filter.treatment}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).countDocuments({ })
    }
    else if( req.session.filter.hospital &&  req.session.filter.exp){
     var doctors = await Doctor.find({
@@ -61,7 +133,14 @@ const getAllDoctors = async (req, res, next) => {
         {hospital:{$in : req.session.filter.hospital}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+    var count = await Doctor.find({
+      $and:[
+       
+        {hospital:{$in : req.session.filter.hospital}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).countDocuments({ })
    }
    else if(req.session.filter.city &&  req.session.filter.treatment ){
     var doctors = await Doctor.find({
@@ -69,7 +148,13 @@ const getAllDoctors = async (req, res, next) => {
         {country:{$in : req.session.filter.city}},
         {qualification:{$in : req.session.filter.treatment}},
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+    var count = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {qualification:{$in : req.session.filter.treatment}},
+      ]
+    }).countDocuments({ })
    }
    else if(req.session.filter.city &&  req.session.filter.exp){
     var doctors = await Doctor.find({
@@ -77,7 +162,15 @@ const getAllDoctors = async (req, res, next) => {
         {country:{$in : req.session.filter.city}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+
+    var count = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).countDocuments({ })
+
    }
    else if(req.session.filter.hospital && req.session.filter.treatment){
     var doctors = await Doctor.find({
@@ -86,7 +179,16 @@ const getAllDoctors = async (req, res, next) => {
         {hospital:{$in : req.session.filter.hospital}},
         {qualification:{$in : req.session.filter.treatment}}
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+
+    var count = await Doctor.find({
+      $and:[
+        
+        {hospital:{$in : req.session.filter.hospital}},
+        {qualification:{$in : req.session.filter.treatment}}
+      ]
+    }).countDocuments({ })
+
    }
    else if(req.session.filter.city && req.session.filter.hospital){
     var doctors = await Doctor.find({
@@ -94,7 +196,13 @@ const getAllDoctors = async (req, res, next) => {
         {country:{$in : req.session.filter.city}},
         {hospital:{$in : req.session.filter.hospital}}
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+    var count = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {hospital:{$in : req.session.filter.hospital}}
+      ]
+    }).countDocuments({ })
    }
    else if(req.session.filter.treatment &&  req.session.filter.exp){
     var doctors = await Doctor.find({
@@ -102,9 +210,31 @@ const getAllDoctors = async (req, res, next) => {
         {qualification:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+    var count = await Doctor.find({
+      $and:[
+        {qualification:{$in : req.session.filter.treatment}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).countDocuments({ })
    }
+   else if(req.session.filter.names && !req.session.filter.city){
+    var doctors = await Doctor.find({
+        name:{$regex:req.session.filter.names[0] ,$options:"$i"}
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+  }
+  else if(req.session.filter.names && req.session.filter.city){
+    var doctors = await Doctor.find({
+      $and:[
+        {name:{$regex:req.session.filter.names[0] ,$options:"$i"}},
+        {country:{$in : req.session.filter.city}}
+      ]      
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+console.log('aaa'+ doctors)
+
+  }
    else if(req.session.filter.city || req.session.filter.hospital || req.session.filter.treatment ||  req.session.filter.exp ){
+    console.log(typeof(req.session.filter.exp))
 
     var doctors = await Doctor.find({
       $or:[
@@ -113,18 +243,36 @@ const getAllDoctors = async (req, res, next) => {
         {qualification:{$in : req.session.filter.treatment}},
         {experience:{$gte : req.session.filter.exp}}
       ]
-    }).limit(limit).skip(skip)
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+    var count = await Doctor.find({
+      
+      $or:[
+        {country:{$in : req.session.filter.city}},
+        {hospital:{$in : req.session.filter.hospital}},
+        {qualification:{$in : req.session.filter.treatment}},
+        {experience:{$gte : req.session.filter.exp}}
+      ]
+    }).countDocuments({ })
      }
+  
+  
   }
+
    else{
-	var doctors = await Doctor.find({ }).limit(limit).skip(skip).exec()
-   }
+	var doctors = await Doctor.find({ }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip).exec()
+  var count = await Doctor.find({ }).countDocuments({ })
+   
+}
+
+
+   
    const hospitals = await Doctor.distinct("hospital");
    const cities = await Doctor.distinct("country");
    const treatments = await Doctor.distinct("qualification");
-   let count = await Doctor.countDocuments({ })
+
     let user_info_arr = []
     let slot_info_arr = []
+if(doctors){
 
 for(let i = 0; i<doctors.length; i++){
     await User.find({email:doctors[i].email }).exec().then((user)=>{
@@ -132,8 +280,21 @@ for(let i = 0; i<doctors.length; i++){
     })
     var slot_info = await Slot.find({email:doctors[i].email }).exec()
     slot_info_arr.push(slot_info)
-}   
- 
+} 
+  
+}
+else{
+  var doctors = await Doctor.find({ }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip).exec()
+  var count = await Doctor.find({ }).countDocuments({ })
+
+  for(let i = 0; i<doctors.length; i++){
+    await User.find({email:doctors[i].email }).exec().then((user)=>{
+        user_info_arr.push(user)
+    })
+    var slot_info = await Slot.find({email:doctors[i].email }).exec()
+    slot_info_arr.push(slot_info)
+  }
+}
 res.render("doctor", {
     doctors,
     user_info_arr,
@@ -148,8 +309,6 @@ res.render("doctor", {
 }
 
 const filters = (req,res) => {
-  console.log(req.body)
-  console.log(req.body.exp)
 if(Object.keys(req.body).length >0){
   req.session.filter = req.body
 }
@@ -159,12 +318,11 @@ else{
   res.redirect('/doctor');
 }
 
-const doctorSort = (req, res) => {
-  console.log(req.body.sort)
+const doctorSort =async (req, res) => {
   req.session.sortBy = req.body.sort;
-  console.log(req.session.sortBy)
 
-  res.redirect('/doctor');
+console.log(req.session.sortBy)
+ res.redirect('/doctor')
 }
 
 const fetchtimeslots = async (req, res) => {
@@ -312,11 +470,20 @@ const updateappointment = async(req,res)=>{
 
 const getappointments = async(req,res)=>{
   if(req.session.user_data.role =="admin"){
-  var appointments = await Appointment.find({mobile : req.query.mobile})
-  res.render("adminmyappointments",{
-    appointments,
-    moment
-  })
+    if(req.query.mobile){
+      var appointments = await Appointment.find({mobile : req.query.mobile})
+      res.render("adminmyappointments",{
+        appointments,
+        moment
+      })
+    }
+  else if(req.query.email){
+    var appointments = await Appointment.find({doctorEmail : req.query.email})
+    res.render("adminmyappointments",{
+      appointments,
+      moment
+    })
+  }
   }else if(req.session.user_data.role =="doctor"){
     var appointments = await Appointment.find({doctorEmail : req.session.user_data.email})
     res.render("myappointments",{
@@ -343,5 +510,6 @@ module.exports = {
     updateappointment,
     getappointments,
     doctorSort,
-    filters
+    filters,
+    indexSearch
   }

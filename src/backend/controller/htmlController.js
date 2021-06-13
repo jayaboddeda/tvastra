@@ -4,7 +4,6 @@
 function homePage (req, res) {
   if(req.session.user_data.role == "admin"){
   res.redirect("/admindashboard");
-
   }
   res.render("index");
 }

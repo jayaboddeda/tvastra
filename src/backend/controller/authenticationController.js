@@ -8,6 +8,26 @@ const moment = require("moment");
 
 
 const filename= require("../controller/multer");
+
+const index = async(req,res,next)=> {
+	const hospitals = await Doctor.distinct("hospital");
+	const cities = await Doctor.distinct("country");
+	const treatments = await Doctor.distinct("qualification");
+	const names = await Doctor.distinct("name");
+	if(req.session.user_data.role == "admin"){
+		res.redirect("/admindashboard");
+		}
+		else{
+			res.render('index',{
+				hospitals,
+				cities,
+				treatments,
+				names
+			})
+		}
+	
+}
+
 const redirecthome = (req, res, next) => {
 	
 	if(req.session.useremail && req.session.user_data ){
@@ -125,6 +145,7 @@ const doctorInfo = async (req, res,filename) => {
 			fees : req.body.fees,
 			email : req.session.useremail,
 			name : req.session.user_data.name,
+			phone : req.session.user_data.phone,
 			state : req.session.user_data.state,
 			country:req.session.user_data.country,
 			city : req.session.user_data.city
@@ -138,11 +159,9 @@ const doctorInfo = async (req, res,filename) => {
 
 
 			if(hospitalexists.length <= 0){
-				console.log("came came")
 				const newHospital = await Hospital.create({
 					name:elem
 				})
-			console.log("created   "+newHospital)
 
 			}
 			
@@ -240,8 +259,9 @@ const updateUserInfo = async(req,res) =>{
 				finddoctor.awards= awards_values,
 				finddoctor.specialization= specialization_values,
 				finddoctor.fees = req.body.fees,
-				console.log(req.body.email)
 				finddoctor.email = req.body.email
+				finddoctor.name = req.body.name
+                finddoctor.phone= req.body.phone
 				await finddoctor.save();
 
 			  }
@@ -578,6 +598,7 @@ module.exports = {
 	disableSchedule,
 	disablesingleslot,
 	deleteSchedule,
-	postsettings
+	postsettings,
+	index
 
 }

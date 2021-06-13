@@ -14,7 +14,9 @@ const { adminallappointments } = require("../controller/htmlController");
 const router = express.Router();
 const app = express();
 
-router.route("/index").get(authenticationController.redirectlogin,htmlController.homePage);
+    router.route("/index").get(authenticationController.redirectlogin,authenticationController.index);
+
+router.route("/indexSearch").post(doctorController.indexSearch);
 
 router.route("/aboutus").get(authenticationController.redirectlogin,htmlController.aboutus);
 

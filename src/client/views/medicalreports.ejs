@@ -92,7 +92,7 @@
                 <div class="loginform-container">
                     <div class="loginform">
                         <div class="login-header">
-                            <span class="close">&times;</span>
+                            <!-- <span class="close">&times;</span> -->
 
                             <h4>Create Record</h4>
                         </div>
@@ -122,10 +122,10 @@
                                         <input type="radio" name="reportType" id="invoice" value="Invoice" />
                                         <label for="invoice"><i class="far fa-file-alt"></i><span>Invoice</span></label>
                                     </div>
-                                </div>
+                                </div> 
                                 
                                 <div class="button_flex">
-                                    <button class="light-blue_button">Cancel</button>
+                                    <button type="button" class="light-blue_button closemodalbtn">Cancel</button>
                                     <button type="submit" id="createScheduleSubmitBtn"
                                         class="loginform-btn dark-button">
                                         Done
@@ -187,8 +187,8 @@
 
         var modal = document.getElementById("myModal");
         var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
-
+        var span = document.getElementsByClassName("closemodalbtn")[0];
+console.log(span)
 
         btn.onclick = function () {
             modal.style.display = "flex";

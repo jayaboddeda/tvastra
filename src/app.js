@@ -47,7 +47,6 @@ app.use(session({
   app.use( (req, res, next) => {
     res.locals.appointmentinfo =  req.session.appointmentinfo
     res.locals.filter=req.session.filter,
-
     res.locals.phone = req.session.phone;
     res.locals.doctor_info = req.session.doctor_info;
     res.locals.user_data = req.session.user_data;

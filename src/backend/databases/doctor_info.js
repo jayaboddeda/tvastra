@@ -43,6 +43,11 @@ const doctorInfo = new mongoose.Schema({
     },
     city:{
         type:String
+    },
+    phone:{
+        type:Number,
+        unique:true
+
     }
 
 })

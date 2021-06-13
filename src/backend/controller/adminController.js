@@ -52,7 +52,6 @@ const adminhospitals = async (req,res)=>{
 }
 const admindoctors = async (req,res)=>{
     let users = await Doctor.find({})
-
     res.render("alldoctors",{
         users
     })
@@ -86,7 +85,6 @@ const adminupdateUserInfo = async(req,res) =>{
     console.log(finduser)
 	if(finduser){
 		 finduser.name = req.body.name,
-
 		  finduser.email= req.body.email,
 		  finduser.gender = req.body.gender,
 		  finduser.dob = req.body.dob,
@@ -162,8 +160,9 @@ const adminupdateUserInfo = async(req,res) =>{
 				finddoctor.awards= awards_values,
 				finddoctor.specialization= specialization_values,
 				finddoctor.fees = req.body.fees,
-				console.log(req.body.email)
 				finddoctor.email = req.body.email
+                finddoctor.name = req.body.name
+                finddoctor.phone= req.body.phone
 				await finddoctor.save();
 
 			  }
@@ -201,7 +200,7 @@ const adminverifyhospital = async(req,res)=>{
 
 const hospitalupdate = async(req,res)=>{
     const hospital = await Hospital.findOne({_id:req.query.id})
-
+    hospital.name = req.body.hospitalname
     hospital.description = req.body.describe
     hospital.speciality = req.body.speciality
     hospital.beds = req.body.beds

@@ -61,7 +61,7 @@
                                             <%}%>
 
                                 </div>
-                                <p class="showmore"   onclick="hamburger('cities')">+ Show More</p>
+                                <p class="showmore"   onclick="hamburger('cities',this)">+ Show More</p>
 
                                 <div class="doc-treatment search-flex location">
                                     <p>Treatment </p>
@@ -85,7 +85,7 @@
 
                                                          
                                             </div>
-                                            <p class="showmore"  onclick="hamburger('treatments')">+ Show More</p>
+                                            <p class="showmore"  onclick="hamburger('treatments',this)">+ Show More</p>
 
                                             <div class="doc-hospitals search-flex location">
                                                 <p>Hospitals </p>
@@ -96,9 +96,6 @@
                                                 <div class="checkboxes" id="hospitals"
                                                     filter-object="<%=filter.hospital%>">
 
-                                                    <p>
-                                                        <%=filter.city%>
-                                                    </p>
 
                                                     <%} else{%>
 
@@ -119,7 +116,7 @@
 
                                                                        
                                                         </div>
-                                                <p class="showmore"  onclick="hamburger('hospitals')">+ Show More</p>
+                                                <p class="showmore"  onclick="hamburger('hospitals',this)">+ Show More</p>
 
                                                         <div class="years-of-exp search-flex location">
                                                             <p>Years of experience </p>
@@ -173,7 +170,7 @@
                                                                             </div>
                                                                             
                                                                     </div>
-                                                <p class="showmore"  onclick="hamburger('experience')">+ Show More</p>
+                                                <p class="showmore"  onclick="hamburger('experience',this)">+ Show More</p>
 
                                                             </div>
                 </form>
@@ -305,18 +302,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 <script>
-    function hamburger(id){
-                   
+//     const sort = document.querySelector('.breadcrumb__sort')
+// console.log(sort)
+//     function selectOptionFromBackend(optionsList, value) {
+//     for (var i = 0; i < optionsList.options.length; i++) {
+//         option = optionsList.options[i];
+//         if (option.value == value) {
+//             console.log(value);
+//             option.selected = 'selected';
+//         }
+//     }
+// }
+
+
+    function hamburger(id,showmore){
+                 
                    var hamburger_menu = document.getElementById(id)
-       
-       console.log(hamburger_menu)
-       
+ 
        var menu_height = hamburger_menu.style.height
-                if(menu_height == "118px"){
+                if(menu_height != "100%"){
                     hamburger_menu.style.height = "100%"
+                    showmore.innerText = "- Show Less"
                 }
                 else{
                     hamburger_menu.style.height = "118px"
+                    showmore.innerText = "+ Show More"
+
                 }
                    }
     let pages = document.querySelector(".alldoctors").getAttribute("data-page");
@@ -511,8 +522,7 @@
     }
     let i = 0;
 let time_box = document.querySelectorAll(".timebox")
-console.log(time_box)
-                console.log(time_box.length)
+
     function gettingTime(date, doctorname, element, key) {
 
         let time_show = document.querySelector(`.time_show${key}`);
@@ -757,6 +767,7 @@ console.log(time_box)
             }
         })
     })
+
 
 
 

@@ -10,7 +10,7 @@
     </head>
     <body>
       <%- include("partials/header.ejs")%>
-       
+       <form action="/indexSearch" method="post">
       <div class="find txt-center">
           <div class="find-flex">
           <div class="find-h1">
@@ -23,16 +23,36 @@
                 <div class="inp-img">
                     <i class="fas fa-map-marker-alt map-marker"></i>
                     <i class="fas fa-crosshairs search-location"></i>
-                    <input type="text" name="city" class="city" placeholder="Ahmedabad">
+                    <input type="text" list="search1" name="city" class="city" placeholder="Ahmedabad">
+                    <datalist id="search1">
+                        <% for(let i=0; i < cities.length;i++){ %>
+                            <option value="<%=cities[i]%>">Location</option> 
+                         <%}%>
+                    </datalist>
                 </div>      
             <div class="inp2">
-                <input type="text" name="search" class="search" placeholder="Search for Doctor, hospitals and treatments"> 
-              </div>
+                
+                <input type="text" list="search2" name="hospital" class="search" placeholder="Search for Doctor, hospitals and treatments"> 
+            <datalist id="search2">
+<% for(let i=0; i < hospitals.length;i++){ %>
+   <option value="<%=hospitals[i]%>">Hospital</option> 
+<%}%>
+<% for(let i=0; i < treatments.length;i++){ %>
+   <option value="<%=treatments[i]%>">Treatment</option> 
+<%}%>
+<% for(let i=0; i < names.length;i++){ %>
+   <option value="<%=names[i]%>">Doctor</option> 
+<%}%>
+            </datalist>
+                
+            </div>
               <div><input type="submit" name="search-button" class="search-button dark-button" value="Search"></div>
             </div>
-              
+            
           </div>
         </div>
+    </form>
+   
       </div>
       <div class="how-it-works txt-center">
           <div>
@@ -677,5 +697,6 @@
                 </div>
             </div>
         </div>
+
     </body>
 </html>

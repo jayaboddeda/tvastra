@@ -2,6 +2,39 @@
     max-width: 120px;
     padding-left: 15%;
 }
+
+    .autocom-box2 {
+        padding: 0;
+        opacity: 0;
+        pointer-events: none;
+        max-height: 280px;
+        position: relative;
+        left: 250px;
+        text-align: left;
+        background: white;
+        width: 40%;
+        overflow-y: auto;
+    }
+  
+   .activeautocom-box2{
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .autocom-box2 li{
+    list-style: none;
+    padding: 8px 12px;
+    display: none;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+  }
+   .activeautocom-box2 li{
+    display: block;
+  }
+  .autocom-box2 li:hover{
+    background: #efefef;
+  }
 nav{
     display: flex;
     align-items: flex-start;
