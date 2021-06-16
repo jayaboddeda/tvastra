@@ -127,7 +127,8 @@
                                 <div class="schedule-head">
                                     <div class="day">
                                         <h5>
-                                            <%= appointments[i].date.slice(9,16) %>
+                                            <%= moment(appointments[i].date,'dddd DD MMMM YYYY').format('MMM DD')%>
+
                                         </h5>
                                         
                                     </div>
@@ -154,7 +155,7 @@
                                                 <%= appointments[i].doctorHospitals %> Hospital
             
                                             </h6>
-                                        </time>
+                                         </time>
                                         <span>Confirmed</span>
                                     </div>
                                     <div class="buttons">
@@ -193,7 +194,7 @@
                                 <div class="schedule-head-completed">
                                     <div class="day">
                                         <h5>
-                                            <%= appointments[i].date.slice(11,16) %> 
+                                            <%= moment(appointments[i].date,'dddd DD MMMM YYYY').format('MMM DD')%>
                                         </h5>
                                         
                                     </div>

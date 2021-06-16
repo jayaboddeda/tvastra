@@ -56,6 +56,10 @@
   height: 10rem;
 }
 
+.recentAppointments {
+  overflow-x: scroll;
+}
+
 .recentAppointmentsTable {
   width: 100%;
   border: 1px solid var(--lightgrey);
