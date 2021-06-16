@@ -26,7 +26,7 @@ const admindashboard = async(req,res)=>{
     let doctors = await Doctor.find({})
     let hospitals = await Hospital.find({})
     let totalappointments = await Appointment.find({})
-    let appointments = await User.find({role:'user'}).limit(limit).skip(skip).sort({id:-1})
+    let appointments = await User.find({role:'user'}).limit(limit).skip(skip)
 
 res.render("admindashboard",{
     users,

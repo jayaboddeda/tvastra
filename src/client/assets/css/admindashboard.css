@@ -60,6 +60,18 @@
   overflow-x: scroll;
 }
 
+.recentAppointments::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.recentAppointments {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
 .recentAppointmentsTable {
   width: 100%;
   border: 1px solid var(--lightgrey);
