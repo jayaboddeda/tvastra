@@ -72,7 +72,6 @@
                 <div class="loginform-container">
                     <div class="loginform">
                         <div class="login-header">
-                            <span class="close">&times;</span>
 
                             <h4>Create Record</h4>
                         </div>
@@ -92,7 +91,7 @@
 
 
                                 <div class="button_flex">
-                                    <button class="light-blue_button">Cancel</button>
+                                    <button type="button" class="light-blue_button closemodalbtn">Cancel</button>
                                     <button type="submit" id="createScheduleSubmitBtn"
                                         class="loginform-btn dark-button">
                                         Done
@@ -154,7 +153,6 @@
 
         var modal = document.getElementById("myModal");
         var btn = document.getElementById("myBtn");
-        var span = document.getElementsByClassName("close")[0];
 
 
         btn.onclick = function () {
@@ -162,10 +160,10 @@
         }
 
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-            modal.style.transform = "scale(1)";
-        }
+        // span.onclick = function () {
+        //     modal.style.display = "none";
+        //     modal.style.transform = "scale(1)";
+        // }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
@@ -182,11 +180,23 @@
     for(var i=0;i<imagesarr.length;i++){
         str+='<img src="'+URL.createObjectURL(event.target.files[i])+'">';
     }
-   
+
    div.innerHTML=str;
 
 };
+var span = document.getElementsByClassName("closemodalbtn")[0];
 
+
+
+
+       span.addEventListener("click", e=>{
+            var imagesarr = document.getElementById('reportPic').files;
+    var div=document.querySelector(".selected-photos");
+    var str="";
+   div.innerHTML=str;
+   modal.style.display = "none";
+            modal.style.transform = "scale(1)";
+        })
     </script>
     </body>
 

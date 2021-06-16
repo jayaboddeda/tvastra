@@ -194,10 +194,10 @@
         }
 
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-            modal.style.transform = "scale(1)";
-        }
+        // span.onclick = function () {
+        //     modal.style.display = "none";
+        //     modal.style.transform = "scale(1)";
+        // }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
@@ -242,6 +242,19 @@
             }
         })
     })();
+
+  
+        var selectedPhotoContainer = document.querySelector(".selected-photos");
+        const reportPicInput = document.getElementById("reportPic");
+
+        span.addEventListener("click", e=>{
+                reportPicInput.value=null;
+                selectedPhotoContainer.innerHTML='';
+                modal.style.display = "none";
+            modal.style.transform = "scale(1)";
+        })
+            
+   
 
     </script>
     </body>

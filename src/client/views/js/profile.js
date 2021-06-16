@@ -4,12 +4,13 @@ const submit_btn = document.querySelector("#submit_btn");
 const change_number_form = document.querySelector(".change_number_form");
 const otp_verify = document.querySelector(".otp_verify");
 var modal = document.getElementById("myModal");
-
+var mobilenumber = document.getElementsByClassName("mobilenumber")
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close2")[0];
 
 
 // tagify
@@ -23,7 +24,6 @@ function selectOptionFromBackend(optionsList, value) {
     for (var i = 0; i < optionsList.options.length; i++) {
         option = optionsList.options[i];
         if (option.value == value) {
-            console.log(value);
             option.selected = 'selected';
         }
     }
@@ -35,10 +35,25 @@ selectOptionFromBackend(gender, '<%= user_data.gender %>');
 
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
-    modal.style.display = "flex";
+    if(modal.style.display = "none"){
+        modal.style.display = "flex";
+    change_number_form.style.display = "flex";
+        otp_submit.style.display = 'none';
+    }
+    else{
+        modal.style.display = "none";
+        otp_submit.style.display = 'none';
+    }
+    
 }
 submit_btn.onclick = function () {
+    
+if(mobilenumber[0].value){
     change_number_form.style.display = "none";
+    otp_submit.style.display = 'flex';
+}
+    
+
 }
 
 
@@ -46,6 +61,13 @@ submit_btn.onclick = function () {
 span.onclick = function () {
     modal.style.display = "none";
     modal.style.transform = "scale(1)";
+    mobilenumber[0].value = ''
+}
+span2.onclick = function () {
+    modal.style.display = "none";
+    modal.style.transform = "scale(1)";
+    mobilenumber[0].value = ''
+
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -55,12 +77,12 @@ window.onclick = function (event) {
     }
 }
 
-// function clickEvent(first,next){
-//     if(first.value.length){
-//         document.getElementById(next).focus();
-//     }
+function clickEvent(first,next){
+    if(first.value.length){
+        document.getElementById(next).focus();
+    }
     
-// }
+}
 
 // const resendBtn = document.querySelector('#resend');
 // const change_number_resend = document.querySelector('.change_number_resend');
