@@ -21,7 +21,7 @@
         </div>
         <div class="sort">
             <p>Home / Doctor List</p>
-            <form method="POST" action="/sort-by">
+            <form method="POST" class="selectform" action="/sort-by">
                 <select class="breadcrumb__sort" name="sort" onchange="this.form.submit()">
                     <option value="not-specified" selected disabled>Sort By</option>
                     <option value="name-asc">Name (A-Z)</option>
@@ -372,7 +372,7 @@
         var d = new Date();
         var month = new Array();
         month[0] = "January";
-        month[1] = "February";
+        month[1] = "Febraury";
         month[2] = "March";
         month[3] = "April";
         month[4] = "May";
@@ -461,7 +461,6 @@
                     var flkty = new Flickity(elem, {
                         // options
                         cellAlign: 'left',
-                        contain: true,
                         pageDots: false
                     });
 
@@ -470,9 +469,9 @@
 
 
                         day_time.classList.add('carousel-cell');
-                        const currentday = moment().format('dddd')
-                        const currentdate = moment().format('DD MMMM YYYY')
-                        console.log(currentdate)
+                        const currentday = moment().format('ddd')
+                        const currentdate = moment().format('DD MMM YYYY')
+
                         if (currentdate[0] == 0) {
                             var s = currentdate.split("")
                             s.splice(0, 1)
@@ -590,7 +589,6 @@
                           var  s = currentdate
                         }
                            var now = `${currentday}, ${s}`
-                           console.log(now) 
 
                         if (moment(u.timing, "hh:mm A").isBefore(moment("12:00 PM", "hh:mm A"))) {
                             let timings = document.createElement('p');

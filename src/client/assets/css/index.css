@@ -1,6 +1,10 @@
 .tvastralogo {
   max-width: 120px;
-  padding-left: 15%;
+  padding-left: 10%;
+}
+
+#mySidebar .quote-btn {
+  margin-left: 1rem;
 }
 
 .autocom-box2 {
@@ -75,7 +79,7 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 5.2rem;
+  padding-right: 10px;
   position: relative;
   top: 2px;
 }

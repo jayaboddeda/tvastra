@@ -13,6 +13,7 @@ label{
 
 .form-group{
     display: flex;
+    flex-direction: column;
 }
 
 .first-form-group{
@@ -61,3 +62,11 @@ label{
         font-weight: normal;
     }
 }
+
+@media only screen and (min-width:1024px) {
+    .form-group{
+        display: flex;
+        flex-direction: row;
+    }
+}
+ 

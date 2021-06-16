@@ -16,6 +16,10 @@ label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .first-form-group {
@@ -72,5 +76,17 @@ label {
 .mobile_profile_menu li:first-child span {
   color: var(--darkblue);
   font-weight: normal;
+}
+
+@media only screen and (min-width: 1024px) {
+  .form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 /*# sourceMappingURL=settings.css.map */
