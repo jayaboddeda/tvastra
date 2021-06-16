@@ -4,8 +4,12 @@ label {
 }
 
 .input-group {
-  width: 15.625rem;
+  width: 20rem;
   margin-right: 1.875rem;
+}
+
+.input-group:last-child {
+  margin-right: 0;
 }
 
 .form-group {

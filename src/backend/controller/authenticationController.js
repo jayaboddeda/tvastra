@@ -54,6 +54,7 @@ const signUp = async (req, res) => {
 		
 	const finduser = await User.findOne({ email: req.body.email });
 	if(finduser){
+		req.flash("error", "Email Exists")
 		return res.redirect("/signup")
 	}
 	else{
@@ -82,7 +83,6 @@ const signUp = async (req, res) => {
 	
 }
 catch(err){
-console.log(err)
 res.redirect('/signup')
 }
 }
@@ -522,14 +522,16 @@ const changePassword = async (req, res) => {
 }
 
 const change_mobile_number = async (req,res,next) => {
-	console.log("came : " + req.session.user_data.phone)
-	const user = await User.findOne({phone:req.session.user_data.phone});
-	if(user){
-		req.session.change_number = true
- console.log("ccc : " + req.session.change_number);
+	// const user = await User.findOne({phone:req.session.user_data.phone});
+	// if(user){
+	// 	req.session.change_number = true
 
-	}
-	next();
+	// }
+	// next();
+	req.flash("error" , 'Cannot update Mobile number');
+
+	res.redirect('/profile')
+
 }
 
 

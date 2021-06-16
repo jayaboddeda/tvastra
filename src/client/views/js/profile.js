@@ -36,11 +36,9 @@ selectOptionFromBackend(gender, '<%= user_data.gender %>');
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
     modal.style.display = "flex";
-    otp_submit.style.display = "none";
 }
 submit_btn.onclick = function () {
     change_number_form.style.display = "none";
-    otp_submit.style.display = "flex";
 }
 
 
@@ -57,42 +55,42 @@ window.onclick = function (event) {
     }
 }
 
-function clickEvent(first,next){
-    if(first.value.length){
-        document.getElementById(next).focus();
-    }
+// function clickEvent(first,next){
+//     if(first.value.length){
+//         document.getElementById(next).focus();
+//     }
     
-}
+// }
 
-const resendBtn = document.querySelector('#resend');
-const change_number_resend = document.querySelector('.change_number_resend');
+// const resendBtn = document.querySelector('#resend');
+// const change_number_resend = document.querySelector('.change_number_resend');
 
 
-const timer = document.querySelector('.timer').children[0];
+// const timer = document.querySelector('.timer').children[0];
 
-let timerCount = parseInt(timer.innerHTML.split(' ')[2]);
-const countDown = setInterval(() => {
-        if(timerCount === 0) {
-            timer.innerHTML = 'Resend';
-            clearInterval(countDown);
-            const resendotp = async () => {
-                const mobile = document.getElementById("mobile-number").value;
-            const response = await fetch('/change_number_resend', {
-                method: 'post',
-                headers:{ 
-                    "Content-Type": "application/json" 
-                },
-                body: JSON.stringify({ phone: mobile }),
-             });
-            window.location.replace(response.url);
-        }
+// let timerCount = parseInt(timer.innerHTML.split(' ')[2]);
+// const countDown = setInterval(() => {
+//         if(timerCount === 0) {
+//             timer.innerHTML = 'Resend';
+//             clearInterval(countDown);
+//             const resendotp = async () => {
+//                 const mobile = document.getElementById("mobile-number").value;
+//             const response = await fetch('/change_number_resend', {
+//                 method: 'post',
+//                 headers:{ 
+//                     "Content-Type": "application/json" 
+//                 },
+//                 body: JSON.stringify({ phone: mobile }),
+//              });
+//             window.location.replace(response.url);
+//         }
 
-        resendBtn.addEventListener('click', resendotp);
-        } else {
-            timerCount--;
-            timer.innerHTML = `Resend in ${timerCount}`;	
-        }
+//         resendBtn.addEventListener('click', resendotp);
+//         } else {
+//             timerCount--;
+//             timer.innerHTML = `Resend in ${timerCount}`;	
+//         }
         
-    },1000);
+//     },1000);
 
 

@@ -126,6 +126,78 @@ if(req.session.filter){
       ]
     }).countDocuments({ })
    }
+ if(req.session.filter.city && req.session.filter.hospital &&  req.session.filter.exp){
+    var doctors = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {hospital:{$in : req.session.filter.hospital}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+
+    var count = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {hospital:{$in : req.session.filter.hospital}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).countDocuments({ })
+   }
+ else if(req.session.filter.city && req.session.filter.treatment &&  req.session.filter.exp){
+    var doctors = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        
+        {qualification:{$in : req.session.filter.treatment}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+
+    var count = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {qualification:{$in : req.session.filter.treatment}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).countDocuments({ })
+   }
+ else if(req.session.filter.hospital && req.session.filter.treatment &&  req.session.filter.exp){
+    var doctors = await Doctor.find({
+      $and:[
+        
+        {hospital:{$in : req.session.filter.hospital}},
+        {qualification:{$in : req.session.filter.treatment}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+
+    var count = await Doctor.find({
+      $and:[
+        
+        {hospital:{$in : req.session.filter.hospital}},
+        {qualification:{$in : req.session.filter.treatment}},
+        {experience:{$gte : parseInt(req.session.filter.exp)}}
+      ]
+    }).countDocuments({ })
+   }
+ else if(req.session.filter.city && req.session.filter.hospital && req.session.filter.treatment ){
+    var doctors = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {hospital:{$in : req.session.filter.hospital}},
+        {qualification:{$in : req.session.filter.treatment}}
+      ]
+    }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
+
+    var count = await Doctor.find({
+      $and:[
+        {country:{$in : req.session.filter.city}},
+        {hospital:{$in : req.session.filter.hospital}},
+        {qualification:{$in : req.session.filter.treatment}}
+      ]
+    }).countDocuments({ })
+   }
+
    else if( req.session.filter.hospital &&  req.session.filter.exp){
     var doctors = await Doctor.find({
       $and:[

@@ -472,10 +472,14 @@
                         day_time.classList.add('carousel-cell');
                         const currentday = moment().format('dddd')
                         const currentdate = moment().format('DD MMMM YYYY')
+                        console.log(currentdate)
                         if (currentdate[0] == 0) {
                             var s = currentdate.split("")
                             s.splice(0, 1)
                             s = s.join("")
+                        }
+                        else{
+                          var  s = currentdate
                         }
                            var now = `${currentday}, ${s}` 
                         // var now = "Monday, 7 June 2021"
@@ -521,7 +525,6 @@
 
     }
     let i = 0;
-let time_box = document.querySelectorAll(".timebox")
 
     function gettingTime(date, doctorname, element, key) {
 
@@ -583,8 +586,11 @@ let time_box = document.querySelectorAll(".timebox")
                             var s = currentdate.split("")
                             s.splice(0, 1)
                             s = s.join("")
+                        }else{
+                          var  s = currentdate
                         }
-                           var now = `${currentday}, ${s}` 
+                           var now = `${currentday}, ${s}`
+                           console.log(now) 
 
                         if (moment(u.timing, "hh:mm A").isBefore(moment("12:00 PM", "hh:mm A"))) {
                             let timings = document.createElement('p');
@@ -687,20 +693,20 @@ let time_box = document.querySelectorAll(".timebox")
                 }
                 
 
- else if(time_box.length == 9){
-    let timings = document.createElement('div');
-                    timings.classList.add('timinig-not-avaliable');
+//  else if(time_box.length == 9){
+//     let timings = document.createElement('div');
+//                     timings.classList.add('timinig-not-avaliable');
 
-                    let str = `<div>
-                                    <p>No Slots Available</p>
+//                     let str = `<div>
+//                                     <p>No Slots Available</p>
                                   
-                                    <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
-                                       </div> `
+//                                     <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
+//                                        </div> `
 
-                    timings.innerHTML = str;
+//                     timings.innerHTML = str;
 
-                    time_show.appendChild(timings);
- }
+//                     time_show.appendChild(timings);
+//  }
                 else {
 
                     let timings = document.createElement('div');

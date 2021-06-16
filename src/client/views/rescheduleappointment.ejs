@@ -351,285 +351,386 @@
 <script>
 
 
-    let aryDates = [];
-
-
-    function GetDates(startDate, daysToAdd) {
-
-        for (var i = 0; i <= daysToAdd; i++) {
-            let str1 = {
-                _id: '',
-                date: '',
-                time: ''
-            }
-            var currentDate = new Date();
-            currentDate.setDate(startDate.getDate() + i);
-            str1.date = DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear();
-            aryDates.push(str1);
-        }
-
-        return aryDates;
-    }
-
-    function MonthAsString(monthIndex) {
-        var d = new Date();
-        var month = new Array();
-        month[0] = "January";
-        month[1] = "February";
-        month[2] = "March";
-        month[3] = "April";
-        month[4] = "May";
-        month[5] = "June";
-        month[6] = "July";
-        month[7] = "August";
-        month[8] = "September";
-        month[9] = "October";
-        month[10] = "November";
-        month[11] = "December";
-
-        return month[monthIndex];
-    }
-
-    function DayAsString(dayIndex) {
-        var weekdays = new Array(7);
-        weekdays[0] = "Sunday";
-        weekdays[1] = "Monday";
-        weekdays[2] = "Tuesday";
-        weekdays[3] = "Wednesday";
-        weekdays[4] = "Thursday";
-        weekdays[5] = "Friday";
-        weekdays[6] = "Saturday";
-
-        return weekdays[dayIndex];
-    }
-
-    var startDate = new Date();
-    var ary = GetDates(startDate, 6);
-
-
-
-
+var aryDates = [];
    
 
 
-    
+
+   function GetDates(startDate, daysToAdd) {
+
+       for (var i = 0; i <= daysToAdd; i++) {
+           let str1 = {
+               _id: '',
+               date: '',
+               time: ''
+           }
+           var currentDate = new Date();
+           currentDate.setDate(startDate.getDate() + i);
+           str1.date = DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()) + " " + currentDate.getFullYear();
+           aryDates.push(str1);
+       }
+
+       return aryDates;
+   }
+
+   function MonthAsString(monthIndex) {
+       var d = new Date();
+       var month = new Array();
+       month[0] = "January";
+       month[1] = "February";
+       month[2] = "March";
+       month[3] = "April";
+       month[4] = "May";
+       month[5] = "June";
+       month[6] = "July";
+       month[7] = "August";
+       month[8] = "September";
+       month[9] = "October";
+       month[10] = "November";
+       month[11] = "December";
+
+       return month[monthIndex];
+   }
+
+   function DayAsString(dayIndex) {
+       var weekdays = new Array(7);
+       weekdays[0] = "Sunday";
+       weekdays[1] = "Monday";
+       weekdays[2] = "Tuesday";
+       weekdays[3] = "Wednesday";
+       weekdays[4] = "Thursday";
+       weekdays[5] = "Friday";
+       weekdays[6] = "Saturday";
+
+       return weekdays[dayIndex];
+   }
+
+   var startDate = new Date();
+   var ary = GetDates(startDate, 6);
 
 
-    async function selectslots(doctorname,key,appointmentid) {
-        console.log(doctorname)
-        console.log(key)
 
+   async function selectslots(doctorname, key, appointmentid) {
        var elem = document.querySelector(`.main-carousel${key}`);
-        elem.style.display == 'none' ? elem.style.display = 'flex' : elem.style.display = 'none';
+       var time = document.querySelector(`.time_show${key}`);
+
+       if (elem.style.display == 'none') {
+           elem.style.display = 'flex'
+           let result = await fetch(`/fetchtimeslots?doctorname=${doctorname}`);
+           result.text().then((user) => {
+
+               let user1 = JSON.parse(user);
+               const no_slot = document.querySelector(`.no-slot${key}`)
+
+               if (user1.length == 0 && no_slot == null) {
+                 
+                   
+                   let day_time = document.createElement('div');
 
 
-        elem.innerHTML = "";
+                   day_time.classList.add('no-slot-available');
+                   day_time.classList.add(`no-slot${key}`);
+
+                   let struct = `
+                         <div class="no_slot" >
+                       
+                        <small>No slots available</small>
+                        </div>
+                  `
+                   day_time.innerHTML = struct;
+                   elem.append(day_time);
+                   
+               }
+               else if(user1.length > 0) {
+
+
+                   user1.forEach((u) => {
+                       aryDates.forEach((e) => {
+                           if (e.date.includes(u.days)) {
+                               e._id = u._id;
+                               e.time = u.time_slots.filter((e) => {
+
+
+                                   return e.timeOn == "off"
+                               });
+                           }
+                       })
+
+                   })
+                   aryDates.forEach((val) => {
+                       if (val.date.includes('Sunday')) {
+                           var index = aryDates.indexOf(val);
+                           aryDates.splice(index, 1);
+                       }
+                   })
+                   var flkty = new Flickity(elem, {
+                       // options
+                       cellAlign: 'left',
+                       contain: true,
+                       pageDots: false
+                   });
+
+                   aryDates.forEach((e,i) => {
+                       let day_time = document.createElement('div');
+
+
+                       day_time.classList.add('carousel-cell');
+                       const currentday = moment().format('dddd')
+                       const currentdate = moment().format('DD MMMM YYYY')
+                       console.log(currentdate)
+                       if (currentdate[0] == 0) {
+                           var s = currentdate.split("")
+                           s.splice(0, 1)
+                           s = s.join("")
+                       }
+                       else{
+                         var  s = currentdate
+                       }
+                          var now = `${currentday}, ${s}` 
+                       // var now = "Monday, 7 June 2021"
+                       
+                       if (e.date == now) {
+                           var d = moment().format('hh:mm A')
+                           var count=0
+                           for(let i=0;i<e.time.length;i++){
+                               if (moment(e.time[i].timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                   count++
+                                   var struct = `
+                         <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}','${appointmentid}')">
+                        <big>${e.date}</big>
+                        <small>${e.time.length - count} slots available</small>
+                        </div>
+                  `
+                           } 
+                       }
+                           
+                       }
+                       else{
+                       var struct = `
+                         <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}','${appointmentid}')">
+                        <big>${e.date}</big>
+                        <small>${e.time.length} slots available</small>
+                        </div>
+                  `
+                       }
+                       day_time.innerHTML = struct;
+                       flkty.append(day_time);
+                   })
+
+               }
+
+           })
+       } else if (elem.style.display == 'flex' && time.style.display == 'flex') {
+           elem.style.display = 'none';
+           time.style.display = 'none'
+       }
+       else {
+           elem.style.display = 'none';
+       }
+
+   }
+   let i = 0;
+
+   function gettingTime(date, doctorname, element, key, appointmentid) {
+
+       let time_show = document.querySelector(`.time_show${key}`);
+       time_show.style.display == 'none' ? time_show.style.display = 'flex' : "";
+
+
+       time_show.innerHTML = "";
+
+       let time_slot_day = document.querySelectorAll(".time_slot_day");
+
+
+       time_slot_day.forEach((e) => {
+           e.classList.remove('timeslot_active_hai');
+       })
 
 
 
-        if (elem.style.display == 'flex') {
-            let result = await fetch(`/fetchtimeslots?doctorname=${doctorname}`);
-            result.text().then((user) => {
+       aryDates.forEach((e) => {
 
-                let user1 = JSON.parse(user);
+           if (e.date == date) {
+               element.classList.add('timeslot_active_hai');
+               if (e.time) {
+                   let morning = document.createElement('div');
+                   morning.classList.add("morning")
+                   let evening = document.createElement('div');
+                   evening.classList.add("evening")
+                   let afternoon = document.createElement('div');
+                   afternoon.classList.add("afternoon");
+                   let tim_mor = document.createElement('div');
+                   tim_mor.classList.add("tim");
+                   morning.appendChild(tim_mor);
+                   let tim_eve = document.createElement('div');
+                   tim_eve.classList.add("tim");
+                   evening.appendChild(tim_eve);
+                   let tim_aft = document.createElement('div');
+                   tim_aft.classList.add("tim");
+                   afternoon.appendChild(tim_aft);
+                   const mor = `<p>Morining</p>`;
+                   const mor1 = document.createElement('div');
+                   mor1.classList.add("mor");
+                   mor1.innerHTML = mor;
+                   morning.prepend(mor1);
+                   const mor2 = `<p>Afternoon</p>`;
+                   const mor3 = document.createElement('div');
+                   mor3.classList.add("mor");
+                   mor3.innerHTML = mor2;
+                   evening.prepend(mor3);
+                   const mor4 = `<p>Evening</p>`;
+                   const mor5 = document.createElement('div');
+                   mor5.classList.add("mor");
+                   mor5.innerHTML = mor4;
+                   afternoon.prepend(mor5);
 
-                if (user1.length == 0) {
-                    let day_time = document.createElement('div');
+                   e.time.forEach((u, i) => {
+                       const currentday = moment().format('dddd')
+                       const currentdate = moment().format('DD MMMM YYYY')
+                       if (currentdate[0] == 0) {
+                           var s = currentdate.split("")
+                           s.splice(0, 1)
+                           s = s.join("")
+                       }else{
+                         var  s = currentdate
+                       }
+                          var now = `${currentday}, ${s}`
+                          console.log(now) 
 
+                       if (moment(u.timing, "hh:mm A").isBefore(moment("12:00 PM", "hh:mm A"))) {
+                           let timings = document.createElement('p');
+                           timings.classList.add('timinig');
+                           if (e.date == now) {
 
-                    day_time.classList.add('no-slot-available');
-
-                    let struct = `
-                          <div class="no_slot" >
-                        
-                         <small>No slots available</small>
-                         </div>
-                   `
-                    day_time.innerHTML = struct;
-                    elem.append(day_time);
-                }
-                else {
-
-
-                    user1.forEach((u) => {
-                        aryDates.forEach((e) => {
-                            if (e.date.includes(u.days)) {
-                                e._id = u._id;
-                                e.time = u.time_slots.filter((e) => { return e.timeOn == "off" });
-                            }
-                        })
-
-                    })
-                    aryDates.forEach((val) => {
-                        if (val.date.includes('Sunday')) {
-                            var index = aryDates.indexOf(val);
-                            aryDates.splice(index, 1);
-                        }
-                    })
-                    var flkty = new Flickity(elem, {
-                        // options
-                        cellAlign: 'left',
-                        contain: true,
-                        pageDots:false
-                    });
-
-                    aryDates.forEach((e) => {
-                        let day_time = document.createElement('div');
-
-
-                        day_time.classList.add('carousel-cell');
-
-                        let struct = `
-                          <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}','${appointmentid}')">
-                         <big>${e.date}</big>
-                         <small>${e.time.length} slots available</small>
-                         </div>
-                   `
-                        day_time.innerHTML = struct;
-                        flkty.append(day_time);
-                    })
-
-                }
-
-            })
-        }
+                               var d = moment().format('hh:mm A')
+                               if (moment(u.timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                   var str = " "
 
 
-    }
-    let i = 0;
-        
-    function gettingTime(date, doctorname,element,key,appointmentid) {
-        console.log(date)
-        console.log(doctorname)
-        console.log(element)
-        console.log(key)
+                               }
+                               else {
+                                var str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                           }
+                           }
+
+                           else {
+                            var str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
+                                       </div> `
+                           }
 
 
 
- let time_show = document.querySelector(`.time_show${key}`);
-     time_show.style.display == 'none' ? time_show.style.display = 'flex' : "";
-       
+                           timings.innerHTML = str;
+                           tim_mor.appendChild(timings);
 
-        time_show.innerHTML = "";
+                       }
+                       if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("12:00 PM", "hh:mm A")) && moment(u.timing, "hh:mm A").isBefore(moment("4:00 PM", "hh:mm A"))) {
+                           let timings = document.createElement('p');
+                           timings.classList.add('timinig');
+                           if (e.date == now) {
 
-         let time_slot_day = document.querySelectorAll(".time_slot_day");
-
-         time_slot_day.forEach((e)=>{
-             e.classList.remove('timeslot_active_hai');
-         })
-
-    
-
-        aryDates.forEach((e) => {
-
-            if (e.date == date) {
-                element.classList.add('timeslot_active_hai');
-                if (e.time) {
-                    let morning = document.createElement('div');
-                    morning.classList.add("morning")
-                    let evening = document.createElement('div');
-                    evening.classList.add("evening")
-                    let afternoon = document.createElement('div');
-                    afternoon.classList.add("afternoon");
-                    let tim_mor = document.createElement('div');
-                    tim_mor.classList.add("tim");
-                    morning.appendChild(tim_mor);
-                    let tim_eve = document.createElement('div');
-                    tim_eve.classList.add("tim");
-                    evening.appendChild(tim_eve);
-                    let tim_aft = document.createElement('div');
-                    tim_aft.classList.add("tim");
-                    afternoon.appendChild(tim_aft);
-                    const mor = `<p>Morining</p>`;
-                    const mor1 = document.createElement('div');
-                    mor1.classList.add("mor");
-                    mor1.innerHTML = mor;
-                    morning.prepend(mor1);
-                    const mor2 = `<p>Evening</p>`;
-                    const mor3 = document.createElement('div');
-                    mor3.classList.add("mor");
-                    mor3.innerHTML = mor2;
-                    evening.prepend(mor3);
-                    const mor4 = `<p>Afternoon</p>`;
-                    const mor5 = document.createElement('div');
-                    mor5.classList.add("mor");
-                    mor5.innerHTML = mor4;
-                    afternoon.prepend(mor5);
-
-                    e.time.forEach((u,i) => {
-
-                        if (moment(u.timing, "hh:mm A").isBefore(moment("12:00 PM", "hh:mm A"))) {
-                            let timings = document.createElement('p');
-                            timings.classList.add('timinig');
+                               var d = moment().format('hh:mm A')
+                               if (moment(u.timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                   var str = " "
 
 
+
+                               }
+                               else {
                                 
-
-                            let str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
-                                    <p>${u.timing}</p>
+                                var str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
                                        </div> `
+                           }
+                           }
 
-                            timings.innerHTML = str;
-                            tim_mor.appendChild(timings);
-
-                        }
-                        if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("12:00 PM", "hh:mm A")) && moment(u.timing, "hh:mm A").isBefore(moment("4:00 PM", "hh:mm A"))) {
-                            let timings = document.createElement('p');
-                            timings.classList.add('timinig');
-                            
-                            let str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
-                                    <p>${u.timing}</p>
+                           else {
+                             
+                            var str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
                                        </div> `
+                           }
+                           timings.innerHTML = str;
 
-                            timings.innerHTML = str;
 
+                           tim_eve.appendChild(timings);
 
-                            tim_eve.appendChild(timings);
+                       }
+                       if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("4:00 PM", "hh:mm A"))) {
+                           let timings = document.createElement('p');
+                           const t = u.timing.slice(0, 5)
+                           timings.classList.add("timinig");
+                           if (e.date == now) {
 
-                        }
-                        if (moment(u.timing, "hh:mm A").isSameOrAfter(moment("4:00 PM", "hh:mm A"))) {
-                            let timings = document.createElement('p');
-                            timings.classList.add('timinig');
-                            
-                            let str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
-                                    <p>${u.timing}</p>
+                               var d = moment().format('hh:mm A')
+                               if (moment(u.timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
+                                   var str = " "
+
+                               }
+                               else {
+                                var str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
                                        </div> `
+                           }
+                           }
 
-                            timings.innerHTML = str;
-
-                            tim_aft.appendChild(timings);
-                        }
-
-                        time_show.appendChild(morning);
-                        time_show.appendChild(evening);
-                        time_show.appendChild(afternoon);
-
-
-
-                    })
-
-
-                }
-                else {
-
-                    let timings = document.createElement('div');
-                    timings.classList.add('timinig-not-avaliable');
-
-                    let str = `<div>
-                                    <p>No Slots Available</p>
-                                  
-                                    <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
+                           else {
+                            var str = `<div onclick="window.location.href='/updateappointment?appointmentid=${appointmentid}&dayslot=${e._id}&timeslot=${u._id}&time=${u.timing}&date=${e.date}&doctorname=${doctorname}'">
+                                    <p class="timebox">${u.timing}</p>
                                        </div> `
+                                    
+                           }
+                           timings.innerHTML = str;
 
-                    timings.innerHTML = str;
+                           tim_aft.appendChild(timings);
+                       }
 
-                    time_show.appendChild(timings);
-                }
-            }
+                       time_show.appendChild(morning);
+                       time_show.appendChild(evening);
+                       time_show.appendChild(afternoon);
+                   })
 
-        })
-    }
 
+
+               }
+               
+
+//  else if(time_box.length == 9){
+//     let timings = document.createElement('div');
+//                     timings.classList.add('timinig-not-avaliable');
+
+//                     let str = `<div>
+//                                     <p>No Slots Available</p>
+                                 
+//                                     <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
+//                                        </div> `
+
+//                     timings.innerHTML = str;
+
+//                     time_show.appendChild(timings);
+//  }
+               else {
+
+                   let timings = document.createElement('div');
+                   timings.classList.add('timinig-not-avaliable');
+
+                   let str = `<div>
+                                   <p>No Slots Available</p>
+                                 
+                                   <button class="light-blue_button" onclick="getNextSlot(${date})">Go to Next slot</button>
+                                      </div> `
+
+                   timings.innerHTML = str;
+
+                   time_show.appendChild(timings);
+               }
+           }
+
+       })
+   }
 
 
 </script>

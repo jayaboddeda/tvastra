@@ -39,7 +39,7 @@
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
-                            <input name="dob" type="date" placeholder="dd/ mm/ yyyy" required>
+                            <input name="dob" type="date" id ="dateinput" placeholder="dd/ mm/ yyyy" required>
                             <input name="phone" type="tel" placeholder="Enter Phone Number" pattern="[0-9]{10}" title="Number Must be 10 digits" required>
                     </div>
                     <div class="signup-location">
@@ -79,6 +79,12 @@
         <script>
             const showPasswordBtn = document.querySelector('#showPassword');
             const passwordField = document.querySelector('#passwordField');
+            const date = document.getElementById('dateinput')
+            console.log(date)
+            var today = new Date().toISOString().split('T')[0];
+            console.log(today)
+
+date.setAttribute('max', today);
             showPasswordBtn.addEventListener('click', (el) => {
                 showPasswordBtn.classList.toggle("fa-eye-slash");
                 if (passwordField.type == 'text') {
