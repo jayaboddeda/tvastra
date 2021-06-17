@@ -15,7 +15,7 @@ const { appointment } = require("./htmlController");
 const index = async(req,res,next)=> {
 	const hospitals = await Doctor.distinct("hospital");
 	const cities = await Doctor.distinct("country");
-	const treatments = await Doctor.distinct("qualification");
+	const treatments = await Doctor.distinct("specialization");
 	const names = await Doctor.distinct("name");
 	if(req.session.user_data.role == "admin"){
 		res.redirect("/admindashboard");
@@ -67,7 +67,7 @@ const signUp = async (req, res) => {
 	}
 	else{
 		const newUser = await User.create({
-			name : req.body.name,
+			name : req.body.name.toUpperCase(),
 		  email: req.body.email,
 		  password: req.body.password,
 		  gender: req.body.gender,
@@ -80,7 +80,7 @@ const signUp = async (req, res) => {
 		})	
 		
 		req.session.useremail= req.body.email;
-		req.session.user = req.body.name;
+		req.session.user = req.body.name.toUpperCase();
 		req.session.user_data = newUser;
 		if(newUser.role == "doctor"){
 			return res.redirect("/doctor-info")
@@ -160,7 +160,6 @@ const doctorInfo = async (req, res,filename) => {
 
 		})
 		hospital_values.forEach(async(elem,index)=>{
-			console.log(elem)
 
 			const hospitalexists = await Hospital.find({name:elem})
 		
@@ -168,7 +167,11 @@ const doctorInfo = async (req, res,filename) => {
 
 			if(hospitalexists.length <= 0){
 				const newHospital = await Hospital.create({
-					name:elem
+					name:elem,
+					speciality : "No Info Available",
+					address :"No Info Available",
+					beds : "No Info Available",
+					treatments : "No Info Available"
 				})
 
 			}
@@ -193,7 +196,7 @@ const updateUserInfo = async(req,res) =>{
 	var finduser = await User.findOne({ email: req.session.useremail });
 	
 	if(finduser){
-		 finduser.name = req.body.name,
+		 finduser.name = req.body.name.toUpperCase(),
 		  finduser.email= req.body.email,
 		  finduser.gender = req.body.gender,
 		  finduser.dob = req.body.dob,
@@ -271,7 +274,7 @@ const updateUserInfo = async(req,res) =>{
 				finddoctor.specialization= specialization_values,
 				finddoctor.fees = req.body.fees,
 				finddoctor.email = req.body.email
-				finddoctor.name = req.body.name
+				finddoctor.name = req.body.name.toUpperCase()
                 finddoctor.phone= req.body.phone
 				await finddoctor.save();
 
@@ -283,10 +286,10 @@ const updateUserInfo = async(req,res) =>{
 		{$set:{email :req.body.email }});
   
 	await Record.updateMany({ email: req.session.user_data.email  },
-		{$set:{email :req.body.email, name : req.body.name }});
+		{$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
 
 	await Appointment.updateMany({ doctorEmail: req.session.user_data.email  },
-		{$set:{doctorEmail :req.body.email , doctorName : req.body.name}});
+		{$set:{doctorEmail :req.body.email , doctorName : req.body.name.toUpperCase()}});
 		  }
 
 	}

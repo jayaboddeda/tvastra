@@ -59,7 +59,7 @@ const admindoctors = async (req,res)=>{
 
 const adminEditProfile = async (req,res) =>{
 let user_info = await User.find({email : req.query.email})
-console.log(user_info)
+
 if(user_info[0].role =="doctor"){
 let doctor_info = await Doctor.find({email : user_info[0].email})
 res.render("admineditprofile",{
@@ -77,14 +77,13 @@ else{
 }
 
 const adminupdateUserInfo = async(req,res) =>{
-    console.log(req.query.useremail)
-    console.log(req.body.name)
+    
 	
 
 	const finduser = await User.findOne({ email: req.query.useremail });
     console.log(finduser)
 	if(finduser){
-		 finduser.name = req.body.name,
+		 finduser.name = req.body.name.toUpperCase(),
 		  finduser.email= req.body.email,
 		  finduser.gender = req.body.gender,
 		  finduser.dob = req.body.dob,
@@ -160,7 +159,7 @@ const adminupdateUserInfo = async(req,res) =>{
 				finddoctor.specialization= specialization_values,
 				finddoctor.fees = req.body.fees,
 				finddoctor.email = req.body.email
-                finddoctor.name = req.body.name
+                finddoctor.name = req.body.name.toUpperCase()
                 finddoctor.phone= req.body.phone
 				await finddoctor.save();
 
@@ -175,10 +174,10 @@ const adminupdateUserInfo = async(req,res) =>{
 		{$set:{email :req.body.email}});
   
 	await Record.updateMany({ email: req.query.useremail  },
-		{$set:{email :req.body.email, name : req.body.name }});
+		{$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
 
 	await Appointment.updateMany({ doctorEmail: req.query.useremail  },
-		{$set:{doctorEmail :req.body.email , doctorName : req.body.name}});
+		{$set:{doctorEmail :req.body.email , doctorName : req.body.name.toUpperCase()}});
 		  
         res.redirect("/alldoctors")
 
@@ -209,12 +208,12 @@ const adminverifyhospital = async(req,res)=>{
 
 const hospitalupdate = async(req,res)=>{
     const hospital = await Hospital.findOne({_id:req.query.id})
-    hospital.name = req.body.hospitalname
+    hospital.name = req.body.hospitalname 
     hospital.description = req.body.describe
-    hospital.speciality = req.body.speciality
-    hospital.beds = req.body.beds
-    hospital.address = req.body.address
-    hospital.treatments = req.body.treatment
+    hospital.speciality = req.body.speciality ? req.body.hospitalname : "No Info available"
+    hospital.beds = req.body.beds ? req.body.hospitalname : 0
+    hospital.address = req.body.address ? req.body.hospitalname : "No Info available"
+    hospital.treatments = req.body.treatment ? req.body.hospitalname : "No Info available"
     if(req.file){
         hospital.image = req.file.filename
 

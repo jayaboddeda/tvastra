@@ -13,7 +13,7 @@ const indexSearch = async (req,res,next)=>{
 
    const hospitals = await Doctor.distinct("hospital");
    const cities = await Doctor.distinct("country");
-   const treatments = await Doctor.distinct("qualification");
+   const treatments = await Doctor.distinct("specialization");
    const names = await Doctor.distinct("name");
    const namesl = names.map(v => v.toLowerCase())
 
@@ -112,7 +112,7 @@ if(req.session.filter){
       $and:[
         {country:{$in : req.session.filter.city}},
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
@@ -121,7 +121,7 @@ if(req.session.filter){
       $and:[
         {country:{$in : req.session.filter.city}},
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).countDocuments({ })
@@ -148,7 +148,7 @@ if(req.session.filter){
       $and:[
         {country:{$in : req.session.filter.city}},
         
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
@@ -156,7 +156,7 @@ if(req.session.filter){
     var count = await Doctor.find({
       $and:[
         {country:{$in : req.session.filter.city}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).countDocuments({ })
@@ -166,7 +166,7 @@ if(req.session.filter){
       $and:[
         
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
@@ -175,7 +175,7 @@ if(req.session.filter){
       $and:[
         
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).countDocuments({ })
@@ -185,7 +185,7 @@ if(req.session.filter){
       $and:[
         {country:{$in : req.session.filter.city}},
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}}
+        {specialization:{$in : req.session.filter.treatment}}
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
 
@@ -193,7 +193,7 @@ if(req.session.filter){
       $and:[
         {country:{$in : req.session.filter.city}},
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}}
+        {specialization:{$in : req.session.filter.treatment}}
       ]
     }).countDocuments({ })
    }
@@ -218,13 +218,13 @@ if(req.session.filter){
     var doctors = await Doctor.find({
       $and:[
         {country:{$in : req.session.filter.city}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
     var count = await Doctor.find({
       $and:[
         {country:{$in : req.session.filter.city}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
       ]
     }).countDocuments({ })
    }
@@ -249,7 +249,7 @@ if(req.session.filter){
       $and:[
         
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}}
+        {specialization:{$in : req.session.filter.treatment}}
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
 
@@ -257,7 +257,7 @@ if(req.session.filter){
       $and:[
         
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}}
+        {specialization:{$in : req.session.filter.treatment}}
       ]
     }).countDocuments({ })
 
@@ -279,13 +279,13 @@ if(req.session.filter){
    else if(req.session.filter.treatment &&  req.session.filter.exp){
     var doctors = await Doctor.find({
       $and:[
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
     var count = await Doctor.find({
       $and:[
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : parseInt(req.session.filter.exp)}}
       ]
     }).countDocuments({ })
@@ -302,17 +302,15 @@ if(req.session.filter){
         {country:{$in : req.session.filter.city}}
       ]      
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
-console.log('aaa'+ doctors)
 
   }
    else if(req.session.filter.city || req.session.filter.hospital || req.session.filter.treatment ||  req.session.filter.exp ){
-    console.log(typeof(req.session.filter.exp))
 
     var doctors = await Doctor.find({
       $or:[
         {country:{$in : req.session.filter.city}},
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : req.session.filter.exp}}
       ]
     }).sort(req.session.sortBy ? mysort : []).limit(limit).skip(skip)
@@ -321,7 +319,7 @@ console.log('aaa'+ doctors)
       $or:[
         {country:{$in : req.session.filter.city}},
         {hospital:{$in : req.session.filter.hospital}},
-        {qualification:{$in : req.session.filter.treatment}},
+        {specialization:{$in : req.session.filter.treatment}},
         {experience:{$gte : req.session.filter.exp}}
       ]
     }).countDocuments({ })
@@ -340,7 +338,7 @@ console.log('aaa'+ doctors)
    
    const hospitals = await Doctor.distinct("hospital");
    const cities = await Doctor.distinct("country");
-   const treatments = await Doctor.distinct("qualification");
+   const treatments = await Doctor.distinct("specialization");
 
     let user_info_arr = []
     let slot_info_arr = []
