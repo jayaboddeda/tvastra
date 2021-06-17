@@ -551,6 +551,7 @@ const getappointments = async(req,res)=>{
     }
   else if(req.query.email){
     var appointments = await Appointment.find({doctorEmail : req.query.email})
+    
     res.render("adminmyappointments",{
       appointments,
       moment

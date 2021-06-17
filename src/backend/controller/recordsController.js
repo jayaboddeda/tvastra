@@ -22,7 +22,7 @@ if(req.session.user_data.role == "admin"){
 	var useremail = req.query.email
 }
 else{
-	var useremail = req.session.useremail
+	var useremail = req.session.user_data.email
 }
     const newRecord = await Record.create({
 		myfile : arr,
@@ -50,7 +50,7 @@ if(req.session.user_data.role == "admin"){
 			user 
 	});
 } else {
-	await Record.find({ email: req.session.useremail}).exec()
+	await Record.find({ email: req.session.user_data.email}).exec()
 	.then((record) => {
 	  
 		  res.render("medicalreports", {

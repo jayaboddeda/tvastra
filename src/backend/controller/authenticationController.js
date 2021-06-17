@@ -1,13 +1,16 @@
 const bcrypt = require("bcryptjs")
 const User = require("../databases/userRegistration");
 const Doctor = require("../databases/doctor_info");
+const Appointment = require("../databases/appointments_info");
 const Hospital = require("../databases/hospitals");
 const Slot = require("../databases/slots");
+const Record = require("../databases/medicalrecords");
 const moment = require("moment");
 
 
 
 const filename= require("../controller/multer");
+const { appointment } = require("./htmlController");
 
 const index = async(req,res,next)=> {
 	const hospitals = await Doctor.distinct("hospital");
@@ -37,11 +40,16 @@ const redirecthome = (req, res, next) => {
 		next();
 	}
 }
+
 const redirectlogin = (req, res, next) => {
-	if(!req.session.useremail){
+	if(!req.session.user_data){
 		req.flash("error", "Please Login First");
 		res.redirect('/');
-	} 
+	} else if(req.session.user_data.role=="doctor" && !req.session.doctor_info){
+		req.flash("error", "Please fill the form");
+		res.redirect('/doctor-info');
+	}
+
 	else{
 		next();
 	}
@@ -243,7 +251,10 @@ const updateUserInfo = async(req,res) =>{
 					specialization_values.push(JSON.parse(specializationlist[i]).value+ " ");
 				}    
 			}
-			  const finddoctor = await Doctor.findOne({ email: req.session.useremail });
+			  const finddoctor = await Doctor.findOne({ email: req.session.user_data.email });
+			//   const findappointment = await Appointment.find({ doctorEmail: req.session.useremail });
+			//   const findslot = await Slot.find({ email: req.session.useremail  });
+			//   const findrecord = await Record.find({ email: req.session.useremail });
 			  if(finddoctor){
 				  if(req.file){
 					finddoctor.image = req.file.filename
@@ -266,14 +277,23 @@ const updateUserInfo = async(req,res) =>{
 
 			  }
 
-				 req.session.doctor_info = finddoctor;
+	 req.session.doctor_info = finddoctor;
 
+	 await Slot.updateMany({ email: req.session.user_data.email  },
+		{$set:{email :req.body.email }});
+  
+	await Record.updateMany({ email: req.session.user_data.email  },
+		{$set:{email :req.body.email, name : req.body.name }});
 
+	await Appointment.updateMany({ doctorEmail: req.session.user_data.email  },
+		{$set:{doctorEmail :req.body.email , doctorName : req.body.name}});
 		  }
+
 	}
 
 	
-	 req.session.user_data = finduser;
+		  	
+	req.session.user_data = finduser;
 	res.redirect("/profile")
 
 }
@@ -281,8 +301,7 @@ const updateUserInfo = async(req,res) =>{
 const create_timeslots = async(req,res,next) => {
 	const startTime = moment(req.body.startTime, "HH:mm A");
 	const endTime = moment(req.body.endTime, "HH:mm A");
-	console.log(startTime + " | " + endTime);
-	console.log(req.body.startTime + " | " + req.body.endTime);
+
 
 	let arr = [];
 	while(startTime <= endTime){
@@ -295,7 +314,6 @@ const create_timeslots = async(req,res,next) => {
 		startTime.add(req.body.interval, "minutes");
 
 	}
-	console.log(typeof(req.body.days))
 	if(typeof(req.body.days) == "string"){
 		const newSlot = await Slot.create({
 			days : req.body.days,
@@ -348,7 +366,7 @@ const getSlotsBasedOnDoctor = async (req, res, next) => {
 	// 	]
 		 
 	// });
-	await Slot.find({ email: req.session.useremail}).exec()
+	await Slot.find({ email: req.session.user_data.email}).exec()
 	.then((schedule) => {
 	  
 		  res.render("schedules", {

@@ -100,7 +100,6 @@ const adminupdateUserInfo = async(req,res) =>{
 		  if(req.file){
 			  finduser.image = req.file.filename
 		  }
-    console.log(finduser)
 
 		  await finduser.save();
 		  if(finduser.role=="doctor"){
@@ -172,10 +171,20 @@ const adminupdateUserInfo = async(req,res) =>{
 	}
 	
     if(finduser.role=="doctor"){
-	res.redirect("/alldoctors")
+    await Slot.updateMany({ email: req.query.useremail  },
+		{$set:{email :req.body.email}});
+  
+	await Record.updateMany({ email: req.query.useremail  },
+		{$set:{email :req.body.email, name : req.body.name }});
+
+	await Appointment.updateMany({ doctorEmail: req.query.useremail  },
+		{$set:{doctorEmail :req.body.email , doctorName : req.body.name}});
+		  
+        res.redirect("/alldoctors")
 
     }
     else{
+        
         res.redirect("/allusers")
 
     }
