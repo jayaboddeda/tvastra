@@ -408,10 +408,8 @@ const fetchtimeslots = async (req, res) => {
 
   const booking = async (req, res) => {
     const userrole = await User.findOne({email:req.session.user_data.email })
-    console.log(userrole.role)
 
     if(userrole.role == "doctor"){
-      console.log(userrole.role)
       req.flash("error","Doctor cannot make appointment")
       res.redirect("/doctor")
     }

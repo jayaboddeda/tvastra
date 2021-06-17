@@ -477,7 +477,6 @@ var aryDates = [];
                        day_time.classList.add('carousel-cell');
                        const currentday = moment().format('dddd')
                        const currentdate = moment().format('DD MMMM YYYY')
-                       console.log(currentdate)
                        if (currentdate[0] == 0) {
                            var s = currentdate.split("")
                            s.splice(0, 1)
@@ -489,9 +488,11 @@ var aryDates = [];
                           var now = `${currentday}, ${s}` 
                        // var now = "Monday, 7 June 2021"
                        
+                       
                        if (e.date == now) {
                            var d = moment().format('hh:mm A')
                            var count=0
+                           if(e.time.length>0){
                            for(let i=0;i<e.time.length;i++){
                                if (moment(e.time[i].timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
                                    count++
@@ -501,9 +502,18 @@ var aryDates = [];
                         <small>${e.time.length - count} slots available</small>
                         </div>
                   `
-                           } 
-                       }
+                           }
                            
+                       }
+                       
+                    }else{
+                        var struct = `
+                         <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}','${appointmentid}')">
+                        <big>${e.date}</big>
+                        <small>${e.time.length - count} slots available</small>
+                        </div>
+                  `
+                    }  
                        }
                        else{
                        var struct = `
@@ -596,6 +606,7 @@ var aryDates = [];
                        }
                           var now = `${currentday}, ${s}`
                           console.log(now) 
+                          console.log(currentday) 
 
                        if (moment(u.timing, "hh:mm A").isBefore(moment("12:00 PM", "hh:mm A"))) {
                            let timings = document.createElement('p');
@@ -693,7 +704,7 @@ var aryDates = [];
                        time_show.appendChild(afternoon);
                    })
 
-
+                   
 
                }
                
@@ -713,7 +724,7 @@ var aryDates = [];
 //                     time_show.appendChild(timings);
 //  }
                else {
-
+                
                    let timings = document.createElement('div');
                    timings.classList.add('timinig-not-avaliable');
 
@@ -731,7 +742,6 @@ var aryDates = [];
 
        })
    }
-
 
 </script>
 </body>

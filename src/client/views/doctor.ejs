@@ -314,6 +314,7 @@
 //     }
 // }
 
+// let  = document.querySelector("#main-carousel")
 
     function hamburger(id,showmore){
                  
@@ -469,8 +470,8 @@
 
 
                         day_time.classList.add('carousel-cell');
-                        const currentday = moment().format('ddd')
-                        const currentdate = moment().format('DD MMM YYYY')
+                        const currentday = moment().format('dddd')
+                        const currentdate = moment().format('DD MMMM YYYY')
 
                         if (currentdate[0] == 0) {
                             var s = currentdate.split("")
@@ -486,6 +487,7 @@
                         if (e.date == now) {
                             var d = moment().format('hh:mm A')
                             var count=0
+                          if(e.time.length>0){
                             for(let i=0;i<e.time.length;i++){
                                 if (moment(e.time[i].timing, "hh:mm A").isBefore(moment(d, "hh:mm A"))) {
                                     count++
@@ -496,8 +498,17 @@
                          </div>
                    `
                             } 
+                           
                         }
-                            
+                    }
+                    else{
+                        var struct = `
+                          <div class="time_slot_day" onclick="gettingTime('${e.date}','${doctorname}',this,'${key}')">
+                         <big>${e.date}</big>
+                         <small>${e.time.length - count} slots available</small>
+                         </div>
+                   `
+                    }  
                         }
                         else{
                         var struct = `
@@ -771,7 +782,6 @@
             }
         })
     })
-
 
 
 
