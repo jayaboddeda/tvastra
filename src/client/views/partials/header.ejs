@@ -323,16 +323,15 @@
 
     }
 
-    const mobile_aside_header = document.querySelector('.mobile-treat')
-        const mobile_aside = document.querySelector('.mobile-treat-menu')
-        console.log(mobile_aside_header)
-        console.log(mobile_aside.classList[3])
-            mobile_aside_header.onclick = function () {
-                if (mobile_aside.classList[3] == "hide-menu") {
-                    mobile_aside.classList.remove("hide-menu")
+    const mobile_header = document.querySelector('.mobile-treat')
+        const mobile_menu = document.querySelector('.mobile-treat-menu')
+        
+            mobile_header.onclick = function () {
+                if (mobile_menu.classList[3] == "hide-menu") {
+                    mobile_menu.classList.remove("hide-menu")
                 }
                 else {
-                    mobile_aside.classList.add("hide-menu")
+                    mobile_menu.classList.add("hide-menu")
 
                 }
 
