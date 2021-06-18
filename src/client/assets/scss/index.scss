@@ -2,6 +2,7 @@
     max-width: 120px;
     padding-left: 10%;
 }
+
 #mySidebar{
     text-align: center;
 
@@ -157,7 +158,6 @@ i.fas.fa-angle-down {
     }
 }
 .treatment_sub__menu{
-    display: none;
     .sidebar a{
         padding: 0;
     }
@@ -167,11 +167,7 @@ i.fas.fa-angle-down {
     text-align: left;
 }
 
-.treatment_menu:hover{
-    .treatment_sub__menu{
-        display: block;
-    }
-}
+
 .sidebar-header{
     display: flex;
     justify-content: space-between;
@@ -1729,6 +1725,17 @@ display: inline-block;
     position: absolute;
     top: 10px;
     left: 0;
+}
+.treatment_sub__menu{
+    display: none;
+}
+
+.username{
+    .treatment_menu:hover{
+        .treatment_sub__menu{
+            display: block;
+        }
+    }
 }
 }
 

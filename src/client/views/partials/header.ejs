@@ -15,12 +15,12 @@
                                 <ul class="desktop-btn mobile-ul">
 
                                     <li class="treatment_menu username">
-                                        <div class="mobile-btn mobile-treat"><a>
+                                        <div class="mobile-btn name_head"><a>
                                                 <%=user_data.name.slice(0,8)%>
                                             </a>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
-                                        <div class="treatment_sub__menu mobile-treat-menu left hide">
+                                        <div class="treatment_sub__menu left name_menu hide-menu ">
                                             <div class="profile_image_container">
 
                                                 <% if(user_data.role=="doctor" && doctor_info) { %>
@@ -100,10 +100,10 @@
     <ul class="mobile-ul">
         <li><a href="/doctor">Doctors</a></li>
         <li><a href="/hospital">Hospitals</a></li>
-        <li class="treatment_menu">
+        <li class="treatment_menu mobile-treat">
             <a href="#">Treatment</a>
             <i class="fas fa-angle-down "></i>
-            <div class="treatment_sub__menu dentistry">
+            <div class="treatment_sub__menu mobile-treat-menu hide-menu dentistry">
                 <ul>
                     <a href="/treatment">
                         <li>Dentistry</li>
@@ -199,11 +199,11 @@
             <button class="quote-btn">Get a Quote</button>
 
             <ul>
-                <li class="treatment_menu username"><a>
+                <li class="treatment_menu username "><a>
                         <%=user_data.name.slice(0,8)%>
                     </a>
                     <i class="fas fa-angle-down"></i>
-                    <div class="treatment_sub__menu left">
+                    <div class="treatment_sub__menu  left">
                         <div class="profile_image_container">
 
                             <% if(user_data.role=="doctor" && doctor_info) { %>
@@ -310,24 +310,27 @@
     function closeNav() {
         document.getElementById("mySidebar").style.width = "0";
     }
-    const name = document.querySelector(".mobile-btn");
-    const profile = document.querySelector(".treatment_sub__menu")
-    name.onclick = function () {
-        if (profile.classList[2] == "hide") {
-            profile.classList.remove("hide")
-        }
-        else {
-            profile.classList.add("hide")
+    // const name = document.querySelector(".mobile-btn");
+    // const profile = document.querySelector(".treatment_sub__menu")
+    // name.onclick = function () {
+    //     if (profile.classList[2] == "hide") {
+    //         profile.classList.remove("hide")
+    //     }
+    //     else {
+    //         profile.classList.add("hide")
 
-        }
+    //     }
 
-    }
+    // }
+    const mobile_header = document.querySelector('.name_head')
+console.log(mobile_header)
+ 
+        const mobile_menu = document.querySelector('.name_menu')
+console.log(mobile_menu.classList[2])
 
-    const mobile_header = document.querySelector('.mobile-treat')
-        const mobile_menu = document.querySelector('.mobile-treat-menu')
-        
             mobile_header.onclick = function () {
                 if (mobile_menu.classList[3] == "hide-menu") {
+                
                     mobile_menu.classList.remove("hide-menu")
                 }
                 else {

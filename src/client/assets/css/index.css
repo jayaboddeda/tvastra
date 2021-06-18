@@ -209,20 +209,12 @@ i.fas.fa-angle-down {
   margin: 10px 0;
 }
 
-.treatment_sub__menu {
-  display: none;
-}
-
 .treatment_sub__menu .sidebar a {
   padding: 0;
 }
 
 .treatment_sub__menu.left li {
   text-align: left;
-}
-
-.treatment_menu:hover .treatment_sub__menu {
-  display: block;
 }
 
 .sidebar-header {
@@ -1952,6 +1944,12 @@ i.fas.fa-angle-down {
     position: absolute;
     top: 10px;
     left: 0;
+  }
+  .treatment_sub__menu {
+    display: none;
+  }
+  .username .treatment_menu:hover .treatment_sub__menu {
+    display: block;
   }
 }
 /*# sourceMappingURL=index.css.map */
