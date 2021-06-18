@@ -265,16 +265,15 @@
         var btn = document.getElementById("myBtn");
         var span = document.getElementsByClassName("closemodalbtn")[0];
 
-
         btn.onclick = function () {
             modal.style.display = "flex";
         }
 
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function () {
-            modal.style.display = "none";
-            modal.style.transform = "scale(1)";
-        }
+        // span.onclick = function () {
+        //     modal.style.display = "none";
+        //     modal.style.transform = "scale(1)";
+        // }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function (event) {
@@ -300,6 +299,7 @@
         const reportPicInput = document.getElementById("reportPic");
         var selectedPhotoContainer = document.querySelector(".selected-photos");
 
+
         reportPicInput.addEventListener("change", e=>{
             if(reportPicInput.files.length>3){
                 alert("Maximum 3 files are allowed");
@@ -319,6 +319,23 @@
             }
         })
     })();
+
+  
+        var selectedPhotoContainer = document.querySelector(".selected-photos");
+        const reportPicInput = document.getElementById("reportPic");
+        const title = document.getElementsByName('title')[0]
+        console.log(title)
+const date = document.getElementsByName('date')[0]
+        span.addEventListener("click", e=>{
+                reportPicInput.value=null;
+                title.value = null;
+                date.value = null;
+                selectedPhotoContainer.innerHTML='';
+                modal.style.display = "none";
+            modal.style.transform = "scale(1)";
+        })
+            
+   
 
     </script>
     </body>

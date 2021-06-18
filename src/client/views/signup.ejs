@@ -80,10 +80,8 @@
             const showPasswordBtn = document.querySelector('#showPassword');
             const passwordField = document.querySelector('#passwordField');
             const date = document.getElementById('dateinput')
-            console.log(date)
             var today = new Date().toISOString().split('T')[0];
-            console.log(today)
-
+console.log(today)
 date.setAttribute('max', today);
             showPasswordBtn.addEventListener('click', (el) => {
                 showPasswordBtn.classList.toggle("fa-eye-slash");

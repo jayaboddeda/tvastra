@@ -223,6 +223,7 @@
         const reportPicInput = document.getElementById("reportPic");
         var selectedPhotoContainer = document.querySelector(".selected-photos");
 
+
         reportPicInput.addEventListener("change", e=>{
             if(reportPicInput.files.length>3){
                 alert("Maximum 3 files are allowed");
@@ -246,9 +247,13 @@
   
         var selectedPhotoContainer = document.querySelector(".selected-photos");
         const reportPicInput = document.getElementById("reportPic");
-
+        const title = document.getElementsByName('title')[0]
+        console.log(title)
+const date = document.getElementsByName('date')[0]
         span.addEventListener("click", e=>{
                 reportPicInput.value=null;
+                title.value = null;
+                date.value = null;
                 selectedPhotoContainer.innerHTML='';
                 modal.style.display = "none";
             modal.style.transform = "scale(1)";
