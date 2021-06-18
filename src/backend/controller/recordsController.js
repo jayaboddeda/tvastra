@@ -52,7 +52,7 @@ if(req.session.user_data.role == "admin"){
 } else {
 	await Record.find({ email: req.session.user_data.email}).exec()
 	.then((record) => {
-	  
+	  console.log(req.session.user_data.email)
 		  res.render("medicalreports", {
 			record: record
 			

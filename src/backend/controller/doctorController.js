@@ -7,7 +7,7 @@ const Hospital = require("../databases/hospitals");
 
 var moment = require("moment");
 const { default: App } = require("nexmo/lib/App");
-const { hospital } = require("./htmlController");
+const { hospital, appointment } = require("./htmlController");
 
 const indexSearch = async (req,res,next)=>{
 
@@ -391,7 +391,6 @@ else{
 const doctorSort =async (req, res) => {
   req.session.sortBy = req.body.sort;
 
-console.log(req.session.sortBy)
  res.redirect('/doctor')
 }
 
@@ -540,17 +539,31 @@ const getappointments = async(req,res)=>{
   if(req.session.user_data.role =="admin"){
     if(req.query.mobile){
       var appointments = await Appointment.find({mobile : req.query.mobile})
+    let name = []
+
+  for (let i=0;i<appointments.length;i++){
+    name.push(appointments[i].doctorName)
+
+  }
+
       res.render("adminmyappointments",{
         appointments,
-        moment
+        moment,
+        name
       })
     }
   else if(req.query.email){
     var appointments = await Appointment.find({doctorEmail : req.query.email})
-    
+    let name = []
+
+    for (let i=0;i<appointments.length;i++){
+      name.push(appointments[i].patientName)
+    }
+
     res.render("adminmyappointments",{
       appointments,
-      moment
+      moment,
+      name
     })
   }
   }else if(req.session.user_data.role =="doctor"){

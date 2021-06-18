@@ -293,10 +293,24 @@ const updateUserInfo = async(req,res) =>{
 		  }
 
 	}
-
+	
 	
 		  	
 	req.session.user_data = finduser;
+	await Record.updateMany({ email: req.session.user_data.email  },
+		{$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
+
+		// await Appointment.updateMany({ patientMobile: req.session.user_data.phone,isFor:'self'  },
+		// 	{$set:{patientname : req.body.name.toUpperCase()}});
+	let app =	await Appointment.find({ patientMobile: req.session.user_data.phone,isFor:'self'  });
+
+	for(let i =0; i< app.length;i++){
+
+	app[i].patientName = req.body.name.toUpperCase()
+app[i].patientEmail =  req.body.email
+
+	await app[i].save()
+}
 	res.redirect("/profile")
 
 }
@@ -318,6 +332,9 @@ const create_timeslots = async(req,res,next) => {
 
 	}
 	if(typeof(req.body.days) == "string"){
+const findslot = await Slot.find({email:req.session.user_data.email,days:req.body.days})
+if(findslot.length<=0){
+
 		const newSlot = await Slot.create({
 			days : req.body.days,
 			slot_hospital : req.body.hospital,
@@ -326,18 +343,20 @@ const create_timeslots = async(req,res,next) => {
 			interval : req.body.interval,
 			time_slots: arr,
 			switch: "off",
-			email:req.session.useremail
+			email:req.session.user_data.email
 		})
+	}
+	else{
+	req.flash("error", "schedule not created");
+	res.redirect("/schedules")	
 
+	}
 	}
 	else{
 	while(req.body.days.length >=1){
 		let i = req.body.days.length-1
-		
-	console.log(i)
-
-	console.log(req.body.days[i])
-
+const findslot = await Slot.find({email:req.session.user_data.email,days:req.body.days[i]})
+if(findslot.length<=0){
 	const newSlot = await Slot.create({
 		days : req.body.days[i],
 		slot_hospital : req.body.hospital,
@@ -348,6 +367,11 @@ const create_timeslots = async(req,res,next) => {
 		switch: "off",
 		email:req.session.useremail
 	})
+}else{
+	req.flash("error", "schedule not created");
+	res.redirect("/schedules")	
+
+}
 	req.body.days.length--
 	}
 }

@@ -51,7 +51,6 @@ input{
 }
 
 .hospital-name{
-    text-align: center;
     h5{
         margin-bottom: 0;
     }
@@ -192,6 +191,14 @@ input{
 
 }
 @media only screen and (min-width:1025px){
+    .schedule-mob-head{
+        
+        justify-content: start;
+    }
+    .hospital-name{
+        margin-left: 2rem;
+
+    }
     .reportType > div{
         flex-direction: row;
         margin-bottom: 0.625rem;

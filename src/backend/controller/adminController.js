@@ -183,7 +183,22 @@ const adminupdateUserInfo = async(req,res) =>{
 
     }
     else{
-        
+        await Record.updateMany({ email: req.query.useremail  },
+            {$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
+    
+            // await Appointment.updateMany({ patientMobile: req.session.user_data.phone,isFor:'self'  },
+            // 	{$set:{patientname : req.body.name.toUpperCase()}});
+            console.log(req.query.useremail)
+        let app =	await Appointment.find({ patientEmail: req.query.useremail,isFor:'self'  });
+    
+        for(let i =0; i< app.length;i++){
+    
+        app[i].patientName = req.body.name.toUpperCase()
+app[i].patientEmail =  req.body.email
+    
+    
+        await app[i].save()
+        }
         res.redirect("/allusers")
 
     }

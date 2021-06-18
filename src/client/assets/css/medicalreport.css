@@ -57,10 +57,6 @@ input {
   margin-bottom: 0;
 }
 
-.hospital-name {
-  text-align: center;
-}
-
 .hospital-name h5 {
   margin-bottom: 0;
 }
@@ -241,6 +237,14 @@ input {
 }
 
 @media only screen and (min-width: 1025px) {
+  .schedule-mob-head {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .hospital-name {
+    margin-left: 2rem;
+  }
   .reportType > div {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;

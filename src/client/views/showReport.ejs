@@ -172,21 +172,26 @@
             }
         }
 
-
+ 
         var loadfile = function(event) {
     var imagesarr = document.getElementById('reportPic').files;
     var div=document.querySelector(".selected-photos");
+    var createScheduleSubmitBtn = document.querySelector("#createScheduleSubmitBtn")
+    console.log(createScheduleSubmitBtn)
     var str=""; 
     if(imagesarr.length > 3){
         alert("Maximum 3 files are allowed");
-        str="";
+        str=null;
          div.innerHTML=str;
+         createScheduleSubmitBtn.disabled = true
     }else if(imagesarr.length){
     for(var i=0;i<imagesarr.length;i++){
         str+='<img src="'+URL.createObjectURL(event.target.files[i])+'">';
     }
 
    div.innerHTML=str;
+   createScheduleSubmitBtn.disabled = false
+
         }
 };
 var span = document.getElementsByClassName("closemodalbtn")[0];

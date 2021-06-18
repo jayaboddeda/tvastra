@@ -134,15 +134,12 @@
                                     </div>
                                     <div class="venue">
                                         <div class="hospital-name">
-                                            <% if(user_data.role=="doctor" ){%>
-                                                <h5>
-                                                    <%= appointments[i].patientName %>
-                                                </h5>
-                                                <% }else{%>
-                                                    <h5>
-                                                        <%= appointments[i].doctorName %>
-                                                    </h5>
-                                                    <% }%>
+                                        
+                                                    
+                                                        <h5>
+                                                            <%= name[i] %>
+                                                        </h5>
+                                                        
                                         </div>
                                         <time>
                                             <h6>
@@ -200,15 +197,11 @@
                                     </div>
                                     <div class="venue">
                                         <div class="hospital-name">
-                                            <% if(user_data.role=="doctor" ){%>
-                                                <h5>
-                                                    <%= appointments[i].patientName %>
-                                                </h5>
-                                                <% }else{%>
+                                           
                                                     <h5>
-                                                        <%= appointments[i].doctorName %>
+                                                        <%= name[i] %>
                                                     </h5>
-                                                    <% }%>
+                                                    
                                         </div>
                                         <time>
                                             <h6>
