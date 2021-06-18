@@ -98,7 +98,6 @@ i.fas.fa-angle-down {
             background-color: var(--white);
             width:13.5rem;
             top:2rem;
-            right: 90%;
             transform: translateX(50%);
             z-index: 1;
           
@@ -166,6 +165,11 @@ i.fas.fa-angle-down {
     img{
         object-fit: contain;
         
+    }
+}
+.username{
+    .treatment_sub__menu{
+       right: 65%;
     }
 }
 .sidebar {
