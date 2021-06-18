@@ -277,9 +277,9 @@
                 <i class="fas fa-angle-down dashboard_down"></i>
             </div>
             <ul class="mobile_profile_menu hide">
-                <li>
+                <li id="adminli">
                     <a href="/admindashboard">
-                        <i class="fas fa-user-edit"></i>
+                        <i class="fas fa-user-edit" ></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -643,7 +643,18 @@ console.log(event.target.files[0])
 
 };
 
+const mobile_aside_header = document.querySelector('.profile_menu_header')
+            const mobile_aside = document.querySelector('.mobile_profile_menu')
+            mobile_aside_header.onclick = function () {
+                if (mobile_aside.classList[1] == "hide") {
+                    mobile_aside.classList.remove("hide")
+                }
+                else {
+                    mobile_aside.classList.add("hide")
 
+                }
+
+            }
         </script>
 </body>
 

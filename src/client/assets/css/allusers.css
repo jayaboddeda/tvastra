@@ -204,6 +204,10 @@
   transition: all 0.2s ease-in-out;
 }
 
+.menuItems a {
+  font-size: 1rem;
+}
+
 .menuItems li {
   padding: 5px;
 }

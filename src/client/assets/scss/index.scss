@@ -3,6 +3,14 @@
     padding-left: 10%;
 }
 #mySidebar{
+   .desktop-btn{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    a{
+        padding-right: 0;
+    }
+   }
    
 .quote-btn{
     margin-left: 1rem;
@@ -48,9 +56,12 @@ nav{
 }
 .nav_right_content {
     display: flex;
-    width: 7.5rem;
+    // width: 7.5rem;
     align-items: baseline;
     justify-content: space-between;
+}
+.openbtn{
+    padding-left: 1rem;
 }
 .mobile-btn  {
     display: flex;
@@ -167,9 +178,12 @@ i.fas.fa-angle-down {
         
     }
 }
+.hide-menu{
+    display: none;
+}
 .username{
     .treatment_sub__menu{
-       right: 65%;
+       right: 135%;
     }
 }
 .sidebar {

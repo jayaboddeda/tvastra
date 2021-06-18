@@ -116,22 +116,6 @@ input {
   margin-bottom: 0.4rem;
 }
 
-.mobile_profile_menu li:first-child {
-  background-color: var(--white);
-}
-
-.mobile_profile_menu li:first-child i, .mobile_profile_menu li:first-child span {
-  font-weight: normal;
-}
-
-.mobile_profile_menu li:first-child i {
-  color: var(--blue);
-}
-
-.mobile_profile_menu li:first-child span {
-  color: var(--darkblue);
-}
-
 .mobile_profile_menu li:nth-child(3) {
   background-color: var(--white);
 }
@@ -153,8 +137,24 @@ input {
 }
 
 .mobile_profile_menu li:nth-child(4) i, .mobile_profile_menu li:nth-child(4) span {
-  color: var(--white);
   font-weight: bold;
+  color: var(--white);
+}
+
+.mobile_profile_menu .adminli {
+  background-color: var(--white) !important;
+}
+
+.mobile_profile_menu .adminli i, .mobile_profile_menu .adminli span {
+  font-weight: normal !important;
+}
+
+.mobile_profile_menu .adminli i {
+  color: var(--blue) !important;
+}
+
+.mobile_profile_menu .adminli span {
+  color: var(--darkblue) !important;
 }
 
 .form-container .form-header {

@@ -94,19 +94,19 @@ input{
 }
 
 .mobile_profile_menu{
-    li:first-child{
-        background-color: var(--white);
-        i,span{
-            font-weight: normal;
-        }
-        i{
-            color:var(--blue);
-        }
-        span{
-            color:var(--darkblue);
+//     li:first-child{
+//         background-color: var(--white);
+//         i,span{
+//             font-weight: normal;
+//         }
+//         i{
+//             color:var(--blue);
+//         }
+//         span{
+//             color:var(--darkblue);
 
-        }
-}
+//         }
+// }
     li:nth-child(3){
         background-color: var(--white);
         i,span{
@@ -123,8 +123,22 @@ input{
     li:nth-child(4){
         background-color: var(--blue);
         i,span{
-            color:var(--white);
             font-weight: bold;
+            color: var(--white);
+        }
+        
+}
+.adminli{
+    background-color: var(--white) !important;
+        i,span{
+            font-weight: normal !important;
+        }
+        i{
+            color:var(--blue) !important;
+        }
+        span{
+            color:var(--darkblue) !important;
+
         }
 }
 }

@@ -15,12 +15,12 @@
                                 <ul class="desktop-btn mobile-ul">
 
                                     <li class="treatment_menu username">
-                                        <div class="mobile-btn"><a>
+                                        <div class="mobile-btn mobile-treat"><a>
                                                 <%=user_data.name.slice(0,8)%>
                                             </a>
                                             <i class="fas fa-angle-down"></i>
                                         </div>
-                                        <div class="treatment_sub__menu left hide">
+                                        <div class="treatment_sub__menu mobile-treat-menu left hide-menu">
                                             <div class="profile_image_container">
 
                                                 <% if(user_data.role=="doctor" && doctor_info) { %>
@@ -72,7 +72,12 @@
                                 <% } %>
 
                         </div>
+                        <% if(user_data){%>
+                            <% if(user_data.role != "admin" ) { %>
                         <i class="fas fa-bars fa-2x bar openbtn" onclick="openNav()"></i>
+                        <%}} else if(!user_data){%>
+                        <i class="fas fa-bars fa-2x bar openbtn" onclick="openNav()"></i>
+<%}%>
                     </div>
     </nav>
 
@@ -317,4 +322,19 @@
         }
 
     }
+
+    const mobile_aside_header = document.querySelector('.mobile-treat')
+        const mobile_aside = document.querySelector('.mobile-treat-menu')
+        console.log(mobile_aside_header)
+        console.log(mobile_aside.classList[3])
+            mobile_aside_header.onclick = function () {
+                if (mobile_aside.classList[3] == "hide-menu") {
+                    mobile_aside.classList.remove("hide-menu")
+                }
+                else {
+                    mobile_aside.classList.add("hide-menu")
+
+                }
+
+            }
 </script>

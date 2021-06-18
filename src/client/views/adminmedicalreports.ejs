@@ -36,7 +36,7 @@
             <ul class="mobile_profile_menu hide">
                 <li>
                     <a href="/admindashboard">
-                        <i class="fas fa-user-edit"></i>
+                        <i class="fas fa-th-list"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -53,9 +53,9 @@
                     </a>
                 </li>
 
-                <li>
+                <li class="adminli">
                     <a href="/allhospitals">
-                        <i class="far fa-file-alt"></i>
+                        <i class="far fa-file-alt "></i>
                         <span>Hospitals</span>
                     </a>
                 </li>
@@ -68,11 +68,11 @@
             </ul>
             <ul class="profile_menu">
                 <li>
-                    <a href="/admindashboard">
-                        <i class="fas fa-user-edit"></i>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
+                <a href="/admindashboard">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
                 <li>
                     <a href="/allusers">
                         <i class="fas fa-th-list"></i>
@@ -260,6 +260,18 @@
     </div>
     <script>
 
+const mobile_aside_header = document.querySelector('.profile_menu_header')
+            const mobile_aside = document.querySelector('.mobile_profile_menu')
+            mobile_aside_header.onclick = function () {
+                if (mobile_aside.classList[1] == "hide") {
+                    mobile_aside.classList.remove("hide")
+                }
+                else {
+                    mobile_aside.classList.add("hide")
+
+                }
+
+            }
 
         var modal = document.getElementById("myModal");
         var btn = document.getElementById("myBtn");
