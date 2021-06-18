@@ -117,6 +117,21 @@ input{
         }
     }
 }
+.settings-header{
+    text-align: center;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: space-between;
+     padding: 0 0 20px 0;
+     margin-bottom: 20px;
+     border-bottom: 1px solid var(--lightgrey);
+     button{
+         width: 100%;
+     }
+ }
+
+
 .profile_menu{
 li{
     padding:10px 0;
@@ -374,5 +389,10 @@ input{
 }
 .tagify{
     font-size: 1.2rem;
+}
+.settings-header{
+button{
+width: 25%;
+}
 }
 }

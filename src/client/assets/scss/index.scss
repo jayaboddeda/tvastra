@@ -3,10 +3,13 @@
     padding-left: 10%;
 }
 #mySidebar{
+    text-align: center;
+
    .desktop-btn{
     display: flex;
     height: 40px;
     align-items: center;
+    justify-content: center;
     a{
         padding-right: 0;
     }
@@ -14,6 +17,9 @@
    
 .quote-btn{
     margin-left: 1rem;
+}
+.treatment_sub__menu{
+    transform: translateX(-1%);
 }
 }
     .autocom-box2 {
@@ -103,6 +109,7 @@ i.fas.fa-angle-down {
         position: relative;
         display: flex;
         align-items: center;
+        justify-content: center;
         .treatment_sub__menu{
     
             position: absolute;
@@ -183,7 +190,7 @@ i.fas.fa-angle-down {
 }
 .username{
     .treatment_sub__menu{
-       right: 135%;
+       right: 135% ;
     }
 }
 .sidebar {

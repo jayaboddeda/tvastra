@@ -82,7 +82,6 @@
                         <% } %>
     
                 </div>
-                <i class="fas fa-bars fa-2x bar openbtn" onclick="openNav()"></i>
             </div>
         </nav>
     
@@ -351,13 +350,13 @@
 
         
         <form action="/postsettings" method="POST">
-            <div class="form-header">
+            <div class="settings-header">
                 <legend>
                     <h3>
                         Accounts Settings
                     </h3>
                 </legend>
-                <button type="submit">Change Password</button>
+                <button class="light-blue_button"type="submit">Change Password</button>
             </div>
             <div class="form-group">
                 <div class="input-group">
@@ -381,6 +380,20 @@
         
 </section>
     </div>
-    </main>   
+    </main> 
+    <script>
+        const mobile_aside_header = document.querySelector('.profile_menu_header')
+            const mobile_aside = document.querySelector('.mobile_profile_menu')
+            mobile_aside_header.onclick = function () {
+                if (mobile_aside.classList[1] == "hide") {
+                    mobile_aside.classList.remove("hide")
+                }
+                else {
+                    mobile_aside.classList.add("hide")
+
+                }
+
+            }
+    </script>  
 </body>
 </html>

@@ -155,6 +155,30 @@ input {
   border-radius: 5px;
 }
 
+.settings-header {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 0 20px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--lightgrey);
+}
+
+.settings-header button {
+  width: 100%;
+}
+
 .profile_menu li {
   padding: 10px 0;
 }
@@ -440,6 +464,9 @@ input {
   }
   .tagify {
     font-size: 1.2rem;
+  }
+  .settings-header button {
+    width: 25%;
   }
 }
 /*# sourceMappingURL=profile.css.map */
