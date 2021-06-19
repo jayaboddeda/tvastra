@@ -1,6 +1,6 @@
 .tvastralogo{
     max-width: 120px;
-    padding-left: 10%;
+    padding-left: 15%;
 }
 
 #mySidebar{
@@ -62,10 +62,11 @@ nav{
     padding-right: 4%;
 }
 .nav_right_content {
-    display: flex;
-    // width: 7.5rem;
-    align-items: baseline;
-    justify-content: space-between;
+    
+    display: flex;  
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
 }
 .openbtn{
     padding-left: 1rem;
@@ -77,8 +78,12 @@ nav{
     padding-right: 10px;
     position: relative;
     top: 2px;
-    a{
+    span{
         font-size: 1rem;
+    white-space: nowrap;
+    }
+    i{
+        padding-left: 0.5rem;
     }
 }
 .hide {
@@ -186,7 +191,7 @@ i.fas.fa-angle-down {
 }
 .username{
     .treatment_sub__menu{
-       right: 135% ;
+       right: 100% ;
     }
 }
 .sidebar {
@@ -1721,6 +1726,7 @@ display: inline-block;
     right: 0;
     padding-right: 2%;
 }
+
 .copyright{
     position: absolute;
     top: 10px;

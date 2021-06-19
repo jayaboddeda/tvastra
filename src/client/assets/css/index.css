@@ -1,6 +1,6 @@
 .tvastralogo {
   max-width: 120px;
-  padding-left: 10%;
+  padding-left: 15%;
 }
 
 #mySidebar {
@@ -86,12 +86,13 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
 }
 
 .openbtn {
@@ -113,8 +114,13 @@ nav {
   top: 2px;
 }
 
-.mobile-btn a {
+.mobile-btn span {
   font-size: 1rem;
+  white-space: nowrap;
+}
+
+.mobile-btn i {
+  padding-left: 0.5rem;
 }
 
 .hide {
@@ -244,7 +250,7 @@ i.fas.fa-angle-down {
 }
 
 .username .treatment_sub__menu {
-  right: 135%;
+  right: 100%;
 }
 
 .sidebar {
