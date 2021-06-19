@@ -6,6 +6,10 @@
   border: none;
 }
 
+.navbar {
+  background-color: var(--white);
+}
+
 .info-ul {
   grid-gap: 1rem 10rem;
   -ms-grid-rows: 1fr 1fr;

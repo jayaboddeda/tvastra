@@ -4,7 +4,9 @@
         border: none;
     }
 }
-
+.navbar{
+    background-color: var(--white);
+}
 .info-ul{
 grid-gap: 1rem 10rem;
 grid-template: 1fr 1fr/1fr 1fr;

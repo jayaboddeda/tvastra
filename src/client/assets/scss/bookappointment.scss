@@ -3,14 +3,18 @@ h2{
     border: none;
     text-align: left;
     padding: 0;
+    
     i{
         color: var(--popular_green);
     }
 }
 
+
+
 h5{
     color: var(--blue);
-    margin-top:1rem
+    margin-top:1rem;
+    margin-bottom:0.5rem;
 
 }
 span{
@@ -18,8 +22,28 @@ span{
     font-family:nexa-light;
     font-size: 1.25rem;
 }
-
-button{
+.btnGroup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 1rem;
-    margin-right: 1rem;
+
+}
+
+button:last-child{
+    margin-left: 1rem;
+
+
+}
+
+@media only screen and (min-width:1024px) {
+h1,h2{
+    font-size: 1.8rem;
+}
+.btnGroup{
+    
+    justify-content: start;
+    
+
+}
 }

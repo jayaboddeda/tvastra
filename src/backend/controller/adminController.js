@@ -170,35 +170,49 @@ const adminupdateUserInfo = async(req,res) =>{
 	}
 	
     if(finduser.role=="doctor"){
-    await Slot.updateMany({ email: req.query.useremail  },
-		{$set:{email :req.body.email}});
-  
-	await Record.updateMany({ email: req.query.useremail  },
-		{$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
+        let st = await Slot.find({email: req.query.useremail})
+        if(st){
+            await Slot.updateMany({ email: req.query.useremail  },
+                {$set:{email :req.body.email}});
+        }
 
-	await Appointment.updateMany({ doctorEmail: req.query.useremail  },
+  let rec = await Record.find({email: req.query.useremail})
+  if(rec){
+    await Record.updateMany({ email: req.query.useremail  },
+		{$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
+  }
+	
+let app = await Appointment.find({ doctorEmail: req.query.useremail  })
+if(app){
+    await Appointment.updateMany({ doctorEmail: req.query.useremail  },
 		{$set:{doctorEmail :req.body.email , doctorName : req.body.name.toUpperCase()}});
+}
+	
 		  
         res.redirect("/alldoctors")
 
     }
     else{
+        let rec = await Record.find({ email: req.query.useremail  })
+
+        if(rec){
         await Record.updateMany({ email: req.query.useremail  },
             {$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
     
-            // await Appointment.updateMany({ patientMobile: req.session.user_data.phone,isFor:'self'  },
-            // 	{$set:{patientname : req.body.name.toUpperCase()}});
-            console.log(req.query.useremail)
+        }   
+        
         let app =	await Appointment.find({ patientEmail: req.query.useremail,isFor:'self'  });
-    
+    if(app){
         for(let i =0; i< app.length;i++){
     
-        app[i].patientName = req.body.name.toUpperCase()
-app[i].patientEmail =  req.body.email
-    
-    
-        await app[i].save()
-        }
+            app[i].patientName = req.body.name.toUpperCase()
+    app[i].patientEmail =  req.body.email
+        
+        
+            await app[i].save()
+            }
+    }
+        
         res.redirect("/allusers")
 
     }

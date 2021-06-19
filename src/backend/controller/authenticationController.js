@@ -193,7 +193,7 @@ const doctorInfo = async (req, res,filename) => {
 
 const updateUserInfo = async(req,res) =>{
 
-	var finduser = await User.findOne({ email: req.session.useremail });
+	var finduser = await User.findOne({ email: req.session.user_data.email });
 	
 	if(finduser){
 		 finduser.name = req.body.name.toUpperCase(),
@@ -280,37 +280,50 @@ const updateUserInfo = async(req,res) =>{
 
 			  }
 
-	 req.session.doctor_info = finddoctor;
-
-	 await Slot.updateMany({ email: req.session.user_data.email  },
-		{$set:{email :req.body.email }});
-  
+	 let st = await Slot.find({ email: req.session.user_data.email  })
+	 if(st){
+		await Slot.updateMany({ email: req.session.user_data.email  },
+			{$set:{email :req.body.email }});
+	 }
+	 
+		let rec = await Record.find({ email: req.session.user_data.email  })
+		if(rec){
 	await Record.updateMany({ email: req.session.user_data.email  },
 		{$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
-
+	}
+	let app =	await Appointment.find({doctorEmail: req.session.user_data.email });
+if(app){
 	await Appointment.updateMany({ doctorEmail: req.session.user_data.email  },
 		{$set:{doctorEmail :req.body.email , doctorName : req.body.name.toUpperCase()}});
+}
+req.session.doctor_info = finddoctor;
+	
 		  }
 
 	}
 	
 	
 		  	
-	req.session.user_data = finduser;
+	let rec = await Record.find({ email: req.session.user_data.email  })
+	if(rec){
 	await Record.updateMany({ email: req.session.user_data.email  },
 		{$set:{email :req.body.email, name : req.body.name.toUpperCase() }});
-
-		// await Appointment.updateMany({ patientMobile: req.session.user_data.phone,isFor:'self'  },
-		// 	{$set:{patientname : req.body.name.toUpperCase()}});
+	}
+		
 	let app =	await Appointment.find({ patientMobile: req.session.user_data.phone,isFor:'self'  });
-
+if(app){
 	for(let i =0; i< app.length;i++){
 
-	app[i].patientName = req.body.name.toUpperCase()
-app[i].patientEmail =  req.body.email
-
-	await app[i].save()
+		app[i].patientName = req.body.name.toUpperCase()
+	app[i].patientEmail =  req.body.email
+	
+		await app[i].save()
+	}
 }
+console.log('b'+req.session.user_data)
+req.session.user_data = finduser;
+console.log('a'+req.session.user_data)
+
 	res.redirect("/profile")
 
 }

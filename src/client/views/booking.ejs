@@ -24,7 +24,7 @@
                     <li><i class="far fa-calendar-plus"></i><%= booking_info.date %></li>
                     <li><i class="far fa-clock"></i>From <%= booking_info.time %></li>
                     <li><i class="far fa-clock"></i>To <%= to_time %></li>
-                    <li><a href="/doctors">Change date & time</a></li>
+                    <li><a href="/doctor">Change date & time</a></li>
                 </ul>
                 <div id="doctor-info">
                     <figure>
@@ -35,7 +35,6 @@
                             <ul>
                                 <li><%= user.name %></li>
                                 <li><%= doctor.hospital %></li>
-                                <li>MBBS, MD, FRCP, MRCP, Fellowship</li>
                             </ul>
                         </figcaption>
                     </figure>
@@ -74,22 +73,22 @@
     
                 <h5>This appointment is for:</h5>
                 <div>
-                    <input type="radio" name="isFor" id="self" value="self" onchange="other(this)" checked />
+                    <input required type="radio" name="isFor" id="self" value="self" onchange="other(this)" checked />
                     <label for="self">Self</label>
                 </div>
                 <div>
-                    <input type="radio" name="isFor" id="someoneElse" value="someoneElse" onchange="other(this)" onblur="other(this)" />
+                    <input required type="radio" name="isFor" id="someoneElse" value="someoneElse" onchange="other(this)" onblur="other(this)" />
                     <label for="someoneElse">Someone else</label>
                 </div>
                 <h5>Please provide the following informations:</h5>
                 <label>Patient's full name:</label>
-                <input type="text" name="name" value="<%=user_data.name%>" readonly>
+                <input  required type="text" name="name" value="<%=user_data.name%>" readonly>
                 <label>Mobile number:</label>
-                <input type="text" name="mobile" value="<%=user_data.phone%>" readonly>
+                <input required type="text" name="mobile" value="<%=user_data.phone%>" readonly>
                 <label>Patient's mobile number:</label>
-                <input type="text" name="patientMobile" value="<%=user_data.phone%>" readonly>
+                <input required type="text" name="patientMobile" value="<%=user_data.phone%>" readonly>
                 <label>Patient's Email:</label>
-                <input type="email" name="email" value="<%=user_data.email%>" readonly>
+                <input required type="email" name="email" value="<%=user_data.email%>" readonly>
                 <button class="dark-button" type="submit">Book Appointment</button>
             </form>
             </div>

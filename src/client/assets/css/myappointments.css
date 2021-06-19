@@ -85,6 +85,7 @@
 
 .schedule-head .buttons button {
   padding: 0.625rem 1rem;
+  margin-top: 5px;
 }
 
 .schedule-container {
@@ -152,6 +153,9 @@ time h6 {
   }
   .schedule-head-completed .day {
     margin-right: 100px;
+  }
+  .schedule-head .buttons button {
+    margin-top: 0;
   }
 }
 /*# sourceMappingURL=myappointments.css.map */

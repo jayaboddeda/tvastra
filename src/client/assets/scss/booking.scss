@@ -1,9 +1,12 @@
 body{
     background-color: var(--grey-100);
 }
+h1,h2{
+    font-size: 1.5rem;
+}
 .container{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-column-gap: 5rem;
     align-items: center;
     padding: 2rem 5%;
@@ -23,7 +26,7 @@ h1,h2{
 #doctor-box{
     .timings{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(1,1fr);
         grid-gap: 1rem;
         margin-bottom:1rem;
         i{
@@ -33,6 +36,9 @@ h1,h2{
         a{
             font-family: nexa-bold;
             color: var(--blue);
+        }
+        li{
+            display: flex;
         }
     }
 }
@@ -58,13 +64,44 @@ input[type=radio]{
     label{
         color: var(--blue);
         font-family: nexa-bold;
+        font-size: 1rem;
     }
     input[type=text],input[type=email]{
         border:1px solid var(--lightgrey);
         margin-top:1rem;
+        margin-bottom: 1rem;
         padding:0.725rem
     }
     button{
         width: 100%;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    h1,h2{
+        font-size: 1.8rem;
+    }
+    .container{
+        grid-template-columns: 1fr 1fr;
+    }
+    .form{
+        label{
+            font-size: 1.2rem;
+        }
+    }
+    #doctor-box{
+        .timings{
+        grid-template-columns: repeat(2,1fr);
+
+            li{
+                font-size: 1.2rem;
+            }
+        }
+    }
+    figcaption{
+        li{
+            font-size: 1.2rem;
+
+        }
     }
 }

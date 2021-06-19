@@ -69,6 +69,7 @@
 
 .schedule-head .buttons button {
     padding: 0.625rem 1rem;
+    margin-top: 5px;
 }
 .schedule-container{
     margin-bottom: 2.5rem;
@@ -118,6 +119,7 @@ time{
         margin-top: 1.25rem;
     }
 
+   
 }
 @media only screen and (min-width: 768px){
 .schedule-head-completed {
@@ -129,5 +131,9 @@ time{
 .day{
     margin-right: 100px;
 }
+}
+
+.schedule-head .buttons button {
+    margin-top: 0;
 }
 }

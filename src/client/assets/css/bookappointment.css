@@ -12,6 +12,7 @@ h2 i {
 h5 {
   color: var(--blue);
   margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 span {
@@ -20,8 +21,31 @@ span {
   font-size: 1.25rem;
 }
 
-button {
+.btnGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 1rem;
-  margin-right: 1rem;
+}
+
+button:last-child {
+  margin-left: 1rem;
+}
+
+@media only screen and (min-width: 1024px) {
+  h1, h2 {
+    font-size: 1.8rem;
+  }
+  .btnGroup {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
 }
 /*# sourceMappingURL=bookappointment.css.map */
