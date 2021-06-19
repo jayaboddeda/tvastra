@@ -239,10 +239,10 @@ const hospitalupdate = async(req,res)=>{
     const hospital = await Hospital.findOne({_id:req.query.id})
     hospital.name = req.body.hospitalname 
     hospital.description = req.body.describe
-    hospital.speciality = req.body.speciality ? req.body.hospitalname : "No Info available"
-    hospital.beds = req.body.beds ? req.body.hospitalname : 0
-    hospital.address = req.body.address ? req.body.hospitalname : "No Info available"
-    hospital.treatments = req.body.treatment ? req.body.hospitalname : "No Info available"
+    hospital.speciality = req.body.speciality ? req.body.speciality : "No Info available"
+    hospital.beds = req.body.beds ? req.body.beds : 0
+    hospital.address = req.body.address ? req.body.address : "No Info available"
+    hospital.treatments = req.body.treatment ? req.body.treatment : "No Info available"
     if(req.file){
         hospital.image = req.file.filename
 

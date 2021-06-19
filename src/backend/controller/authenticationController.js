@@ -170,7 +170,7 @@ const doctorInfo = async (req, res,filename) => {
 					name:elem,
 					speciality : "No Info Available",
 					address :"No Info Available",
-					beds : "No Info Available",
+					beds : 0,
 					treatments : "No Info Available"
 				})
 
@@ -184,7 +184,6 @@ const doctorInfo = async (req, res,filename) => {
 		res.redirect("/index")	
 	}
 	catch(err){
-		console.log(err);
 		res.redirect("/doctor-info")
 	}
 
@@ -320,9 +319,7 @@ if(app){
 		await app[i].save()
 	}
 }
-console.log('b'+req.session.user_data)
 req.session.user_data = finduser;
-console.log('a'+req.session.user_data)
 
 	res.redirect("/profile")
 

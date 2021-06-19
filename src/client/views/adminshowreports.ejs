@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="..\assets\css\showReports.css" type="text/css">
     <link rel="stylesheet" href="..\assets\css\admindashboard.css" type="text/css">
     <link rel="stylesheet" href="..\assets\css\allusers.css" type="text/css">
-
+    <link rel="stylesheet" href="../assets/css/adminshowreport.css">
 
 
 
@@ -286,6 +286,19 @@ var span = document.getElementsByClassName("closemodalbtn")[0];
    modal.style.display = "none";
             modal.style.transform = "scale(1)";
         })
+
+        const mob_aside_header = document.querySelector('.profile_menu_header')
+            const mobile_aside = document.querySelector('.mobile_profile_menu')
+            mob_aside_header.onclick = function () {
+                if (mobile_aside.classList[1] == "hide") {
+                    mobile_aside.classList.remove("hide")
+                }
+                else {
+                    mobile_aside.classList.add("hide")
+
+                }
+
+            }
     </script>
     </body>
 
