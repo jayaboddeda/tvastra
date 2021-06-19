@@ -14,8 +14,8 @@
                             <% if(user_data){ %>
                                 <ul class="desktop-btn mobile-ul">
 
-                                    <li class="treatment_menu username">
-                                        <div class="mobile-btn name_head"><a>
+                                    <li class="treatment_menu name_head username" onclick="name_header_menu()">
+                                        <div class="mobile-btn "><a>
                                                 <%=user_data.name.slice(0,8)%>
                                             </a>
                                             <i class="fas fa-angle-down"></i>
@@ -322,19 +322,18 @@
     //     }
 
     // }
-    const mobile_header = document.querySelector('.name_head')
-console.log(mobile_header)
- 
-        const mobile_menu = document.querySelector('.name_menu')
-console.log(mobile_menu.classList[2])
 
-            mobile_header.onclick = function () {
-                if (mobile_menu.classList[3] == "hide-menu") {
+ 
+
+             function name_header_menu() {
+        const name_menu = document.querySelector('.name_menu')
+
+                if (name_menu.classList[3] == "hide-menu") {
                 
-                    mobile_menu.classList.remove("hide-menu")
+                    name_menu.classList.remove("hide-menu")
                 }
                 else {
-                    mobile_menu.classList.add("hide-menu")
+                    name_menu.classList.add("hide-menu")
 
                 }
 

@@ -31,13 +31,13 @@
                     <% if(user_data){ %>
                         <ul class="desktop-btn mobile-ul">
     
-                            <li class="treatment_menu username">
+                            <li class="treatment_menu name_head username" onclick="name_header_menu()">
                                 <div class="mobile-btn"><a>
                                         <%=user_data.name.slice(0,8)%>
                                     </a>
                                     <i class="fas fa-angle-down"></i>
                                 </div>
-                                <div class="treatment_sub__menu left hide">
+                                <div class="treatment_sub__menu name_menu left hide-menu">
                                     <div class="profile_image_container">
     
                                         <% if(user_data.role==="doctor" && doctor_info) { %>
@@ -231,6 +231,21 @@
     
     
     <script>
+        function name_header_menu() {
+            console.log('came')
+        const name_menu = document.querySelector('.name_menu')
+
+                if (name_menu.classList[3] == "hide-menu") {
+                
+                    name_menu.classList.remove("hide-menu")
+                }
+                else {
+                    name_menu.classList.add("hide-menu")
+
+                }
+
+            }
+
         const error = document.querySelector('.flash-container');
         const cross = document.querySelector('.hide-msg-icon');
         const hideError = () => {
@@ -394,6 +409,7 @@
                 }
 
             }
+                 
     </script>  
 </body>
 </html>
