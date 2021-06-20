@@ -96,7 +96,6 @@ const deletesinglerecord = async(req,res,next) => {
   		{ multi: true }
 		)
 
-	req.flash("success", "Record deleted");
 
 
 next()
@@ -109,7 +108,7 @@ const addonlyrecordimg = async(req,res,next) => {
 
 	while( i > 0){
 		let str = {
-			img: ""
+			img: "" 
 		  };
 		str.img = req.files[i-1].filename;
 
@@ -124,7 +123,6 @@ const addonlyrecordimg = async(req,res,next) => {
 		 { $push: { myfile:  arr  } },
   		{ multi: true }
 		)
-		req.flash("success", "Record Added");
 
 next()
 
