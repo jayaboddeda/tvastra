@@ -247,5 +247,8 @@
   .card {
     margin-bottom: 0;
   }
+  .menuItems a {
+    font-size: 1.2rem;
+  }
 }
 /*# sourceMappingURL=allusers.css.map */
